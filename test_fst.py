@@ -13,3 +13,11 @@ def test_kisa_applicative():
     assert object.preprocess_req == True
     assert object.postprocess_req == False
     assert object.left_subseq == True
+    assert object.name == "Kisa applicative suffix"
+
+    input = ["i", "t", "u", "k", "i", "l", "a"]
+    preprocessed = object.preprocess(input)
+    assert preprocessed == ["i", "t", "u", "k"]
+
+    postprocessed = object.postprocess(input)
+    assert postprocessed == input

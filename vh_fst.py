@@ -12,6 +12,7 @@
         left_subseq: <boolean> (Is the FST left-subsequential? If not, right sub)
         preprocess_req: <boolean> Preprocessing required on input?
         postprocess_req: <boolean> Postprocessing required on input?
+        self.name: <str> Type of vowel-harmony pattern this FST represents
 
 
     Methods:
@@ -32,12 +33,13 @@
             Input: <str>: input word from the user
             Output: <str>: Output word in possibly IPA symbols, after postprocessing
 
-            Method dependency: preprocess, postprocess, step 
+            Method dependency: preprocess, postprocess, step
 --------------------------------------------------------------------------AI'''
 class FST:
 
     def __init__(self, language):
 
+        self.name = language
         if language == "Kisa applicative suffix":
             self.states = [(0,'ila'), (1,'ila'), (2,'ela')]
             self.alphabet = ['i','e','u','o']
@@ -50,3 +52,35 @@ class FST:
             self.left_subseq = True
             self.preprocess_req = True
             self.postprocess_req = False
+
+    def preprocess(self, word_as_list):
+        if self.preprocess_req:
+            # Preprocess according to rules
+            if self.name == "Kisa applicative suffix":
+                return word_as_list[:-3] # return the word except the -ila suffix
+
+        else:
+            # return word as is.
+            return word_as_list
+
+    def postprocess(self, word_as_list):
+        if self.postprocess_req:
+            return word_as_list # Do something
+        else:
+            return word_as_list # Return word as is.
+
+    def step(self, word_as_list):
+        return word_as_list # dummy output
+
+    def convert(self, word):
+        word_as_list = list(word) # Convert string to list
+
+        if self.preprocess_req:
+            word_as_list = self.preprocess(word_as_list)
+
+        word_converted = self.step(word_as_list)
+
+        if self.postprocess_req:
+            word_converted = self.postprocess(word_converted)
+
+        return "".join(word_converted) # Return string back from
