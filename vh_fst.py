@@ -41,7 +41,9 @@ class FST:
 
         self.name = language
         if language == "Kisa applicative suffix":
-            self.states = {0: 'ila', 1: 'ila', 2: 'ela'}
+            self.states =  {0: 'il'+uc(0x03b1),
+                            1: 'il'+uc(0x03b1),
+                            2: 'el'+uc(0x03b1)}
             self.alphabet = ['i','e','u','o']
             self.transitions = {(0, '?'): ('?', 0), (0, 'i'): ('i', 1),
                                 (0, 'u'): ('u', 1), (0, 'e'): ('e', 2),
@@ -72,9 +74,26 @@ class FST:
             return word_as_list # Return word as is.
 
     def step(self, word_as_list):
-        return word_as_list # dummy output
+        output_list = []
+        current_state = 0
+        while word_as_list:
+            letter = word_as_list[0]
+            if letter not in self.alphabet:
+                output_list.append(letter)
+                letter = '?'
+            else:
+                output_list.append(letter)
+            output_letter, next_state = self.transitions[(current_state, letter)]
+            current_state = next_state
+            word_as_list = word_as_list[1:]
+        output_list.append(self.states[current_state])
+        return output_list
+
+
 
     def convert(self, word):
+        if word == "":
+            return ""
         word_as_list = list(word) # Convert string to list
 
         if self.preprocess_req:
@@ -85,4 +104,9 @@ class FST:
         if self.postprocess_req:
             word_converted = self.postprocess(word_converted)
 
-        return "".join(word_converted) # Return string back from
+        return "".join(word_converted) # Return word represented as string
+
+
+# Outputs string representation of a unicode hex representation
+def uc(hex):
+    return chr(int(hex))

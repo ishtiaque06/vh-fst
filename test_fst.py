@@ -1,8 +1,10 @@
-from vh_fst import FST
+from vh_fst import FST, uc
 
 def test_kisa_applicative():
     object = FST("Kisa applicative suffix")
-    assert object.states == {0: 'ila', 1: 'ila', 2: 'ela'}
+    assert object.states =={0: 'il'+uc(0x03b1),
+                            1: 'il'+uc(0x03b1),
+                            2: 'el'+uc(0x03b1)}
     assert object.alphabet == ['i','e','u','o']
     assert object.transitions == {(0,'?'): ('?',0), (0,'i'): ('i',1),
                                 (0,'u'): ('u', 1),(0,'e'):('e',2),
@@ -24,3 +26,8 @@ def test_kisa_applicative():
 
     postprocessed = object.postprocess(input)
     assert postprocessed == input
+
+    input_list = ["tsomila", "rekela", "bisila", "", "bobisila"]
+    output_list = ["tsomelα", "rekelα", "bisilα", "", "bobisilα"]
+    for i in range(len(input_list)):
+        assert output_list[i] == object.convert(input_list[i])
