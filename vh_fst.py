@@ -41,14 +41,16 @@ class FST:
 
         self.name = language
         if language == "Kisa applicative suffix":
-            self.states = [(0,'ila'), (1,'ila'), (2,'ela')]
+            self.states = {0: 'ila', 1: 'ila', 2: 'ela'}
             self.alphabet = ['i','e','u','o']
-            self.transitions = [(0,'?','?',0), (0,'i','i',1), (0,'u','u',1),
-                                (0,'e','e',2), (0,'o','o',2), (1,'i','i',1),
-                                (1,'u','u',1), (1,'?','?',1), (1,'e','e',2),
-                                (1,'o','o',2), (2,'?','?',2), (2,'e','e',2),
-                                (2,'o','o',2), (2,'i','i',1), (2,'u','u',1)
-                                ]
+            self.transitions = {(0, '?'): ('?', 0), (0, 'i'): ('i', 1),
+                                (0, 'u'): ('u', 1), (0, 'e'): ('e', 2),
+                                (0, 'o'): ('o', 2), (1, 'i'): ('i', 1),
+                                (1, 'u'): ('u', 1), (1, '?'): ('?', 1),
+                                (1, 'e'): ('e', 2), (1, 'o'): ('o', 2),
+                                (2, '?'): ('?', 2), (2, 'e'): ('e', 2),
+                                (2, 'o'): ('o', 2), (2, 'i'): ('i', 1),
+                                (2, 'u'): ('u', 1)}
             self.left_subseq = True
             self.preprocess_req = True
             self.postprocess_req = False
