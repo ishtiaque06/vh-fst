@@ -56,6 +56,18 @@ class FST:
             self.left_subseq = True
             self.preprocess_req = True
             self.postprocess_req = False
+        elif language == "Kisa reversative suffix":
+            self.states =  {0: 'ul'+uc(0x03b1),
+                            1: 'ul'+uc(0x03b1),
+                            2: 'ol'+uc(0x03b1)}
+            self.alphabet = ['u', 'o']
+            self.transitions = {(0, '?'): ('?', 0), (0, 'u'): ('u', 1),
+                                (0, 'o'): ('o', 2), (2, 'u'): ('u', 1),
+                                (1, 'o'): ('o', 2), (1, '?'): ('?', 1),
+                                (2, '?'): ('?', 2)}
+            self.left_subseq = True
+
+
 
     def preprocess(self, word_as_list):
         if self.preprocess_req:
