@@ -1,3 +1,4 @@
+#uc stands for Unicode; each variable corresponds to the Unicode hex code for that character
 '''CONSONANTS--Place_Manner_Voicing; 
 Place: L=labial, LD=labiodental, D=dental, A=alveolar, R=retroflex, PA=postalveolar, P=palatal, V=velar, U=uvular, PH=pharyngeal, G=glottal;
 Manner:P=plosive, N=nasal, TR=trill, TF=tap/flap, F=fricative, LF=lateral fricative, A=approximant, LA=lateral approximant;
