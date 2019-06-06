@@ -1,8 +1,9 @@
 from vh_patterns_dataset import vh_dataset
+from vh_fst import FST
 
 
 # Shows available patterns available for the FST
-def patterns():
+def show_patterns():
     print (
         "1. Kisa applicative suffix\n"
         "2. Kisa reversative suffix\n"
@@ -36,7 +37,7 @@ def main():
         "in the pattern of your choosing.\n"
         "\nThese are patterns that this program supports at the moment:"
     )
-    patterns()
+    show_patterns()
     user_input = prompt_selection()
     while user_input not in 'qQ':
         try:
@@ -53,7 +54,7 @@ def main():
             print ("!!!!!!!!!!!!!!!!!!!\n")
             print (e)
             print ("Please select a number among these available: ")
-            patterns()
+            show_patterns()
             user_input = prompt_selection()
 
 
