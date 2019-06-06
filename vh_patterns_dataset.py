@@ -30,7 +30,7 @@ vh_dataset={1:
             2:
                 {
                     'name': 'Kisa reversative suffix',
-                    'states': {0:'ula', 1:'ula', 2:'ola'},
+                    'states': {0:'ul'+B_L_U_NT, 1:'ul'+B_L_U_NT, 2:'ol'+B_L_U_NT},
                     'alphabet': ['u','o'],
                     'transitions': {(0, '?'): ('?', 0), (0, 'u'): ('u', 1),
                         (0, 'o'): ('o', 2), (2, 'u'): ('u', 1), (1, 'o'): ('o', 2),
