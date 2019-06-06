@@ -117,8 +117,3 @@ class FST:
             word_converted = self.postprocess(word_converted)
 
         return "".join(word_converted) # Return word represented as string
-
-
-# Outputs string representation of a unicode hex representation
-def uc(hex):
-    return chr(int(hex))

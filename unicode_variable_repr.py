@@ -1,8 +1,21 @@
-#uc stands for Unicode; each variable corresponds to the Unicode hex code for that character
-'''CONSONANTS--Place_Manner_Voicing; 
-Place: L=labial, LD=labiodental, D=dental, A=alveolar, R=retroflex, PA=postalveolar, P=palatal, V=velar, U=uvular, PH=pharyngeal, G=glottal;
-Manner:P=plosive, N=nasal, TR=trill, TF=tap/flap, F=fricative, LF=lateral fricative, A=approximant, LA=lateral approximant;
-Voicing: VL=voiceless, V=voiced'''
+# Outputs string representation of a unicode hex representation
+def uc(hex):
+    return chr(int(hex))
+
+
+'''CONSONANTS. Format: Place_Manner_Voicing;
+
+    Place:
+        L=labial, LD=labiodental, D=dental, A=alveolar, R=retroflex,
+        PA=postalveolar, P=palatal, V=velar, U=uvular, PH=pharyngeal, G=glottal;
+
+    Manner:
+        P=plosive, N=nasal, TR=trill, TF=tap/flap, F=fricative,
+        LF=lateral fricative, A=approximant, LA=lateral approximant;
+
+    Voicing:
+        VL=voiceless, V=voiced
+'''
 R_P_VL=uc(0x0288)
 R_P_V=uc(0x0256)
 P_P_V=uc(0x025)
@@ -37,11 +50,18 @@ R_A_V=uc(0x027B)
 V_A_V=uc(0x0270)
 R_LA_V=uc(0x026D)
 P_LA_V=uc(0x028E)
-'''VOWELS--front/back_high/low_rounding_tense; 
-front/back: F=+front,-back, B=-front,+back, C=-front,-back; 
-high/low: H=+high,-low, M=-high,-low, L=-high,+low; 
-rounding: R=rounded, U=unrounded; 
-tense: T=+tense, NT=lax'''
+
+
+'''VOWELS. front/back_high/low_rounding_tense;
+
+    front/back: F=+front,-back, B=-front,+back, C=-front,-back;
+
+    high/low: H=+high,-low, M=-high,-low, L=-high,+low;
+
+    rounding: R=rounded, U=unrounded;
+
+    tense: T=+tense, NT=lax
+'''
 C_H_U_T=uc(0x0268)
 C_H_R_T=uc(0x0289)
 B_H_U_T=uc(0x026F)
