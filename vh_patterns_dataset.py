@@ -86,7 +86,7 @@ vh_dataset={1:
                 },
             #5P is the attributes for which the FST must be run for selections 5,6, and 7 prior to running their respective attributes
             #I.e., the order is User input=> language-relevant preprocessing=> input into 5P=>output is the input for 5, 6, 7
-            5P:
+            '5P':
                  {
                     'name': 'Uyghur Preliminary rounding harmony',
                     'states': {0:'',1:'',2:''},
@@ -110,7 +110,7 @@ vh_dataset={1:
                     'preprocess_req': False,
                     'postprocess_req': False,
                     'left_subseq': True,
-                    'preprocess_dets': 'Preprocess by running initial input through FST with 5P as parameters
+                    'preprocess_dets': 'Preprocess by running initial input through FST with 5P as parameters'
                     'notes': ['Backness harmonizes', 'pairs are of the same height',
                         'i and e are transparent neutral vowels','there is rounding harmony i:y,e:FMRT']
                 },
