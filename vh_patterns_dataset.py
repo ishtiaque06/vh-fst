@@ -11,7 +11,7 @@ list_desc = ['VH pattern', 'State set','Alphabet of relevant symbols',
 vh_dataset={1:
                 {
                     'name': 'Kisa applicative suffix',
-                    'states': {0:'ila', 1:'ila', 2:'ela'},
+                    'states': {0:'il'+B_L_U_NT, 1:'il'+B_L_U_NT, 2:'el'+B_L_U_NT},
                     'alphabet': ['i','e','u','o'],
                     'transitions': {(0, '?'): ('?', 0), (0, 'i'): ('i', 1),
                         (0, 'u'): ('u', 1), (0, 'e'): ('e', 2),

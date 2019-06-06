@@ -15,6 +15,19 @@ def prompt_selection():
     user_input = input("Choose a vowel harmony pattern (enter q to quit): ")
     return user_input
 
+# preprocess string after
+def preprocess(string, fst):
+    if fst.name == "Kisa applicative suffix"\
+        or fst.name == "Kisa reversative suffix":
+        return list(string[:-3])
+    else:
+        return string
+
+# Post-process a list after the FST runs through it.
+def postprocess(lst, fst):
+    return "".join(lst)
+
+
 # Main function, shows statements and instructions, processes input
 def main():
     print ("Welcome to the Vowel Harmony FST Command-line Interface.\n"
