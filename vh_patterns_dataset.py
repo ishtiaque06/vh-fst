@@ -153,5 +153,39 @@ vh_dataset={1:
                     'left_subseq': True,
                     'preprocess_dets': 'Preprocess by removing last two characters and then running this shortened input through FST with 5P as parameters'
                     'notes': ['DOES NOT WORK FOR DISHARMONIC LOAN WORDS','Backness harmonizes','i and e are transparent neutral vowels','[+back] default for the suffix','there is rounding harmony i:y,e:FMRT']
-                }
+                },
+            #8P is the attributes for which the FST must be run for selection 8 prior to running its respective attributes
+            #I.e., the order is User input=>  input into 8P=>output is the input for 8
+            '8P':
+                 {
+                    'name': 'Halh Preliminary pharyngeal (RTR) harmony',
+                    'states': {0:'',1:'',2:''},
+                    'alphabet': ['i','e','u','o','a',B_M_R_NT,B_H_R_NT],
+                    'transitions': {(0,'?'):('?',0),(1,'?'):('?',1),(2,'?'):('?',2),
+                        (0,'i'):('i',1),(0,'e'):('e',1),(0,'u'):('u',1),(0,'o'):('o',1),
+                        (0,'a'):('a',2), (0,B_H_R_NT):(B_H_R_NT,2),(0,B_M_R_NT):(B_M_R_NT,2),
+                        (1,'i'):('i',1),(1,'e'):('e',1),(1,'u'):('u',1),(1,'o'):('o',1),
+                        (1,B_H_R_NT):('u',1),(1,'a'):('e',1),(1,B_M_R_NT):('o',1),
+                        (2,'a'):('a',2),(2,B_H_R_NT):(B_H_R_NT,2),(2,B_M_R_NT),
+                        (2,'u'):(B_H_R_NT,2),(2,'e'):('a',2),(2,'o'):(B_M_R_NT,2)},
+                 },
+            8: #needs preprocessing with 8P
+                {
+                    'name': 'Halh (Mongolic) rounding harmony',
+                    'states': {0:'',1:'',2:'',3:''},
+                    'alphabet': ['e','u','o','a',B_M_R_NT,B_H_R_NT],
+                    'transitions': {(0,'?'):('?',0), (1,'?'):('?',1),(2,'?'):('?',2), (3,'?'):('?',3),
+                        (0,'u'):('u',0), (0,B_H_R_NT):(B_H_R_NT,0), (3,'u'):('u',3),(3,B_H_R_NT):(B_H_R_NT,3),(3,'e'):('e',3),
+                        (3,'a'):('a',3), (3,'o'):('e',3),(3,B_M_R_NT):('a',3), (0,'e'):('e',1),(0,'a'):('a',1),(0,'o'):('o',2),
+                        (0,B_M_R_NT):(B_M_R_NT,2), (1,'u'):('u',3),(1,B_H_R_NT),(B_H_R_NT,3),(2,B_H_R_NT):(B_H_R_NT,3),
+                        (1,'e'):('e',1),(1,'a'):('a',1),(2,'o'):('o',2),(2,B_M_R_NT):(B_M_R_NT,2), (1,'o'):('e',1),
+                        (1,B_M_R_NT):('a',1),(2,'e'):('o',2),(2,'a'):(B_M_R_NT,2)}, 
+                    'preprocess_req': False,
+                    'postprocess_req': False,
+                    'left_subseq': True,
+                    'preprocess_dets': 'Preprocess by running initial input through FST with 8P as parameters'
+                    'notes': ['Roundness harmonizes', 'pairs are of the same height',
+                        'i is transparent neutral vowels', 'high rd vowels do not rigger harmony; they are blockers']
+                },
+            
              }
