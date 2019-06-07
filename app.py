@@ -11,18 +11,23 @@ def show_patterns():
         "4. Tuvan backness harmony\n"
     )
 
-# Takes input command from user
+# Takes selection of vowel harmony pattern from user
 def prompt_selection():
     user_input = input("Choose a vowel harmony pattern (enter q to quit): ")
     return user_input
 
-# preprocess string after
+# Takes in a string when a vowel harmony pattern is specified
+def prompt_word_input():
+    user_input = input("Please enter a word, or enter --q to go back: ")
+    return user_input
+
+# preprocess string after user input
 def preprocess(string, fst):
     if fst.name == "Kisa applicative suffix"\
         or fst.name == "Kisa reversative suffix":
         return list(string[:-3])
     else:
-        return string
+        return list(string)
 
 # Post-process a list after the FST runs through it.
 def postprocess(lst, fst):
@@ -43,8 +48,15 @@ def main():
         try:
             user_input = int(user_input)
             try:
-                data = vh_dataset[user_input]
-                print (data)
+                fst = FST(user_input)
+                word = prompt_word_input()
+                while word not in {'--q', '--Q'}:
+                    word_as_list = preprocess(word, fst)
+                    final = fst.step(word_as_list)
+                    final_word = postprocess(final, fst)
+                    print (f"Final output: {final_word}")
+                    word = prompt_word_input()
+
             except KeyError as e:
                 raise ValueError("Please select a valid pattern number\n")
             user_input = prompt_selection()
