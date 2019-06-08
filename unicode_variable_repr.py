@@ -51,6 +51,44 @@ V_A_V=uc(0x0270)
 R_LA_V=uc(0x026D)
 P_LA_V=uc(0x028E)
 
+# To print in help menu
+cons_as_dict = {
+    'R_P_VL':R_P_VL,
+    'R_P_V': R_P_V,
+    'P_P_V': P_P_V,
+    'G_P_VL': G_P_VL,
+    'LD_N_V': LD_N_V,
+    'R_N_V': R_N_V,
+    'P_N_V': P_N_V,
+    'V_N_V': V_N_V,
+    'A_TF_V': A_TF_V,
+    'R_TF_V': R_TF_V,
+    'L_F_VL': L_F_VL,
+    'L_F_V': L_F_V,
+    'D_F_VL': D_F_VL,
+    'D_F_V': D_F_V,
+    'R_F_VL': R_F_VL,
+    'R_F_V': R_F_V,
+    'P_F_VL': P_F_VL,
+    'P_F_V': P_F_V,
+    'V_F_V': V_F_V,
+    'U_F_VL': U_F_VL,
+    'U_F_V': U_F_V,
+    'PH_F_VL': PH_F_VL,
+    'PH_F_V': PH_F_V,
+    'G_F_V': G_F_V,
+    'A_LF_VL': A_LF_VL,
+    'A_LF_V': A_LF_V,
+    'PA_LF_VL': PA_LF_VL,
+    'PA_LF_V': PA_LF_V,
+    'LD_A_V': LD_A_V,
+    'A_A_V': A_A_V,
+    'R_A_V': R_A_V,
+    'V_A_V': V_A_V,
+    'R_LA_V': R_LA_V,
+    'P_LA_V': P_LA_V,
+}
+
 
 '''VOWELS. front/back_high/low_rounding_tense;
 
@@ -82,3 +120,27 @@ C_L_R_T=uc(0x0250)
 C_L_R_NT=uc(0x0276)
 B_L_U_NT=uc(0x0251)
 B_L_R_NT=uc(0x0252)
+
+# To print in help menu
+vowels_as_dict = {
+    'C_H_U_T': C_H_U_T,
+    'C_H_R_T': C_H_R_T,
+    'B_H_U_T': B_H_U_T,
+    'B_H_R_NT': B_H_R_NT,
+    'F_M_R_T': F_M_R_T,
+    'C_M_U_T': C_M_U_T,
+    'C_M_R_T': C_M_R_T,
+    'B_M_U_T': B_M_U_T,
+    'schwa': schwa,
+    'F_M_U_NT': F_M_U_NT,
+    'F_M_R_NT': F_M_R_NT,
+    'C_M_U_NT': C_M_U_NT,
+    'C_M_R_NT': C_M_R_NT,
+    'B_M_U_NT': B_M_U_NT,
+    'B_M_R_NT': B_M_R_NT,
+    'F_L_UR_T': F_L_UR_T,
+    'C_L_R_T': C_L_R_T,
+    'C_L_R_NT': C_L_R_NT,
+    'B_L_U_NT': B_L_U_NT,
+    'B_L_R_NT': B_L_R_NT
+}
