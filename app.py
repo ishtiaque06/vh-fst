@@ -75,11 +75,14 @@ def preprocess(string, fst):
         except KeyError:
             if ch != "":
                 input_list.append(ch)
-    if fst.name == "Kisa applicative suffix"\
-        or fst.name == "Kisa reversative suffix":
-        return input_list[:-3]
-    else:
-        return input_list
+    if fst.left_subseq:
+        if fst.name == "Kisa applicative suffix"\
+            or fst.name == "Kisa reversative suffix":
+            return input_list[:-3]
+        else:
+            return input_list
+    elif not fst.left_subseq:
+        return input_list[::-1]
 
 # Post-process a list after the FST runs through it.
 def postprocess(lst, fst):
