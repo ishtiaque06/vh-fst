@@ -89,6 +89,8 @@ def preprocess(string, fst):
 
 # Post-process a list after the FST runs through it.
 def postprocess(lst, fst):
+    if not fst.left_subseq:
+        lst = lst[::-1]
     if fst.hyphenate_suffix:
         if hasattr(fst, "suffix"):
             lst.append(fst.suffix)
