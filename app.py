@@ -75,12 +75,12 @@ def preprocess(string, fst):
         except KeyError:
             if ch != "":
                 if "-" in ch and fst.hyphenate_suffix:
-                    fst.suffix = ch.repace("-", "")
+                    fst.suffix = ch.replace("-", "")
                 else:
                     input_list.append(ch)
     if fst.left_subseq:
-        if fst.name == "Kisa applicative suffix"\
-            or fst.name == "Kisa reversative suffix":
+        if fst.name == "Kisa applicative suffix Vlɑ"\
+            or fst.name == "Kisa reversative suffix Vlɑ":
             return input_list[:-3]
         else:
             return input_list

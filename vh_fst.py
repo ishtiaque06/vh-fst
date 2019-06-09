@@ -35,6 +35,7 @@ class FST:
         self.left_subseq = language['left_subseq']
         self.preprocess_req = language['preprocess_req']
         self.postprocess_req = language['postprocess_req']
+        self.hyphenate_suffix = language['hyphenate_suffix']
 
     def step(self, word_as_list):
         if word_as_list == []:
