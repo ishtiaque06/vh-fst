@@ -74,7 +74,10 @@ def preprocess(string, fst):
             input_list.append(globals()[ch])
         except KeyError:
             if ch != "":
-                input_list.append(ch)
+                if "-" in ch and fst.hyphenate_suffix:
+                    fst.suffix = ch.repace("-", "")
+                else:
+                    input_list.append(ch)
     if fst.left_subseq:
         if fst.name == "Kisa applicative suffix"\
             or fst.name == "Kisa reversative suffix":
@@ -86,6 +89,9 @@ def preprocess(string, fst):
 
 # Post-process a list after the FST runs through it.
 def postprocess(lst, fst):
+    if fst.hyphenate_suffix:
+        if hasattr(fst, "suffix"):
+            lst.append(fst.suffix)
     return "".join(lst)
 
 
