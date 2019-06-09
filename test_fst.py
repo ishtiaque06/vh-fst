@@ -1,33 +1,20 @@
-from vh_fst import FST, uc
+from vh_fst import FST
+from vh_patterns_dataset import vh_dataset
+from app import preprocess, postprocess
 
 def test_kisa_applicative():
-    object = FST("Kisa applicative suffix")
-    assert object.states =={0: 'il'+uc(0x03b1),
-                            1: 'il'+uc(0x03b1),
-                            2: 'el'+uc(0x03b1)}
-    assert object.alphabet == ['i','e','u','o']
-    assert object.transitions == {(0,'?'): ('?',0), (0,'i'): ('i',1),
-                                (0,'u'): ('u', 1),(0,'e'):('e',2),
-                                (0,'o'): ('o',2), (1,'i'): ('i',1),
-                                (1,'u'): ('u',1), (1,'?'): ('?',1),
-                                (1,'e'): ('e',2), (1,'o'): ('o',2),
-                                (2,'?'): ('?',2), (2,'e'): ('e',2),
-                                (2,'o'): ('o',2), (2,'i'): ('i',1),
-                                (2,'u'): ('u',1)
-                                }
-    assert object.preprocess_req == True
-    assert object.postprocess_req == False
-    assert object.left_subseq == True
+    object = FST(1)
+    kisa_app = vh_dataset[1]
+    assert object.states == kisa_app['states']
+    assert object.alphabet == kisa_app['alphabet']
+    assert object.transitions == kisa_app['transitions']
+    assert object.preprocess_req == kisa_app['preprocess_req']
+    assert object.postprocess_req == kisa_app['postprocess_req']
+    assert object.left_subseq == kisa_app['left_subseq']
     assert object.name == "Kisa applicative suffix"
 
-    input = ["i", "t", "u", "k", "i", "l", "a"]
-    preprocessed = object.preprocess(input)
-    assert preprocessed == ["i", "t", "u", "k"]
-
-    postprocessed = object.postprocess(input)
-    assert postprocessed == input
-
     input_list = ["tsomila", "rekela", "bisila", "", "bobisila"]
-    output_list = ["tsomelα", "rekelα", "bisilα", "", "bobisilα"]
+    output_list = ["tsomelɑ", "rekelɑ", "bisilɑ", "", "bobisilɑ"]
     for i in range(len(input_list)):
-        assert output_list[i] == object.convert(input_list[i])
+        preprocessed = preprocess(input_list[i], object)
+        assert output_list[i] == postprocess(object.step(preprocessed), object)

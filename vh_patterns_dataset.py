@@ -4,7 +4,9 @@ from unicode_variable_repr import *
 # Description of what each element in the language lists correspond to.
 list_desc = ['VH pattern', 'State set','Alphabet of relevant symbols',
             'Transition set', 'Preprocessing necessary?', 'Postprocessing necessary?',
-            'LtoR?','Prompt user to demarcate suffix with hyphen','details of preprocessing','details of postprocessing''Notes: ex: What preprocessing nec?, What postproc nec?,Relevant features, Neutral vowels?, Transparent/Opaque?'
+            'LtoR?','Prompt user to demarcate suffix with hyphen','details of preprocessing',
+             'details of postprocessing', 
+             'Notes: ex: What preprocessing nec?, What postproc nec?,Relevant features, Neutral vowels?, Transparent/Opaque?'
             ]
 
 vh_dataset={1:
