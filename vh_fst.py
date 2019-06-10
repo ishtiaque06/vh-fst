@@ -39,7 +39,7 @@ class FST:
 
     def step(self, word_as_list):
         if word_as_list == []:
-            return ['']
+            return []
         output_list = []
         current_state = 0
         while word_as_list:
