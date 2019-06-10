@@ -199,18 +199,6 @@ def main():
                     show_vh_help(fst)
                     show_vh_intro(fst)
                     continue
-                # pre-preprocess for languages 9,10,11,12,13
-                # if user_input in {9,10,11,12,13}:
-                #     temp_input = word.split(" ")
-                #     suffix = temp_input[-1]
-                #     if not "-" in suffix:
-                #         print (f"Please enter a word with a hyphenated suffix.")
-                #         continue
-                #     if not "u" in suffix and not "i" in suffix:
-                #         # print the original word
-                #         stem = "".join(temp_input[:-1])
-                #         print (stem+suffix[1:])
-                #         continue
                 process_yes_or_no, word_as_list = preprocess(word, fst)
                 if process_yes_or_no:
                     final = fst.step(word_as_list)
