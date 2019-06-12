@@ -330,4 +330,33 @@ vh_dataset={1:
                         'of preceding vowels; only valid for non-compounded words because compounds can constitute multiple harmonic domains' +'/n'+
                              'Does not reflect instances in which root-final consonants can decide frontness of suffixal vowels']
                 },
+            15:
+                {
+                    'name': 'Finnish palatal (front/back) vowel harmony',
+                    'states': {0:'',1:'',2:''},
+                    'alphabet': ['i','e','y',F_M_R_T,F_L_U_T,'u',B_L_U_NT,'o'],
+                    'transitions': {(0,'?'):('?',0),(0,'i'):('i',1),(0,'e'):('e',1),(0,B_H_U_T):(B_H_U_T,2),
+                                   (0,B_L_U_NT):(B_L_U_NT,2), (0,'y'):('y',3),(0,F_M_R_T):(F_M_R_T,3),
+                                   (0,'u'):('u',4),(0,'o'):('o',4),
+                                   (1,'?'):('?',1),(1,'i'):('i',1),(1,'e'):('e',1),
+                                   (1,F_M_R_T):(F_M_R_T,1),(1,'y'):('i',1),(1,B_H_U_T):('i',1),(1,'u'):('i',1),
+                                   (1,B_L_U_NT):('e',1),(1,'o'):(F_M_R_T,1),
+                                   (2,'?'):('?',2),(2,B_H_U_T):(B_H_U_T,2),(2,B_L_U_NT):(B_L_U_NT,2),
+                                   (2,'o'):('o',2),(2,'u'):(B_H_U_T,2),(2,'i'):(B_H_U_T,2),
+                                   (2,'y'):(B_H_U_T,2),(2,'e'):(B_L_U_NT,2),(2,F_M_R_T):('o',2),
+                                   (3,'?'):('?',3),(3,'y'):('y',3),(3,'e'):('e',3),
+                                   (3,F_M_R_T):(F_M_R_T,3),(3,'i'):('y',3),(3,B_H_U_T):('y',3),(3,'u'):('y',3),
+                                   (3,B_L_U_NT):('e',3),(3,'o'):(F_M_R_T,3),
+                                   (4,'?'):('?',4),(4,'u'):('u',4),(4,'o'):('o',4),
+                                   (4,B_L_U_NT):(B_L_U_NT,4),(4,B_H_U_T):('u',4),(4,'i'):('u',4),
+                                   (4,'y'):('u',4),(4,'e'):(B_L_U_NT,4),(4,F_M_R_T):('o',4)},
+                    'preprocess_req': False,
+                    'postprocess_req': False,
+                    'left_subseq': True,
+                    'hyphenate_suffix': False,
+                    'preprocess_dets': ,
+                    'postprocess_dets': ,
+                    'notes': ['front/backness harmonizes progressively; i and e are transparent' +'/n'+
+                        'some words (e.g., loan words) may be disharmonic; in such cases this FST parametrization will be invalid']
+                },
              }
