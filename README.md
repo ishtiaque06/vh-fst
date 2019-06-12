@@ -166,3 +166,6 @@ the following strings to the tool:
   * `t s o m i l B_L_U_NT`
 
 where `B_L_U_NT` stands for `ɑ`, the "Back Low Unrounded Not Tense (Lax)" vowel.
+
+### Sources Used
+* [Locality in Vowel Harmony by Andrew Nevins](https://mitpress.mit.edu/books/locality-vowel-harmony)
