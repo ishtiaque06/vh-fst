@@ -1,6 +1,6 @@
 from vh_fst import FST
 from vh_patterns_dataset import vh_dataset
-from app import preprocess, postprocess
+from processors import preprocess, postprocess
 from unicode_variable_repr import *
 
 def run_test_on_strings(input_list, output_list, object):
@@ -9,8 +9,6 @@ def run_test_on_strings(input_list, output_list, object):
         if proceed:
             assert output_list[i] == postprocess(object.step(preprocessed), object)
         else:
-            print ("not processed!", input_list[i])
-            print ("preprocessed:", preprocessed)
             assert output_list[i] == "".join(preprocessed)
 
 def test_kisa_applicative():
