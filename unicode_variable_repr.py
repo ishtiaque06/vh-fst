@@ -18,7 +18,7 @@ def uc(hex):
 '''
 R_P_VL=uc(0x0288)
 R_P_V=uc(0x0256)
-P_P_V=uc(0x025)
+P_P_V=uc(0x025F)
 G_P_VL=uc(0x0294)
 LD_N_V=uc(0x0271)
 R_N_V=uc(0x0273)

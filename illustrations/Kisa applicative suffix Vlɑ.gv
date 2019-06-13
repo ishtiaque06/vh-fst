@@ -1,0 +1,19 @@
+digraph fst {
+	graph [pad="0.5", nodesep="1", ranksep="2"];
+	rankdir=LR;
+	size="10,10";
+	node [shape = point]; start;
+	node [shape = doublecircle];
+		"0, ilɑ";
+		"1, ilɑ";
+		"2, elɑ";
+
+	"0, ilɑ" ->	"0, ilɑ" [ label = "?:?" ];
+	"0, ilɑ" ->	"1, ilɑ" [ label = "i:i, u:u" ];
+	"0, ilɑ" ->	"2, elɑ" [ label = "e:e, o:o" ];
+	"1, ilɑ" ->	"1, ilɑ" [ label = "i:i, u:u, ?:?" ];
+	"1, ilɑ" ->	"2, elɑ" [ label = "e:e, o:o" ];
+	"2, elɑ" ->	"2, elɑ" [ label = "?:?, e:e, o:o" ];
+	"2, elɑ" ->	"1, ilɑ" [ label = "i:i, u:u" ];
+	start -> "0, ilɑ";
+}
