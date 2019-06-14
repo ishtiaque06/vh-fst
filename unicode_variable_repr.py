@@ -18,7 +18,7 @@ def uc(hex):
 '''
 R_P_VL=uc(0x0288)
 R_P_V=uc(0x0256)
-P_P_V=uc(0x025)
+P_P_V=uc(0x025F)
 G_P_VL=uc(0x0294)
 LD_N_V=uc(0x0271)
 R_N_V=uc(0x0273)
@@ -90,7 +90,7 @@ cons_as_dict = {
 }
 
 
-'''VOWELS. front/back_high/low_rounding_tense;
+'''VOWELS. (long/)front/back_high/low_rounding_tense;long:L=long;
 
     front/back: F=+front,-back, B=-front,+back, C=-front,-back;
 
@@ -120,6 +120,13 @@ C_L_R_T=uc(0x0250)
 C_L_R_NT=uc(0x0276)
 B_L_U_NT=uc(0x0251)
 B_L_R_NT=uc(0x0252)
+L_F_H_U_T='i'+uc(0x02D0)
+L_F_H_R_T='y'+uc(0x02D0)
+L_B_H_R_T='u'+uc(0x02D0)
+L_F_M_U_T='e'+uc(0x02D0)
+L_F_M_R_T=uc(0x00F8)+uc(0x02D0)
+L_B_M_R_T='o'+uc(0x02D0)
+L_C_L_U_NT='a'+uc(0x02D0) #a:
 
 # To print in help menu
 vowels_as_dict = {
@@ -142,5 +149,12 @@ vowels_as_dict = {
     'C_L_R_T': C_L_R_T,
     'C_L_R_NT': C_L_R_NT,
     'B_L_U_NT': B_L_U_NT,
-    'B_L_R_NT': B_L_R_NT
+    'B_L_R_NT': B_L_R_NT,
+    'L_F_H_U_T':L_F_H_U_T
+    'L_F_H_R_T':L_F_H_R_T
+    'L_B_H_R_T':L_B_H_R_T
+    'L_F_M_U_T':L_F_M_U_T
+    'L_F_M_R_T':L_F_M_R_T
+    'L_B_M_R_T':L_B_M_R_T
+    'L_C_L_U_NT':L_C_L_U_NT
 }
