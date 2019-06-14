@@ -406,7 +406,7 @@ vh_dataset={1:
                     'hyphenate_suffix': False,
                     'preprocess_dets':None ,
                     'postprocess_dets':None ,
-                    'notes': ['front/backness harmonizes progressively; i is transparent' +'/n'+
+                    'notes': ['extinct language; front/backness harmonizes progressively; i is transparent' +'/n'+
                         'compounded words may constitute multiple harmonic domains, meaning this FST MAY NOT BE VALID FOR COMPOUNDED WORDS; /n
                         '/a/ and /e/ are treated as archiphonemes, despite /a/ in its traditional representation differing multiplicitously from /e/']
                     'harmony_type':['Palatal']
