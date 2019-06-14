@@ -195,7 +195,7 @@ vh_dataset={1:
                     'hyphenate_suffix': False,
                     'preprocess_dets': 'Preprocess by removing last two characters'
                         ' and then running this shortened input through FST with 5P as parameters',
-                    'postprocess_dets': None, 
+                    'postprocess_dets': None,
                     'notes': ['DOES NOT WORK FOR DISHARMONIC LOAN WORDS',
                             'Backness harmonizes','i and e are transparent neutral vowels',
                             '[+back] default for the suffix',
@@ -244,7 +244,7 @@ vh_dataset={1:
                     'preprocess_dets': 'Preprocess by running initial input through FST with 8P as parameters',
                     'postprocess_dets': None,
                     'notes': ['Roundness harmonizes', 'pairs are of the same height',
-                        'i is transparent neutral vowels', 'high rd vowels do not rigger harmony; they are blockers'],'harmony_type':['']
+                        'i is transparent neutral vowels', 'high rd vowels do not rigger harmony; they are blockers'],
                     'harmony_type':['Labial','ATR/RTR']
                 },
             9:
@@ -407,9 +407,9 @@ vh_dataset={1:
                     'hyphenate_suffix': False,
                     'preprocess_dets':None ,
                     'postprocess_dets':None ,
-                    'notes': ['extinct language; front/backness harmonizes progressively; i is transparent' +'/n'+
-                        'compounded words may constitute multiple harmonic domains, meaning this FST MAY NOT BE VALID FOR COMPOUNDED WORDS; /n
-                        '/a/ and /e/ are treated as archiphonemes, despite /a/ in its traditional representation differing multiplicitously from /e/']
+                    'notes': ['extinct language; front/backness harmonizes progressively; i is transparent'
+                        'compounded words may constitute multiple harmonic domains, meaning this FST MAY NOT BE VALID FOR COMPOUNDED WORDS'
+                        '/a/ and /e/ are treated as archiphonemes, despite /a/ in its traditional representation differing multiplicitously from /e/'],
                     'harmony_type':['Palatal']
                 },
              }
