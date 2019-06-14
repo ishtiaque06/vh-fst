@@ -1,7 +1,7 @@
 # Vowel Harmony Finite State Transducer
 
 This FST class is designed to be able generate expected pronunciations of
-words in a certain set of vowel harmony patterns that exist in natural languages. This set of languages and their vowel-harmony
+words in a certain set of vowel harmony patterns that exist in natural languages. Many of these languages and their vowel-harmony
 patterns are described in Andrew Nevins' book [Locality in Vowel Harmony](https://mitpress.mit.edu/books/locality-vowel-harmony).
 
 This project is the collaborative summer project of Travis Herringshaw and Ahmed Ishtiaque,
@@ -169,3 +169,9 @@ where `B_L_U_NT` stands for `ɑ`, the "Back Low Unrounded Not Tense (Lax)" vowel
 
 ### Sources Used
 * [Locality in Vowel Harmony by Andrew Nevins](https://mitpress.mit.edu/books/locality-vowel-harmony)
+* [Harmony Systems by Sharon Rose and Rachel Walker] (http://idiom.ucsd.edu/~rose/RoseWalkerHarmonysystemsch8.pdf)
+* [Disharmony and derived transparency in Uyghur Vowel Harmony by Bert Vaux]  (https://web.archive.org/web/20060208045946/http://www.uwm.edu/~vaux/uyghur.pdf)
+* [The Typology of Uyghur Harmony and Consonants by Kelsie Patillo] (https://pdfs.semanticscholar.org/d75f/6ee2d45b03b446cff1c0fbce5c173f026899.pdf)
+* [Vowel Harmony in Jingulu by Rob Pensalfini] (http://www.ai.mit.edu/projects/dm/featgeom/pensalfini-harmony.pdf)
+* [Turkish Vowel Harmony by B. Kabak] (https://onlinelibrary.wiley.com/doi/full/10.1002/9781444335262.wbctp0118)
+* [Variation in Finnish Vowel Harmony: An OT Account by C.O. Ringen and Orvoki Heinamaki] (https://link.springer.com/content/pdf/10.1023%2FA%3A1006158818498.pdf)

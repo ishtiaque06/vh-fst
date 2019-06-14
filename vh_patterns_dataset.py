@@ -6,7 +6,8 @@ list_desc = ['VH pattern', 'State set','Alphabet of relevant symbols',
             'Transition set', 'Preprocessing necessary?', 'Postprocessing necessary?',
             'LtoR?','Prompt user to demarcate suffix with hyphen','details of preprocessing',
              'details of postprocessing',
-             'Notes: ex: What preprocessing nec?, What postproc nec?,Relevant features, Neutral vowels?, Transparent/Opaque?'
+             'notes: ex: What preprocessing nec?, What postproc nec?,Relevant features, Neutral vowels?, Transparent/Opaque?',
+             'harmony_type: lists types of featural harmony involved; can include Height, Palatal (front/back), Labial (rounding), ATR/RTR, Length (long/short)'
             ]
 
 vh_dataset={1:
@@ -26,8 +27,11 @@ vh_dataset={1:
                     'postprocess_req': False,
                     'left_subseq': True,
                     'hyphenate_suffix': False,
+                    'preprocess_dets':None ,
+                    'postprocess_dets':None ,
                     'notes': ['Preprocess by removing last 3 characters ("Vla") of input',
-                            '"a" is a transparent neutral vowel']
+                            '"a" is a transparent neutral vowel'],
+                    'harmony_type':['Height']
                 },
             2:
                 {
@@ -41,7 +45,10 @@ vh_dataset={1:
                     'postprocess_req': False,
                     'left_subseq': True,
                     'hyphenate_suffix': False,
-                    'notes': ['remove last 3 chars for preprocessing', 'vowels: a,e,i']
+                    'preprocess_dets':None ,
+                    'postprocess_dets':None ,
+                    'notes': ['remove last 3 chars for preprocessing', 'vowels: a,e,i'],
+                    'harmony_type':['Height']
                  },
             3:
                 {
@@ -62,10 +69,13 @@ vh_dataset={1:
                     'postprocess_req': False,
                     'left_subseq': True,
                     'hyphenate_suffix': False,
+                    'preprocess_dets':None ,
+                    'postprocess_dets':None ,
                     'notes': ['Rounding is relevant',
                         'As an aside, suffixal velar Cs become uvular if a '
                         'non-high vowel appears in the stem',
-                        'No neutral vowels']
+                        'No neutral vowels'],
+                    'harmony_type':['Labial']
                 },
             4:
                 {
@@ -86,8 +96,11 @@ vh_dataset={1:
                     'postprocess_req': False,
                     'left_subseq': True,
                     'hyphenate_suffix': False,
+                    'preprocess_dets':None ,
+                    'postprocess_dets':None ,
                     'notes': ['Backness harmonizes', 'pairs are of the same height',
-                        'No neutral vowels']
+                        'No neutral vowels'],
+                    'harmony_type':['Palatal']
                 },
             #5P is the attributes for which the FST must be run for selections 5,6, and 7 prior to running their respective attributes
             #I.e., the order is User input=> language-relevant preprocessing=> input into 5P=>output is the input for 5, 6, 7
@@ -106,6 +119,10 @@ vh_dataset={1:
                     'hyphenate_suffix': False,
                     'preprocess_req': False,
                     'postprocess_req': False,
+                    'preprocess_dets':None ,
+                    'postprocess_dets':None ,
+                    'notes':None,
+                    'harmony_type':['Labial']
                  },
             5: #needs preprocessing with 5P
                 {
@@ -126,8 +143,10 @@ vh_dataset={1:
                     'left_subseq': True,
                     'hyphenate_suffix': False,
                     'preprocess_dets': 'Preprocess by running initial input through FST with 5P as parameters',
+                    'postprocess_dets': None,
                     'notes': ['Backness harmonizes', 'pairs are of the same height',
-                        'i and e are transparent neutral vowels','there is rounding harmony i:y,e:FMRT']
+                        'i and e are transparent neutral vowels','there is rounding harmony i:y,e:FMRT'],
+                    'harmony_type':['Palatal','Labial']
                 },
              6: #needs preprocessing with 5P
                 {
@@ -149,10 +168,12 @@ vh_dataset={1:
                     'hyphenate_suffix': False,
                     'preprocess_dets': 'Preprocess by removing last three characters '
                         'and then running this shortened input through FST with 5P as parameters',
+                    'postprocess_dets': None,
                     'notes': ['DOES NOT WORK FOR DISHARMONIC LOAN WORDS',
                                 'Backness harmonizes','i and e are transparent neutral vowels',
                                 '[+back] default for the suffix',
-                                'there is rounding harmony i:y,e:FMRT']
+                                'there is rounding harmony i:y,e:FMRT'],
+                    'harmony_type':['Palatal','Labial']
                 },
             7: #needs preprocessing with 5P
                 {
@@ -174,10 +195,12 @@ vh_dataset={1:
                     'hyphenate_suffix': False,
                     'preprocess_dets': 'Preprocess by removing last two characters'
                         ' and then running this shortened input through FST with 5P as parameters',
+                    'postprocess_dets': None, 
                     'notes': ['DOES NOT WORK FOR DISHARMONIC LOAN WORDS',
                             'Backness harmonizes','i and e are transparent neutral vowels',
                             '[+back] default for the suffix',
-                            'there is rounding harmony i:y,e:FMRT']
+                            'there is rounding harmony i:y,e:FMRT'],
+                    'harmony_type':['Palatal','Labial']
                 },
             #8P is the attributes for which the FST must be run for selection 8 prior to running its respective attributes
             #I.e., the order is User input=>  input into 8P=>output is the input for 8
@@ -199,6 +222,8 @@ vh_dataset={1:
                     'hyphenate_suffix': False,
                     'preprocess_dets': None,
                     'postprocess_dets': None,
+                    'notes':None,
+                    'harmony_type':['ATR/RTR']
                  },
             8: #needs preprocessing with 8P
                 {
@@ -219,7 +244,8 @@ vh_dataset={1:
                     'preprocess_dets': 'Preprocess by running initial input through FST with 8P as parameters',
                     'postprocess_dets': None,
                     'notes': ['Roundness harmonizes', 'pairs are of the same height',
-                        'i is transparent neutral vowels', 'high rd vowels do not rigger harmony; they are blockers']
+                        'i is transparent neutral vowels', 'high rd vowels do not rigger harmony; they are blockers'],'harmony_type':['']
+                    'harmony_type':['Labial','ATR/RTR']
                 },
             9:
                 {
@@ -235,7 +261,8 @@ vh_dataset={1:
                     'preprocess_dets': "Check if 'u' or 'i' in suffix; if not, return input as output; if true, store suffix, but remove it from input; reverse the input and enter it into FST",
                     'postprocess_dets':'Reverse output of FST; append stored suffix back on',
                     'notes': ['[+high] harmonizes regressively from suffix to root',
-                        '[+high] in root acts as a blocker which does not lend its own feature (does not reset domain)']
+                        '[+high] in root acts as a blocker which does not lend its own feature (does not reset domain)'],
+                    'harmony_type':['Height']
                 },
             10:
                 {
@@ -251,7 +278,8 @@ vh_dataset={1:
                     'preprocess_dets': "Check if 'u' or 'i' in suffix; if not, return input as output; if true, store suffix, but remove it from input; reverse the input and enter it into FST",
                     'postprocess_dets':'Reverse output of FST; append stored suffix back on',
                     'notes': ['[+high] harmonizes regressively from suffix to root',
-                        '[+high] in root acts as a blocker which does not lend its own feature (does not reset domain)']
+                        '[+high] in root acts as a blocker which does not lend its own feature (does not reset domain)'],
+                    'harmony_type':['Height']
                 },
             11:
                 {
@@ -267,7 +295,8 @@ vh_dataset={1:
                     'preprocess_dets': "Check if 'u' or 'i' in suffix; if not, return input as output; if true, store suffix, but remove it from input; reverse the input and enter it into FST",
                     'postprocess_dets':'Reverse output of FST; append stored suffix back on',
                     'notes': ['[+high] harmonizes regressively from suffix to root',
-                        '[+high] in root acts as a blocker which does not lend its own feature (does not reset domain)']
+                        '[+high] in root acts as a blocker which does not lend its own feature (does not reset domain)'],
+                    'harmony_type':['Height']
                 },
             12:
                 {
@@ -283,7 +312,8 @@ vh_dataset={1:
                     'preprocess_dets': "Check if 'u' or 'i' in suffix; if not, return input as output; if true, store suffix, but remove it from input; reverse the input and enter it into FST",
                     'postprocess_dets':'Reverse output of FST; append stored suffix back on',
                     'notes': ['[+high] harmonizes regressively from suffix to root',
-                        '[+high] in root acts as a blocker which does not lend its own feature (does not reset domain)']
+                        '[+high] in root acts as a blocker which does not lend its own feature (does not reset domain)'],
+                    'harmony_type':['Height']
                 },
             13:
                 {
@@ -299,6 +329,87 @@ vh_dataset={1:
                     'preprocess_dets': "Check if 'u' or 'i' in suffix; if not, return input as output; if true, store suffix, but remove it from input; reverse the input and enter it into FST",
                     'postprocess_dets':'Reverse output of FST; append stored suffix back on',
                     'notes': ['[+high] harmonizes regressively from suffix to root',
-                        '[+high] in root acts as a blocker which does not lend its own feature (does not reset domain)']
+                        '[+high] in root acts as a blocker which does not lend its own feature (does not reset domain)'],
+                    'harmony_type':['Height']
+                },
+             14:
+                {
+                    'name': 'Turkish palatal and rounding vowel harmony',
+                    'states': {0:'',1:'',2:'',3:'',4:''},
+                    'alphabet': ['i','e','y',F_M_R_T,B_H_U_T,'u',B_L_U_NT,'o'],
+                    'transitions': {(0,'?'):('?',0),(0,'i'):('i',1),(0,'e'):('e',1),(0,B_H_U_T):(B_H_U_T,2),
+                                   (0,B_L_U_NT):(B_L_U_NT,2), (0,'y'):('y',3),(0,F_M_R_T):(F_M_R_T,3),
+                                   (0,'u'):('u',4),(0,'o'):('o',4),
+                                   (1,'?'):('?',1),(1,'i'):('i',1),(1,'e'):('e',1),
+                                   (1,F_M_R_T):(F_M_R_T,1),(1,'y'):('i',1),(1,B_H_U_T):('i',1),(1,'u'):('i',1),
+                                   (1,B_L_U_NT):('e',1),(1,'o'):(F_M_R_T,1),
+                                   (2,'?'):('?',2),(2,B_H_U_T):(B_H_U_T,2),(2,B_L_U_NT):(B_L_U_NT,2),
+                                   (2,'o'):('o',2),(2,'u'):(B_H_U_T,2),(2,'i'):(B_H_U_T,2),
+                                   (2,'y'):(B_H_U_T,2),(2,'e'):(B_L_U_NT,2),(2,F_M_R_T):('o',2),
+                                   (3,'?'):('?',3),(3,'y'):('y',3),(3,'e'):('e',3),
+                                   (3,F_M_R_T):(F_M_R_T,3),(3,'i'):('y',3),(3,B_H_U_T):('y',3),(3,'u'):('y',3),
+                                   (3,B_L_U_NT):('e',3),(3,'o'):(F_M_R_T,3),
+                                   (4,'?'):('?',4),(4,'u'):('u',4),(4,'o'):('o',4),
+                                   (4,B_L_U_NT):(B_L_U_NT,4),(4,B_H_U_T):('u',4),(4,'i'):('u',4),
+                                   (4,'y'):('u',4),(4,'e'):(B_L_U_NT,4),(4,F_M_R_T):('o',4)},
+                    'preprocess_req': False,
+                    'postprocess_req': False,
+                    'left_subseq': True,
+                    'hyphenate_suffix': False,
+                    'preprocess_dets':None ,
+                    'postprocess_dets':None ,
+                    'notes': ['front/backness and roundness harmonize progressively; low vowels do not harmonize with rounding' +'/n'+
+                        'of preceding vowels; only valid for non-compounded words because compounds can constitute multiple harmonic domains' +'/n'+
+                             'Does not reflect instances in which root-final consonants can decide frontness of suffixal vowels'],
+                    'harmony_type':['Palatal','Labial']
+                },
+            15:
+                {
+                    'name': 'Finnish palatal (front/back) vowel harmony',
+                    'states': {0:'',1:'',2:''},
+                    'alphabet': ['i','e','y',F_M_R_T,F_L_U_T,'u',B_L_U_NT,'o'],
+                    'transitions': {(0,'?'):('?',0),(0,'i'):('i',0),(0,'e'):('e',0),
+                                   (0,'y'):('y',1),(0,F_M_R_T):(F_M_R_T,1),(0,F_L_U_T):(F_L_U_T,1),
+                                   (0,'u'):('u',2),(0,'o'):('o',2),(0,B_L_U_NT):(B_L_U_NT,2),
+                                   (1,'?'):('?',1),(1,'i'):('i',1),(1,'e'):('e',1),
+                                   (1,'y'):('y',1),(1,F_M_R_T):(F_M_R_T,1),(1,F_L_U_T):(F_L_U_T,1),
+                                   (1,'u'):('y',1),(1,'o'):(F_M_R_T,1),(1,B_L_U_NT):(F_L_U_T,1),
+                                   (2,'?'):('?',2),(2,'i'):('i',2),(2,'e'):('e',2),
+                                   (2,'u'):('u',2),(2,'o'):('o',2),(2,B_L_U_NT):(B_L_U_NT,2),
+                                   (2,'y'):('u',2),(2,F_M_R_T):('o',2),(2,F_L_U_T):(B_L_U_NT,2)},
+                    'preprocess_req': False,
+                    'postprocess_req': False,
+                    'left_subseq': True,
+                    'hyphenate_suffix': False,
+                    'preprocess_dets':None ,
+                    'postprocess_dets':None ,
+                    'notes': ['front/backness harmonizes progressively; i and e are transparent' +'/n'+
+                        'some words (e.g., loan words) may be disharmonic; in such cases this FST parametrization will be invalid'],
+                    'harmony_type':['Palatal']
+                },
+            16:
+                {
+                    'name': 'Classical Mongolian palatal vowel harmony', #extinct language
+                    'states': {0:'',1:'',2:''},
+                    'alphabet': ['i','e','y',F_M_R_T,'u','a','o'],
+                    'transitions': {(0,'?'):('?',0),(0,'i'):('i',0),
+                                   (0,'y'):('y',1),(0,F_M_R_T):(F_M_R_T,1),(0,'e'):('e',1),
+                                   (0,'u'):('u',2),(0,'o'):('o',2),(0,'a'):('a',2),
+                                   (1,'?'):('?',1),(1,'i'):('i',1),(1,'e'):('e',1),
+                                   (1,'y'):('y',1),(1,F_M_R_T):(F_M_R_T,1),
+                                   (1,'u'):('y',1),(1,'o'):(F_M_R_T,1),(1,'a'):('e',1),
+                                   (2,'?'):('?',2),(2,'i'):('i',2),(2,'a'):('a',2),
+                                   (2,'u'):('u',2),(2,'o'):('o',2),
+                                   (2,'y'):('u',2),(2,F_M_R_T):('o',2),(2,'e'):('a',2)},
+                    'preprocess_req': False,
+                    'postprocess_req': False,
+                    'left_subseq': True,
+                    'hyphenate_suffix': False,
+                    'preprocess_dets':None ,
+                    'postprocess_dets':None ,
+                    'notes': ['extinct language; front/backness harmonizes progressively; i is transparent' +'/n'+
+                        'compounded words may constitute multiple harmonic domains, meaning this FST MAY NOT BE VALID FOR COMPOUNDED WORDS; /n
+                        '/a/ and /e/ are treated as archiphonemes, despite /a/ in its traditional representation differing multiplicitously from /e/']
+                    'harmony_type':['Palatal']
                 },
              }
