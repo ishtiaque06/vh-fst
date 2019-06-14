@@ -27,6 +27,8 @@ vh_dataset={1:
                     'postprocess_req': False,
                     'left_subseq': True,
                     'hyphenate_suffix': False,
+                    'preprocess_dets':None ,
+                    'postprocess_dets':None ,
                     'notes': ['Preprocess by removing last 3 characters ("Vla") of input',
                             '"a" is a transparent neutral vowel'],
                     'harmony_type':['Height']
@@ -43,6 +45,8 @@ vh_dataset={1:
                     'postprocess_req': False,
                     'left_subseq': True,
                     'hyphenate_suffix': False,
+                    'preprocess_dets':None ,
+                    'postprocess_dets':None ,
                     'notes': ['remove last 3 chars for preprocessing', 'vowels: a,e,i'],
                     'harmony_type':['Height']
                  },
@@ -65,6 +69,8 @@ vh_dataset={1:
                     'postprocess_req': False,
                     'left_subseq': True,
                     'hyphenate_suffix': False,
+                    'preprocess_dets':None ,
+                    'postprocess_dets':None ,
                     'notes': ['Rounding is relevant',
                         'As an aside, suffixal velar Cs become uvular if a '
                         'non-high vowel appears in the stem',
@@ -90,6 +96,8 @@ vh_dataset={1:
                     'postprocess_req': False,
                     'left_subseq': True,
                     'hyphenate_suffix': False,
+                    'preprocess_dets':None ,
+                    'postprocess_dets':None ,
                     'notes': ['Backness harmonizes', 'pairs are of the same height',
                         'No neutral vowels'],
                     'harmony_type':['Palatal']
@@ -111,6 +119,9 @@ vh_dataset={1:
                     'hyphenate_suffix': False,
                     'preprocess_req': False,
                     'postprocess_req': False,
+                    'preprocess_dets':None ,
+                    'postprocess_dets':None ,
+                    'notes':None,
                     'harmony_type':['Labial']
                  },
             5: #needs preprocessing with 5P
@@ -132,6 +143,7 @@ vh_dataset={1:
                     'left_subseq': True,
                     'hyphenate_suffix': False,
                     'preprocess_dets': 'Preprocess by running initial input through FST with 5P as parameters',
+                    'postprocess_dets': None,
                     'notes': ['Backness harmonizes', 'pairs are of the same height',
                         'i and e are transparent neutral vowels','there is rounding harmony i:y,e:FMRT'],
                     'harmony_type':['Palatal','Labial']
@@ -156,6 +168,7 @@ vh_dataset={1:
                     'hyphenate_suffix': False,
                     'preprocess_dets': 'Preprocess by removing last three characters '
                         'and then running this shortened input through FST with 5P as parameters',
+                    'postprocess_dets': None,
                     'notes': ['DOES NOT WORK FOR DISHARMONIC LOAN WORDS',
                                 'Backness harmonizes','i and e are transparent neutral vowels',
                                 '[+back] default for the suffix',
@@ -182,6 +195,7 @@ vh_dataset={1:
                     'hyphenate_suffix': False,
                     'preprocess_dets': 'Preprocess by removing last two characters'
                         ' and then running this shortened input through FST with 5P as parameters',
+                    'postprocess_dets': None, 
                     'notes': ['DOES NOT WORK FOR DISHARMONIC LOAN WORDS',
                             'Backness harmonizes','i and e are transparent neutral vowels',
                             '[+back] default for the suffix',
@@ -208,6 +222,7 @@ vh_dataset={1:
                     'hyphenate_suffix': False,
                     'preprocess_dets': None,
                     'postprocess_dets': None,
+                    'notes':None,
                     'harmony_type':['ATR/RTR']
                  },
             8: #needs preprocessing with 8P
@@ -340,8 +355,8 @@ vh_dataset={1:
                     'postprocess_req': False,
                     'left_subseq': True,
                     'hyphenate_suffix': False,
-                    'preprocess_dets': ,
-                    'postprocess_dets': ,
+                    'preprocess_dets':None ,
+                    'postprocess_dets':None ,
                     'notes': ['front/backness and roundness harmonize progressively; low vowels do not harmonize with rounding' +'/n'+
                         'of preceding vowels; only valid for non-compounded words because compounds can constitute multiple harmonic domains' +'/n'+
                              'Does not reflect instances in which root-final consonants can decide frontness of suffixal vowels'],
@@ -365,8 +380,8 @@ vh_dataset={1:
                     'postprocess_req': False,
                     'left_subseq': True,
                     'hyphenate_suffix': False,
-                    'preprocess_dets': ,
-                    'postprocess_dets': ,
+                    'preprocess_dets':None ,
+                    'postprocess_dets':None ,
                     'notes': ['front/backness harmonizes progressively; i and e are transparent' +'/n'+
                         'some words (e.g., loan words) may be disharmonic; in such cases this FST parametrization will be invalid'],
                     'harmony_type':['Palatal']
@@ -389,8 +404,8 @@ vh_dataset={1:
                     'postprocess_req': False,
                     'left_subseq': True,
                     'hyphenate_suffix': False,
-                    'preprocess_dets': ,
-                    'postprocess_dets': ,
+                    'preprocess_dets':None ,
+                    'postprocess_dets':None ,
                     'notes': ['front/backness harmonizes progressively; i is transparent' +'/n'+
                         'compounded words may constitute multiple harmonic domains, meaning this FST MAY NOT BE VALID FOR COMPOUNDED WORDS; /n
                         '/a/ and /e/ are treated as archiphonemes, despite /a/ in its traditional representation differing multiplicitously from /e/']
