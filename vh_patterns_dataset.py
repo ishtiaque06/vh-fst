@@ -371,4 +371,29 @@ vh_dataset={1:
                         'some words (e.g., loan words) may be disharmonic; in such cases this FST parametrization will be invalid'],
                     'harmony_type':['Palatal']
                 },
+            16:
+                {
+                    'name': 'Classical Mongolian palatal vowel harmony',
+                    'states': {0:'',1:'',2:''},
+                    'alphabet': ['i','e','y',F_M_R_T,'u','a','o'],
+                    'transitions': {(0,'?'):('?',0),(0,'i'):('i',0),
+                                   (0,'y'):('y',1),(0,F_M_R_T):(F_M_R_T,1),(0,'e'):('e',1),
+                                   (0,'u'):('u',2),(0,'o'):('o',2),(0,'a'):('a',2),
+                                   (1,'?'):('?',1),(1,'i'):('i',1),(1,'e'):('e',1),
+                                   (1,'y'):('y',1),(1,F_M_R_T):(F_M_R_T,1),
+                                   (1,'u'):('y',1),(1,'o'):(F_M_R_T,1),(1,'a'):('e',1),
+                                   (2,'?'):('?',2),(2,'i'):('i',2),(2,'a'):('a',2),
+                                   (2,'u'):('u',2),(2,'o'):('o',2),
+                                   (2,'y'):('u',2),(2,F_M_R_T):('o',2),(2,'e'):('a',2)},
+                    'preprocess_req': False,
+                    'postprocess_req': False,
+                    'left_subseq': True,
+                    'hyphenate_suffix': False,
+                    'preprocess_dets': ,
+                    'postprocess_dets': ,
+                    'notes': ['front/backness harmonizes progressively; i is transparent' +'/n'+
+                        'compounded words may constitute multiple harmonic domains, meaning this FST MAY NOT BE VALID FOR COMPOUNDED WORDS; /n
+                        '/a/ and /e/ are treated as archiphonemes, despite /a/ in its traditional representation differing multiplicitously from /e/']
+                    'harmony_type':['Palatal']
+                },
              }
