@@ -4,14 +4,14 @@ digraph fst {
 	size="10,10";
 	node [shape = point]; start;
 	node [shape = doublecircle];
-		"0, ";
-		"1, ";
-		"2, ";
+		"0, λ";
+		"1, λ";
+		"2, λ";
 
-	"0, " ->	"0, " [ label = "?:?" ];
-	"1, " ->	"1, " [ label = "?:?, i:i, y:y, e:e, ø:ø, ɯ:i, u:y, a:e, o:ø" ];
-	"2, " ->	"2, " [ label = "?:?, ɯ:ɯ, u:u, a:a, o:o, i:ɯ, y:u, e:a, ø:o" ];
-	"0, " ->	"1, " [ label = "i:i, y:y, e:e, ø:ø" ];
-	"0, " ->	"2, " [ label = "ɯ:ɯ, u:u, a:a, o:o" ];
-	start -> "0, ";
+	"0, λ" ->	"0, λ" [ label = "?:?" ];
+	"1, λ" ->	"1, λ" [ label = "?:?, i:i, y:y, e:e, ø:ø, ɯ:i, u:y, a:e, o:ø" ];
+	"2, λ" ->	"2, λ" [ label = "?:?, ɯ:ɯ, u:u, a:a, o:o, i:ɯ, y:u, e:a, ø:o" ];
+	"0, λ" ->	"1, λ" [ label = "i:i, y:y, e:e, ø:ø" ];
+	"0, λ" ->	"2, λ" [ label = "ɯ:ɯ, u:u, a:a, o:o" ];
+	start -> "0, λ";
 }

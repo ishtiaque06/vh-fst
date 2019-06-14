@@ -25,6 +25,8 @@ def fst_to_gv(fst_object):
         f.write(f"\tnode [shape = point]; start;\n")
         f.write(f"\tnode [shape = doublecircle];\n")
         for key in fst_object.states:
+            if fst_object.states[key] == "":
+                fst_object.states[key] = uc(0x03bb)
             f.write(f'\t\t"{key}, {fst_object.states[key]}";\n')
         f.write("\n")
         trans = fst_object.transitions
@@ -74,10 +76,7 @@ def gv_to_svg(fst_name):
         print ("[(utils.gv_to_svg) Error]: SVG Generation failed.")
     else:
         print (f"Image generation complete! Your file is at 'illustrations/{fst_name}")
-    # call("cd ..", shell=True) # take python shell's directory back to original
-    # print (os.getcwd())
     os.chdir("..")
-    print ("current directory:", os.getcwd())
     return
 
 if __name__ == "__main__":
