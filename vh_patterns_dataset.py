@@ -388,7 +388,7 @@ vh_dataset={1:
                 },
             16:
                 {
-                    'name': 'Classical Mongolian palatal vowel harmony',
+                    'name': 'Classical Mongolian palatal vowel harmony', #extinct language
                     'states': {0:'',1:'',2:''},
                     'alphabet': ['i','e','y',F_M_R_T,'u','a','o'],
                     'transitions': {(0,'?'):('?',0),(0,'i'):('i',0),
