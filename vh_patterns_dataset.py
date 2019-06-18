@@ -412,4 +412,51 @@ vh_dataset={1:
                         '/a/ and /e/ are treated as archiphonemes, despite /a/ in its traditional representation differing multiplicitously from /e/'],
                     'harmony_type':['Palatal']
                 },
+            '17P': #suffix is input to this if /i/ is only vowel in the stem
+                {
+                    'name': 'Kalmyk (Oirat) suffixal processing for stems with only /i/ as vowel',
+                    'states': {0:''},
+                    'alphabet': ['i','e','y',F_M_R_T,'u','a','o',F_L_U_T],
+                    'transitions': {(0,'?'):('?',0),(0,'i'):('i',0), (0,'y'):('y',0),
+                                   (0,'u'):('y',0),(0,F_L_U_T):(F_L_U_T,0),(0,'e'):('e',0),
+                                   (0,'o'):(F_M_R_T,0),(0,'a'):(F_L_U_T,0),(0,F_M_R_T):(F_M_R_T,0)},
+                    'preprocess_req': False,
+                    'postprocess_req': False,
+                    'left_subseq': True,
+                    'hyphenate_suffix': False,#technically, suffix is only input to this
+                    'preprocess_dets':"If there is a suffix (hyphen) & /i/ is only vowel in the stem, then store stem and only input the suffix into this",
+                    'postprocess_dets':"Append output to stored stem, this is your output",
+                    'notes': None,
+                    'harmony_type':['Palatal','Labial']
+                },
+            17:
+                {
+                    'name': 'Kalmyk (Oirat) harmony',
+                    'states': {0:'',1:'',2:'',3:'',4:''},
+                    'alphabet': ['i','e','y',F_M_R_T,'u','a','o',F_L_U_T], 
+                    'transitions': {(0,'?'):('?',0),(0,'i'):('i',0),(0,'a'):('a',4),
+                                   (0,'y'):('y',1),(0,F_M_R_T):(F_M_R_T,1),(0,'e'):('e',2),
+                                   (0,F_L_U_T):(F_L_U_T,2),(0,'o'):('o',3),(0,'u'):('u',3),
+                                   (1,'?'):('?',1),(1,'i'):('i',1),(1,'y'):('y',1),
+                                   (1,F_M_R_T):(F_M_R_T,1),(1,'e'):(F_M_R_T,1),
+                                   (1,'u'):('y',1),(1,'o'):(F_M_R_T,1),(1,'a'):(F_L_U_T,1),
+                                   (2,'?'):('?',2),(2,'i'):('i',2),(2,'e'):('e',2),
+                                   (2,F_L_U_T):(F_L_U_T,2),(2,'o'):(F_M_R_T,2),
+                                   (2,'u'):('y',2),(2,F_M_R_T):(F_M_R_T,2),(2,'a'):(F_L_U_T,2),
+                                   (3,'?'):('?',3),(3,'i'):('i',3),(3,'e'):('o',3),
+                                   (3,'u'):('u',3),(3,'o'):('o',3),(3,'y'):('u',3),
+                                   (3,F_M_R_T):('o',3),(3,F_L_U_T):('a',3),
+                                   (4,'?'):('?',4),(4,'i'):('i',4),(4,'e'):('o',4),
+                                   (4,'u'):('u',4),(4,'o'):('o',4),(4,'y'):('u',4),
+                                   (4,F_M_R_T):('o',4),(4,F_L_U_T):('a',4)},
+                    'preprocess_req': True,
+                    'postprocess_req': False,
+                    'left_subseq': True,
+                    'hyphenate_suffix': True, #instruct user to hyphenate suffix if there is in fact a suffix in the input
+                    'preprocess_dets':"If there is a suffix, user should hyphenate like so for input: s t e m - s u f f i x; If /i/ is the only vowel that appears in the stem, input the stem into 17P, the output is then the untouched stem with the 17P output suffix; Otherwise (if there is a non-/i/ vowel in the stem), remove the hyphen and run the entire output through FST 17, return output",
+                    'postprocess_dets':None,
+                    'notes': ['Mongolic language; front/backness harmonizes progressively; progressive stem-control labial harmony; i is transparent, except when it is the only vowel in the stem, in which case it triggers suffixal front-harmonization',
+                        'Key assumptions that were made despite lack of data: I assumed that rounded vowels only trigger rounding harmony if they are the first vowel in the word; additionally, I assumed that /e/ back-harmonizes to /o/' , 'Acoustic analysis by *[Frelinger, 2016](https://people.umass.edu/scable/LING404-SP16/Kalmyk/Student-Projects/Frelinger.pdf) , although necessarily preliminary and inconclusive, suggests that labial harmony is not so defined in Oirat; because this contradicts the prevalent perspective, however, such did not inform this FST']
+                    'harmony_type':['Palatal','Labial']
+                },
              }
