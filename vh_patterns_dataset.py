@@ -539,14 +539,15 @@ vh_dataset={1:
                                    (1,schwa):(B_M_R_NT,1),(1,'a'):(B_M_R_NT,1),(1,'u'):(B_M_R_NT,1),
                                    (2,'?'):('?',2),(2,'i'):('i',2),(2,schwa):(schwa,2),(2,'u'):('u',2),
                                    (2,'a'):(schwa,2),(2,B_M_R_NT):('u',2),
-                                   (3,'?'):('?',3),(3,'i'):('i',3),(B_M_R_NT3,'a'):('a',3),(3,schwa):('a',3)},#(3,'u'):(B_M_R_NT,3),(3,B_M_R_NT):(B_M_R_NT,3)
+                                   (3,'?'):('?',3),(3,'i'):('i',3),(B_M_R_NT3,'a'):('a',3),(3,schwa):('a',3),
+                                   (3,'u'):(B_M_R_NT,3),(3,B_M_R_NT):(B_M_R_NT,3)}
                     'preprocess_req': False,
                     'postprocess_req': False,
                     'left_subseq': True,
                     'hyphenate_suffix': False,
                     'preprocess_dets':None,
                     'postprocess_dets':None,
-                    'notes': ['Mongolic language; Progressive ATR/RTR and labial harmony; i is transparent for both types of harmony','only B_M_R_NT triggers [+labial] harmonization']
+                    'notes': ['Mongolic language; Progressive ATR/RTR and labial harmony; i is transparent for both types of harmony','only B_M_R_NT triggers [+labial] harmonization; I did not find a sequence of [a...B_M_R_NT], so I assume that [a] triggers [-labial] harmony, but such is unconfirmed ']
                     'harmony_type':['ATR/RTR','Labial'],
                     'transparent':['/i/ for ATR/RTR and Labial'],
                     'opaque':None
