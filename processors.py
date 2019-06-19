@@ -11,66 +11,92 @@ from vh_fst import FST
                 False, list: output the string without any FST processing
 --------------------------------------------------------------------------AI'''
 def preprocess(string, fst):
-    string_as_list = string.split(" ")
-    if string_as_list == ['']:
+    if string.count("+") > 1 or string.count("-") > 1:
+        print ("Your word contains more than one prefix or suffix.")
+        return False, []
+    # if there is both a prefix and a suffix
+    if (len(string.split("+")) == 2) and (len(string.split("-")) == 2):
+        prefix_as_list = convert_chars_to_unicode(
+            [ch for ch in string.split("+")[0].split(" ") if ch != ""]
+            )
+        rest = string.split("+")[1]
+        stem_as_list = convert_chars_to_unicode(
+            [ch for ch in rest.split("-")[0].split(" ") if ch != ""]
+            )
+        suffix_as_list = convert_chars_to_unicode(
+            [ch for ch in rest.split("-")[1].split(" ") if ch != ""]
+            )
+        word_as_list = prefix_as_list + stem_as_list + suffix_as_list
+
+        fst.prefix = prefix_as_list
+        fst.suffix = suffix_as_list
+
+    # if it only has prefix
+    elif len(string.split("+")) == 2:
+        # Get all characters in prefix
+        prefix_as_list = convert_chars_to_unicode(
+            [ch for ch in string.split("+")[0].split(" ") if ch != ""]
+            )
+        stem_as_list = convert_chars_to_unicode(
+            [ch for ch in string.split("+")[1].split(" ") if ch != ""]
+            )
+        word_as_list = prefix_as_list + stem_as_list
+
+        fst.prefix = prefix_as_list
+
+    # if it only has a suffix
+    elif len(string.split("-")) == 2:
+        # Get all characters in suffix
+        suffix_as_list = convert_chars_to_unicode(
+            [ch for ch in string.split("-")[1].split(" ") if ch != ""]
+            )
+        stem_as_list = convert_chars_to_unicode(
+            [ch for ch in string.split("-")[0].split(" ") if ch != ""]
+            )
+        word_as_list = stem_as_list + suffix_as_list
+
+        fst.suffix = suffix_as_list
+
+    # if it doesn't have a prefix or a suffix
+    else:
+        word_as_list = convert_chars_to_unicode(
+            [ch for ch in string.split(" ") if ch != ""]
+            )
+
+    # empty input
+    if word_as_list == []:
         return False, []
 
+    # if preprocessing isn't required on the input string
     if not fst.preprocess_req:
-        return True, string_as_list
+        return True, word_as_list
 
-    # remove any empty strings in the list
-    string_as_list = [item for item in string_as_list if item != ""]
-    input_list = []
-
-    # Add characters to the input_list, processing unicode variables as it iterates
-    # caveat: if a word contains more than one strings with "-" in them, only the
-    # last one is processed as the suffix, and the rest are completely ignored.
-    # This should be expected behavior for now since words with more than one "-"
-    # symbols are invalid words anyway.
-    for ch in string_as_list:
-        try:
-            input_list.append(globals()[ch])
-        except KeyError:
-            if ch != "":
-                if fst.hyphenate_suffix:
-                    if "-" in ch:
-                        fst.suffix = ch.replace("-", "")
-                    else:
-                        # if suffix does not contain a hyphen
-                        if ch == string_as_list[-1]:
-                            print (f"Please enter a word with a hyphenated suffix.")
-                            return False, [] # indicate no further processing is to be done.
-                        else:
-                            input_list.append(ch)
-                else:
-                    input_list.append(ch)
     # Preprocessing for left-subsequential languages
     if fst.left_subseq:
 
         if fst.name == "Kisa applicative suffix Vlɑ"\
             or fst.name == "Kisa reversative suffix Vlɑ":
-            return True, input_list[:-3]
+            return True, word_as_list[:-3]
 
         elif fst.name in {"Uyghur backness harmony",
-            "Uyghur plural suffix -lVr", 'Uyghur dative suffix'+U_F_V+'V'}:
+            "Uyghur plural suffix -lVr", 'Uyghur dative suffix -'+U_F_V+'V'}:
             # run the preprocess step
             preliminary_fst = FST('5P')
             if fst.name == "Uyghur backness harmony":
-                return True, preliminary_fst.step(input_list)
+                return True, preliminary_fst.step(word_as_list)
             elif fst.name == "Uyghur plural suffix -lVr":
-                input_list = input_list[:-3]
-                return True, preliminary_fst.step(input_list)
-            elif fst.name == 'Uyghur dative suffix'+U_F_V+'V':
-                input_list = input_list[:-2]
-                return True, preliminary_fst.step(input_list)
-            # return True, preliminary_fst.step(input_list)
+                word_as_list = word_as_list[:-3]
+                return True, preliminary_fst.step(word_as_list)
+            elif fst.name == 'Uyghur dative suffix -'+U_F_V+'V':
+                word_as_list = word_as_list[:-2]
+                return True, preliminary_fst.step(word_as_list)
         elif fst.name == "Halh (Mongolic) rounding harmony":
             # run the preprocess step
             preliminary_fst = FST('8P')
-            return True, preliminary_fst.step(input_list)
+            return True, preliminary_fst.step(word_as_list)
 
         else:
-            return True, input_list
+            return True, word_as_list
 
     # Preprocessing for right-subseuential languages
     elif not fst.left_subseq:
@@ -84,10 +110,9 @@ def preprocess(string, fst):
             'Jingulu verbal root with negative imperative suffix',
         }:
             if not "u" in fst.suffix and not "i" in fst.suffix:
-                input_list.append(fst.suffix)
-                return False, input_list
+                return False, word_as_list
 
-        return True, input_list[::-1]
+        return True, stem_as_list[::-1]
 
 
 # Post-process a list after the FST runs through it.
@@ -96,5 +121,21 @@ def postprocess(lst, fst):
         lst = lst[::-1]
     if fst.hyphenate_suffix:
         if hasattr(fst, "suffix"):
-            lst.append(fst.suffix)
+            lst.append("".join(fst.suffix))
     return "".join(lst)
+
+
+'''AI--------------------------------------------------------------------------
+    Given a list of characters, convert any unicode variables to its unicode repr
+    Input: List of characters
+    Output: List of characters, with the ones specified as variable names replaced
+        with the actual unicode representation
+--------------------------------------------------------------------------AI'''
+def convert_chars_to_unicode(lst):
+    output = []
+    for ch in lst:
+        try:
+            output.append(globals()[ch])
+        except KeyError:
+            output.append(ch)
+    return output

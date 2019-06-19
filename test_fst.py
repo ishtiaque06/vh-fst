@@ -82,7 +82,7 @@ def test_jingulu():
     assert object.left_subseq == language['left_subseq']
     assert object.name == "Jingulu nominal root with non-neuter gender suffix"
 
-    input_list = ["", "w a r k u -rny", "a n k i l a -rny", "a n k i l a -ra"]
+    input_list = ["", "w a r k u -rny", "a n k i l a -r n y", "a n k i l a -r a"]
     output_list = ["", "warkurny", "ankilarny", "ankilara"]
     run_test_on_strings(input_list, output_list, object)
 
@@ -140,7 +140,7 @@ def test_uyghur_dative():
     assert object.preprocess_req == language['preprocess_req']
     assert object.postprocess_req == language['postprocess_req']
     assert object.left_subseq == language['left_subseq']
-    assert object.name == 'Uyghur dative suffix'+U_F_V+'V'
+    assert object.name == 'Uyghur dative suffix -'+U_F_V+'V'
 
     input_list = ["", "y t a v v", "y t o v v", "u d i v v", "i g o t i l u r"]
     output_list = ["", "ytaga", "yt"+F_M_R_T+"ga", "udi"+U_F_V+B_L_U_NT,

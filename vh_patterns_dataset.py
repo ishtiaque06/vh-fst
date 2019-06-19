@@ -177,7 +177,7 @@ vh_dataset={1:
                 },
             7: #needs preprocessing with 5P
                 {
-                    'name': 'Uyghur dative suffix'+U_F_V+'V',
+                    'name': 'Uyghur dative suffix -'+U_F_V+'V',
                     'states': {0: U_F_V+B_L_U_NT,1:'ga',2:U_F_V+B_L_U_NT},
                     'alphabet': ['i','y','u','e',F_M_R_T,'a','o',B_L_U_NT],
                     'transitions': {(0,'?'):('?',0), (1,'?'):('?',1),(2,'?'):('?',2),
@@ -433,7 +433,7 @@ vh_dataset={1:
                 {
                     'name': 'Kalmyk (Oirat) harmony',
                     'states': {0:'',1:'',2:'',3:'',4:''},
-                    'alphabet': ['i','e','y',F_M_R_T,'u','a','o',F_L_U_T], 
+                    'alphabet': ['i','e','y',F_M_R_T,'u','a','o',F_L_U_T],
                     'transitions': {(0,'?'):('?',0),(0,'i'):('i',0),(0,'a'):('a',4),
                                    (0,'y'):('y',1),(0,F_M_R_T):(F_M_R_T,1),(0,'e'):('e',2),
                                    (0,F_L_U_T):(F_L_U_T,2),(0,'o'):('o',3),(0,'u'):('u',3),
@@ -455,8 +455,19 @@ vh_dataset={1:
                     'hyphenate_suffix': True, #instruct user to hyphenate suffix if there is in fact a suffix in the input
                     'preprocess_dets':"If there is a suffix, user should hyphenate like so for input: s t e m - s u f f i x; If /i/ is the only vowel that appears in the stem, input the stem into 17P, the output is then the untouched stem with the 17P output suffix; Otherwise (if there is a non-/i/ vowel in the stem), remove the hyphen and run the entire output through FST 17, return output",
                     'postprocess_dets':None,
-                    'notes': ['Mongolic language; front/backness harmonizes progressively; progressive stem-control labial harmony; i is transparent, except when it is the only vowel in the stem, in which case it triggers suffixal front-harmonization',
-                        'Key assumptions that were made despite lack of data: I assumed that rounded vowels only trigger rounding harmony if they are the first vowel in the word; additionally, I assumed that /e/ back-harmonizes to /o/' , 'Acoustic analysis by *[Frelinger, 2016](https://people.umass.edu/scable/LING404-SP16/Kalmyk/Student-Projects/Frelinger.pdf) , although necessarily preliminary and inconclusive, suggests that labial harmony is not so defined in Oirat; because this contradicts the prevalent perspective, however, such did not inform this FST']
+                    'notes': ['Mongolic language; front/backness harmonizes progressively;'
+                        ' progressive stem-control labial harmony; '
+                        'i is transparent, except when it is the only vowel in the stem, '
+                        'in which case it triggers suffixal front-harmonization',
+                        'Key assumptions that were made despite lack of data: '
+                        'I assumed that rounded vowels only trigger rounding harmony '
+                        'if they are the first vowel in the word; '
+                        'additionally, I assumed that /e/ back-harmonizes to /o/',
+                        'Acoustic analysis by '
+                        '*[Frelinger, 2016](https://people.umass.edu/scable/LING404-SP16/Kalmyk/Student-Projects/Frelinger.pdf) ,'
+                        ' although necessarily preliminary and inconclusive, suggests that '
+                        'labial harmony is not so defined in Oirat; because this contradicts '
+                        'the prevalent perspective, however, such did not inform this FST'],
                     'harmony_type':['Palatal','Labial']
                 },
              }
