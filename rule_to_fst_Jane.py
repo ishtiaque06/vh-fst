@@ -359,11 +359,3 @@ print_FST(T1)
 #print T1.Q
 
 #print T1.delta
-
-'''AI--------------------------------------------------------------------------
-    Rules for language 17
---------------------------------------------------------------------------AI'''
-# If there is a suffix, hyphenate
-# Check if i is the only type of vowel in the stem
-#     if not, run stem + suffix through 17
-#     if yes, don't process the stem. Input the suffix into 17P. Output is the stored stem + output of 17P

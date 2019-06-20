@@ -95,6 +95,27 @@ def preprocess(string, fst):
             preliminary_fst = FST('8P')
             return True, preliminary_fst.step(word_as_list)
 
+        elif fst.name == "Kalmyk (Oirat) harmony":
+            '''AI---------------------------------------------------------------
+                Rules for language 17
+            ---------------------------------------------------------------AI'''
+            # If there is a suffix, hyphenate
+            # Check if i is the only type of vowel in the stem
+            #     if not, run stem + suffix through 17
+            #     if yes, don't process the stem. Input the suffix into 17P.
+            #       Output is the stored stem + output of 17P
+            alphabet_as_set = set(fst.alphabet)
+            vowels_in_stem = set()
+            for ch in stem_as_list:
+                if ch in fst.alphabet:
+                    vowels_in_stem.add(ch)
+            if vowels_in_stem.intersection(alphabet_as_set) != {'i'}:
+                return True, word_as_list
+            else:
+                preliminary_fst = FST('17P')
+                processed_suffix = preliminary_fst.step(suffix_as_list)
+                return False, stem_as_list + suffix_as_list
+
         else:
             return True, word_as_list
 
