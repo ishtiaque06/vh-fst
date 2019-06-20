@@ -7,7 +7,7 @@ list_desc = ['VH pattern', 'State set','Alphabet of relevant symbols',
             'LtoR?','Prompt user to demarcate suffix with hyphen','details of preprocessing',
              'details of postprocessing',
              'notes: ex: What preprocessing nec?, What postproc nec?,Relevant features, Neutral vowels?, Transparent/Opaque?',
-             'harmony_type: lists types of featural harmony involved; can include Height, Palatal (front/back), Labial (rounding), ATR/RTR, Length (long/short)'
+             'harmony_feature: lists types of featural harmony involved; can include Height, Palatal (front/back), Labial (rounding), ATR/RTR, Length (long/short)'
             ,'transparent:list of transparent vowels,None if none','opaque:list of opaque vowels,None if none']
 
 vh_dataset={1:
@@ -31,7 +31,7 @@ vh_dataset={1:
                     'postprocess_dets':None ,
                     'notes': ['Preprocess by removing last 3 characters ("Vla") of input',
                             '"a" is a transparent neutral vowel'],
-                    'harmony_type':['Height'],
+                    'harmony_feature':['Height'],
                     'transparent':['B_L_U_NT is a transparent neutral vowel'],
                     'opaque':None
                 },
@@ -50,7 +50,7 @@ vh_dataset={1:
                     'preprocess_dets':None ,
                     'postprocess_dets':None ,
                     'notes': ['remove last 3 chars for preprocessing', 'vowels: a,e,i'],
-                    'harmony_type':['Height'],
+                    'harmony_feature':['Height'],
                     'transparent':['B_L_U_NT is a transparent neutral vowel'],
                     'opaque':None
                  },
@@ -79,7 +79,7 @@ vh_dataset={1:
                         'As an aside, suffixal velar Cs become uvular if a '
                         'non-high vowel appears in the stem',
                         'No neutral vowels'],
-                    'harmony_type':['Labial'],
+                    'harmony_feature':['Labial'],
                     'transparent':None,
                     'opaque':None
                 },
@@ -106,7 +106,7 @@ vh_dataset={1:
                     'postprocess_dets':None ,
                     'notes': ['Backness harmonizes', 'pairs are of the same height',
                         'No neutral vowels'],
-                    'harmony_type':['Palatal'],
+                    'harmony_feature':['Palatal'],
                     'transparent':None,
                     'opaque':None
                 },
@@ -130,7 +130,7 @@ vh_dataset={1:
                     'preprocess_dets':None ,
                     'postprocess_dets':None ,
                     'notes':None,
-                    'harmony_type':['Labial'],
+                    'harmony_feature':['Labial'],
                     'transparent':None,
                     'opaque':None
                  },
@@ -156,7 +156,7 @@ vh_dataset={1:
                     'postprocess_dets': None,
                     'notes': ['Backness harmonizes', 'pairs are of the same height',
                         'i and e are transparent neutral vowels','there is rounding harmony i:y,e:FMRT'],
-                    'harmony_type':['Palatal','Labial'],
+                    'harmony_feature':['Palatal','Labial'],
                     'transparent':['i for Palatal and Labial','e for Palatal and Labial'],
                     'opaque':None
                 },
@@ -185,7 +185,7 @@ vh_dataset={1:
                                 'Backness harmonizes','i and e are transparent neutral vowels',
                                 '[+back] default for the suffix',
                                 'there is rounding harmony i:y,e:FMRT'],
-                    'harmony_type':['Palatal','Labial'],
+                    'harmony_feature':['Palatal','Labial'],
                     'transparent':['i for Palatal and Labial','e for Palatal and Labial'],
                     'opaque':None
                 },
@@ -214,7 +214,7 @@ vh_dataset={1:
                             'Backness harmonizes','i and e are transparent neutral vowels',
                             '[+back] default for the suffix',
                             'there is rounding harmony i:y,e:FMRT'],
-                    'harmony_type':['Palatal','Labial'],
+                    'harmony_feature':['Palatal','Labial'],
                     'transparent':['i for Palatal and Labial','e for Palatal and Labial'],
                     'opaque':None
                 },
@@ -239,7 +239,7 @@ vh_dataset={1:
                     'preprocess_dets': None,
                     'postprocess_dets': None,
                     'notes':None,
-                    'harmony_type':['ATR/RTR']
+                    'harmony_feature':['ATR/RTR']
                  },
             8: #needs preprocessing with 8P
                 {
@@ -260,7 +260,7 @@ vh_dataset={1:
                     'postprocess_dets': None,
                     'notes': ['Roundness harmonizes', 'pairs are of the same height',
                         'i is transparent neutral vowel', 'high rd vowels do not trigger harmony; they are blockers'],
-                    'harmony_type':['Labial','ATR/RTR'],
+                    'harmony_feature':['Labial','ATR/RTR'],
                     'transparent':['i for Labial and RTR harmony'],
                     'opaque':['[+high,+Labial/Rd] vowels are blockers']
                 },
@@ -279,7 +279,7 @@ vh_dataset={1:
                     'postprocess_dets':'Reverse output of FST; append stored suffix back on',
                     'notes': ['[+high] harmonizes regressively from suffix to root',
                         '[+high] in root acts as a blocker which does not lend its own feature (does not reset domain)'],
-                    'harmony_type':['Height'],
+                    'harmony_feature':['Height'],
                     'transparent':None,
                     'opaque':['[+high] in the root is a blocker which does not lend its own feature']
                 },
@@ -298,7 +298,7 @@ vh_dataset={1:
                     'postprocess_dets':'Reverse output of FST; append stored suffix back on',
                     'notes': ['[+high] harmonizes regressively from suffix to root',
                         '[+high] in root acts as a blocker which does not lend its own feature (does not reset domain)'],
-                    'harmony_type':['Height'],
+                    'harmony_feature':['Height'],
                     'transparent':None,
                     'opaque':['[+high] in the root is a blocker which does not lend its own feature']
                 },
@@ -317,7 +317,7 @@ vh_dataset={1:
                     'postprocess_dets':'Reverse output of FST; append stored suffix back on',
                     'notes': ['[+high] harmonizes regressively from suffix to root',
                         '[+high] in root acts as a blocker which does not lend its own feature (does not reset domain)'],
-                    'harmony_type':['Height'],
+                    'harmony_feature':['Height'],
                     'transparent':None,
                     'opaque':['[+high] in the root is a blocker which does not lend its own feature']
                 },
@@ -336,7 +336,7 @@ vh_dataset={1:
                     'postprocess_dets':'Reverse output of FST; append stored suffix back on',
                     'notes': ['[+high] harmonizes regressively from suffix to root',
                         '[+high] in root acts as a blocker which does not lend its own feature (does not reset domain)'],
-                    'harmony_type':['Height'],
+                    'harmony_feature':['Height'],
                     'transparent':None,
                     'opaque':['[+high] in the root is a blocker which does not lend its own feature']
                 },
@@ -355,7 +355,7 @@ vh_dataset={1:
                     'postprocess_dets':'Reverse output of FST; append stored suffix back on',
                     'notes': ['[+high] harmonizes regressively from suffix to root',
                         '[+high] in root acts as a blocker which does not lend its own feature (does not reset domain)'],
-                    'harmony_type':['Height'],
+                    'harmony_feature':['Height'],
                     'transparent':None,
                     'opaque':['[+high] in the root is a blocker which does not lend its own feature']
                 },
@@ -388,7 +388,7 @@ vh_dataset={1:
                     'notes': ['front/backness and roundness harmonize progressively; low vowels do not harmonize with rounding' +'/n'+
                         'of preceding vowels; only valid for non-compounded words because compounds can constitute multiple harmonic domains' +'/n'+
                              'Does not reflect instances in which root-final consonants can decide frontness of suffixal vowels'],
-                    'harmony_type':['Palatal','Labial'],
+                    'harmony_feature':['Palatal','Labial'],
                     'transparent':None,
                     'opaque':None
                 },
@@ -414,7 +414,7 @@ vh_dataset={1:
                     'postprocess_dets':None ,
                     'notes': ['front/backness harmonizes progressively; i and e are transparent' +'/n'+
                         'some words (e.g., loan words) may be disharmonic; in such cases this FST parametrization will be invalid'],
-                    'harmony_type':['Palatal'],
+                    'harmony_feature':['Palatal'],
                     'transparent':['i','e'],
                     'opaque':None
                 },
@@ -441,7 +441,7 @@ vh_dataset={1:
                     'notes': ['extinct language; front/backness harmonizes progressively; i is transparent' +'/n'+
                         'compounded words may constitute multiple harmonic domains, meaning this FST MAY NOT BE VALID FOR COMPOUNDED WORDS; /n
                         '/a/ and /e/ are treated as archiphonemes, despite /a/ in its traditional representation differing multiplicitously from /e/']
-                    'harmony_type':['Palatal'],
+                    'harmony_feature':['Palatal'],
                     'transparent':['i'],
                     'opaque':None
                 },
@@ -460,7 +460,7 @@ vh_dataset={1:
                     'preprocess_dets':"If there is a suffix (hyphen) & /i/ is only vowel in the stem, then store stem and only input the suffix into this",
                     'postprocess_dets':"Append output to stored stem, this is your output",
                     'notes': None,
-                    'harmony_type':['Palatal','Labial'],
+                    'harmony_feature':['Palatal','Labial'],
                     'transparent':None,
                     'opaque':None
                 },
@@ -492,7 +492,7 @@ vh_dataset={1:
                     'postprocess_dets':None,
                     'notes': ['Mongolic language; front/backness harmonizes progressively; progressive stem-control labial harmony; i is transparent, except when it is the only vowel in the stem, in which case it triggers suffixal front-harmonization',
                         'Key assumptions that were made despite lack of data: I assumed that rounded vowels only trigger rounding harmony if they are the first vowel in the word; additionally, I assumed that /e/ back-harmonizes to /o/' , 'Acoustic analysis by *[Frelinger, 2016](https://people.umass.edu/scable/LING404-SP16/Kalmyk/Student-Projects/Frelinger.pdf) , although necessarily preliminary and inconclusive, suggests that labial harmony is not so defined in Oirat; because this contradicts the prevalent perspective, however, such did not inform this FST']
-                    'harmony_type':['Palatal','Labial'],
+                    'harmony_feature':['Palatal','Labial'],
                     'transparent':['i for Palatal and Labial, unless i is the only stem vowel'],
                     'opaque':None
                 },
@@ -523,7 +523,7 @@ vh_dataset={1:
                     'preprocess_dets':None,
                     'postprocess_dets':None,
                     'notes': ['Mongolic language; Progressive ATR/RTR and labial harmony; i is transparent for both types of harmony, /u,B_H_R_NT/ block [+labial] spreading such that following vowels are [-labial]','I did not find data of the form a...B_M_R_NT or e...o, so I assumed [-Labial] spreads progressively, just as [+Labial does]']
-                    'harmony_type':['ATR/RTR','Labial'],
+                    'harmony_feature':['ATR/RTR','Labial'],
                     'transparent':['/i/ for ATR/RTR and Labial'],
                     'opaque':['/u, B_H_R_NT/ are blockers for [+labial], all that follows is [-labial]']
                 },
@@ -548,7 +548,7 @@ vh_dataset={1:
                     'preprocess_dets':None,
                     'postprocess_dets':None,
                     'notes': ['Mongolic language; Progressive ATR/RTR and labial harmony; i is transparent for both types of harmony','only B_M_R_NT triggers [+labial] harmonization; I did not find a sequence of [a...B_M_R_NT], so I assume that [a] triggers [-labial] harmony, but such is unconfirmed ']
-                    'harmony_type':['ATR/RTR','Labial'],
+                    'harmony_feature':['ATR/RTR','Labial'],
                     'transparent':['/i/ for ATR/RTR and Labial'],
                     'opaque':None
                 },
@@ -596,7 +596,7 @@ vh_dataset={1:
                     'preprocess_dets':None,
                     'postprocess_dets':None,
                     'notes': ['Front/backness and roundness harmonize progressively';'harmonization is blocked by all consonants, except pharyngeals, which are transparent';'vowels cannot appear consecutively, thus deletion of initial trigger vowels occurs in sequences of two adjacent vowels';'this FST incorporates deletion of first vowel in sequences of two vowels, it cannot process sequences of 3+ vowels properly, but it is assumed such sequences would never manifest']
-                    'harmony_type':['Palatal','Labial'],
+                    'harmony_feature':['Palatal','Labial'],
                     'transparent':None,
                     'opaque':None
                 },
