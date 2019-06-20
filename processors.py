@@ -4,64 +4,20 @@ from vh_fst import FST
 
 '''AI--------------------------------------------------------------------------
     Preprocess string after user input
-    Input: space-delimited string of Unicode characters and variables
-        as represented in unicode_variable_repr.py
+    Input: <type 'list' x4>, <type 'FST'>
     Output: (Boolean, list):
                 True, list: Run FST on list of characters
                 False, list: output the string without any FST processing
 --------------------------------------------------------------------------AI'''
-def preprocess(string, fst):
-    if string.count("+") > 1 or string.count("-") > 1:
-        print ("Your word contains more than one prefix or suffix.")
-        return False, []
-    # if there is both a prefix and a suffix
-    if (len(string.split("+")) == 2) and (len(string.split("-")) == 2):
-        prefix_as_list = convert_chars_to_unicode(
-            [ch for ch in string.split("+")[0].split(" ") if ch != ""]
-            )
-        rest = string.split("+")[1]
-        stem_as_list = convert_chars_to_unicode(
-            [ch for ch in rest.split("-")[0].split(" ") if ch != ""]
-            )
-        suffix_as_list = convert_chars_to_unicode(
-            [ch for ch in rest.split("-")[1].split(" ") if ch != ""]
-            )
-        word_as_list = prefix_as_list + stem_as_list + suffix_as_list
-
-        fst.prefix = prefix_as_list
-        fst.suffix = suffix_as_list
-
-    # if it only has prefix
-    elif len(string.split("+")) == 2:
-        # Get all characters in prefix
-        prefix_as_list = convert_chars_to_unicode(
-            [ch for ch in string.split("+")[0].split(" ") if ch != ""]
-            )
-        stem_as_list = convert_chars_to_unicode(
-            [ch for ch in string.split("+")[1].split(" ") if ch != ""]
-            )
-        word_as_list = prefix_as_list + stem_as_list
-
-        fst.prefix = prefix_as_list
-
-    # if it only has a suffix
-    elif len(string.split("-")) == 2:
-        # Get all characters in suffix
-        suffix_as_list = convert_chars_to_unicode(
-            [ch for ch in string.split("-")[1].split(" ") if ch != ""]
-            )
-        stem_as_list = convert_chars_to_unicode(
-            [ch for ch in string.split("-")[0].split(" ") if ch != ""]
-            )
-        word_as_list = stem_as_list + suffix_as_list
-
-        fst.suffix = suffix_as_list
-
-    # if it doesn't have a prefix or a suffix
-    else:
-        word_as_list = convert_chars_to_unicode(
-            [ch for ch in string.split(" ") if ch != ""]
-            )
+def preprocess(
+                word_as_list,
+                prefix_as_list,
+                stem_as_list,
+                suffix_as_list,
+                fst
+    ):
+    fst.prefix = prefix_as_list
+    fst.suffix = suffix_as_list
 
     # empty input
     if word_as_list == []:
@@ -160,3 +116,66 @@ def convert_chars_to_unicode(lst):
         except KeyError:
             output.append(ch)
     return output
+
+
+'''AI--------------------------------------------------------------------------
+    Given a space-delimited string, return prefix, suffix, stem and word
+    Input: <type 'string'>
+    Output: <type 'list' x4>
+--------------------------------------------------------------------------AI'''
+def split_word_components(string):
+    if string.count("+") > 1 or string.count("-") > 1:
+        print ("Your word contains more than one prefix or suffix.")
+        return [], [], [], []
+
+    # if there is both a prefix and a suffix
+    if (len(string.split("+")) == 2) and (len(string.split("-")) == 2):
+        if string.find('-') < string.find('+'):
+            print ("Please enter the prefix before the suffix.")
+            return [], [], [], []
+
+        prefix_as_list = convert_chars_to_unicode(
+            [ch for ch in string.split("+")[0].split(" ") if ch != ""]
+            )
+        rest = string.split("+")[1]
+        stem_as_list = convert_chars_to_unicode(
+            [ch for ch in rest.split("-")[0].split(" ") if ch != ""]
+            )
+        suffix_as_list = convert_chars_to_unicode(
+            [ch for ch in rest.split("-")[1].split(" ") if ch != ""]
+            )
+        word_as_list = prefix_as_list + stem_as_list + suffix_as_list
+
+    # if it only has prefix
+    elif len(string.split("+")) == 2:
+        # Get all characters in prefix
+        prefix_as_list = convert_chars_to_unicode(
+            [ch for ch in string.split("+")[0].split(" ") if ch != ""]
+            )
+        stem_as_list = convert_chars_to_unicode(
+            [ch for ch in string.split("+")[1].split(" ") if ch != ""]
+            )
+        word_as_list = prefix_as_list + stem_as_list
+        suffix_as_list = []
+
+    # if it only has a suffix
+    elif len(string.split("-")) == 2:
+        # Get all characters in suffix
+        suffix_as_list = convert_chars_to_unicode(
+            [ch for ch in string.split("-")[1].split(" ") if ch != ""]
+            )
+        stem_as_list = convert_chars_to_unicode(
+            [ch for ch in string.split("-")[0].split(" ") if ch != ""]
+            )
+        word_as_list = stem_as_list + suffix_as_list
+        prefix_as_list = []
+
+    # if it doesn't have a prefix or a suffix
+    else:
+        word_as_list = convert_chars_to_unicode(
+            [ch for ch in string.split(" ") if ch != ""]
+            )
+        prefix_as_list = []
+        stem_as_list = word_as_list
+        suffix_as_list = []
+    return word_as_list, prefix_as_list, stem_as_list, suffix_as_list

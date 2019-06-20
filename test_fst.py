@@ -1,11 +1,15 @@
 from vh_fst import FST
 from vh_patterns_dataset import vh_dataset
-from processors import preprocess, postprocess
+from processors import preprocess, postprocess, split_word_components
 from unicode_variable_repr import *
 
 def run_test_on_strings(input_list, output_list, object):
     for i in range(len(input_list)):
-        proceed, preprocessed = preprocess(input_list[i], object)
+        string = input_list[i]
+        word_as_list, prefix_as_list, stem_as_list, suffix_as_list = \
+            split_word_components(string)
+        proceed, preprocessed = \
+            preprocess(word_as_list, prefix_as_list, stem_as_list, suffix_as_list, object)
         if proceed:
             assert output_list[i] == postprocess(object.step(preprocessed), object)
         else:

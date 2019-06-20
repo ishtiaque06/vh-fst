@@ -114,7 +114,10 @@ def main():
                     show_vh_help(fst)
                     show_vh_intro(fst)
                     continue
-                process_yes_or_no, word_as_list = preprocess(word, fst)
+                word, prefix_as_list, stem_as_list, suffix_as_list = \
+                    split_word_components(string)
+                process_yes_or_no, word_as_list = \
+                    preprocess(word, prefix_as_list, stem_as_list, suffix_as_list, fst)
                 if process_yes_or_no:
                     final = fst.step(word_as_list)
                     final_word = postprocess(final, fst)
