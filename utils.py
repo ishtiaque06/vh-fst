@@ -91,3 +91,10 @@ if __name__ == "__main__":
                 gv_to_svg(object.name)
             except Exception as e:
                 print(e)
+
+
+'''AI--------------------------------------------------------------------------
+Takes in a rule of form A->B/C_D and creates an FST from that rule.
+--------------------------------------------------------------------------AI'''
+def spe_to_fst():
+    pass
