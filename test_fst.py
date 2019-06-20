@@ -150,3 +150,36 @@ def test_uyghur_dative():
     output_list = ["", "ytaga", "yt"+F_M_R_T+"ga", "udi"+U_F_V+B_L_U_NT,
         "igotil"+U_F_V+B_L_U_NT]
     run_test_on_strings(input_list, output_list, object)
+
+def test_kalmyk():
+    object = FST(17)
+    language = vh_dataset[17]
+    assert object.states == language['states']
+    assert object.alphabet == language['alphabet']
+    assert object.transitions == language['transitions']
+    assert object.preprocess_req == language['preprocess_req']
+    assert object.postprocess_req == language['postprocess_req']
+    assert object.left_subseq == language['left_subseq']
+    assert object.name == 'Kalmyk (Oirat) harmony'
+
+    input_list = ['',
+                    't i i m i',
+                    't i i m i - t a n',
+                    't i m y - t e',
+                    't i m y - t o',
+                    't o m i m y',
+                    't a m - e '+F_M_R_T,
+                    't a m + e '+F_M_R_T,
+                    'e + t a m - o',
+                 ]
+    output_list = ['',
+                    'tiimi',
+                    'tiimit'+F_L_U_T+'n',
+                    'timyt'+F_M_R_T,
+                    'timyt'+F_M_R_T,
+                    'tomimu',
+                    'tamoo',
+                    'tamoo',
+                    'etæmø'
+                    ]
+    run_test_on_strings(input_list, output_list, object)

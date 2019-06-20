@@ -69,8 +69,8 @@ def preprocess(
                 return True, word_as_list
             else:
                 preliminary_fst = FST('17P')
-                processed_suffix = preliminary_fst.step(suffix_as_list)
-                return False, stem_as_list + suffix_as_list
+                fst.suffix = preliminary_fst.step(suffix_as_list)
+                return False, stem_as_list + fst.suffix
 
         else:
             return True, word_as_list
@@ -93,13 +93,15 @@ def preprocess(
 
 
 # Post-process a list after the FST runs through it.
-def postprocess(lst, fst):
-    if not fst.left_subseq:
-        lst = lst[::-1]
-    if fst.hyphenate_suffix:
-        if hasattr(fst, "suffix"):
-            lst.append("".join(fst.suffix))
-    return "".join(lst)
+def postprocess(word_as_list, fst):
+    if fst.postprocess_req:
+        if not fst.left_subseq:
+            word_as_list = word_as_list[::-1]
+        if fst.hyphenate_suffix:
+            # print ("hyphenate")
+            if hasattr(fst, "suffix"):
+                word_as_list.append("".join(fst.suffix))
+    return "".join(word_as_list)
 
 
 '''AI--------------------------------------------------------------------------
