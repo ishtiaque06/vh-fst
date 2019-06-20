@@ -2,7 +2,7 @@
 
 This FST class is designed to be able generate expected pronunciations of
 words in a certain set of vowel harmony patterns that exist in natural languages. Many of these languages and their vowel-harmony
-patterns are described in Andrew Nevins' book [Locality in Vowel Harmony](https://mitpress.mit.edu/books/locality-vowel-harmony).
+patterns are described in Andrew Nevins' book [Locality in Vowel Harmony](https://mitpress.mit.edu/books/locality-vowel-harmony) or Rachel Walker and Sharon Rose's [Harmony Systems](http://idiom.ucsd.edu/~rose/RoseWalkerHarmonysystemsch8.pdf).
 
 This project is the collaborative summer project of Travis Herringshaw and Ahmed Ishtiaque,
 under the supervision of Professor Jane Chandlee at Haverford College.
