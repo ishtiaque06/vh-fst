@@ -5,7 +5,7 @@ from unicode_variable_repr import *
 list_desc = ['VH pattern', 'State set','Alphabet of relevant symbols',
             'Transition set', 'Preprocessing necessary?', 'Postprocessing necessary?',
             'LtoR?','Prompt user to demarcate suffix with hyphen','details of preprocessing',
-             'details of postprocessing',
+             'details of postprocessing','admin_notes=notes for creators',
              'notes: ex: What preprocessing nec?, What postproc nec?,Relevant features, Neutral vowels?, Transparent/Opaque?',
              'harmony_feature: lists types of featural harmony involved; can include Height, Palatal (front/back), Labial (rounding), ATR/RTR, Length (long/short)',
             'sc:stem control harmony-true or false','dr:dominant-recessive harmony-True or False','transparent:list of transparent vowels,None if none','opaque:list of opaque vowels,None if none']
@@ -29,8 +29,8 @@ vh_dataset={1:
                     'hyphenate_suffix': False,
                     'preprocess_dets':None ,
                     'postprocess_dets':None ,
-                    'notes': ['Preprocess by removing last 3 characters ("Vla") of input',
-                            '"a" is a transparent neutral vowel'],
+                    'admin_notes': ['Preprocess by removing last 3 characters ("Vla") of input'],
+                    'notes':['"a" is a transparent neutral vowel'],
                     'harmony_feature':['Height'],
                     'sc':True,
                     'dr':False,
@@ -51,11 +51,12 @@ vh_dataset={1:
                     'hyphenate_suffix': False,
                     'preprocess_dets':None ,
                     'postprocess_dets':None ,
-                    'notes': ['remove last 3 chars for preprocessing', 'vowels: a,e,i'],
+                    'admin_notes': ['remove last 3 chars for preprocessing'],
+                    'notes':[B_L_U_NT+'is transparent vowel'] 
                     'harmony_feature':['Height'],
                     'sc':True,
                     'dr':False,
-                    'transparent':['B_L_U_NT is a transparent neutral vowel'],
+                    'transparent':[B_L_U_NT+'is a transparent neutral vowel'],
                     'opaque':None
                  },
             3:
@@ -80,8 +81,8 @@ vh_dataset={1:
                     'preprocess_dets':None ,
                     'postprocess_dets':None ,
                     'notes': ['Rounding is relevant',
-                        'As an aside, suffixal velar Cs become uvular if a '
-                        'non-high vowel appears in the stem',
+                        'As an aside, suffixal velar Cs become uvular if a' 
+                         'non-high vowel appears in the stem',
                         'No neutral vowels'],
                     'harmony_feature':['Labial'],
                     'sc':True,
@@ -415,9 +416,8 @@ vh_dataset={1:
                     'hyphenate_suffix': False,
                     'preprocess_dets':None ,
                     'postprocess_dets':None ,
-                    'notes': ['front/backness and roundness harmonize progressively; low vowels do not harmonize with rounding' +'/n'+
-                        'of preceding vowels; only valid for non-compounded words because compounds can constitute multiple harmonic domains' +'/n'+
-                             'Does not reflect instances in which root-final consonants can decide frontness of suffixal vowels'],
+                    'notes': ['front/backness and roundness harmonize progressively','low vowels do not harmonize with rounding of preceding vowels',                        'of preceding vowels; only valid for non-compounded words because compounds can constitute multiple harmonic domains' +'/n'+
+                             'This FST does not accurately reflect instances in which root-final consonants can decide frontness of suffixal vowels'],
                     'harmony_feature':['Palatal','Labial'],
                     'sc':True,
                     'dr':False,
@@ -444,7 +444,7 @@ vh_dataset={1:
                     'hyphenate_suffix': False,
                     'preprocess_dets':None ,
                     'postprocess_dets':None ,
-                    'notes': ['front/backness harmonizes progressively; i and e are transparent' +'/n'+
+                    'notes': ['front/backness harmonizes progressively', 'i and e are transparent',
                         'some words (e.g., loan words) may be disharmonic; in such cases this FST parametrization will be invalid'],
                     'harmony_feature':['Palatal'],
                     'sc':True,
@@ -472,9 +472,9 @@ vh_dataset={1:
                     'hyphenate_suffix': False,
                     'preprocess_dets':None ,
                     'postprocess_dets':None ,
-                    'notes': ['extinct language; front/backness harmonizes progressively; i is transparent' +'/n'+
-                        'compounded words may constitute multiple harmonic domains, meaning this FST MAY NOT BE VALID FOR COMPOUNDED WORDS; /n
-                        '/a/ and /e/ are treated as archiphonemes, despite /a/ in its traditional representation differing multiplicitously from /e/']
+                    'notes': ['extinct language','front/backness harmonizes progressively','i is transparent',
+                        'compounded words may constitute multiple harmonic domains, meaning this FST MAY NOT BE VALID FOR COMPOUNDED WORDS',
+                        '/a/ and /e/ are treated as archiphonemes, despite /a/ in its traditional representation differing multifeaturally from /e/']
                     'harmony_feature':['Palatal'],
                     'sc':True,
                     'dr':False,
@@ -528,7 +528,7 @@ vh_dataset={1:
                     'hyphenate_suffix': True, #instruct user to hyphenate suffix if there is in fact a suffix in the input
                     'preprocess_dets':"If there is a suffix, user should hyphenate like so for input: s t e m - s u f f i x; If /i/ is the only vowel that appears in the stem, input the stem into 17P, the output is then the untouched stem with the 17P output suffix; Otherwise (if there is a non-/i/ vowel in the stem), remove the hyphen and run the entire output through FST 17, return output",
                     'postprocess_dets':None,
-                    'notes': ['Mongolic language; front/backness harmonizes progressively; progressive stem-control labial harmony; i is transparent, except when it is the only vowel in the stem, in which case it triggers suffixal front-harmonization',
+                    'notes': ['Mongolic language','front/backness harmonizes progressively','progressive stem-control labial harmony','i is transparent, except when it is the only vowel in the stem, in which case it triggers suffixal front-harmonization',
                         'Key assumptions that were made despite lack of data: I assumed that rounded vowels only trigger rounding harmony if they are the first vowel in the word; additionally, I assumed that /e/ back-harmonizes to /o/' , 'Acoustic analysis by *[Frelinger, 2016](https://people.umass.edu/scable/LING404-SP16/Kalmyk/Student-Projects/Frelinger.pdf) , although necessarily preliminary and inconclusive, suggests that labial harmony is not so defined in Oirat; because this contradicts the prevalent perspective, however, such did not inform this FST']
                     'harmony_feature':['Palatal','Labial'],
                     'sc':True,
@@ -562,7 +562,7 @@ vh_dataset={1:
                     'hyphenate_suffix': False,
                     'preprocess_dets':None,
                     'postprocess_dets':None,
-                    'notes': ['Mongolic language; Progressive ATR/RTR and labial harmony; i is transparent for both types of harmony, /u,B_H_R_NT/ block [+labial] spreading such that following vowels are [-labial]','I did not find data of the form a...B_M_R_NT or e...o, so I assumed [-Labial] spreads progressively, just as [+Labial does]']
+                    'notes': ['Mongolic language','Progressive ATR/RTR and labial harmony','i is transparent for both types of harmony','/u,'+B_H_R_NT+'/ block [+labial] spreading such that following vowels are [-labial]','I did not find data of the form a...B_M_R_NT or e...o, so I assumed [-Labial] spreads progressively, just as [+Labial does]']
                     'harmony_feature':['ATR/RTR','Labial'],
                     'sc':True,
                     'dr':False,
@@ -589,7 +589,7 @@ vh_dataset={1:
                     'hyphenate_suffix': False,
                     'preprocess_dets':None,
                     'postprocess_dets':None,
-                    'notes': ['Mongolic language; Progressive ATR/RTR and labial harmony; i is transparent for both types of harmony','only B_M_R_NT triggers [+labial] harmonization; I did not find a sequence of [a...B_M_R_NT], so I assume that [a] triggers [-labial] harmony, but such is unconfirmed ']
+                    'notes': ['Mongolic language','Progressive ATR/RTR and labial harmony','i is transparent for both types of harmony','only'+ B_M_R_NT+' triggers [+labial] harmonization','I did not find a sequence of [a...B_M_R_NT], so I assume that [a] triggers [-labial] harmony, but such is unconfirmed']
                     'harmony_feature':['ATR/RTR','Labial'],
                     'sc':True,
                     'dr':False,
@@ -639,7 +639,7 @@ vh_dataset={1:
                     'hyphenate_suffix': False,
                     'preprocess_dets':None,
                     'postprocess_dets':None,
-                    'notes': ['Front/backness and roundness harmonize progressively';'harmonization is blocked by all consonants, except pharyngeals, which are transparent';'vowels cannot appear consecutively, thus deletion of initial trigger vowels occurs in sequences of two adjacent vowels';'this FST incorporates deletion of first vowel in sequences of two vowels, it cannot process sequences of 3+ vowels properly, but it is assumed such sequences would never manifest']
+                    'notes': ['Front/backness and roundness harmonize progressively','harmonization is blocked by all consonants, except pharyngeals, which are transparent','vowels cannot appear consecutively, thus deletion of initial trigger vowels occurs in sequences of two adjacent vowels','this FST incorporates deletion of first vowel in sequences of two vowels, it cannot process sequences of 3+ vowels properly, but it is assumed such sequences would never manifest']
                     'harmony_feature':['Palatal','Labial'],
                     'sc':False,
                     'dr':False,
