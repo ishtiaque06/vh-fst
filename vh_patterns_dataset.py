@@ -552,4 +552,28 @@ vh_dataset={1:
                     'transparent':['/i/ for ATR/RTR and Labial'],
                     'opaque':None
                 },
+            20:
+                {
+                    'name': 'Tunica harmony',
+                    'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',10:'',11:'',12:''},
+                    'alphabet': ['i','e',F_M_U_NT,'u','o',B_M_R_NT,B_L_U_NT,'h',G_P_VL], 
+                    'transitions': {(0,'?'):('?',0),(0,G_P_VL):(G_P_VL,0),(0,'h'):('h',0),(0,B_L_U_NT):(B_L_U_NT,0),
+                                   (2,'?'):('?',0),(0,'i'):('',1),(1,'?'):('i?',0),(1,G_P_VL):('i'+G_P_VL,2),(1,'h'):('ih',2),
+                                   (4,'?'):('?',0),(0,'e'):('',3),(3,'?'):('e?',0),(3,G_P_VL):('e'+G_P_VL,4),(3,'h'):('eh',4),
+                                   (6,'?'):('?',0),(0,F_M_U_NT):('',5),(5,'?'):(F_M_U_NT+'?',0),(5,G_P_VL):(F_M_U_NT+G_P_VL,6),(5,'h'):(F_M_U_NT+'h',6),
+                                   (8,'?'):('?',0),(0,'u'):('',7),(7,'?'):('u?',0),(7,G_P_VL):('u'+G_P_VL,8),(7,'h'):('uh',8),
+                                   (10,'?'):('?',0),(0,'o'):('',9),(9,'?'):('o?',0),(9,G_P_VL):('o'+G_P_VL,10),(9,'h'):('oh',10),
+                                   (12,'?'):('?',0),(0,B_M_R_NT):('',11),(11,'?'):(B_M_R_NT+'?',0),(11,G_P_VL):(B_M_R_NT+G_P_VL,12),(11,'h'):(B_M_R_NT+'h',12),
+                                   },
+                    'preprocess_req': False,
+                    'postprocess_req': False,
+                    'left_subseq': True,
+                    'hyphenate_suffix': False,
+                    'preprocess_dets':None,
+                    'postprocess_dets':None,
+                    'notes': ['Front/backness and roundness harmonize progressively';'harmonization is blocked by all consonants, except pharyngeals, which are transparent';'vowels cannot appear consecutively, thus deletion of initial trigger vowels occurs in sequences of two adjacent vowels';'this FST incorporates deletion of first vowel in sequences of two vowels, it cannot process sequences of 3+ vowels properly, but it is assumed such sequences would never manifest']
+                    'harmony_type':['Palatal','Labial'],
+                    'transparent':None,
+                    'opaque':None
+                },
              }
