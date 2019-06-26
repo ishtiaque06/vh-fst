@@ -478,7 +478,7 @@ vh_dataset={1:
                     'postprocess_dets':None ,
                     'notes': ['extinct language','front/backness harmonizes progressively','i is transparent',
                         'compounded words may constitute multiple harmonic domains, meaning this FST MAY NOT BE VALID FOR COMPOUNDED WORDS',
-                        '/a/ and /e/ are treated as archiphonemes, despite /a/ in its traditional representation differing multifeaturally from /e/']
+                        '/a/ and /e/ are treated as archiphonemes, despite /a/ in its traditional representation differing multifeaturally from /e/'],
                     'harmony_feature':['Palatal'],
                     'sc':True,
                     'dr':False,
@@ -533,7 +533,7 @@ vh_dataset={1:
                     'preprocess_dets':"If there is a suffix, user should hyphenate like so for input: s t e m - s u f f i x; If /i/ is the only vowel that appears in the stem, input the stem into 17P, the output is then the untouched stem with the 17P output suffix; Otherwise (if there is a non-/i/ vowel in the stem), remove the hyphen and run the entire output through FST 17, return output",
                     'postprocess_dets':None,
                     'notes': ['Mongolic language','front/backness harmonizes progressively','progressive stem-control labial harmony','i is transparent, except when it is the only vowel in the stem, in which case it triggers suffixal front-harmonization',
-                        'Key assumptions that were made despite lack of data: I assumed that rounded vowels only trigger rounding harmony if they are the first vowel in the word; additionally, I assumed that /e/ back-harmonizes to /o/' , 'Acoustic analysis by *[Frelinger, 2016](https://people.umass.edu/scable/LING404-SP16/Kalmyk/Student-Projects/Frelinger.pdf) , although necessarily preliminary and inconclusive, suggests that labial harmony is not so defined in Oirat; because this contradicts the prevalent perspective, however, such did not inform this FST']
+                        'Key assumptions that were made despite lack of data: I assumed that rounded vowels only trigger rounding harmony if they are the first vowel in the word; additionally, I assumed that /e/ back-harmonizes to /o/' , 'Acoustic analysis by *[Frelinger, 2016](https://people.umass.edu/scable/LING404-SP16/Kalmyk/Student-Projects/Frelinger.pdf) , although necessarily preliminary and inconclusive, suggests that labial harmony is not so defined in Oirat; because this contradicts the prevalent perspective, however, such did not inform this FST'],
                     'harmony_feature':['Palatal','Labial'],
                     'sc':True,
                     'dr':False,
@@ -566,7 +566,7 @@ vh_dataset={1:
                     'hyphenate_suffix': False,
                     'preprocess_dets':None,
                     'postprocess_dets':None,
-                    'notes': ['Mongolic language','Progressive ATR/RTR and labial harmony','i is transparent for both types of harmony','/u,'+B_H_R_NT+'/ block [+labial] spreading such that following vowels are [-labial]','I did not find data of the form a...B_M_R_NT or e...o, so I assumed [-Labial] spreads progressively, just as [+Labial does]']
+                    'notes': ['Mongolic language','Progressive ATR/RTR and labial harmony','i is transparent for both types of harmony','/u,'+B_H_R_NT+'/ block [+labial] spreading such that following vowels are [-labial]','I did not find data of the form a...B_M_R_NT or e...o, so I assumed [-Labial] spreads progressively, just as [+Labial does]'],
                     'harmony_feature':['ATR/RTR','Labial'],
                     'sc':True,
                     'dr':False,
@@ -593,7 +593,7 @@ vh_dataset={1:
                     'hyphenate_suffix': False,
                     'preprocess_dets':None,
                     'postprocess_dets':None,
-                    'notes': ['Mongolic language','Progressive ATR/RTR and labial harmony','i is transparent for both types of harmony','only'+ B_M_R_NT+' triggers [+labial] harmonization','I did not find a sequence of [a...B_M_R_NT], so I assume that [a] triggers [-labial] harmony, but such is unconfirmed']
+                    'notes': ['Mongolic language','Progressive ATR/RTR and labial harmony','i is transparent for both types of harmony','only'+ B_M_R_NT+' triggers [+labial] harmonization','I did not find a sequence of [a...B_M_R_NT], so I assume that [a] triggers [-labial] harmony, but such is unconfirmed'],
                     'harmony_feature':['ATR/RTR','Labial'],
                     'sc':True,
                     'dr':False,
@@ -643,7 +643,7 @@ vh_dataset={1:
                     'hyphenate_suffix': False,
                     'preprocess_dets':None,
                     'postprocess_dets':None,
-                    'notes': ['Front/backness and roundness harmonize progressively','harmonization is blocked by all consonants, except pharyngeals, which are transparent','vowels cannot appear consecutively, thus deletion of initial trigger vowels occurs in sequences of two adjacent vowels','this FST incorporates deletion of first vowel in sequences of two vowels, it cannot process sequences of 3+ vowels properly, but it is assumed such sequences would never manifest']
+                    'notes': ['Front/backness and roundness harmonize progressively','harmonization is blocked by all consonants, except pharyngeals, which are transparent','vowels cannot appear consecutively, thus deletion of initial trigger vowels occurs in sequences of two adjacent vowels','this FST incorporates deletion of first vowel in sequences of two vowels, it cannot process sequences of 3+ vowels properly, but it is assumed such sequences would never manifest'],
                     'harmony_feature':['Palatal','Labial'],
                     'sc':False,
                     'dr':False,
@@ -667,13 +667,13 @@ vh_dataset={1:
                                     (5,'i'):('i',0),(5,'u'):('u',0),(5,'a'):('a',0),(2,'i'):('i',5),(2,'u'):('u',5),
                                     (2,'a'):('a',4),(4,F_M_U_NT):(F_M_U_NT,2),(4,'e'):(F_M_U_NT,2),(4,B_M_R_NT):(B_M_R_NT,2),
                                     (4,'o'):(B_M_R_NT,2),(4,'i'):('i',0),(4,'u'):('u',0)
-                                   }
+                                   },
                     'preprocess_req': False,
                     'postprocess_req': False,
                     'left_subseq': False,
                     'plus_prefix':True,
                     'hyphenate_suffix': False,
-                    'preprocess_dets':'Reverse the stem, input the stem into FST 21 (if there is a prefix, do not enter the prefix into 21 -only the stem)'
+                    'preprocess_dets':'Reverse the stem, input the stem into FST 21 (if there is a prefix, do not enter the prefix into 21 -only the stem)',
                     'postprocess_dets':'Reverse the stem output from 21; If the first vowel in the reversed output is in (i,u,e,o): input the prefix into 21A; If the first vowel in the reversed output is in (a,F_M_U_NT,B_M_R_NT), input the prefix into 21B; append the output prefix to the postprocessed stem-this is the final output',
                     'notes': ['Yoruba lacks suffices','Vowel inventory reference: A Grammar of Yoruba by Ayo Bamgbose','primary reference: Yoruba Vowel Harmony by Diana Archangeli (DA)', 'Regressive ATR', 'harmony differs somewhat between disyllabic contexts and contexts with more than 2 syllables','DA seems to suggest that /e/ or /o/ cannot precede /a/, but this does not seem to reliably be the case in the data, therefore this FST treats /a/ like a transparent vowel, rather than a [-ATR] trigger like DA seemingly posits','mid vowels trigger [+-ATR] harmony','high vowels /i,u/ seem to reset the harmony domain in non-disyllabic monomorphemic stems, so they are treated as opaque blockers in stems; I treat them as transparent vowels in prefixes, however, but this may be a tenuous assertion and can reasonably be subject to scrutiny','DA indicates that in sequences of MHM, wherein M=mid vowel and H=high vowel and in which consonants can separate the vowels, the first M MUST be [+ATR]; while I found this not to be the case in some words (e.g., foruk[back,mid,round,lax,-ATR]sil[front,mid,unrounded,lax,-ATR], ib[F_M_U_NT]rubojo), I adopted this assessment and incorporated it into the FST; this relationship does not seem to be the case for multiple high vowels between mid vowels (i.e., MHHM), nor do high vowels seem to ensure [+ATR] upon harmonic reset in all contexts','/i,u,a/, although not triggers in the stem, can trigger [ATR] characterization of the prefix; the first vowel of the stem triggers the ATR harmony of the prefix such that [+ATR] vowels /i,u,e,o/trigger [+ATR] harmony of the prefix, while the other [-ATR] vowels trigger [-ATR] harmony'],
                     'harmony_feature':['ATR/RTR'],
@@ -685,41 +685,43 @@ vh_dataset={1:
             '21A':
                 {
                     'name': 'Yoruba prefix +ATR processing',
-                    'states': {0:'',1:'',2:'',3:'',4:'',5:''},
+                    'states': {0:''},
                     'alphabet': ['i','u','a','e','o',F_M_U_NT,B_M_R_NT], 
-                    'transitions': {(0,'?'):('?',0),)}
+                    'transitions': {(0,'?'):('?',0),(0,'a'):('a',0),(0,'i'):('i',0),(0,'u'):('u',0),
+                                    (0,'e'):('e',0),(0,'o'):('o',0),(0,F_M_U_NT):('e',0),(0,B_M_R_NT):('o',0)},
                     'preprocess_req': False,
                     'postprocess_req': False,
                     'left_subseq': False,
                     'plus_prefix':False,
                     'hyphenate_suffix': False,
-                    'preprocess_dets':'Only enter the prefix (if there was one for 21) into this'
+                    'preprocess_dets':'Only enter the prefix (if there was one for 21) into this; prefix should be entered into 21A only if the first vowel of the output stem is +ATR',
                     'postprocess_dets':'Append output prefix to the output stem from 21',
                     'notes':None,
                     'harmony_feature':['ATR/RTR'],
                     'sc':True,
                     'dr':False,
                     'transparent':['/a/','/i,u/ in prefixes'],
-                    'opaque':['/i,u/ in stems seem to initiate new harmonic domains']
+                    'opaque':None
                 },
             '21B':
                 {
                     'name': 'Yoruba prefix -ATR processing',
-                    'states': {0:'',1:'',2:'',3:'',4:'',5:''},
+                    'states': {0:''},
                     'alphabet': ['i','u','a','e','o',F_M_U_NT,B_M_R_NT], 
-                    'transitions': {(0,'?'):('?',0),)}
+                    'transitions': {(0,'?'):('?',0),(0,'a'):('a',0),(0,'i'):('i',0),(0,'u'):('u',0),
+                                    (0,F_M_U_NT):(F_M_U_NT,0),(0,B_M_R_NT):(B_M_R_NT,0),(0,'e'):(F_M_U_NT,0),(0,'o'):(B_M_R_NT,0)},
                     'preprocess_req': False,
                     'postprocess_req': False,
                     'left_subseq': False,
                     'plus_prefix':False,
                     'hyphenate_suffix': False,
-                    'preprocess_dets':'Reverse the stem, input the stem into FST 21 (if there is a prefix, do not enter the prefix into 21 -only the stem)'
-                    'postprocess_dets':'Reverse the stem output from 21; If the first vowel in the reversed output is in (i,u,e,o): input the prefix into 21A; If the first vowel in the reversed output is in (a,F_M_U_NT,B_M_R_NT), input the prefix into 21B; append the output prefix to the postprocessed stem-this is the final output',
+                    'preprocess_dets':'Only enter the prefix (if there was one for 21) into this; prefix should be entered into 21B only if the first vowel of the output stem is -ATR',
+                    'postprocess_dets':'Append output prefix to the output stem from 21',
                     'notes':None,
                     'harmony_feature':['ATR/RTR'],
                     'sc':True,
                     'dr':False,
                     'transparent':['/a/','/i,u/ in prefixes'],
-                    'opaque':['/i,u/ in stems seem to initiate new harmonic domains']
+                    'opaque':None
                 },
              }
