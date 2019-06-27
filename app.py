@@ -1,7 +1,7 @@
 from vh_patterns_dataset import vh_dataset
 from vh_fst import FST
 from unicode_variable_repr import *
-from processors import preprocess, postprocess
+from processors import preprocess, postprocess, split_word_components
 
 # import call method from subprocess module
 from subprocess import call
@@ -114,7 +114,10 @@ def main():
                     show_vh_help(fst)
                     show_vh_intro(fst)
                     continue
-                process_yes_or_no, word_as_list = preprocess(word, fst)
+                word, prefix_as_list, stem_as_list, suffix_as_list = \
+                    split_word_components(word)
+                process_yes_or_no, word_as_list = \
+                    preprocess(word, prefix_as_list, stem_as_list, suffix_as_list, fst)
                 if process_yes_or_no:
                     final = fst.step(word_as_list)
                     final_word = postprocess(final, fst)

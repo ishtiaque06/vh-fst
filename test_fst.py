@@ -1,11 +1,15 @@
 from vh_fst import FST
 from vh_patterns_dataset import vh_dataset
-from processors import preprocess, postprocess
+from processors import preprocess, postprocess, split_word_components
 from unicode_variable_repr import *
 
 def run_test_on_strings(input_list, output_list, object):
     for i in range(len(input_list)):
-        proceed, preprocessed = preprocess(input_list[i], object)
+        string = input_list[i]
+        word_as_list, prefix_as_list, stem_as_list, suffix_as_list = \
+            split_word_components(string)
+        proceed, preprocessed = \
+            preprocess(word_as_list, prefix_as_list, stem_as_list, suffix_as_list, object)
         if proceed:
             assert output_list[i] == postprocess(object.step(preprocessed), object)
         else:
@@ -82,7 +86,7 @@ def test_jingulu():
     assert object.left_subseq == language['left_subseq']
     assert object.name == "Jingulu nominal root with non-neuter gender suffix"
 
-    input_list = ["", "w a r k u -rny", "a n k i l a -rny", "a n k i l a -ra"]
+    input_list = ["", "w a r k u -rny", "a n k i l a -r n y", "a n k i l a -r a"]
     output_list = ["", "warkurny", "ankilarny", "ankilara"]
     run_test_on_strings(input_list, output_list, object)
 
@@ -140,9 +144,42 @@ def test_uyghur_dative():
     assert object.preprocess_req == language['preprocess_req']
     assert object.postprocess_req == language['postprocess_req']
     assert object.left_subseq == language['left_subseq']
-    assert object.name == 'Uyghur dative suffix'+U_F_V+'V'
+    assert object.name == 'Uyghur dative suffix -'+U_F_V+'V'
 
     input_list = ["", "y t a v v", "y t o v v", "u d i v v", "i g o t i l u r"]
     output_list = ["", "ytaga", "yt"+F_M_R_T+"ga", "udi"+U_F_V+B_L_U_NT,
         "igotil"+U_F_V+B_L_U_NT]
+    run_test_on_strings(input_list, output_list, object)
+
+def test_kalmyk():
+    object = FST(17)
+    language = vh_dataset[17]
+    assert object.states == language['states']
+    assert object.alphabet == language['alphabet']
+    assert object.transitions == language['transitions']
+    assert object.preprocess_req == language['preprocess_req']
+    assert object.postprocess_req == language['postprocess_req']
+    assert object.left_subseq == language['left_subseq']
+    assert object.name == 'Kalmyk (Oirat) harmony'
+
+    input_list = ['',
+                    't i i m i',
+                    't i i m i - t a n',
+                    't i m y - t e',
+                    't i m y - t o',
+                    't o m i m y',
+                    't a m - e '+F_M_R_T,
+                    't a m + e '+F_M_R_T,
+                    'e + t a m - o',
+                 ]
+    output_list = ['',
+                    'tiimi',
+                    'tiimit'+F_L_U_T+'n',
+                    'timyt'+F_M_R_T,
+                    'timyt'+F_M_R_T,
+                    'tomimu',
+                    'tamoo',
+                    'tamoo',
+                    'etæmø'
+                    ]
     run_test_on_strings(input_list, output_list, object)
