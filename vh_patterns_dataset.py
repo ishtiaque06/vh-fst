@@ -22,7 +22,9 @@ vh_dataset={1:
                         (1, 'e'): ('e', 2), (1, 'o'): ('o', 2),
                         (2, '?'): ('?', 2), (2, 'e'): ('e', 2),
                         (2, 'o'): ('o', 2), (2, 'i'): ('i', 1),
-                        (2, 'u'): ('u', 1)},
+                        (2, 'u'): ('u', 1),
+                        (0, B_L_U_NT): (B_L_U_NT, 0), (1, B_L_U_NT): (B_L_U_NT, 1),
+                        (2, B_L_U_NT): (B_L_U_NT, 2)},
                     'preprocess_req': True,
                     'postprocess_req': False,
                     'left_subseq': True,
@@ -44,7 +46,11 @@ vh_dataset={1:
                     'alphabet': ['u','o',B_L_U_NT,'e','i'],
                     'transitions': {(0, '?'): ('?', 0), (0, 'u'): ('u', 1),
                         (0, 'o'): ('o', 2), (2, 'u'): ('u', 1), (1, 'o'): ('o', 2),
-                        (1, '?'): ('?', 1),(2, '?'): ('?', 2)},
+                        (1, '?'): ('?', 1),(2, '?'): ('?', 2),
+                        (0, 'e'): ('e', 0), (1, 'e'): ('e', 1), (2, 'e'): ('e', 2),
+                        (0, 'i'): ('i', 0), (1, 'i'): ('i', 1), (2, 'i'): ('i', 2),
+                        (0, B_L_U_NT): (B_L_U_NT, 0), (1, B_L_U_NT): (B_L_U_NT, 1),
+                        (2, B_L_U_NT): (B_L_U_NT, 2},
                     'preprocess_req': True,
                     'postprocess_req': False,
                     'left_subseq': True,
@@ -52,7 +58,7 @@ vh_dataset={1:
                     'preprocess_dets':None ,
                     'postprocess_dets':None ,
                     'admin_notes': ['remove last 3 chars for preprocessing'],
-                    'notes':[B_L_U_NT+'is transparent vowel'] 
+                    'notes':[B_L_U_NT+'is transparent vowel'],
                     'harmony_feature':['Height'],
                     'sc':True,
                     'dr':False,
@@ -81,7 +87,7 @@ vh_dataset={1:
                     'preprocess_dets':None ,
                     'postprocess_dets':None ,
                     'notes': ['Rounding is relevant',
-                        'As an aside, suffixal velar Cs become uvular if a' 
+                        'As an aside, suffixal velar Cs become uvular if a'
                          'non-high vowel appears in the stem',
                         'No neutral vowels'],
                     'harmony_feature':['Labial'],
@@ -206,7 +212,7 @@ vh_dataset={1:
                 },
             7: #needs preprocessing with 5P
                 {
-                    'name': 'Uyghur dative suffix'+U_F_V+'V',
+                    'name': 'Uyghur dative suffix -'+U_F_V+'V',
                     'states': {0: U_F_V+B_L_U_NT,1:'ga',2:U_F_V+B_L_U_NT},
                     'alphabet': ['i','y','u','e',F_M_R_T,'a','o',B_L_U_NT],
                     'transitions': {(0,'?'):('?',0), (1,'?'):('?',1),(2,'?'):('?',2),
@@ -224,7 +230,7 @@ vh_dataset={1:
                     'hyphenate_suffix': False,
                     'preprocess_dets': 'Preprocess by removing last two characters'
                         ' and then running this shortened input through FST with 5P as parameters',
-                    'postprocess_dets': None, 
+                    'postprocess_dets': None,
                     'notes': ['DOES NOT WORK FOR DISHARMONIC LOAN WORDS',
                             'Backness harmonizes','i and e are transparent neutral vowels',
                             '[+back] default for the suffix',
@@ -270,7 +276,8 @@ vh_dataset={1:
                         (3,'a'):('a',3), (3,'o'):('e',3),(3,B_M_R_NT):('a',3), (0,'e'):('e',1),(0,'a'):('a',1),(0,'o'):('o',2),
                         (0,B_M_R_NT):(B_M_R_NT,2), (1,'u'):('u',3),(1,B_H_R_NT):(B_H_R_NT,3),(2,B_H_R_NT):(B_H_R_NT,3),
                         (1,'e'):('e',1),(1,'a'):('a',1),(2,'o'):('o',2),(2,B_M_R_NT):(B_M_R_NT,2), (1,'o'):('e',1),
-                        (1,B_M_R_NT):('a',1),(2,'e'):('o',2),(2,'a'):(B_M_R_NT,2), (2,'u'):('u',3), (2,'i'):('i',2)},
+                        (1,B_M_R_NT):('a',1),(2,'e'):('o',2),(2,'a'):(B_M_R_NT,2), (2,'u'):('u',3), (2,'i'):('i',2),
+                        (0, 'i'): ('i', 0),(1,'i'):('i', 1), (3,'i'):('i',3)},
                     'preprocess_req': True,
                     'postprocess_req': False,
                     'left_subseq': True,
@@ -474,7 +481,7 @@ vh_dataset={1:
                     'postprocess_dets':None ,
                     'notes': ['extinct language','front/backness harmonizes progressively','i is transparent',
                         'compounded words may constitute multiple harmonic domains, meaning this FST MAY NOT BE VALID FOR COMPOUNDED WORDS',
-                        '/a/ and /e/ are treated as archiphonemes, despite /a/ in its traditional representation differing multifeaturally from /e/']
+                        '/a/ and /e/ are treated as archiphonemes, despite /a/ in its traditional representation differing multifeaturally from /e/'],
                     'harmony_feature':['Palatal'],
                     'sc':True,
                     'dr':False,
@@ -506,7 +513,7 @@ vh_dataset={1:
                 {
                     'name': 'Kalmyk (Oirat) harmony',
                     'states': {0:'',1:'',2:'',3:'',4:''},
-                    'alphabet': ['i','e','y',F_M_R_T,'u','a','o',F_L_U_T], 
+                    'alphabet': ['i','e','y',F_M_R_T,'u','a','o',F_L_U_T],
                     'transitions': {(0,'?'):('?',0),(0,'i'):('i',0),(0,'a'):('a',4),
                                    (0,'y'):('y',1),(0,F_M_R_T):(F_M_R_T,1),(0,'e'):('e',2),
                                    (0,F_L_U_T):(F_L_U_T,2),(0,'o'):('o',3),(0,'u'):('u',3),
@@ -528,122 +535,19 @@ vh_dataset={1:
                     'hyphenate_suffix': True, #instruct user to hyphenate suffix if there is in fact a suffix in the input
                     'preprocess_dets':"If there is a suffix, user should hyphenate like so for input: s t e m - s u f f i x; If /i/ is the only vowel that appears in the stem, input the stem into 17P, the output is then the untouched stem with the 17P output suffix; Otherwise (if there is a non-/i/ vowel in the stem), remove the hyphen and run the entire output through FST 17, return output",
                     'postprocess_dets':None,
-                    'notes': ['Mongolic language','front/backness harmonizes progressively','progressive stem-control labial harmony','i is transparent, except when it is the only vowel in the stem, in which case it triggers suffixal front-harmonization',
-                        'Key assumptions that were made despite lack of data: I assumed that rounded vowels only trigger rounding harmony if they are the first vowel in the word; additionally, I assumed that /e/ back-harmonizes to /o/' , 'Acoustic analysis by *[Frelinger, 2016](https://people.umass.edu/scable/LING404-SP16/Kalmyk/Student-Projects/Frelinger.pdf) , although necessarily preliminary and inconclusive, suggests that labial harmony is not so defined in Oirat; because this contradicts the prevalent perspective, however, such did not inform this FST']
-                    'harmony_feature':['Palatal','Labial'],
-                    'sc':True,
-                    'dr':False,
-                    'transparent':['i for Palatal and Labial, unless i is the only stem vowel'],
-                    'opaque':None
-                },
-            18:
-                {
-                    'name': 'Khalkha Mongolian harmony',
-                    'states': {0:'',1:'',2:'',3:'',4:''},
-                    'alphabet': ['i','e','u',B_H_R_NT,'a','o',B_M_R_NT], 
-                    'transitions': {(0,'?'):('?',0),(0,'i'):('i',0),
-                                   (0,B_M_R_NT):(B_M_R_NT,1),(0,'o'):('o',2),(0,'a'):('a',3),
-                                   (0,B_H_R_NT):(B_H_R_NT,3),(0,'e'):('e',4),(0,'u'):('u',4),
-                                   (1,'?'):('?',1),(1,'i'):('i',1),(1,B_H_R_NT):(B_H_R_NT,3),
-                                   (1,'u'):('u',4),(1,B_M_R_NT):(B_M_R_NT,1),(1,'a'):(B_M_R_NT,1),
-                                   (1,'e'):(B_M_R_NT,1),(1,'o'):(B_M_R_NT,1),
-                                   (2,'?'):('?',2),(2,'i'):('i',2),(2,B_H_R_NT):(B_H_R_NT,3),
-                                   (2,'u'):('u',4),(2,B_M_R_NT):('o',2),(2,'o'):('o',2),
-                                   (2,'e'):('o',2),(2,'a'):('o',2),
-                                   (3,'?'):('?',3),(3,'i'):('i',3),(3,'a'):('a',3),
-                                   (3,'e'):('a',3),(3,'o'):('a',3),(3,B_M_R_NT):('a',3),
-                                   (3,'u'):(B_H_R_NT,3),(3,B_H_R_NT):(B_H_R_NT,3),
-                                   (4,'?'):('?',4),(4,'i'):('i',4),(4,'e'):('e',4),
-                                   (4,'o'):('e',4),(4,'a'):('e',4),(4,B_M_R_NT):('e',4),
-                                   (4,'u'):('u',4),(4,B_H_R_NT):('u',4)},
-                    'preprocess_req': False,
-                    'postprocess_req': False,
-                    'left_subseq': True,
-                    'hyphenate_suffix': False,
-                    'preprocess_dets':None,
-                    'postprocess_dets':None,
-                    'notes': ['Mongolic language','Progressive ATR/RTR and labial harmony','i is transparent for both types of harmony','/u,'+B_H_R_NT+'/ block [+labial] spreading such that following vowels are [-labial]','I did not find data of the form a...B_M_R_NT or e...o, so I assumed [-Labial] spreads progressively, just as [+Labial does]']
-                    'harmony_feature':['ATR/RTR','Labial'],
-                    'sc':True,
-                    'dr':False,
-                    'transparent':['/i/ for ATR/RTR and Labial'],
-                    'opaque':['/u, B_H_R_NT/ are blockers for [+labial], all that follows is [-labial]']
-                },
-            19:
-                {
-                    'name': 'Dagur Mongolian harmony',
-                    'states': {0:'',1:'',2:'',3:''},
-                    'alphabet': ['i',schwa,'u','a',B_M_R_NT], 
-                    'transitions': {(0,'?'):('?',0),(0,'i'):('i',0),
-                                   (0,B_M_R_NT):(B_M_R_NT,1),(0,schwa):(schwa,2),(0,'u'):('u',2),
-                                   (0,'a'):('a',3),
-                                   (1,'?'):('?',1),(1,'i'):('i',1),(1,B_M_R_NT):(B_M_R_NT,1),
-                                   (1,schwa):(B_M_R_NT,1),(1,'a'):(B_M_R_NT,1),(1,'u'):(B_M_R_NT,1),
-                                   (2,'?'):('?',2),(2,'i'):('i',2),(2,schwa):(schwa,2),(2,'u'):('u',2),
-                                   (2,'a'):(schwa,2),(2,B_M_R_NT):('u',2),
-                                   (3,'?'):('?',3),(3,'i'):('i',3),(B_M_R_NT3,'a'):('a',3),(3,schwa):('a',3),
-                                   (3,'u'):(B_M_R_NT,3),(3,B_M_R_NT):(B_M_R_NT,3)}
-                    'preprocess_req': False,
-                    'postprocess_req': False,
-                    'left_subseq': True,
-                    'hyphenate_suffix': False,
-                    'preprocess_dets':None,
-                    'postprocess_dets':None,
-                    'notes': ['Mongolic language','Progressive ATR/RTR and labial harmony','i is transparent for both types of harmony','only'+ B_M_R_NT+' triggers [+labial] harmonization','I did not find a sequence of [a...B_M_R_NT], so I assume that [a] triggers [-labial] harmony, but such is unconfirmed']
-                    'harmony_feature':['ATR/RTR','Labial'],
-                    'sc':True,
-                    'dr':False,
-                    'transparent':['/i/ for ATR/RTR and Labial'],
-                    'opaque':None
-                },
-            20:
-                {
-                    'name': 'Tunica harmony',
-                    'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',10:'',11:'',12:''},
-                    'alphabet': ['i','e',F_M_U_NT,'u','o',B_M_R_NT,B_L_U_NT,'h',G_P_VL], 
-                    'transitions': {(0,'?'):('?',0),(0,G_P_VL):(G_P_VL,0),(0,'h'):('h',0),(0,B_L_U_NT):(B_L_U_NT,0),
-                                   (2,'?'):('?',0),(0,'i'):('',1),(1,'?'):('i?',0),(1,G_P_VL):('i'+G_P_VL,2),
-                                   (1,'h'):('ih',2),(1,'i'):('',1),(1,'e'):('',3),(1,F_M_U_NT):('',5),
-                                   (1,B_L_U_NT):('',5),(1,'u'):('',1),(1,'o'):('',3),(1,B_M_R_NT):('',5),
-                                   (2,'i'):('',1),(2,'e'):('',3),(2,F_M_U_NT):('',5),(2,B_L_U_NT):('',5),
-                                   (2,'u'):('',1),(2,'o'):('',3),(2,B_M_R_NT):('',5),(3,'i'):('',1),
-                                   (3,'e'):('',3),(3,F_M_U_NT):('',5),(3,B_L_U_NT):('',5),(3,'u'):('',1),
-                                   (3,'o'):('',3),(3,B_M_R_NT):('',5),(4,'i'):('',1),(4,'e'):('',3),
-                                   (4,F_M_U_NT):('',5),(4,B_L_U_NT):('',5),(4,'u'):('',1),(4,'o'):('',3),
-                                   (4,B_M_R_NT):('',5),(5,'i'):('',1),(5,'e'):('',3),(5,F_M_U_NT):('',5),
-                                   (5,B_L_U_NT):('',5),(5,'u'):('',1),(5,'o'):('',3),(5,B_M_R_NT):('',5),
-                                   (6,'i'):('',1),(6,'e'):('',3),(6,F_M_U_NT):('',5),(6,B_L_U_NT):('',5),
-                                   (6,'u'):('',1),(6,'o'):('',3),(6,B_M_R_NT):('',5),(7,'u'):('',7),
-                                   (7,'o'):('',9),(7,B_M_R_NT):('',11),(7,'i'):('',7),(7,'e'):('',9),
-                                   (7,F_M_U_NT):('',11),(7,B_L_U_NT):('',11),(8,'u'):('',7),(8,'o'):('',9),
-                                   (8,B_M_R_NT):('',11),(8,'i'):('',7),(8,'e'):('',9),(8,F_M_U_NT):('',11),
-                                   (8,B_L_U_NT):('',11),(9,'u'):('',7),(9,'o'):('',9),(9,B_M_R_NT):('',11),
-                                   (9,'i'):('',7),(9,'e'):('',9),(9,F_M_U_NT):('',11),(9,B_L_U_NT):('',11),
-                                   (10,'u'):('',7),(10,'o'):('',9),(10,B_M_R_NT):('',11),(10,'i'):('',7),
-                                   (10,'e'):('',9),(10,F_M_U_NT):('',11),(10,B_L_U_NT):('',11),(11,'u'):('',7),
-                                   (11,'o'):('',9),(11,B_M_R_NT):('',11),(11,'i'):('',7),(11,'e'):('',9),
-                                   (11,F_M_U_NT):('',11),(11,B_L_U_NT):('',11),(12,'u'):('',7),(12,'o'):('',9),
-                                   (12,B_M_R_NT):('',11),(12,'i'):('',7),(12,'e'):('',9),(12,F_M_U_NT):('',11),
-                                   (12,B_L_U_NT):('',11),(4,'?'):('?',0),(0,'e'):('',3),(3,'?'):('e?',0),
-                                   (3,G_P_VL):('e'+G_P_VL,4),(3,'h'):('eh',4),(6,'?'):('?',0),
-                                   (0,F_M_U_NT):('',5),(5,'?'):(F_M_U_NT+'?',0),(5,G_P_VL):(F_M_U_NT+G_P_VL,6),
-                                   (5,'h'):(F_M_U_NT+'h',6),(8,'?'):('?',0),(0,'u'):('',7),(7,'?'):('u?',0),
-                                   (7,G_P_VL):('u'+G_P_VL,8),(7,'h'):('uh',8),(10,'?'):('?',0),(0,'o'):('',9),
-                                   (9,'?'):('o?',0),(9,G_P_VL):('o'+G_P_VL,10),(9,'h'):('oh',10),(12,'?'):('?',0),
-                                   (0,B_M_R_NT):('',11),(11,'?'):(B_M_R_NT+'?',0),(11,G_P_VL):(B_M_R_NT+G_P_VL,12),
-                                   (11,'h'):(B_M_R_NT+'h',12) #118
-                                   },
-                    'preprocess_req': False,
-                    'postprocess_req': False,
-                    'left_subseq': True,
-                    'hyphenate_suffix': False,
-                    'preprocess_dets':None,
-                    'postprocess_dets':None,
-                    'notes': ['Front/backness and roundness harmonize progressively','harmonization is blocked by all consonants, except pharyngeals, which are transparent','vowels cannot appear consecutively, thus deletion of initial trigger vowels occurs in sequences of two adjacent vowels','this FST incorporates deletion of first vowel in sequences of two vowels, it cannot process sequences of 3+ vowels properly, but it is assumed such sequences would never manifest']
-                    'harmony_feature':['Palatal','Labial'],
-                    'sc':False,
-                    'dr':False,
-                    'transparent':None,
-                    'opaque':None
+                    'notes': ['Mongolic language; front/backness harmonizes progressively;'
+                        ' progressive stem-control labial harmony; '
+                        'i is transparent, except when it is the only vowel in the stem, '
+                        'in which case it triggers suffixal front-harmonization',
+                        'Key assumptions that were made despite lack of data: '
+                        'I assumed that rounded vowels only trigger rounding harmony '
+                        'if they are the first vowel in the word; '
+                        'additionally, I assumed that /e/ back-harmonizes to /o/',
+                        'Acoustic analysis by '
+                        '*[Frelinger, 2016](https://people.umass.edu/scable/LING404-SP16/Kalmyk/Student-Projects/Frelinger.pdf) ,'
+                        ' although necessarily preliminary and inconclusive, suggests that '
+                        'labial harmony is not so defined in Oirat; because this contradicts '
+                        'the prevalent perspective, however, such did not inform this FST'],
+                    'harmony_type':['Palatal','Labial']
                 },
              }

@@ -115,18 +115,18 @@ C_M_U_NT=uc(0x025C)
 C_M_R_NT=uc(0x025E)
 B_M_U_NT=uc(0x028C)
 B_M_R_NT=uc(0x0254)
-F_L_UR_T=uc(0x00E6)
+F_L_U_T=uc(0x00E6)
 C_L_R_T=uc(0x0250)
 C_L_R_NT=uc(0x0276)
 B_L_U_NT=uc(0x0251)
 B_L_R_NT=uc(0x0252)
-L_F_H_U_T='i'+uc(0x02D0)
-L_F_H_R_T='y'+uc(0x02D0)
-L_B_H_R_T='u'+uc(0x02D0)
-L_F_M_U_T='e'+uc(0x02D0)
-L_F_M_R_T=uc(0x00F8)+uc(0x02D0)
-L_B_M_R_T='o'+uc(0x02D0)
-L_C_L_U_NT='a'+uc(0x02D0) #a:
+Long_F_H_U_T='i'+uc(0x02D0)
+Long_F_H_R_T='y'+uc(0x02D0)
+Long_B_H_R_T='u'+uc(0x02D0)
+Long_F_M_U_T='e'+uc(0x02D0)
+Long_F_M_R_T=uc(0x00F8)+uc(0x02D0)
+Long_B_M_R_T='o'+uc(0x02D0)
+Long_C_L_U_NT='a'+uc(0x02D0) #a:
 
 # To print in help menu
 vowels_as_dict = {
@@ -145,16 +145,16 @@ vowels_as_dict = {
     'C_M_R_NT': C_M_R_NT,
     'B_M_U_NT': B_M_U_NT,
     'B_M_R_NT': B_M_R_NT,
-    'F_L_UR_T': F_L_UR_T,
+    'F_L_U_T': F_L_U_T,
     'C_L_R_T': C_L_R_T,
     'C_L_R_NT': C_L_R_NT,
     'B_L_U_NT': B_L_U_NT,
     'B_L_R_NT': B_L_R_NT,
-    'L_F_H_U_T':L_F_H_U_T
-    'L_F_H_R_T':L_F_H_R_T
-    'L_B_H_R_T':L_B_H_R_T
-    'L_F_M_U_T':L_F_M_U_T
-    'L_F_M_R_T':L_F_M_R_T
-    'L_B_M_R_T':L_B_M_R_T
-    'L_C_L_U_NT':L_C_L_U_NT
+    'Long_F_H_U_T':Long_F_H_U_T,
+    'Long_F_H_R_T':Long_F_H_R_T,
+    'Long_B_H_R_T':Long_B_H_R_T,
+    'Long_F_M_U_T':Long_F_M_U_T,
+    'Long_F_M_R_T':Long_F_M_R_T,
+    'Long_B_M_R_T':Long_B_M_R_T,
+    'Long_C_L_U_NT':Long_C_L_U_NT,
 }
