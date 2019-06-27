@@ -2,7 +2,7 @@
 
 This FST class is designed to be able generate expected pronunciations of
 words in a certain set of vowel harmony patterns that exist in natural languages. Many of these languages and their vowel-harmony
-patterns are described in Andrew Nevins' book [Locality in Vowel Harmony](https://mitpress.mit.edu/books/locality-vowel-harmony).
+patterns are described in Andrew Nevins' book [Locality in Vowel Harmony](https://mitpress.mit.edu/books/locality-vowel-harmony) or Rachel Walker and Sharon Rose's [Harmony Systems](http://idiom.ucsd.edu/~rose/RoseWalkerHarmonysystemsch8.pdf).
 
 This project is the collaborative summer project of Travis Herringshaw and Ahmed Ishtiaque,
 under the supervision of Professor Jane Chandlee at Haverford College.
@@ -179,3 +179,9 @@ where `B_L_U_NT` stands for `ɑ`, the "Back Low Unrounded Not Tense (Lax)" vowel
 * [Hungarian Vowel Harmony by M. Torkenczy](https://onlinelibrary.wiley.com/doi/full/10.1002/9781444335262.wbctp0123)
 * [Vowel Contrast and Vowel Harmony Shift in the Mongolic Languages by Seongyeon Ko](http://qcpages.qc.cuny.edu/~sko/papers/Ko_2011_VHshift.in.Mong_LanguageResearch47-1.pdf)
 * [Vowel Harmony in Kalmyk by M. Frelinger](http://qcpages.qc.cuny.edu/~sko/papers/Ko_2011_VHshift.in.Mong_LanguageResearch47-1.pdf)
+* [Opaque Intervention in Khalka Mongolian Vowel Harmony:A Contrastive Account by Ross Godfrey](https://www.mcgill.ca/mcgwpl/files/mcgwpl/godfrey2012_0.pdf)
+* [Vowel Harmony in Khalka Mongolian, Yaka, Finnish and Hungarian by John Goldsmith](https://www.jstor.org/stable/4419959?seq=1#metadata_info_tab_contents)
+* [Vowel Geometry by David Odden](https://www.jstor.org/stable/pdf/4420037.pdf?refreqid=excelsior%3A9481819c7e1f122e7ed5677ef2736172)
+* [Vowel Harmony and Correspondence Theory by M. Kramer](https://www.degruyter.com/view/product/178609)
+* [Yoruba Vowel Harmony by Diana Archangeli](https://www.researchgate.net/publication/265303973_Yoruba_Vowel_Harmony)
+* [A Grammar of Yoruba by Ayo Bamgbose](https://books.google.com/books?hl=en&lr=&id=q20vW6-CmHAC&oi=fnd&pg=PR9&dq=bamgbose+ayo&ots=nLWuEdfsdY&sig=-tuHA5iS8S37cb28lIrXORMlwVs#v=onepage&q&f=false)
