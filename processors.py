@@ -1,5 +1,6 @@
 from unicode_variable_repr import *
 from vh_fst import FST
+from vh_patterns_dataset import vh_dataset
 
 
 '''AI--------------------------------------------------------------------------
@@ -37,7 +38,8 @@ def preprocess(
         elif fst.name in {"Uyghur backness harmony",
             "Uyghur plural suffix -lVr", 'Uyghur dative suffix -'+U_F_V+'V'}:
             # run the preprocess step
-            preliminary_fst = FST('5P')
+            preliminary_language = vh_dataset['5P']
+            preliminary_fst = FST(preliminary_language)
             if fst.name == "Uyghur backness harmony":
                 return True, preliminary_fst.step(word_as_list)
             elif fst.name == "Uyghur plural suffix -lVr":
@@ -48,7 +50,8 @@ def preprocess(
                 return True, preliminary_fst.step(word_as_list)
         elif fst.name == "Halh (Mongolic) rounding harmony":
             # run the preprocess step
-            preliminary_fst = FST('8P')
+            preliminary_language = vh_dataset['8P']
+            preliminary_fst = FST(preliminary_language)
             return True, preliminary_fst.step(word_as_list)
 
         elif fst.name == "Kalmyk (Oirat) harmony":
@@ -68,7 +71,8 @@ def preprocess(
             if vowels_in_stem.intersection(alphabet_as_set) != {'i'}:
                 return True, word_as_list
             else:
-                preliminary_fst = FST('17P')
+                preliminary_language = vh_dataset['17P']
+                preliminary_fst = FST(preliminary_language)
                 fst.suffix = preliminary_fst.step(suffix_as_list)
                 return False, stem_as_list + fst.suffix
 

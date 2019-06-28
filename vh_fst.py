@@ -1,33 +1,36 @@
-from vh_patterns_dataset import vh_dataset
-
-'''AI--------------------------------------------------------------------------
-
-    =====================================================================
-    FST class to map words in a set of languages to their expected vowel
-    pronunciations
-    =====================================================================
-
-    Attributes:
-        states:  <list> of tuples: (state_label, string_to_attach)
-        alphabet: <list> of relevant letters in the language (most likely vowels)
-        transitions: <tuple>(start_state, input_string, output_string, next_state)
-        left_subseq: <boolean> (Is the FST left-subsequential? If not, right sub)
-        preprocess_req: <boolean> Preprocessing required on input?
-        postprocess_req: <boolean> Postprocessing required on input?
-        self.name: <str> Type of vowel-harmony pattern this FST represents
-
-
-    Methods:
-        step:
-            Input: <list>: input word
-            Output: <list>: final word (before postprocessing) after transitions
-                have been applied.
---------------------------------------------------------------------------AI'''
 class FST:
+    """
+    Finite State Transducer.
 
-    def __init__(self, num):
+    This is class to transform strings in a formal language to a potentially different ones
+    given a set of states and transitions. This is quite the general-purpose FST,
+    and is designed to work with any language given the parameters in :code:`__init__` method.
 
-        language = vh_dataset[num]
+    The target of this project is to use this FST to computationally model vowel-harmony patterns.
+
+    *Notes.* Even though it's not much more than a general-purpose FST, its attributes
+    :code:`left_subseq`, :code:`preprocess_req` and :code:`postprocess_req`
+    are tied to the :code:`preprocess` and :code:`postprocess` functions in the :code:`processors.py`
+    module. Since these are booleans, having them initialized as :code:`False` for a general-purpose
+    FST class would be enough.
+    """
+
+    def __init__(self, language):
+        """
+            Object initialization method.
+
+            * Input: :code:`<dict>`: Takes in a dictionary containing following attributes:
+                * :code:`states``:  :code:`<list>` of tuples: (state_label, string_to_attach)
+                * :code:`alphabet`: :code:`<list>` of relevant letters in the language (most likely vowels)
+                * :code:`transitions`: :code:`<tuple>` (start_state, input_string, output_string, next_state)
+                * :code:`name`: :code:`<str>` Type of vowel-harmony pattern this FST represents
+                * :code:`left_subseq`: :code:`<boolean>` (Is the FST left-subsequential? If not, right sub)
+                * :code:`preprocess_req`: :code:`<boolean>` Preprocessing required on input?
+                * :code:`postprocess_req`: :code:`<boolean>` Postprocessing required on input?
+            * Output: :code:`<None>`
+
+        """
+
         self.name = language['name']
         self.states =  language['states']
         self.alphabet = language['alphabet']
@@ -35,9 +38,16 @@ class FST:
         self.left_subseq = language['left_subseq']
         self.preprocess_req = language['preprocess_req']
         self.postprocess_req = language['postprocess_req']
-        self.hyphenate_suffix = language['hyphenate_suffix']
 
     def step(self, word_as_list):
+        """
+            Runs the FST given a word represented as a list.
+
+            * Input: :code:`<list>`: input word
+            * Output: :code:`<list>`: final word (before postprocessing) after
+              transitions have been applied.
+        """
+
         if word_as_list == []:
             return []
         output_list = []

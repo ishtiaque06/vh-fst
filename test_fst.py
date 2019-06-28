@@ -16,14 +16,11 @@ def run_test_on_strings(input_list, output_list, object):
             assert output_list[i] == "".join(preprocessed)
 
 def test_kisa_applicative():
-    object = FST(1)
     kisa_app = vh_dataset[1]
+    object = FST(kisa_app)
     assert object.states == kisa_app['states']
     assert object.alphabet == kisa_app['alphabet']
     assert object.transitions == kisa_app['transitions']
-    assert object.preprocess_req == kisa_app['preprocess_req']
-    assert object.postprocess_req == kisa_app['postprocess_req']
-    assert object.left_subseq == kisa_app['left_subseq']
     assert object.name == "Kisa applicative suffix Vlɑ"
 
     input_list = ["t s o m i l a", "r e k e l a", "b i s i l a", "", "b o b i s i l a"]
@@ -31,8 +28,8 @@ def test_kisa_applicative():
     run_test_on_strings(input_list, output_list, object)
 
 def test_kisa_reversative():
-    object = FST(2)
     kisa_rev = vh_dataset[2]
+    object = FST(kisa_rev)
     assert object.states == kisa_rev['states']
     assert object.alphabet == kisa_rev['alphabet']
     assert object.transitions == kisa_rev['transitions']
@@ -46,8 +43,8 @@ def test_kisa_reversative():
     run_test_on_strings(input_list, output_list, object)
 
 def test_sibe_vowel_rounding():
-    object = FST(3)
     sibe = vh_dataset[3]
+    object = FST(sibe)
     assert object.states == sibe['states']
     assert object.alphabet == sibe['alphabet']
     assert object.transitions == sibe['transitions']
@@ -61,8 +58,8 @@ def test_sibe_vowel_rounding():
     run_test_on_strings(input_list, output_list, object)
 
 def test_tuvan():
-    object = FST(4)
     language = vh_dataset[4]
+    object = FST(language)
     assert object.states == language['states']
     assert object.alphabet == language['alphabet']
     assert object.transitions == language['transitions']
@@ -76,8 +73,8 @@ def test_tuvan():
     run_test_on_strings(input_list, output_list, object)
 
 def test_jingulu():
-    object = FST(9)
     language = vh_dataset[9]
+    object = FST(language)
     assert object.states == language['states']
     assert object.alphabet == language['alphabet']
     assert object.transitions == language['transitions']
@@ -91,8 +88,8 @@ def test_jingulu():
     run_test_on_strings(input_list, output_list, object)
 
 def test_hahl():
-    object = FST(8)
     language = vh_dataset[8]
+    object = FST(language)
     assert object.states == language['states']
     assert object.alphabet == language['alphabet']
     assert object.transitions == language['transitions']
@@ -106,8 +103,8 @@ def test_hahl():
     run_test_on_strings(input_list, output_list, object)
 
 def test_uyghur_back():
-    object = FST(5)
     language = vh_dataset[5]
+    object = FST(language)
     assert object.states == language['states']
     assert object.alphabet == language['alphabet']
     assert object.transitions == language['transitions']
@@ -121,8 +118,8 @@ def test_uyghur_back():
     run_test_on_strings(input_list, output_list, object)
 
 def test_uyghur_plural():
-    object = FST(6)
     language = vh_dataset[6]
+    object = FST(language)
     assert object.states == language['states']
     assert object.alphabet == language['alphabet']
     assert object.transitions == language['transitions']
@@ -136,8 +133,8 @@ def test_uyghur_plural():
     run_test_on_strings(input_list, output_list, object)
 
 def test_uyghur_dative():
-    object = FST(7)
     language = vh_dataset[7]
+    object = FST(language)
     assert object.states == language['states']
     assert object.alphabet == language['alphabet']
     assert object.transitions == language['transitions']
@@ -152,8 +149,8 @@ def test_uyghur_dative():
     run_test_on_strings(input_list, output_list, object)
 
 def test_kalmyk():
-    object = FST(17)
     language = vh_dataset[17]
+    object = FST(language)
     assert object.states == language['states']
     assert object.alphabet == language['alphabet']
     assert object.transitions == language['transitions']

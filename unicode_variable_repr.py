@@ -90,7 +90,7 @@ cons_as_dict = {
 }
 
 
-'''VOWELS. (long/)front/back_high/low_rounding_tense;long:L=long;
+'''VOWELS. (long/)front/back_high/low_rounding_tense;long:Long=long;
 
     front/back: F=+front,-back, B=-front,+back, C=-front,-back;
 
