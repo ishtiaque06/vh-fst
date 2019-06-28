@@ -727,4 +727,47 @@ vh_dataset={1:
                     'transparent':['/a/','/i,u/ in prefixes'],
                     'opaque':None
                 },
+            22:
+                {
+                    'name': 'Igbo ATR harmony',
+                    'states': {0:'',1:'',2:'',3:'',4:''},
+                    'alphabet': ['i','u','a','e','o','I',B_H_R_NT,B_M_R_NT,'+','-'], 
+                    'transitions': {(0,'?'):('?',0),
+                                   },
+                    'preprocess_req': False,
+                    'postprocess_req': True,
+                    'left_subseq': True, #with 21B, is technically bidirectional
+                    'plus_prefix':True,
+                    'hyphenate_suffix': True,
+                    'preprocess_dets':'',
+                    'postprocess_dets':'',
+                    'notes': ['',],
+                    'harmony_feature':['ATR/RTR'],
+                    'sc':True,
+                    'dr':False,
+                    'transparent':None,
+                    'opaque':None,
+              
+                }, 
+            '22B':
+                {
+                    'name': 'Igbo ATR harmony second direction',
+                    'states': {0:'',1:'',2:'',3:'',4:''},
+                    'alphabet': ['i','u','a','e','o','I',B_H_R_NT,B_M_R_NT,'+','-'], 
+                    'transitions': {(0,'?'):('?',0),
+                                   },
+                    'preprocess_req': True,
+                    'postprocess_req': True,
+                    'left_subseq': False, #with 21B, is technically bidirectional
+                    'plus_prefix':True,
+                    'hyphenate_suffix': True,
+                    'preprocess_dets':'',
+                    'postprocess_dets':'',
+                    'notes': ['',],
+                    'harmony_feature':['ATR/RTR'],
+                    'sc':True,
+                    'dr':False,
+                    'transparent':None,
+                    'opaque':None,
+                },                                   
              }
