@@ -185,3 +185,6 @@ where `B_L_U_NT` stands for `ɑ`, the "Back Low Unrounded Not Tense (Lax)" vowel
 * [Vowel Harmony and Correspondence Theory by M. Kramer](https://www.degruyter.com/view/product/178609)
 * [Yoruba Vowel Harmony by Diana Archangeli](https://www.researchgate.net/publication/265303973_Yoruba_Vowel_Harmony)
 * [A Grammar of Yoruba by Ayo Bamgbose](https://books.google.com/books?hl=en&lr=&id=q20vW6-CmHAC&oi=fnd&pg=PR9&dq=bamgbose+ayo&ots=nLWuEdfsdY&sig=-tuHA5iS8S37cb28lIrXORMlwVs#v=onepage&q&f=false)
+* [Kalenjin phonology and morphology: A further exemplification of underspecification and
+non-destructive phonology by Ken Lodge](http://www.ai.mit.edu/projects/dm/featgeom/lodge-kalenjin.pdf)
+* [VOWEL HARMONY IN IGBO AND DIOLA-FOGNY by Catherine O. Ringen](https://journals.linguisticsociety.org/elanguage/sal/article/download/1064/1064-2224-1-PB.pdf)
