@@ -81,6 +81,12 @@ def gv_to_svg(fst_name):
 
 if __name__ == "__main__":
     import sys
+    if len(sys.argv) == 1:
+        print ("Usage: python3 utils.py [command]")
+        print ("Commands:")
+        print("  diagram_all\tOutputs GraphViz and SVG representations of all VH patterns\n"
+              "                present in the current dataset file.")
+        exit(0)
     if sys.argv[1] == "diagram_all":
         from vh_patterns_dataset import vh_dataset
         from unicode_variable_repr import *
