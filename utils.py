@@ -103,4 +103,4 @@ if __name__ == "__main__":
 Takes in a rule of form A->B/C_D and creates an FST from that rule.
 --------------------------------------------------------------------------AI'''
 def spe_to_fst():
-    pass
+    
