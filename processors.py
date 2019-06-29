@@ -128,6 +128,9 @@ def convert_chars_to_unicode(lst):
     Given a space-delimited string, return prefix, suffix, stem and word
     Input: <type 'string'>
     Output: <type 'list' x4>
+
+    TODO: first "-" should indicate start of prefix
+    TODO: last "+" should indicate end of prefix
 --------------------------------------------------------------------------AI'''
 def split_word_components(string):
     if string.count("+") > 1 or string.count("-") > 1:

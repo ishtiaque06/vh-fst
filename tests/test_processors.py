@@ -1,8 +1,3 @@
-# Import parent module for testing
-import os, sys
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-
 from vh_fst import FST
 from vh_patterns_dataset import vh_dataset
 from processors import (
