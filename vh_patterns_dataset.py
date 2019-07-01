@@ -814,5 +814,27 @@ vh_dataset={1:
                     'dr':True,
                     'transparent':None,
                     'opaque':None,
-                },                                                    
+                },
+           ''' '24':
+                {
+                    'name': 'Kalenjin ATR harmony',
+                    'states': {0:'',1:''},
+                    'alphabet': ['i','u',C_L_U_T,'e','o','I',B_H_R_NT,B_M_R_NT,'a',F_M_U_NT], 
+                    'transitions': {(0,'?'):('?',0),
+                                   },
+                    'preprocess_req': True,
+                    'postprocess_req': True,
+                    'left_subseq': None,
+                    'bidir_subseq':True,
+                    'plus_prefix':True,
+                    'hyphenate_suffix': True,
+                    'preprocess_dets':'',
+                    'postprocess_dets':'',
+                    'notes':[''],
+                    'harmony_feature':['ATR/RTR'],
+                    'sc':False,
+                    'dr':False,
+                    'transparent':None,
+                    'opaque':['Vowels within non-alternating morphemes are treated as opaque, triggering a new harmonic domain, perpetuating their own [ATR] feature until another non-alternating morpheme is encountered'],
+                },    '''                                     
              }
