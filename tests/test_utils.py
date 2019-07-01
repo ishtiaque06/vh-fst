@@ -25,6 +25,13 @@ def test_spe_to_fst_a_b_c_d():
     assert object.transitions == transitions
     assert object.alphabet == alphabet
 
+    assert "".join(object.step(list(""))) == ""
+    assert "".join(object.step(list("wqcdpo"))) == "wqcdpo"
+    assert "".join(object.step(list("qpcadoi"))) == "qpcbdoi"
+    assert "".join(object.step(list("cadcadcadcad"))) == "cbdcbdcbdcbd"
+    assert "".join(object.step(list("cacacacad"))) == "cacacacbd"
+
+
 def test_spe_to_fst_a_b_cd_ef():
     alphabet = {'a', 'b', 'c', 'd', 'e', 'f'}
     states = {0: '', 1: 'c', 2: 'cd', 3: 'cda', 4: 'cdae'}
@@ -69,3 +76,13 @@ def test_spe_to_fst_a_b_cd_ef():
     assert object.states == states
     assert object.transitions == transitions
     assert object.alphabet == alphabet
+
+    assert "".join(object.step(list("pcqwe"))) == "pcqwe"
+    assert "".join(object.step(list("pcdqwe"))) == "pcdqwe"
+    assert "".join(object.step(list("pcdaqwe"))) == "pcdaqwe"
+    assert "".join(object.step(list("pcdaeqwe"))) == "pcdaeqwe"
+    assert "".join(object.step(list("pcdaeqqwe"))) == "pcdaeqqwe"
+    assert "".join(object.step(list("pcdaefqwe"))) == "pcdbefqwe"
+
+def test_spe_to_fst_a_b_c_empty():
+    object = spe_to_fst("a", "b", "c", "")

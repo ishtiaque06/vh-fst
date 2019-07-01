@@ -58,8 +58,8 @@ class FST:
                 letter = '?'
             output_letter, next_state = self.transitions[(current_state, letter)]
             current_state = next_state
-            if output_letter == '?':
-                output_list.append(word_as_list[0])
+            if '?' in output_letter:
+                output_list.append(output_letter.replace("?", word_as_list[0]))
             else:
                 output_list.append(output_letter)
             word_as_list = word_as_list[1:]
