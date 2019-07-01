@@ -20,9 +20,9 @@ class FST:
             Object initialization method.
 
             * Input: :code:`<dict>`: Takes in a dictionary containing following attributes:
-                * :code:`states``:  :code:`<list>` of tuples: (state_label, string_to_attach)
-                * :code:`alphabet`: :code:`<list>` of relevant letters in the language (most likely vowels)
-                * :code:`transitions`: :code:`<tuple>` (start_state, input_string, output_string, next_state)
+                * :code:`states``:  :code:`<dict>` of tuples: (state_label, string_to_attach)
+                * :code:`alphabet`: :code:`<dict>` of relevant letters in the language (most likely vowels)
+                * :code:`transitions`: :code:`<dict>` (start_state, input_string, output_string, next_state)
                 * :code:`name`: :code:`<str>` Type of vowel-harmony pattern this FST represents
                 * :code:`left_subseq`: :code:`<boolean>` (Is the FST left-subsequential? If not, right sub)
                 * :code:`preprocess_req`: :code:`<boolean>` Preprocessing required on input?
