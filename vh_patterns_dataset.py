@@ -738,7 +738,7 @@ vh_dataset={1:
                                    },
                     'preprocess_req': False,
                     'postprocess_req': True,
-                    'left_subseq': True, #with 22B, is technically bidirectional
+                    'left_subseq': None, #with 22B, is technically bidirectional
                     'bidir_subseq':True,
                     'plus_prefix':True,
                     'hyphenate_suffix': True,
