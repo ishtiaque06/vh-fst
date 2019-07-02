@@ -836,5 +836,6 @@ vh_dataset={1:
                     'dr':False,
                     'transparent':None,
                     'opaque':['Vowels within non-alternating morphemes are treated as opaque, triggering a new harmonic domain, perpetuating their own [ATR] feature until another non-alternating morpheme is encountered'],
-                },    '''                                     
+                    'exceptional/non-alternating morphemes': []
+               },    '''                                     
              }
