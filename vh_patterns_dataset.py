@@ -819,7 +819,7 @@ vh_dataset={1:
                 {
                     'name': 'Kalenjin ATR harmony',
                     'states': {0:'',1:''},
-                    'alphabet': ['i','u',C_L_U_T,'e','o','I',B_H_R_NT,B_M_R_NT,'a',F_M_U_NT], 
+                    'alphabet': ['i',Long_F_H_U_T,'u',Long_B_H_R_T,C_L_U_T,Long_C_L_U_T,'e',Long_F_M_U_T,'o',Long_B_M_R_T,'I',Long_F_H_U_NT,B_H_R_NT,Long_B_H_R_NT,B_M_R_NT,Long_B_M_R_NT,'a',Long_C_L_U_NT,F_M_U_NT,Long_F_M_U_NT], 
                     'transitions': {(0,'?'):('?',0),
                                    },
                     'preprocess_req': True,
@@ -836,6 +836,7 @@ vh_dataset={1:
                     'dr':False,
                     'transparent':None,
                     'opaque':['Vowels within non-alternating morphemes are treated as opaque, triggering a new harmonic domain, perpetuating their own [ATR] feature until another non-alternating morpheme is encountered'],
-                    'exceptional/non-alternating morphemes': []
+                    'n-a_suffixes': [], #add ! at start of suffix (between - and the morpheme; ex: -!kej)
+                    'n-a_roots': ['k'+Long_F_M_U_T+'r',] #add ! at end of root (ex: un!),
                },    '''                                     
              }
