@@ -79,25 +79,6 @@ def gv_to_svg(fst_name):
     os.chdir("..")
     return
 
-if __name__ == "__main__":
-    import sys
-    if len(sys.argv) == 1:
-        print ("Usage: python3 utils.py [command]")
-        print ("Commands:")
-        print("  diagram_all\tOutputs GraphViz and SVG representations of all VH patterns\n"
-              "                present in the current dataset file.")
-        exit(0)
-    if sys.argv[1] == "diagram_all":
-        from vh_patterns_dataset import vh_dataset
-        from unicode_variable_repr import *
-        for i in range(len(vh_dataset)):
-            try:
-                object = FST(i)
-                fst_to_gv(object)
-                gv_to_svg(object.name)
-            except Exception as e:
-                print(e)
-
 def increasing_prefixes(string):
     """
         Helper function. Takes in a string and returns list of
@@ -135,6 +116,13 @@ def spe_to_fst(A, B, C, D):
     string_to_build = C + A + D
     string_states_list = increasing_prefixes(string_to_build)
     states = dict([(i, string_states_list[i]) for i in range(len(string_states_list) - 1)])
+    if C == '':
+        sink_state = f"{len(string_states_list) - 1}, <sink>"
+
+        # The below value is needed because after all letters are run through
+        # the FST, it's supposed to append the last state's associated string
+        # to the output word.
+        states[sink_state] = ''
     transitions = {}
     '''
         Three iterations needed. After the first part is over and second part
@@ -148,31 +136,44 @@ def spe_to_fst(A, B, C, D):
     no_of_states = len(string_states_list)
     for i in range(no_of_states - 1): # iterate till state before last state
         # Before reaching the character to replace
-        last_ch_next_state = string_states_list[i + 1][-1]
+        last_ch_of_next_state = string_states_list[i + 1][-1]
 
         stored_string = string_to_build[len(C):i]
-        transitions[(i, '?')] = (stored_string + '?', 0)
 
-        excluded_set = set([last_ch_next_state, C[0]])
-        for letter in alphabet.difference(excluded_set):
-            transitions[(i, letter)] = (stored_string + letter, 0)
-        if len(excluded_set) != 1:
-            transitions[(i, C[0])] = (stored_string + C[0], 1)
+        # Process letters not in alphabet
+        if C == '':
+            transitions[(i, '?')] = (stored_string + '?', sink_state)
+            excluded_set = set(last_ch_of_next_state)
+            for letter in alphabet.difference(excluded_set):
+                transitions[(i, letter)] = \
+                    (stored_string + letter, sink_state)
+        else:
+            transitions[(i, '?')] = (stored_string + '?', 0)
+            excluded_set = set([last_ch_of_next_state, C[0]])
+            for letter in alphabet.difference(excluded_set):
+                transitions[(i, letter)] = (stored_string + letter, 0)
+            if len(excluded_set) != 1:
+                transitions[(i, C[0])] = (stored_string + C[0], 1)
 
         if i < len(C):
-            transitions[(i, last_ch_next_state)] = (last_ch_next_state, i+1)
+            transitions[(i, last_ch_of_next_state)] = (last_ch_of_next_state, i+1)
         else:
             # Final transition. This finishes the change in string.
             if i+1 == no_of_states - 1:
-                if stored_string[0] == A and string_states_list[i + 1] == string_to_build:
+                if (stored_string[0] == A) and \
+                        (string_states_list[i + 1] == string_to_build):
                     stored_string = B + stored_string[1:]
+                if C == '':
+                    transitions[(i, last_ch_of_next_state)] = (stored_string
+                        + last_ch_of_next_state, sink_state)
+                    transitions[(sink_state, '?')] = ('?', sink_state)
+                    for letter in alphabet:
+                        transitions[(sink_state, letter)] = (letter, sink_state)
                 else:
-                    raise ValueError(f"The stored string's first letter isn't {A}. "
-                        f"The implementation of this function is probably faulty.")
-                transitions[(i, last_ch_next_state)] = (stored_string
-                                                        + last_ch_next_state, 0)
+                    transitions[(i, last_ch_of_next_state)] = (stored_string
+                        + last_ch_of_next_state, 0)
             else:
-                transitions[(i, last_ch_next_state)] = ('', i+1)
+                transitions[(i, last_ch_of_next_state)] = ('', i+1)
     name = f"{A} -> {B} / {C}_{D}"
     left_subseq = True
     preprocess_req = False
@@ -188,3 +189,22 @@ def spe_to_fst(A, B, C, D):
     }
     fst = FST(dictionary)
     return fst
+
+if __name__ == "__main__":
+    import sys
+    if len(sys.argv) == 1:
+        print ("Usage: python3 utils.py [command]")
+        print ("Commands:")
+        print("  diagram_all\tOutputs GraphViz and SVG representations of all VH patterns\n"
+              "                present in the current dataset file.")
+        exit(0)
+    if sys.argv[1] == "diagram_all":
+        from vh_patterns_dataset import vh_dataset
+        from unicode_variable_repr import *
+        for i in range(len(vh_dataset)):
+            try:
+                object = FST(i)
+                fst_to_gv(object)
+                gv_to_svg(object.name)
+            except Exception as e:
+                print(e)

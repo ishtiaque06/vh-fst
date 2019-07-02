@@ -63,5 +63,6 @@ class FST:
             else:
                 output_list.append(output_letter)
             word_as_list = word_as_list[1:]
+        # Append the last state's string to the final word
         output_list.append(self.states[current_state])
         return output_list
