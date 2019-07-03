@@ -836,7 +836,7 @@ vh_dataset={1:
                     'dr':False,
                     'transparent':None,
                     'opaque':['Vowels within non-alternating morphemes are treated as opaque, triggering a new harmonic domain, perpetuating their own [ATR] feature until another non-alternating morpheme is encountered'],
-                    'n-a_suffixes': [], #add ! at start of suffix (between - and the morpheme; ex: -!kej)
-                    'n-a_roots': ['k'+Long_F_M_U_T+'r',] #add ! at end of root (ex: un!),
+                    'n-a_suff': ['-e','-'+P_N_V+Long_C_L_U_T,'-'+A_LF_VL+'u','-'+A_LF_VL+Long_C_L_U_T+'k','-n'+Long_C_L_U_T,'-'+A_LF_VL+Long_C_L_U_T,'-kej','-k'+Long_C_L_U_NT,'-kaj','-'+A_LF_VL+'w'+Long_C_L_U_NT+'k','-k'+Long_F_M_U_NT], #add ! at start of suffix (before -; ex: !-kej)
+                    'n-a_r&pre': ['k'+Long_F_M_U_T+'r','ma+','un',V_N_V+'et','kol',V_N_V+Long_F_M_U_NT+'t','k'+B_M_R_NT+'l'] #add ! at end of root or prefix (ex: un!; ma+!),
                },    '''                                     
              }
