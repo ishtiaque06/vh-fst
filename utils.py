@@ -100,7 +100,7 @@ def spe_to_fst(A, B, C, D):
         * a / b -> c_d (ex. qwertcaduiop -> qwertcbduiop)
         * TODO: a / b -> #_c (ex. aceuio -> bceuio)
         * TODO: a / b -> c_# (ex. qwertca -> qwertcb)
-        * TODO: a / b -> _c  (ex. qwertacqeacee -> qwertbcqubcee)
+        * a / b -> _c  (ex. qwertacqeacee -> qwertbcqubcee)
         * TODO: a / b -> c_  (ex. qwertcaqwecauio -> qwertcbqwecbuio)
 
         * Input:
@@ -125,15 +125,6 @@ def spe_to_fst(A, B, C, D):
     states = dict([(i, string_states_list[i]) for i in range(len(string_states_list) - 1)])
 
     transitions = {}
-    '''
-        Three iterations needed. After the first part is over and second part
-        starts, start holding on to the current string and outputting nothing.
-        If at each subsequent state, the FST is to step forward, keep holding
-        the string and output lambda (empty string). Else, check if the letter that
-        breaks the flow is in the alphabet. If it is, find the largest numbered
-        state with that letter in the end and go there. Else, go to state 0 and
-        start from there.
-    '''
     no_of_states = len(string_states_list)
     for i in range(no_of_states - 1): # iterate till state before last state
         # Before reaching the character to replace
@@ -155,25 +146,28 @@ def spe_to_fst(A, B, C, D):
         else:
             # Final transition. This finishes the change in string.
             if i+1 == no_of_states - 1:
-                if (stored_string[0] == A) and \
-                        (string_states_list[i + 1] == string_to_build):
+                if (string_states_list[i + 1] == string_to_build):
                     stored_string = B + stored_string[1:]
-                transitions[(i, last_ch_of_next_state)] = (stored_string
-                    + last_ch_of_next_state, 0)
+
+                # If D is empty, then the last character doesn't need to be added
+                if D != '':
+                    transitions[(i, last_ch_of_next_state)] = (stored_string
+                        + last_ch_of_next_state, 0)
+                else:
+                    transitions[(i, last_ch_of_next_state)] = (stored_string, 0)
             else:
                 transitions[(i, last_ch_of_next_state)] = ('', i+1)
+
+    # Add properties required to initiate the class
     name = f"{A} -> {B} / {C}_{D}"
-    left_subseq = True
-    preprocess_req = False
-    postprocess_req = False
+    spe_generated = True
+
     dictionary = {
         'name': name,
         'states': states,
         'alphabet': alphabet,
-        'left_subseq': left_subseq,
-        'preprocess_req': preprocess_req,
-        'postprocess_req': postprocess_req,
-        'transitions': transitions
+        'transitions': transitions,
+        'spe_generated': spe_generated
     }
     fst = FST(dictionary)
     return fst
