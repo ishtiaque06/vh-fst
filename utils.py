@@ -97,11 +97,12 @@ def spe_to_fst(A, B, C, D):
         Takes in a rule of form A->B/C_D and creates an FST from that rule.
 
         Following are the types of rules covered by this generator:
+
         * a / b -> c_d (ex. qwertcaduiop -> qwertcbduiop)
         * TODO: a / b -> #_c (ex. aceuio -> bceuio)
         * TODO: a / b -> c_# (ex. qwertca -> qwertcb)
         * a / b -> _c  (ex. qwertacqeacee -> qwertbcqubcee)
-        * TODO: a / b -> c_  (ex. qwertcaqwecauio -> qwertcbqwecbuio)
+        * a / b -> c\_  (ex. qwertcaqwecauio -> qwertcbqwecbuio)
 
         * Input:
             * A: :code:`<type 'str'>`: The letter to change
@@ -109,7 +110,7 @@ def spe_to_fst(A, B, C, D):
             * C: :code:`<type 'str'>`: First part of env in which 'a' changes to 'b'
             * D: :code:`<type 'str'>`: Second part of env in which 'a' changes to 'b'
         * Output:
-            * FST: :code:`<type 'FST'>`: An FST object from the vh_fst.FST class.
+            * FST: :code:`<type 'FST'>`: An FST object from the :code:`vh_fst.FST` class.
     """
     args_to_self = locals()
     alphabet = set()
@@ -160,14 +161,13 @@ def spe_to_fst(A, B, C, D):
 
     # Add properties required to initiate the class
     name = f"{A} -> {B} / {C}_{D}"
-    spe_generated = True
 
     dictionary = {
         'name': name,
         'states': states,
         'alphabet': alphabet,
         'transitions': transitions,
-        'spe_generated': spe_generated
+        'spe_generated': True
     }
     fst = FST(dictionary)
     return fst

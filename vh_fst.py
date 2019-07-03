@@ -30,7 +30,7 @@ class FST:
                     * :code:`preprocess_req`: :code:`<boolean>` Preprocessing required on input?
                     * :code:`postprocess_req`: :code:`<boolean>` Postprocessing required on input?
                     * :code:`spe_generated`: :code:`<boolean>` If this is False then the string associated with
-                        the last state is added to the final output.
+                      the last state is added to the final output.
             * Output: :code:`<None>`
 
         """
