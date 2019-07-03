@@ -707,7 +707,7 @@ vh_dataset={1:
                     'plus_prefix':True,
                     'bidir_subseq':False,
                     'hyphenate_suffix': False,
-                    'preprocess_dets':'Need entire input entered (i.e., prefix+suffix as a whole if there is a prefix),Reverse the input before processing with FST',
+                    'preprocess_dets':'Need entire input entered (i.e., prefix+root as a whole if there is a prefix),Reverse the input before processing with FST',
                     'postprocess_dets':'Reverse the output before returning to user',
                     'notes': ['Yoruba lacks suffices','Vowel inventory reference: A Grammar of Yoruba by Ayo Bamgbose','primary reference: Yoruba Vowel Harmony by Diana Archangeli (DA)', 'Regressive ATR', 'harmony differs somewhat between disyllabic contexts and contexts with more than 2 syllables','DA seems to suggest that /e/ or /o/ cannot precede /a/, but this does not seem to reliably be the case in the data, therefore this FST treats /a/ like a transparent vowel, rather than a [-ATR] trigger like DA seemingly posits','mid vowels trigger [+-ATR] harmony','high vowels /i,u/ seem to reset the harmony domain in non-disyllabic monomorphemic stems, so they are treated as opaque blockers in stems; I treat them as transparent vowels in prefixes, however, but this may be a tenuous assertion and should be subject to scrutiny','DA indicates that in sequences of MHM, wherein M=mid vowel and H=high vowel and in which consonants can separate the vowels, the first M MUST be [+ATR]; while I found this not to be the case in some words (e.g., foruk[back,mid,round,lax,-ATR]sil[front,mid,unrounded,lax,-ATR], ib[F_M_U_NT]rubojo), I adopted this assessment and incorporated it into the FST; this relationship does not seem to be the case for multiple high vowels between mid vowels (i.e., MHHM), nor do high vowels seem to ensure [+ATR] upon harmonic reset in all contexts','/i,u,a/, although not triggers in the stem, can trigger [ATR] characterization of the prefix; the first vowel of the stem triggers the ATR harmony of the prefix such that [+ATR] vowels /i,u,e,o/trigger [+ATR] harmony of the prefix, while the other [-ATR] vowels trigger [-ATR] harmony'],
                     'harmony_feature':['ATR/RTR'],
@@ -815,7 +815,7 @@ vh_dataset={1:
                     'transparent':None,
                     'opaque':None,
                 },
-           ''' '24':
+            '24':
                 {
                     'name': 'Kalenjin ATR harmony',
                     'states': {0:'',1:''},
@@ -838,5 +838,5 @@ vh_dataset={1:
                     'opaque':['Vowels within non-alternating morphemes are treated as opaque, triggering a new harmonic domain, perpetuating their own [ATR] feature until another non-alternating morpheme is encountered'],
                     'n-a_suff': ['-e','-'+P_N_V+Long_C_L_U_T,'-'+A_LF_VL+'u','-'+A_LF_VL+Long_C_L_U_T+'k','-n'+Long_C_L_U_T,'-'+A_LF_VL+Long_C_L_U_T,'-kej','-k'+Long_C_L_U_NT,'-kaj','-'+A_LF_VL+'w'+Long_C_L_U_NT+'k','-k'+Long_F_M_U_NT], #add ! at start of suffix (before -; ex: !-kej)
                     'n-a_r&pre': ['k'+Long_F_M_U_T+'r','ma+','un',V_N_V+'et','kol',V_N_V+Long_F_M_U_NT+'t','k'+B_M_R_NT+'l'] #add ! at end of root or prefix (ex: un!; ma+!),
-               },    '''                                     
+               },                                       
              }
