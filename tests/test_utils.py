@@ -100,28 +100,23 @@ def test_spe_to_fst_a_b_cd_ef():
 
 def test_spe_to_fst_a_b_empty_cd():
     alphabet = {'a', 'b', 'c', 'd'}
-    states = {0: '', 1: 'a', 2: 'ac', '3, <sink>': ''}
+    states = {0: '', 1: 'a', 2: 'ac'}
     transitions = {
-        (0, '?'): ('?', '3, <sink>'),
+        (0, '?'): ('?', 0),
         (0, 'a'): ('', 1),
-        (0, 'b'): ('b', '3, <sink>'),
-        (0, 'c'): ('c', '3, <sink>'),
-        (0, 'd'): ('d', '3, <sink>'),
-        (1, '?'): ('a?', '3, <sink>'),
-        (1, 'a'): ('aa', '3, <sink>'),
-        (1, 'b'): ('ab', '3, <sink>'),
+        (0, 'b'): ('b', 0),
+        (0, 'c'): ('c', 0),
+        (0, 'd'): ('d', 0),
+        (1, '?'): ('a?', 0),
+        (1, 'a'): ('aa', 1),
+        (1, 'b'): ('ab', 0),
         (1, 'c'): ('', 2),
-        (1, 'd'): ('ad', '3, <sink>'),
-        (2, '?'): ('ac?', '3, <sink>'),
-        (2, 'a'): ('aca', '3, <sink>'),
-        (2, 'b'): ('acb', '3, <sink>'),
-        (2, 'c'): ('acc', '3, <sink>'),
-        (2, 'd'): ('bcd', '3, <sink>'),
-        ('3, <sink>', '?'): ('?', '3, <sink>'),
-        ('3, <sink>', 'a'): ('a', '3, <sink>'),
-        ('3, <sink>', 'b'): ('b', '3, <sink>'),
-        ('3, <sink>', 'c'): ('c', '3, <sink>'),
-        ('3, <sink>', 'd'): ('d', '3, <sink>'),
+        (1, 'd'): ('ad', 0),
+        (2, '?'): ('ac?', 0),
+        (2, 'a'): ('aca', 1),
+        (2, 'b'): ('acb', 0),
+        (2, 'c'): ('acc', 0),
+        (2, 'd'): ('bcd', 0),
     }
     object = spe_to_fst("a", "b", "", "cd")
     assert object.states == states
@@ -144,7 +139,7 @@ def test_spe_to_fst_a_b_empty_cd():
         "",
         "bcd",
         "bcd",
-        "qwertyuiopacd",
+        "qwertyuiopbcd",
         "awe",
         "acipiqp",
         "qwertyuiop",

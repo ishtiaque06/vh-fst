@@ -96,6 +96,13 @@ def spe_to_fst(A, B, C, D):
     """
         Takes in a rule of form A->B/C_D and creates an FST from that rule.
 
+        Following are the types of rules covered by this generator:
+        * a / b -> c_d (ex. qwertcaduiop -> qwertcbduiop)
+        * TODO: a / b -> #_c (ex. aceuio -> bceuio)
+        * TODO: a / b -> c_# (ex. qwertca -> qwertcb)
+        * TODO: a / b -> _c  (ex. qwertacqeacee -> qwertbcqubcee)
+        * TODO: a / b -> c_  (ex. qwertcaqwecauio -> qwertcbqwecbuio)
+
         * Input:
             * A: :code:`<type 'str'>`: The letter to change
             * B: :code:`<type 'str'>`: The letter to change to
@@ -116,13 +123,7 @@ def spe_to_fst(A, B, C, D):
     string_to_build = C + A + D
     string_states_list = increasing_prefixes(string_to_build)
     states = dict([(i, string_states_list[i]) for i in range(len(string_states_list) - 1)])
-    if C == '':
-        sink_state = f"{len(string_states_list) - 1}, <sink>"
 
-        # The below value is needed because after all letters are run through
-        # the FST, it's supposed to append the last state's associated string
-        # to the output word.
-        states[sink_state] = ''
     transitions = {}
     '''
         Three iterations needed. After the first part is over and second part
@@ -141,19 +142,13 @@ def spe_to_fst(A, B, C, D):
         stored_string = string_to_build[len(C):i]
 
         # Process letters not in alphabet
-        if C == '':
-            transitions[(i, '?')] = (stored_string + '?', sink_state)
-            excluded_set = set(last_ch_of_next_state)
-            for letter in alphabet.difference(excluded_set):
-                transitions[(i, letter)] = \
-                    (stored_string + letter, sink_state)
-        else:
-            transitions[(i, '?')] = (stored_string + '?', 0)
-            excluded_set = set([last_ch_of_next_state, C[0]])
-            for letter in alphabet.difference(excluded_set):
-                transitions[(i, letter)] = (stored_string + letter, 0)
-            if len(excluded_set) != 1:
-                transitions[(i, C[0])] = (stored_string + C[0], 1)
+
+        transitions[(i, '?')] = (stored_string + '?', 0)
+        excluded_set = set([last_ch_of_next_state, string_to_build[0]])
+        for letter in alphabet.difference(excluded_set):
+            transitions[(i, letter)] = (stored_string + letter, 0)
+        if len(excluded_set) != 1:
+            transitions[(i, string_to_build[0])] = (stored_string + string_to_build[0], 1)
 
         if i < len(C):
             transitions[(i, last_ch_of_next_state)] = (last_ch_of_next_state, i+1)
@@ -163,15 +158,8 @@ def spe_to_fst(A, B, C, D):
                 if (stored_string[0] == A) and \
                         (string_states_list[i + 1] == string_to_build):
                     stored_string = B + stored_string[1:]
-                if C == '':
-                    transitions[(i, last_ch_of_next_state)] = (stored_string
-                        + last_ch_of_next_state, sink_state)
-                    transitions[(sink_state, '?')] = ('?', sink_state)
-                    for letter in alphabet:
-                        transitions[(sink_state, letter)] = (letter, sink_state)
-                else:
-                    transitions[(i, last_ch_of_next_state)] = (stored_string
-                        + last_ch_of_next_state, 0)
+                transitions[(i, last_ch_of_next_state)] = (stored_string
+                    + last_ch_of_next_state, 0)
             else:
                 transitions[(i, last_ch_of_next_state)] = ('', i+1)
     name = f"{A} -> {B} / {C}_{D}"
