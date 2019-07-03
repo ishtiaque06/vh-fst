@@ -828,15 +828,40 @@ vh_dataset={1:
                     'bidir_subseq':True,
                     'plus_prefix':True,
                     'hyphenate_suffix': True,
-                    'preprocess_dets':'',
-                    'postprocess_dets':'',
+                    'preprocess_dets':'For each individual prefix (form: pre+), root, suffix (form: -suffix), if in n-a_suff value, add '&' to beginning (ex: &-suffix)/elif in n-a_r&pre value, add '!' to end (ex: root!, prefix+!); Isolate joining of all prefixes, root, and the very first suffix (ex: pre+pre+root-suf); Reverse this - such is the input to this FST 24',
+                    'postprocess_dets':'Reverse the output, The processed prefixes will be the first part of the final output; take the processed root from this and join it with all of the suffixes in the initial input --such is the input for FST 24B',
                     'notes':[''],
                     'harmony_feature':['ATR/RTR'],
                     'sc':False,
                     'dr':False,
                     'transparent':None,
                     'opaque':['Vowels within non-alternating morphemes are treated as opaque, triggering a new harmonic domain, perpetuating their own [ATR] feature until another non-alternating morpheme is encountered'],
-                    'n-a_suff': ['-e','-'+P_N_V+Long_C_L_U_T,'-'+A_LF_VL+'u','-'+A_LF_VL+Long_C_L_U_T+'k','-n'+Long_C_L_U_T,'-'+A_LF_VL+Long_C_L_U_T,'-kej','-k'+Long_C_L_U_NT,'-kaj','-'+A_LF_VL+'w'+Long_C_L_U_NT+'k','-k'+Long_F_M_U_NT], #add ! at start of suffix (before -; ex: !-kej)
+                    'n-a_suff': ['-e','-'+P_N_V+Long_C_L_U_T,'-'+A_LF_VL+'u','-'+A_LF_VL+Long_C_L_U_T+'k','-n'+Long_C_L_U_T,'-'+A_LF_VL+Long_C_L_U_T,'-kej','-k'+Long_C_L_U_NT,'-kaj','-'+A_LF_VL+'w'+Long_C_L_U_NT+'k','-k'+Long_F_M_U_NT], #add '&' at start of suffix (before -; ex: &-kej)
+                    'n-a_r&pre': ['k'+Long_F_M_U_T+'r','ma+','un',V_N_V+'et','kol',V_N_V+Long_F_M_U_NT+'t','k'+B_M_R_NT+'l'] #add ! at end of root or prefix (ex: un!; ma+!),
+               }, 
+           '24B':
+                {
+                    'name': 'Kalenjin ATR harmony 2nd run',
+                    'states': {0:'',1:''},
+                    'alphabet': ['i',Long_F_H_U_T,'u',Long_B_H_R_T,C_L_U_T,Long_C_L_U_T,'e',Long_F_M_U_T,'o',Long_B_M_R_T,'I',Long_F_H_U_NT,B_H_R_NT,Long_B_H_R_NT,B_M_R_NT,Long_B_M_R_NT,'a',Long_C_L_U_NT,F_M_U_NT,Long_F_M_U_NT], 
+                    'transitions': {(0,'?'):('?',0),
+                                   },
+                    'preprocess_req': True,
+                    'postprocess_req': True,
+                    'left_subseq': None,
+                    'bidir_subseq':False,
+                    'plus_prefix':True,
+                    'hyphenate_suffix': True,
+                    'preprocess_dets':'Should have already been run through 24 (with all the additional processing noted there',
+                    'postprocess_dets':'Combine processed prefixes from 24 with the output of this (24B); Remove all '!' and '&' from this string, this is the final output to the user',
+                    'notes':[''],
+                    'harmony_feature':['ATR/RTR'],
+                    'sc':False,
+                    'dr':False,
+                    'transparent':None,
+                    'opaque':['Vowels within non-alternating morphemes are treated as opaque, triggering a new harmonic domain, perpetuating their own [ATR] feature until another non-alternating morpheme is encountered'],
+                    'n-a_suff': ['-e','-'+P_N_V+Long_C_L_U_T,'-'+A_LF_VL+'u','-'+A_LF_VL+Long_C_L_U_T+'k','-n'+Long_C_L_U_T,'-'+A_LF_VL+Long_C_L_U_T,'-kej','-k'+Long_C_L_U_NT,'-kaj','-'+A_LF_VL+'w'+Long_C_L_U_NT+'k','-k'+Long_F_M_U_NT], #add '&' at start of suffix (before -; ex: &-kej)
                     'n-a_r&pre': ['k'+Long_F_M_U_T+'r','ma+','un',V_N_V+'et','kol',V_N_V+Long_F_M_U_NT+'t','k'+B_M_R_NT+'l'] #add ! at end of root or prefix (ex: un!; ma+!),
                },                                       
+               
              }
