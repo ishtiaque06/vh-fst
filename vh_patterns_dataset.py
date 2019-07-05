@@ -738,7 +738,7 @@ vh_dataset={1:
                                    },
                     'preprocess_req': False,
                     'postprocess_req': True,
-                    'left_subseq': None, #with 22B, is technically bidirectional
+                    'left_subseq': True, #with 22B, is technically bidirectional
                     'bidir_subseq':True,
                     'plus_prefix':True,
                     'hyphenate_suffix': True,
@@ -803,7 +803,7 @@ vh_dataset={1:
                                    },
                     'preprocess_req': False,
                     'postprocess_req': True,
-                    'left_subseq': None,
+                    'left_subseq': True,
                     'bidir_subseq':True,
                     'plus_prefix':True,
                     'hyphenate_suffix': True,
@@ -844,11 +844,11 @@ vh_dataset={1:
                                    },
                     'preprocess_req': True,
                     'postprocess_req': True,
-                    'left_subseq': None,
+                    'left_subseq': False,
                     'bidir_subseq':True,
                     'plus_prefix':True,
                     'hyphenate_suffix': True,
-                    'preprocess_dets':'For each individual prefix (form: pre+), root, suffix (form: -suffix), if in n-a_suff value, add '&' to beginning (ex: &-suffix)/elif in n-a_r&pre value, add '!' to end (ex: root!, prefix+!); Isolate joining of all prefixes, root, and the very first suffix (ex: pre+pre+root-suf); Reverse this - such is the input to this FST 24',
+                    'preprocess_dets':'For each individual prefix (form: pre+), root, suffix (form: -suffix), if in n-a_suff value, add "&" to beginning (ex: &-suffix)/elif in n-a_r&pre value, add '!' to end (ex: root!, prefix+!); Isolate joining of all prefixes, root, and the very first suffix (ex: pre+pre+root-suf); Reverse this - such is the input to this FST 24',
                     'postprocess_dets':'Reverse the output, The processed prefixes will be the first part of the final output; take the processed root from this and join it with all of the suffixes in the initial input --such is the input for FST 24B',
                     'notes':['ATR harmony','Length is contrastive for vowels','Vowels in prefixes and roots harmonize with vowels of morpheme to their right, Suffixes harmonize with vowels of morpheme to their left','There are alternating and non-alternating morphemes--non-alternating morphemes reset harmonic domain, trigger harmony with their own vowels (thus, vowels of non-alternating morphemes are opaque de facto)','While non-alternating morphemes with immutably [+ATR] vowels trigger [+ATR] harmony, I was unsure whether n-a morphemes with [-ATR] vowels also trigger [-ATR] harmony or simply block harmony; I assume they also trigger [-ATR] harmony for the sake of consistency amidst the equivocality'],
                     'harmony_feature':['ATR/RTR'],
@@ -887,7 +887,7 @@ vh_dataset={1:
                                    },
                     'preprocess_req': True,
                     'postprocess_req': True,
-                    'left_subseq': None,
+                    'left_subseq': True,
                     'bidir_subseq':False,
                     'plus_prefix':True,
                     'hyphenate_suffix': True,
@@ -899,8 +899,29 @@ vh_dataset={1:
                     'dr':False,
                     'transparent':None,
                     'opaque':['Vowels within non-alternating morphemes are treated as opaque, triggering a new harmonic domain, perpetuating their own [ATR] feature until another non-alternating morpheme is encountered'],
-                    'n-a_suff': ['-e','-'+P_N_V+Long_C_L_U_T,'-'+A_LF_VL+'u','-'+A_LF_VL+Long_C_L_U_T+'k','-n'+Long_C_L_U_T,'-'+A_LF_VL+Long_C_L_U_T,'-kej','-k'+Long_C_L_U_NT,'-kaj','-'+A_LF_VL+'w'+Long_C_L_U_NT+'k','-k'+Long_F_M_U_NT], #add '&' at start of suffix (before -; ex: &-kej)
-                    'n-a_r&pre': ['k'+Long_F_M_U_T+'r','ma+','un',V_N_V+'et','kol',V_N_V+Long_F_M_U_NT+'t','k'+B_M_R_NT+'l'] #add ! at end of root or prefix (ex: un!; ma+!),
+                    'n-a_suff': [['-','e'],['-',P_N_V,Long_C_L_U_T],['-',A_LF_VL,'u'],['-',A_LF_VL,Long_C_L_U_T,'k'],['-','n',Long_C_L_U_T],['-',A_LF_VL,Long_C_L_U_T],['-','k','e','j'],['-','k',Long_C_L_U_NT],['-','k','a','j'],['-',A_LF_VL,'w',Long_C_L_U_NT,'k'],['-','k',Long_F_M_U_NT]], #add '&' at start of suffix (before -; ex: &-kej)
+                    'n-a_r&pre': [['k',Long_F_M_U_T,'r'],['m','a','+'],['u','n',V_N_V,'e','t'],['k','o','l'],[V_N_V,Long_F_M_U_NT,'t'],['k',B_M_R_NT,'l']] #add ! at end of root or prefix (ex: un!; ma+!),
                },                                       
-               
+            25:
+                {
+                    'name': 'Asturian Lena (Romance) height harmony with inflectional suffixes',
+                    'states': {0:'',1:'',2:'',3:'',4:''},
+                    'alphabet': ['a','u','i','e','o',"'"],
+                    'transitions': {(0,'?'):('?',0), (0,'a'):('i',0),(0,'i'):('i',1), (0,'u'):('u',1),
+                        (1,'?'):('?',1),(1,'a'):('a',1),(1,'i'):('i',1),(1,'u'):('u',1)},
+                    'preprocess_req': True,
+                    'postprocess_req': True,
+                    'left_subseq': False,
+                    'bidir_subseq':False,
+                    'hyphenate_suffix': True, #Instruct user to insert a hyphen before the suffix (ex. input: r o o t - s u f wherein suf is the suffix)
+                    'preprocess_dets': "Entire user input (prefixes,stem, and suffixes; do not remove +s or -s) is needed as input here; reverse the input and enter it into this FST",
+                    'postprocess_dets':'Reverse the output',
+                    'notes': ['PLEASE INDICATE THAT A VOWEL IS STRESSED BY INCLUDING AN APOSTROPHE ("'") AFTER EACH STRESSED VOWEL (ex: kumpi"'"t)','THIS FST ASSUMES THAT AN INFLECTIONAL SUFFIX IS THE LAST MORPHEME IN THE OUTPUT; IT WILL BE WRONG IF THAT IS NOT THE CASE','[+high] harmonizes regressively from the ultimate vowel of an inflectional suffix','/u/ triggers harmony', 'only stressed vowels are targets of harmony','harmony targets the first stressed vowel within two vowels to the left of the trigger'
+                        ],
+                    'harmony_feature':['Height'],
+                    'sc':False,
+                    'dr':False,
+                    'transparent':['Unstressed vowels are transparent'],
+                    'opaque':None,
+                },    
              }
