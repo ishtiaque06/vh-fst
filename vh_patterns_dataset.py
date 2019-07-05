@@ -51,7 +51,7 @@ vh_dataset={1:
                         (0, 'e'): ('e', 0), (1, 'e'): ('e', 1), (2, 'e'): ('e', 2),
                         (0, 'i'): ('i', 0), (1, 'i'): ('i', 1), (2, 'i'): ('i', 2),
                         (0, B_L_U_NT): (B_L_U_NT, 0), (1, B_L_U_NT): (B_L_U_NT, 1),
-                        (2, B_L_U_NT): (B_L_U_NT, 2},
+                        (2, B_L_U_NT): (B_L_U_NT, 2)},
                     'preprocess_req': True,
                     'postprocess_req': False,
                     'left_subseq': True,
@@ -60,7 +60,7 @@ vh_dataset={1:
                     'preprocess_dets':None ,
                     'postprocess_dets':None ,
                     'admin_notes': ['remove last 3 chars for preprocessing'],
-                    'notes':[B_L_U_NT+', i, e are transparent vowels'] 
+                    'notes':[B_L_U_NT+', i, e are transparent vowels'],
                     'harmony_feature':['Height'],
                     'sc':True,
                     'dr':False,
@@ -567,7 +567,7 @@ vh_dataset={1:
                 {
                     'name': 'Khalkha Mongolian harmony',
                     'states': {0:'',1:'',2:'',3:'',4:''},
-                    'alphabet': ['i','e','u',B_H_R_NT,'a','o',B_M_R_NT], 
+                    'alphabet': ['i','e','u',B_H_R_NT,'a','o',B_M_R_NT],
                     'transitions': {(0,'?'):('?',0),(0,'i'):('i',0),
                                    (0,B_M_R_NT):(B_M_R_NT,1),(0,'o'):('o',2),(0,'a'):('a',3),
                                    (0,B_H_R_NT):(B_H_R_NT,3),(0,'e'):('e',4),(0,'u'):('u',4),
@@ -601,7 +601,7 @@ vh_dataset={1:
                 {
                     'name': 'Dagur Mongolian harmony',
                     'states': {0:'',1:'',2:'',3:''},
-                    'alphabet': ['i',schwa,'u','a',B_M_R_NT], 
+                    'alphabet': ['i',schwa,'u','a',B_M_R_NT],
                     'transitions': {(0,'?'):('?',0),(0,'i'):('i',0),
                                    (0,B_M_R_NT):(B_M_R_NT,1),(0,schwa):(schwa,2),(0,'u'):('u',2),
                                    (0,'a'):('a',3),
@@ -609,8 +609,8 @@ vh_dataset={1:
                                    (1,schwa):(B_M_R_NT,1),(1,'a'):(B_M_R_NT,1),(1,'u'):(B_M_R_NT,1),
                                    (2,'?'):('?',2),(2,'i'):('i',2),(2,schwa):(schwa,2),(2,'u'):('u',2),
                                    (2,'a'):(schwa,2),(2,B_M_R_NT):('u',2),
-                                   (3,'?'):('?',3),(3,'i'):('i',3),(B_M_R_NT3,'a'):('a',3),(3,schwa):('a',3),
-                                   (3,'u'):(B_M_R_NT,3),(3,B_M_R_NT):(B_M_R_NT,3)}
+                                   (3,'?'):('?',3),(3,'i'):('i',3),(3,'a'):('a',3),(3,schwa):('a',3),
+                                   (3,'u'):(B_M_R_NT,3),(3,B_M_R_NT):(B_M_R_NT,3)},
                     'preprocess_req': False,
                     'postprocess_req': False,
                     'left_subseq': True,
@@ -629,7 +629,7 @@ vh_dataset={1:
                 {
                     'name': 'Tunica harmony',
                     'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',10:'',11:'',12:''},
-                    'alphabet': ['i','e',F_M_U_NT,'u','o',B_M_R_NT,B_L_U_NT,'h',G_P_VL], 
+                    'alphabet': ['i','e',F_M_U_NT,'u','o',B_M_R_NT,B_L_U_NT,'h',G_P_VL],
                     'transitions': {(0,'?'):('?',0),(0,G_P_VL):(G_P_VL,0),(0,'h'):('h',0),(0,B_L_U_NT):(B_L_U_NT,0),
                                    (2,'?'):('?',0),(0,'i'):('',1),(1,'?'):('i?',0),(1,G_P_VL):('i'+G_P_VL,2),
                                    (1,'h'):('ih',2),(1,'i'):('',1),(1,'e'):('',3),(1,F_M_U_NT):('',5),
@@ -780,6 +780,7 @@ vh_dataset={1:
                     'preprocess_dets':'Should have been run through 22 and the reversed output of 22 should be 22Bs input',
                     'postprocess_dets':'Reverse output, this is your final output',
                     'notes': ['Roots do not alternate','THIS FST IS NOT NECESSARILY ACCURATE FOR COMPOUND WORDS:+ATR and -ATR do not co-occur in same word, except in compounds or loanwords','bidirectional subsequential harmonization','stem-control','no transparent vowels'],
+
                     'harmony_feature':['ATR/RTR'],
                     'sc':True,
                     'dr':False,
