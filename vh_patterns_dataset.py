@@ -907,8 +907,15 @@ vh_dataset={1:
                     'name': 'Asturian Lena (Romance) height harmony with inflectional suffixes',
                     'states': {0:'',1:'',2:'',3:'',4:''},
                     'alphabet': ['a','u','i','e','o',"'"],
-                    'transitions': {(0,'?'):('?',0), (0,'a'):('i',0),(0,'i'):('i',1), (0,'u'):('u',1),
-                        (1,'?'):('?',1),(1,'a'):('a',1),(1,'i'):('i',1),(1,'u'):('u',1)},
+                    'transitions': {(0,'?'):('?',0),(1,'?'):('?',1),(2,'?'):('?',2),
+                                   (3,'?'):('?',3),(4,'?'):('?',4),(0,"'"):("'",0),(1,"'"):("'",3),
+                                   (4,"'"):("'",3),(2,"'"):("'",2),(3,"'"):("'",3),(0,'u'):('u',1),
+                                   (0,'i'):('i',2),(0,'e'):('e',2),(0,'o'):('o',2),(0,'a'):('a',2),
+                                   (1,'u'):('u',4),(1,'i'):('i',4),(1,'e'):('e',4),(1,'o'):('o',4),
+                                   (1,'a'):('a',4),(2,'u'):('u',2),(2,'i'):('i',2),(2,'e'):('e',2),
+                                   (2,'o'):('o',2),(2,'a'):('a',2),(4,'u'):('u',2),(4,'i'):('i',2),
+                                   (4,'e'):('e',2),(4,'o'):('o',2),(4,'a'):('a',2),(3,'i'):('i',2),
+                                   (3,'u'):('u',2),(3,'e'):('i',2),(3,'o'):('u',2),(3,'a'):('e',2),},
                     'preprocess_req': True,
                     'postprocess_req': True,
                     'left_subseq': False,
@@ -916,7 +923,7 @@ vh_dataset={1:
                     'hyphenate_suffix': True, #Instruct user to insert a hyphen before the suffix (ex. input: r o o t - s u f wherein suf is the suffix)
                     'preprocess_dets': "Entire user input (prefixes,stem, and suffixes; do not remove +s or -s) is needed as input here; reverse the input and enter it into this FST",
                     'postprocess_dets':'Reverse the output',
-                    'notes': ['PLEASE INDICATE THAT A VOWEL IS STRESSED BY INCLUDING AN APOSTROPHE ("'") AFTER EACH STRESSED VOWEL (ex: kumpi"'"t)','THIS FST ASSUMES THAT AN INFLECTIONAL SUFFIX IS THE LAST MORPHEME IN THE OUTPUT; IT WILL BE WRONG IF THAT IS NOT THE CASE','[+high] harmonizes regressively from the ultimate vowel of an inflectional suffix','/u/ triggers harmony', 'only stressed vowels are targets of harmony','harmony targets the first stressed vowel within two vowels to the left of the trigger'
+                    'notes': ['PLEASE INDICATE THAT A VOWEL IS STRESSED BY INCLUDING AN APOSTROPHE ("'") AFTER EACH STRESSED VOWEL (ex: kumpi"'"t)','THIS FST ASSUMES THAT AN INFLECTIONAL SUFFIX IS THE LAST MORPHEME IN THE INPUT; IT WILL BE WRONG IF THAT IS NOT THE CASE','[+high] harmonizes regressively from the ultimate vowel of an inflectional suffix','/u/ triggers harmony', 'only stressed vowels are targets of harmony','harmony targets the first stressed vowel within two vowels to the left of the trigger'
                         ],
                     'harmony_feature':['Height'],
                     'sc':False,
