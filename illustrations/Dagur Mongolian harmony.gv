@@ -1,0 +1,20 @@
+digraph fst {
+	graph [pad="0.5", nodesep="1", ranksep="2"];
+	rankdir=LR;
+	size="10,10";
+	node [shape = point]; start;
+	node [shape = doublecircle];
+		"0, λ";
+		"1, λ";
+		"2, λ";
+		"3, λ";
+
+	"0, λ" ->	"0, λ" [ label = "?:?, i:i" ];
+	"0, λ" ->	"1, λ" [ label = "ɔ:ɔ" ];
+	"0, λ" ->	"2, λ" [ label = "ə:ə, u:u" ];
+	"0, λ" ->	"3, λ" [ label = "a:a" ];
+	"1, λ" ->	"1, λ" [ label = "?:?, i:i, ɔ:ɔ, ə:ɔ, a:ɔ, u:ɔ" ];
+	"2, λ" ->	"2, λ" [ label = "?:?, i:i, ə:ə, u:u, a:ə, ɔ:u" ];
+	"3, λ" ->	"3, λ" [ label = "?:?, i:i, a:a, ə:a, u:ɔ, ɔ:ɔ" ];
+	start -> "0, λ";
+}

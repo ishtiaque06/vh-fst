@@ -65,6 +65,7 @@ def show_vh_help(fst):
 
 
 # Shows the intro message for a vowel-harmony pattern interface
+# TODO: Show notes for languages in vh_patterns_dataset.
 def show_vh_intro(fst):
     clear()
     print (5 * "=" + len(fst.name) * "=" + 5 * "=")

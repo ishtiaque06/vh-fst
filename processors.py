@@ -102,7 +102,6 @@ def postprocess(word_as_list, fst):
         if not fst.left_subseq:
             word_as_list = word_as_list[::-1]
         if fst.hyphenate_suffix:
-            # print ("hyphenate")
             if hasattr(fst, "suffix"):
                 word_as_list.append("".join(fst.suffix))
     return "".join(word_as_list)
@@ -129,8 +128,9 @@ def convert_chars_to_unicode(lst):
     Input: <type 'string'>
     Output: <type 'list' x4>
 
-    TODO: first "-" should indicate start of prefix
+    TODO: first "-" should indicate start of suffix
     TODO: last "+" should indicate end of prefix
+    TODO: Add "+" and "-" in word_as_list
 --------------------------------------------------------------------------AI'''
 def split_word_components(string):
     if string.count("+") > 1 or string.count("-") > 1:
@@ -140,7 +140,7 @@ def split_word_components(string):
     # if there is both a prefix and a suffix
     if (len(string.split("+")) == 2) and (len(string.split("-")) == 2):
         if string.find('-') < string.find('+'):
-            print ("Please enter the prefix before the suffix.")
+            print ("Please enter the prefix(es) before the suffix(es).")
             return [], [], [], []
 
         prefix_as_list = convert_chars_to_unicode(

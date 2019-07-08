@@ -5,6 +5,7 @@ from subprocess import call
 
 '''AI--------------------------------------------------------------------------
     Writes an FST to a GraphViz file format
+    TODO: Escape / in filename strings from FST names
 --------------------------------------------------------------------------AI'''
 def fst_to_gv(fst_object):
     if type(fst_object) is not FST:
@@ -15,7 +16,8 @@ def fst_to_gv(fst_object):
     except Exception as e:
         if str(e) != "[Errno 17] File exists: 'illustrations'":
             print(f"[(utils.fst_to_gv) Info]: {e}")
-    with open(os.path.join("illustrations", fst_object.name + ".gv"), "w") as f:
+    file_name = fst_object.name.replace("/", " or ")
+    with open(os.path.join("illustrations", file_name + ".gv"), "w") as f:
         f.write("digraph fst {\n")
         f.write('\tgraph [pad="0.5", nodesep="1", ranksep="2"];\n')
         f.write("\trankdir=LR;\n")
@@ -54,7 +56,8 @@ def fst_to_gv(fst_object):
         f.write("}")
 
         print ("GraphViz file generation complete! Your GraphViz file is "
-            f"'illustrations/{fst_object.name}.gv'")
+            f"'illustrations/{file_name}.gv'")
+    return file_name
 
 
 '''AI--------------------------------------------------------------------------
@@ -64,6 +67,7 @@ def fst_to_gv(fst_object):
     Output: SVG image in an "illustrations" folder relative to current one
     Precondition: The GV image must be in the directory this function is run
     from.
+    TODO: Escape / in filename strings from FST names
 --------------------------------------------------------------------------AI'''
 def gv_to_svg(fst_name):
     try:
@@ -75,7 +79,8 @@ def gv_to_svg(fst_name):
     if code != 0:
         print ("[(utils.gv_to_svg) Error]: SVG Generation failed.")
     else:
-        print (f"Image generation complete! Your file is at 'illustrations/{fst_name}")
+        print ("Image generation complete! "
+                f"Your file is at 'illustrations/{fst_name}.svg")
     os.chdir("..")
     return
 
@@ -119,7 +124,9 @@ def spe_to_fst(A, B, C, D):
     for key in args_to_self:
         value = args_to_self[key]
         if value != "":
-            alphabet = alphabet.union(set(args_to_self[key]))
+            translation = {ord(c):'' for c in '()'}
+            value = value.translate(translation) # Removes '(' and ')'
+            alphabet = alphabet.union(set(value))
 
     string_to_build = C + A + D
     string_states_list = increasing_prefixes(string_to_build)
@@ -134,8 +141,10 @@ def spe_to_fst(A, B, C, D):
         stored_string = string_to_build[len(C):i]
 
         # Process letters not in alphabet
-
         transitions[(i, '?')] = (stored_string + '?', 0)
+
+        # All letters in the alphabet but that don't have transitions to the
+        # next state
         excluded_set = set([last_ch_of_next_state, string_to_build[0]])
         for letter in alphabet.difference(excluded_set):
             transitions[(i, letter)] = (stored_string + letter, 0)
@@ -177,16 +186,20 @@ if __name__ == "__main__":
     if len(sys.argv) == 1:
         print ("Usage: python3 utils.py [command]")
         print ("Commands:")
-        print("  diagram_all\tOutputs GraphViz and SVG representations of all VH patterns\n"
-              "                present in the current dataset file.")
+        print("  all_diagrams\tOutputs GraphViz and SVG representations of all VH patterns\n"
+              "                present in the current dataset file.\n")
+        print("  spe_to_fst\tOpens up an interface where you can create and use an \n"
+              "                FST based on a given SPE-style rule. ")
         exit(0)
-    if sys.argv[1] == "diagram_all":
+    if sys.argv[1] == "all_diagrams":
         from vh_patterns_dataset import vh_dataset
         from unicode_variable_repr import *
-        for i in range(len(vh_dataset)):
+        for key in vh_dataset:
             try:
-                object = FST(i)
-                fst_to_gv(object)
-                gv_to_svg(object.name)
+                object = FST(vh_dataset[key])
+                file_name = fst_to_gv(object)
+                gv_to_svg(file_name)
             except Exception as e:
-                print(e)
+                raise e
+    if sys.argv[1] == "spe_to_fst":
+        pass
