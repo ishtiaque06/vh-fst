@@ -788,7 +788,7 @@ vh_dataset={1:
                     'opaque':None,
                 },
             
-            '23':
+            23:
                 {
                     'name': 'Diola-Fogny (Jola-Fonyi) ATR harmony',
                     'states': {0:'',1:''},
@@ -816,7 +816,7 @@ vh_dataset={1:
                     'transparent':None,
                     'opaque':None,
                 },
-            '24':
+            24:
                 {
                     'name': 'Kalenjin ATR harmony',
                     'states': {0:'',1:'',2:''},
@@ -1041,7 +1041,7 @@ vh_dataset={1:
                     'transparent':['e'],
                     'opaque':None,
                 },
-            '27':
+            27:
                 {
                     'name': 'Pulaar dialect of Fula (Niger-Congo) ATR harmony',
                     'states': {0:'',1:'',2:''},
@@ -1069,5 +1069,64 @@ vh_dataset={1:
                     'dr':False,
                     'transparent':[],
                     'opaque':['/i,u,a/ are opaque blockers that trigger harmony for their own ATR featural specificiation'],
+                },
+             28:
+                {
+                    'name': 'Maasai (Eastern Nilotic) ATR harmony',
+                    'states': {0:'',1:'',2:'',3:'',4:''},
+                    'alphabet': ['i','u','e','o',B_L_U_NT,'I',B_H_R_NT,F_M_U_NT,B_M_R_NT,'!','&'], 
+                    'transitions': {(0,'?'):('?',0),(1,'?'):('?',1),(2,'?'):('?',2),(3,'?'):('?',3),(4,'?'):('?',4),
+                                    (0,'!'):('!',1),(2,'&'):('&',4),(3,'&'):('&',0),(0,'&'):('&',0),(1,'&'):('&',0),
+                                    (1,'!'):('!',1),(2,'!'):('!',2),(3,'!'):('!',3),(4,'!'):('!',4),(4,'&'):('&',4),
+                                    (0,'i'):('i',0),(0,'u'):('u',0),(0,'e'):('e',0),(0,'o'):('o',0),(0,'I'):('I',0),
+                                    (0,B_H_R_NT):(B_H_R_NT,0),(0,F_M_U_NT):(F_M_U_NT,0),(0,B_M_R_NT):(B_M_R_NT,0),
+                                    (0,B_L_U_NT):(B_L_U_NT,0),
+                                    (1,'i'):('i',2),(1,'u'):('u',2),(1,'e'):('e',2),(1,'o'):('o',2),(1,'I'):('I',3),
+                                    (1,B_H_R_NT):(B_H_R_NT,3),(1,F_M_U_NT):(F_M_U_NT,3),(1,B_M_R_NT):(B_M_R_NT,3),
+                                    (1,B_L_U_NT):(B_L_U_NT,3),
+                                    (2,'i'):('i',2),(2,'u'):('u',2),(2,'e'):('e',2),(2,'o'):('o',2),(2,B_H_R_NT):(B_H_R_NT,3),
+                                    (2,F_M_U_NT):(F_M_U_NT,3),(2,B_M_R_NT):(B_M_R_NT,3),(2,B_L_U_NT):(B_L_U_NT,3),(2,'I'):('I',3),
+                                    (3,'I'):('I',3),(3,B_H_R_NT):(B_H_R_NT,3),(3,F_M_U_NT):(F_M_U_NT,3),(3,B_M_R_NT):(B_M_R_NT,3),
+                                    (3,B_L_U_NT):(B_L_U_NT,3),(3,'i'):('i',2),(3,'u'):('u',2),(3,'e'):('e',2),(3,'o'):('o',2),
+                                    (4,'i'):('i',4),(4,'u'):('u',4),(4,'e'):('e',4),(4,'o'):('o',4),(4,B_H_R_NT):('u',4),
+                                    (4,F_M_U_NT):('e',4),(4,B_M_R_NT):('o',4),(4,B_L_U_NT):('o',4),(4,'I'):('i',4),
+                                   }, #transitions (0,'&'):('&',0),(1,'&'):('&',0),(1,'!'):('!',1),(2,'!'):('!',2),(3,'!'):('!',3),(4,'!'):('!',4),(4,'&'):('&',4) should all be impossible, but I include them anyways to allow every state to have a transition for each character in the alphabet
+                    'preprocess_req': True,
+                    'postprocess_req': True,
+                    'left_subseq': True,
+                    'bidir_subseq':True,
+                    'plus_prefix':True,
+                    'hyphenate_suffix':True,
+                    'preprocess_dets':'Add "!" to the beginning of the root/stem and "&" to the end of the root/stem (Ex: For input /a+b+c+ddd-e-f/, should get /a+b+c+!ddd&-e-f/; This is the input for FST 28',
+                    'postprocess_dets':'Output should be reversed and run through 28B',
+                    'notes': ['Dominant [+ATR] harmony; words are never mixed (i.e., they never have a [+ATR] vowel and a [-ATR] vowel), except in many instances with /B_L_U_NT/ which can act as an opaque blocker','Maasai has 9 vowel phonemes:/i,u,e,o/ are [+ATR],/I,B_H_R_NT,F_M_U_NT,B_M_R_NT/ are [-ATR],/B_L_U_NT/ is [-ATR] but has no archiphoneme and tends to act as an opaque neutral','B_L_U_NT harmonizes only when in a suffix and preceded by a [+ATR] vowel; it prevents spread of [+ATR] to the left when it precedes a [+ATR] vowel','Some argue that Maasai demonstrates a single bidirectional harmony, but others argue that it demonstrates two unidirectional harmony patterns; although we mark this FST as bidirectional, we take no real stance on this greater theory'],
+                    'harmony_feature':['ATR/RTR'],
+                    'sc':False,
+                    'dr':True,
+                    'transparent':[],
+                    'opaque':['[low,back,-ATR] vowel is opaque and blocks harmony, except when it is in a suffix and is preceded by a [-ATR] vowel in which case it manifests as [o]',],
+                },
+            '28B':
+                {
+                    'name': 'Maasai secondary FST for RtoL',
+                    'states': {0:'',1:'',2:''},
+                    'alphabet': ['i','u','e','o',B_L_U_NT,'I',B_H_R_NT,F_M_U_NT,B_M_R_NT,'!','&'],  
+                    'transitions': {(0,'?'):('?',0),(1,'?'):('?',1),(2,'?'):('?',2),(3,'?'):('?',3),(4,'?'):('?',4),
+                                    
+                                   },
+                    'preprocess_req': True,
+                    'postprocess_req': True,
+                    'left_subseq': False,
+                    'bidir_subseq':True,
+                    'plus_prefix':True,
+                    'hyphenate_suffix':True,
+                    'preprocess_dets':'Should have been processed and run through 28 accordingly; Reverse the output from 28 and enter into this FST',
+                    'postprocess_dets':'Reverse output, this is the final output to user',
+                    'notes': ['Dominant [+ATR] harmony; words are never mixed (i.e., they never have a [+ATR] vowel and a [-ATR] vowel), except in many instances with /B_L_U_NT/ which can act as an opaque blocker','Maasai has 9 vowel phonemes:/i,u,e,o/ are [+ATR],/I,B_H_R_NT,F_M_U_NT,B_M_R_NT/ are [-ATR],/B_L_U_NT/ is [-ATR] but has no archiphoneme and tends to act as an opaque neutral','B_L_U_NT harmonizes only when in a suffix and preceded by a [+ATR] vowel; it prevents spread of [+ATR] to the left when it precedes a [+ATR] vowel','Some argue that Maasai demonstrates a single bidirectional harmony, but others argue that it demonstrates two unidirectional harmony patterns; although we mark this FST as bidirectional, we take no real stance on this greater theory'],
+                    'harmony_feature':['ATR/RTR'],
+                    'sc':False,
+                    'dr':True,
+                    'transparent':[],
+                    'opaque':['[low,back,-ATR] vowel is opaque and blocks harmony, except when it is in a suffix and is preceded by a [-ATR] vowel in which case it manifests as [o]',],
                 },
              }
