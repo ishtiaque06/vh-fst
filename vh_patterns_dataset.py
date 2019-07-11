@@ -7,7 +7,7 @@ list_desc = ['VH pattern', 'State set','Alphabet of relevant symbols',
             'LtoR?-if false, means right subsequential','Bidirectionally subsequential?','Prompt user to demarcate suffix with hyphen','details of preprocessing',
              'details of postprocessing','admin_notes=notes for creators',
              'notes: ex: What preprocessing nec?, What postproc nec?,Relevant features, Neutral vowels?, Transparent/Opaque?',
-             'harmony_feature: lists types of featural harmony involved; can include Height, Palatal (front/back), Labial (rounding), ATR/RTR, Length (long/short)',
+             'harmony_feature: lists types of featural harmony involved; can include Complete, Height, Palatal (front/back), Labial (rounding), ATR/RTR, Length (long/short)',
             'sc:stem control harmony-true or false','dr:dominant-recessive harmony-True or False','transparent:list of transparent vowels,None if none','opaque:list of opaque vowels,None if none']
 
 vh_dataset={1:
@@ -1176,4 +1176,48 @@ vh_dataset={1:
                     'transparent':[],
                     'opaque':['[low,back,-ATR] vowel is opaque and blocks harmony, except when it is in a suffix and is preceded by a [-ATR] vowel in which case it manifests as [o]',],
                 },
+            29:
+                {
+                    'name': 'Kashaya (Pomoan) translaryngeal harmony',
+                    'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',10:''},
+                    'alphabet': ['i',Long_F_H_U_T,'u',Long_B_H_R_T,'e',Long_F_M_U_T,'o',Long_B_M_R_T,'a',Long_C_L_U_NT,'h','+','-',G_P_VL], 
+                    'transitions': {
+                                   },
+                    'preprocess_req': True,
+                    'postprocess_req': False,
+                    'left_subseq': True,
+                    'bidir_subseq':False,
+                    'plus_prefix':True,
+                    'hyphenate_suffix': True,
+                    'preprocess_dets':'Run input through FST "29P" first; then run that output through here',
+                    'postprocess_dets':'',
+                    'notes':[''],
+                    'harmony_feature':['Complete'],
+                    'sc':False,
+                    'dr':False,
+                    'transparent':None,
+                    'opaque':['Non-"laryngeal" (in this case, non-glottal) consonants block this identity harmony'],
+                    }, 
+            '29P':
+                {
+                    'name': 'Kashaya (Pomoan) preliminary vowel transformations',
+                    'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',10:''},
+                    'alphabet': ['m','d','q','i',Long_F_H_U_T,'u',Long_B_H_R_T,'e',Long_F_M_U_T,'o',Long_B_M_R_T,'a',Long_C_L_U_NT,'-'], 
+                    'transitions': {
+                                   },
+                    'preprocess_req': True,
+                    'postprocess_req': True,
+                    'left_subseq': False,
+                    'bidir_subseq':False,
+                    'plus_prefix':True,
+                    'hyphenate_suffix': True,
+                    'preprocess_dets':'Reverse input before running through here',
+                    'postprocess_dets':'Reverse output; then run it through FST 29 to get final output to user',
+                    'notes':[''],
+                    'harmony_feature':[''],
+                    'sc':False,
+                    'dr':False,
+                    'transparent':None,
+                    'opaque':[],
+                    }, 
              }
