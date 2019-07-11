@@ -96,6 +96,8 @@ def preprocess(
             else:
                 suffix_start = word_as_list.index('-')
                 return True, word_as_list[:suffix_start][::-1]
+        elif fst.name == 'Yoruba ATR harmony':
+            return True, stem_as_list[::-1]
 
         return True, word_as_list[::-1]
 

@@ -66,7 +66,6 @@ def fst_to_gv(fst_object):
     Output: SVG image in an "illustrations" folder relative to current one
     Precondition: The GV image must be in the directory this function is run
     from.
-    TODO: Escape / in filename strings from FST names
 --------------------------------------------------------------------------AI'''
 def gv_to_svg(fst_name):
     try:
