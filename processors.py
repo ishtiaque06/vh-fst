@@ -124,24 +124,16 @@ def convert_chars_to_unicode(lst):
     return output
 
 
-'''AI--------------------------------------------------------------------------
-    Given a space-delimited string, return prefix, suffix, stem and word
-    Input: <type 'string'>
-    Output: <type 'list' x4>
-        * word_as_list: list of chars representing the word without affix markers
-        * prefix_as_list: list of (list of chars with prefix markers)
-        * stem
-        * suffix_as_list: list of (list of chars with suffix markers)
-
-    TODO: first "-" should indicate start of suffix
-    TODO: last "+" should indicate end of prefix
-    TODO: Add "+" and "-" in word_as_list
---------------------------------------------------------------------------AI'''
 def split_word_components(string):
-
-    ##########################################################################
-        # Inner function definitions
-    ##########################################################################
+    '''
+        Given a space-delimited string, return prefix, suffix, stem and word
+        Input: <type 'string'>
+        Output: <type 'list' x4>
+            * word_as_list: list of chars representing the word without affix markers
+            * prefix_as_list: list of (list of chars with prefix markers)
+            * stem
+            * suffix_as_list: list of (list of chars with suffix markers)
+    '''
 
     word_as_list = convert_chars_to_unicode(
         [ch for ch in string.split(" ") if ch != ""]

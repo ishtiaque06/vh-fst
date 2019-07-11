@@ -72,7 +72,10 @@ def show_vh_intro(fst):
     print (f"     {fst.name}")
     print (5 * "=" + len(fst.name) * "=" + 5 * "=")
     print("\nFollowing vowels take part in this vowel harmony: ")
-    print(",".join(fst.alphabet))
+    print(", ".join(fst.alphabet))
+    print("\nThese are the relevant notes for this VH pattern: ")
+    for num, note in enumerate(fst.notes):
+        print(f"{num+1}. {note}")
     print ("\nPlease enter a word delimited with spaces (Ex: s t r i n g)\n"
         "(enter --help for help and more examples, --q to quit)\n")
 
@@ -100,7 +103,8 @@ def main():
         else:
             try:
                 user_input = int(user_input)
-                fst = FST(user_input)
+                language = vh_dataset[user_input]
+                fst = FST(language)
             except (KeyError, ValueError):
                 clear()
                 print ("Please enter a valid selection.\n")

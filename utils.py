@@ -5,7 +5,6 @@ from subprocess import call
 
 '''AI--------------------------------------------------------------------------
     Writes an FST to a GraphViz file format
-    TODO: Escape / in filename strings from FST names
 --------------------------------------------------------------------------AI'''
 def fst_to_gv(fst_object):
     if type(fst_object) is not FST:

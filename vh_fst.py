@@ -31,6 +31,7 @@ class FST:
                     * :code:`postprocess_req`: :code:`<boolean>` Postprocessing required on input?
                     * :code:`spe_generated`: :code:`<boolean>` If this is False then the string associated with
                       the last state is added to the final output.
+                    * :code:`notes`: :code:`<list<str>>` Notes regarding a VH pattern the user should know.
             * Output: :code:`<None>`
 
         """
@@ -39,6 +40,7 @@ class FST:
         self.states =  language['states']
         self.alphabet = language['alphabet']
         self.transitions = language['transitions']
+        self.notes = language.get('notes', None)
         self.left_subseq = language.get('left_subseq', None)
         self.preprocess_req = language.get('preprocess_req', None)
         self.postprocess_req = language.get('postprocess_req', None)
