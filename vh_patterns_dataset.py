@@ -316,7 +316,7 @@ vh_dataset={1:
                     'hyphenate_suffix': True, #Instruct user to insert a hyphen before the suffix (ex. input: r o o t - s u f wherein suf is the suffix)
                     'preprocess_dets': "Check if 'u' or 'i' in suffix; if not, return input as output; if true, store suffix, but remove it from input; reverse the input and enter it into FST",
                     'postprocess_dets':'Reverse output of FST; append stored suffix back on',
-                    'notes': ['[+high] harmonizes regressively from suffix to root',
+                    'notes': ['FST only works if the titular suffix is the only suffix in the input','[+high] harmonizes regressively from suffix to root',
                         '[+high] in root acts as a blocker which does not lend its own feature (does not reset domain)'],
                     'harmony_feature':['Height'],
                     'sc':False,
@@ -338,7 +338,7 @@ vh_dataset={1:
                     'hyphenate_suffix': True, #Instruct user to insert a hyphen before the suffix (ex. input: r o o t - s u f wherein suf is the suffix)
                     'preprocess_dets': "Check if 'u' or 'i' in suffix; if not, return input as output; if true, store suffix, but remove it from input; reverse the input and enter it into FST",
                     'postprocess_dets':'Reverse output of FST; append stored suffix back on',
-                    'notes': ['[+high] harmonizes regressively from suffix to root',
+                    'notes': ['FST only works if the titular suffix is the only suffix in the input','[+high] harmonizes regressively from suffix to root',
                         '[+high] in root acts as a blocker which does not lend its own feature (does not reset domain)'],
                     'harmony_feature':['Height'],
                     'sc':False,
@@ -360,7 +360,7 @@ vh_dataset={1:
                     'hyphenate_suffix': True, #Instruct user to insert a hyphen before the suffix (ex. input: r o o t - s u f wherein suf is the suffix)
                     'preprocess_dets': "Check if 'u' or 'i' in suffix; if not, return input as output; if true, store suffix, but remove it from input; reverse the input and enter it into FST",
                     'postprocess_dets':'Reverse output of FST; append stored suffix back on',
-                    'notes': ['[+high] harmonizes regressively from suffix to root',
+                    'notes': ['FST only works if the titular suffix is the only suffix in the input','[+high] harmonizes regressively from suffix to root',
                         '[+high] in root acts as a blocker which does not lend its own feature (does not reset domain)'],
                     'harmony_feature':['Height'],
                     'sc':False,
@@ -382,7 +382,7 @@ vh_dataset={1:
                     'hyphenate_suffix': True, #Instruct user to insert a hyphen before the suffix (ex. input: r o o t - s u f wherein suf is the suffix)
                     'preprocess_dets': "Check if 'u' or 'i' in suffix; if not, return input as output; if true, store suffix, but remove it from input; reverse the input and enter it into FST",
                     'postprocess_dets':'Reverse output of FST; append stored suffix back on',
-                    'notes': ['[+high] harmonizes regressively from suffix to root',
+                    'notes': ['FST only works if the titular suffix is the only suffix in the input','[+high] harmonizes regressively from suffix to root',
                         '[+high] in root acts as a blocker which does not lend its own feature (does not reset domain)'],
                     'harmony_feature':['Height'],
                     'sc':False,
@@ -404,7 +404,7 @@ vh_dataset={1:
                     'hyphenate_suffix': True, #Instruct user to insert a hyphen before the suffix (ex. input: r o o t - s u f wherein suf is the suffix)
                     'preprocess_dets': "Check if 'u' or 'i' in suffix; if not, return input as output; if true, store suffix, but remove it from input; reverse the input and enter it into FST",
                     'postprocess_dets':'Reverse output of FST; append stored suffix back on',
-                    'notes': ['[+high] harmonizes regressively from suffix to root',
+                    'notes': ['FST only works if the titular suffix is the only suffix in the input','[+high] harmonizes regressively from suffix to root',
                         '[+high] in root acts as a blocker which does not lend its own feature (does not reset domain)'],
                     'harmony_feature':['Height'],
                     'sc':False,
