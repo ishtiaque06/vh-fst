@@ -80,7 +80,7 @@ def preprocess(
         else:
             return True, word_as_list
 
-    # Preprocessing for right-subseuential languages
+    # Preprocessing for right-subsequential languages
     elif not fst.left_subseq:
 
         # languages 9,10,11,12,13
@@ -91,10 +91,13 @@ def preprocess(
             'Jingulu verbal root with motion-imperative suffix',
             'Jingulu verbal root with negative imperative suffix',
         }:
-            if not "u" in fst.suffix and not "i" in fst.suffix:
+            if not "u" in fst.suffix[0] and not "i" in fst.suffix[0]:
                 return False, word_as_list
+            else:
+                suffix_start = word_as_list.index('-')
+                return True, word_as_list[:suffix_start][::-1]
 
-        return True, stem_as_list[::-1]
+        return True, word_as_list[::-1]
 
 
 # Post-process a list after the FST runs through it.
@@ -104,7 +107,8 @@ def postprocess(word_as_list, fst):
             word_as_list = word_as_list[::-1]
         if fst.hyphenate_suffix:
             if hasattr(fst, "suffix"):
-                word_as_list.append("".join(fst.suffix))
+                for suffix in fst.suffix:
+                    word_as_list.append("".join(suffix))
     return "".join(word_as_list)
 
 
