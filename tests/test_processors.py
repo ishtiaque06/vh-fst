@@ -18,8 +18,8 @@ def test_convert_chars_to_unicode():
 def test_split_prefix():
     string = "w o r + d w i"
     word, prefix, stem, suffix = split_word_components(string)
-    assert word == ['w', 'o', 'r', 'd', 'w', 'i']
-    assert prefix == ['w', 'o', 'r']
+    assert word == ['w', 'o', 'r', '+', 'd', 'w', 'i']
+    assert prefix == [['w', 'o', 'r', '+']]
     assert suffix == []
     assert stem == ['d', 'w', 'i']
 
@@ -35,20 +35,20 @@ def test_stem_only():
 def test_split_suffix():
     string = "w o r d - w i n"
     word, prefix, stem, suffix = split_word_components(string)
-    assert word == ['w', 'o', 'r', 'd', 'w', 'i', 'n']
+    assert word == ['w', 'o', 'r', 'd', '-', 'w', 'i', 'n']
     assert prefix == []
-    assert suffix == ['w', 'i', 'n']
+    assert suffix == [['-', 'w', 'i', 'n']]
     assert stem == ['w', 'o', 'r', 'd']
 
 def test_split_prefix_and_suffix():
     string = "p r e + s t e m - s u f"
     word, prefix, stem, suffix = split_word_components(string)
-    assert word == ['p', 'r', 'e', 's', 't', 'e', 'm', 's', 'u', 'f']
-    assert prefix == ['p', 'r', 'e']
+    assert word == ['p', 'r', 'e', '+', 's', 't', 'e', 'm', '-', 's', 'u', 'f']
+    assert prefix == [['p', 'r', 'e', '+']]
     assert stem == ['s', 't', 'e', 'm']
-    assert suffix == ['s', 'u', 'f']
+    assert suffix == [['-', 's', 'u', 'f']]
 
-def test_invalid_word():
+def test_invalid_word_multiple_affixes():
     string = "h e - - l o +"
     word, prefix, stem, suffix = split_word_components(string)
     assert word == []
@@ -63,3 +63,9 @@ def test_suffix_before_prefix():
     assert stem == []
     assert prefix == []
     assert suffix == []
+
+def test_multiple_prefixes():
+    string = "w o r + d a n + o t + e a u w p q u a"
+    word, prefix, stem, suffix = split_word_components(string)
+    assert word == ['w', 'o', 'r', '+', 'd', 'a', 'n', '+', 'o', 't', '+',
+                    'e', 'a', 'u', 'w', 'p', 'q', 'u', 'a']

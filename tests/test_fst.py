@@ -84,7 +84,7 @@ def test_jingulu():
     assert object.name == "Jingulu nominal root with non-neuter gender suffix"
 
     input_list = ["", "w a r k u -rny", "a n k i l a -r n y", "a n k i l a -r a"]
-    output_list = ["", "warkurny", "ankilarny", "ankilara"]
+    output_list = ["", "warku-rny", "ankila-rny", "ankila-ra"]
     run_test_on_strings(input_list, output_list, object)
 
 def test_hahl():
@@ -171,12 +171,12 @@ def test_kalmyk():
                  ]
     output_list = ['',
                     'tiimi',
-                    'tiimit'+F_L_U_T+'n',
-                    'timyt'+F_M_R_T,
-                    'timyt'+F_M_R_T,
+                    'tiimi-t'+F_L_U_T+'n',
+                    'timy-t'+F_M_R_T,
+                    'timy-t'+F_M_R_T,
                     'tomimu',
-                    'tamoo',
-                    'tamoo',
-                    'etæmø'
+                    'tam-oo',
+                    'tam+oo',
+                    'e+tæm-ø'
                     ]
     run_test_on_strings(input_list, output_list, object)
