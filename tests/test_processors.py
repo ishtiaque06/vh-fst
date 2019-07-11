@@ -69,3 +69,10 @@ def test_multiple_prefixes():
     word, prefix, stem, suffix = split_word_components(string)
     assert word == ['w', 'o', 'r', '+', 'd', 'a', 'n', '+', 'o', 't', '+',
                     'e', 'a', 'u', 'w', 'p', 'q', 'u', 'a']
+    assert prefix == [
+                        ['w', 'o', 'r', '+'],
+                        ['d', 'a', 'n', '+'],
+                        ['o', 't', '+']
+                    ]
+    assert stem == ['e', 'a', 'u', 'w', 'p', 'q', 'u', 'a']
+    assert suffix == []
