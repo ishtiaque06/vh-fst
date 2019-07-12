@@ -188,3 +188,10 @@ where `B_L_U_NT` stands for `ɑ`, the "Back Low Unrounded Not Tense (Lax)" vowel
 * [Kalenjin phonology and morphology: A further exemplification of underspecification and
 non-destructive phonology by Ken Lodge](http://www.ai.mit.edu/projects/dm/featgeom/lodge-kalenjin.pdf)
 * [VOWEL HARMONY IN IGBO AND DIOLA-FOGNY by Catherine O. Ringen](https://journals.linguisticsociety.org/elanguage/sal/article/download/1064/1064-2224-1-PB.pdf)
+* [Weak triggers in Vowel Harmony by Rachel Walker](https://www.jstor.org/stable/pdf/4048118.pdf)
+* [Autosegmental and metrical spreading in the vowel harmony systems of northwetern Spain by José Ignacio Hualde](https://www.researchgate.net/publication/245577932_Autosegmental_and_metrical_spreading_in_the_vowel_harmony_systems_of_northwetern_Spain)
+* [The Syllable and Stress: Studies in Honor of James W. Harris by Rafael A. Nunez-Cedeno](https://books.google.com/books/about/The_Syllable_and_Stress.html?id=_JjUCwAAQBAJ)
+* [Overlapping harmonies in Pasiego:Implications for Agreement by Correspondence--handout by Rachel Walker](https://dornsife.usc.edu/assets/sites/1208/docs/Pasiego_UCLA_Handout_Final.pdf)
+* [Vowel Harmony in Maasai by Lindsey Taylor Quinn-Wriedt](https://ir.uiowa.edu/cgi/viewcontent.cgi?referer=&httpsredir=1&article=4860&context=etd)
+* [Theoretical Aspects of Kashaya Phonology and Morphology by Eugene Buckley, III](https://escholarship.org/uc/item/2m2435db)
+* [Kashaya Vocabulary by various](https://www.ling.upenn.edu/~gene/Kashaya/Vocabulary/list-all.html)
