@@ -1260,7 +1260,18 @@ vh_dataset={1:
                     'hyphenate_suffix': True,
                     'preprocess_dets':'Run input through FST "29P" first; then run that output through here',
                     'postprocess_dets':'',
-                    'notes':[''],
+                    'notes':['/i,e,u,o,a/ and their long variants are contrastive phonemes in Kashaya',
+                             'left-subsequential translaryngeal vowel identity harmony within an individual morpheme (for a sequence V1HV2,'
+                             ' wherein H is a laryngeal consonant, V2 manifests with the identity of V1)','I assume that vowel length does not harmonize',
+                             'Kashaya has a CV(C) or CV: syllable structure, so consecutive Vs should be prohibited; despite this, however,'
+                             ' this FST assumes if VV does appear, identity harmony will occur; there is a lack of data to support this, of course',
+                             'Complete (identity) harmony only applies within native morphemes','Only glottal consonants are considered laryngeal for this language',
+                             'Prior to performing identity harmony, a preliminary FST performs various relevant vowel rules that I assume occur prior to ID harmony'
+                             'in derivation of surface form; these "rules" are as follows: i->a/m-_ , i->u/d_ , V->a/uvular_; The last rule is somewhat'
+                             ' inadequate in that a vowel may manifest as [o] after a labialized uvular consonant, but the FST does not implement such'
+                             ' nuance and is thus somewhat inaccurate','This FST assumes harmony cannot occur across multiple laryngeal consonants',
+                             'Height harmony can also occur in Kashaya in that the vowel /u/ in an instrumental prefix manifests as [o] when'
+                             ' the following syllable contains /o/; this tool does not implement this height harmony pattern'],
                     'harmony_feature':['Complete'],
                     'sc':False,
                     'dr':False,
@@ -1302,7 +1313,7 @@ vh_dataset={1:
                                     (4,'e'):('e',0),(4,Long_F_M_U_T):(Long_F_M_U_T,0),
                                     (4,'o'):('o',0),(4,Long_B_M_R_T):(Long_B_M_R_T,0),
                                     (4,'a'):('a',0),(4,Long_C_L_U_NT):(Long_C_L_U_NT,0),
-                                                                       },
+                                    },
                     'preprocess_req': True,
                     'postprocess_req': True,
                     'left_subseq': False,
