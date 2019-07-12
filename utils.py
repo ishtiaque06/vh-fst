@@ -3,10 +3,12 @@ import os.path
 from subprocess import call
 
 
-'''AI--------------------------------------------------------------------------
-    Writes an FST to a GraphViz file format
---------------------------------------------------------------------------AI'''
 def fst_to_gv(fst_object):
+    '''
+        Takes an FST object, writes a GraphViz (.gv) file for the FST in the
+        illustrations/ folder, returns the filename of the GraphViz file to be
+        used to make an SVG image with the dot command.
+    '''
     if type(fst_object) is not FST:
         raise TypeError("Please enter an FST object as defined in vh_fst.py.")
 
@@ -59,15 +61,16 @@ def fst_to_gv(fst_object):
     return file_name
 
 
-'''AI--------------------------------------------------------------------------
-    Takes a filename for a GraphViz (*.gv) file and returns an SVG image
-    corresponding to that filename
-    Input: Filename (without extension) of a GraphViz file
-    Output: SVG image in an "illustrations" folder relative to current one
-    Precondition: The GV image must be in the directory this function is run
-    from.
---------------------------------------------------------------------------AI'''
 def gv_to_svg(fst_name):
+    '''
+        Takes a filename for a GraphViz (\*.gv) file and returns an SVG image
+        corresponding to that filename
+
+        * Input: Filename (without extension) of a GraphViz file
+        * Output: SVG image in an "illustrations" folder relative to current one
+        * Precondition: The GV image must be in the directory this function is run
+          from.
+    '''
     try:
         os.chdir(f"{os.getcwd()}/illustrations")
     except Exception as e:
@@ -180,8 +183,8 @@ def spe_to_fst(A, B, C, D):
     return fst
 
 if __name__ == "__main__":
-    import sys
-    if len(sys.argv) == 1:
+
+    def show_usage_notes():
         print ("Usage: python3 utils.py [command]")
         print ("Commands:")
         print("  all_diagrams\tOutputs GraphViz and SVG representations of all VH patterns\n"
@@ -189,6 +192,10 @@ if __name__ == "__main__":
         print("  spe_to_fst\tOpens up an interface where you can create and use an \n"
               "                FST based on a given SPE-style rule. ")
         exit(0)
+
+    import sys
+    if len(sys.argv) == 1:
+        show_usage_notes()
     if sys.argv[1] == "all_diagrams":
         from vh_patterns_dataset import vh_dataset
         from unicode_variable_repr import *
@@ -199,5 +206,7 @@ if __name__ == "__main__":
                 gv_to_svg(file_name)
             except Exception as e:
                 raise e
-    if sys.argv[1] == "spe_to_fst":
+    elif sys.argv[1] == "spe_to_fst":
         pass
+    else:
+        show_usage_notes()
