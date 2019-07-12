@@ -37,12 +37,13 @@ def prompt_word_input():
 
 # Show help while using the Vowel Harmony patterns
 def show_vh_help(fst):
+    clear()
     print("")
     print(f"Welcome to the help section of {fst.name}.")
     print("")
     print("Inputting a word is pretty simple: you enter the word, separated by "
         "spaces, like so: ")
-    print("t s o m i l a")
+    print("a n i + t s o m - i l a")
     print("\nYou can also enter a word with its letters in IPA. ")
     print ("For example, you can express 'tsomilɑ' as 't s o m i l B_L_U_NT'\n"
         "where B_L_U_NT stands for the IPA symbol ɑ, the Back, Low, Unrounded, "
@@ -71,17 +72,29 @@ def show_vh_intro(fst):
     print (f"     {fst.name}")
     print (5 * "=" + len(fst.name) * "=" + 5 * "=")
     print("\nFollowing vowels take part in this vowel harmony: ")
-    print(",".join(fst.alphabet))
+    print(", ".join(fst.alphabet))
     print ("\nPlease enter a word delimited with spaces (Ex: s t r i n g)\n"
-        "(enter --help for help and more examples, --q to quit)\n")
+        "Commands:\n"
+        "\t--help for help, \n"
+        "\t--notes for notes regarding this FST, \n"
+        "\t--q to quit\n")
+
+def show_vh_notes(fst):
+    '''
+        Prints notes available for the selected FST into stdout.
+    '''
+    print(f"\nThese are the relevant notes for {fst.name}: ")
+    for num, note in enumerate(fst.notes):
+        print(f"{num+1}. {note}")
+    print ("\n")
 
 
 # Main function, shows statements and instructions, processes input
 def main():
     clear()
     print ("Welcome to the Vowel Harmony FST Command-line Interface.\n"
-        "This program lets you choose a vowel harmony pattern from several and \n"
-        "attempts to give you the correct phonetic representation of valid words \n"
+        "This program lets you choose a vowel harmony pattern from several available \n"
+        "ones and attempts to give you the correct phonetic representation of words \n"
         "in the pattern of your choosing.\n"
         "\nThese are patterns that this program supports at the moment:"
     )
@@ -99,7 +112,8 @@ def main():
         else:
             try:
                 user_input = int(user_input)
-                fst = FST(user_input)
+                language = vh_dataset[user_input]
+                fst = FST(language)
             except (KeyError, ValueError):
                 clear()
                 print ("Please enter a valid selection.\n")
@@ -110,14 +124,21 @@ def main():
                 if word in {'--q', '--Q'}:
                     clear()
                     break
-                if word == "--help":
+                if word == {"--h", "--help"}:
                     show_vh_help(fst)
                     show_vh_intro(fst)
+                    continue
+                if word == '--notes':
+                    show_vh_notes(fst)
                     continue
                 word, prefix_as_list, stem_as_list, suffix_as_list = \
                     split_word_components(word)
                 process_yes_or_no, word_as_list = \
-                    preprocess(word, prefix_as_list, stem_as_list, suffix_as_list, fst)
+                    preprocess( word,
+                                prefix_as_list,
+                                stem_as_list,
+                                suffix_as_list, fst
+                                )
                 if process_yes_or_no:
                     final = fst.step(word_as_list)
                     final_word = postprocess(final, fst)

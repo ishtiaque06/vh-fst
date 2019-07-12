@@ -72,7 +72,7 @@ def test_tuvan():
     output_list = ["", "ivye", "adagl", "iryd"+F_M_R_T+"e"]
     run_test_on_strings(input_list, output_list, object)
 
-def test_jingulu():
+def test_jingulu_non_neuter():
     language = vh_dataset[9]
     object = FST(language)
     assert object.states == language['states']
@@ -83,8 +83,24 @@ def test_jingulu():
     assert object.left_subseq == language['left_subseq']
     assert object.name == "Jingulu nominal root with non-neuter gender suffix"
 
-    input_list = ["", "w a r k u -rny", "a n k i l a -r n y", "a n k i l a -r a"]
-    output_list = ["", "warkurny", "ankilarny", "ankilara"]
+    input_list = ["",
+                    "w a r k u -rny",
+                    "a n k i l a -r n y",
+                    "a n k i l a -r a",
+                    "b a - a l i ",
+                    "b u a - d i u",
+                    "b a u a - i",
+                    "b a d a - u i",
+                    ]
+    output_list = ["",
+                    "warku-rny",
+                    "ankila-rny",
+                    "ankila-ra",
+                    "bi-ali",
+                    "bui-diu",
+                    "baui-i",
+                    "bidi-ui"
+                    ]
     run_test_on_strings(input_list, output_list, object)
 
 def test_hahl():
@@ -171,12 +187,12 @@ def test_kalmyk():
                  ]
     output_list = ['',
                     'tiimi',
-                    'tiimit'+F_L_U_T+'n',
-                    'timyt'+F_M_R_T,
-                    'timyt'+F_M_R_T,
+                    'tiimi-t'+F_L_U_T+'n',
+                    'timy-t'+F_M_R_T,
+                    'timy-t'+F_M_R_T,
                     'tomimu',
-                    'tamoo',
-                    'tamoo',
-                    'etæmø'
+                    'tam-oo',
+                    'tam+oo',
+                    'e+tæm-ø'
                     ]
     run_test_on_strings(input_list, output_list, object)

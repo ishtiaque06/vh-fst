@@ -1,0 +1,26 @@
+digraph fst {
+	graph [pad="0.5", nodesep="1", ranksep="2"];
+	rankdir=LR;
+	size="10,10";
+	node [shape = point]; start;
+	node [shape = doublecircle];
+		"0, λ";
+		"1, λ";
+		"2, λ";
+		"3, λ";
+		"4, λ";
+
+	"0, λ" ->	"0, λ" [ label = "?:?, -:-" ];
+	"1, λ" ->	"1, λ" [ label = "?:?, -:-, i:i, u:u, e:e, o:o" ];
+	"2, λ" ->	"2, λ" [ label = "?:?, -:-, I:I, a:a, ʊ:ʊ, ɔ:ɔ" ];
+	"3, λ" ->	"3, λ" [ label = "?:?, -:-, +:+, i:i, u:u, e:e, o:o, I:i, ʊ:u, a:e, ɔ:o" ];
+	"4, λ" ->	"4, λ" [ label = "?:?, -:-, +:+, I:I, a:a, ɔ:ɔ, ʊ:ʊ, i:I, e:a, o:ɔ, u:ʊ" ];
+	"0, λ" ->	"1, λ" [ label = "i:i, u:u, e:e, o:o" ];
+	"1, λ" ->	"3, λ" [ label = "+:+" ];
+	"1, λ" ->	"2, λ" [ label = "I:I, a:a, ʊ:ʊ, ɔ:ɔ" ];
+	"2, λ" ->	"1, λ" [ label = "i:i, u:u, e:e, o:o" ];
+	"0, λ" ->	"2, λ" [ label = "I:I, a:a, ʊ:ʊ, ɔ:ɔ" ];
+	"2, λ" ->	"4, λ" [ label = "+:+" ];
+	"0, λ" ->	"4, λ" [ label = "+:+" ];
+	start -> "0, λ";
+}

@@ -8,12 +8,12 @@ digraph fst {
 		"1, ulɑ";
 		"2, olɑ";
 
-	"0, ulɑ" ->	"0, ulɑ" [ label = "?:?" ];
+	"0, ulɑ" ->	"0, ulɑ" [ label = "?:?, e:e, i:i, ɑ:ɑ" ];
 	"0, ulɑ" ->	"1, ulɑ" [ label = "u:u" ];
 	"0, ulɑ" ->	"2, olɑ" [ label = "o:o" ];
 	"2, olɑ" ->	"1, ulɑ" [ label = "u:u" ];
 	"1, ulɑ" ->	"2, olɑ" [ label = "o:o" ];
-	"1, ulɑ" ->	"1, ulɑ" [ label = "?:?" ];
-	"2, olɑ" ->	"2, olɑ" [ label = "?:?" ];
+	"1, ulɑ" ->	"1, ulɑ" [ label = "?:?, e:e, i:i, ɑ:ɑ" ];
+	"2, olɑ" ->	"2, olɑ" [ label = "?:?, e:e, i:i, ɑ:ɑ" ];
 	start -> "0, ulɑ";
 }
