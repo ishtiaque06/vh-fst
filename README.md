@@ -195,3 +195,4 @@ non-destructive phonology by Ken Lodge](http://www.ai.mit.edu/projects/dm/featge
 * [Vowel Harmony in Maasai by Lindsey Taylor Quinn-Wriedt](https://ir.uiowa.edu/cgi/viewcontent.cgi?referer=&httpsredir=1&article=4860&context=etd)
 * [Theoretical Aspects of Kashaya Phonology and Morphology by Eugene Buckley, III](https://escholarship.org/uc/item/2m2435db)
 * [Kashaya Vocabulary by various](https://www.ling.upenn.edu/~gene/Kashaya/Vocabulary/list-all.html)
+* [Hungarian Vowel Harmony by Andras Kornai](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.139.6999&rep=rep1&type=pdf)
