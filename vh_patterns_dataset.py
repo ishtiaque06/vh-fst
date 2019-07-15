@@ -1332,23 +1332,10 @@ vh_dataset={1:
              30:
                 {
                     'name': 'Standard Hungarian palatal harmony of alternating suffixes',
-                    'states': {0:'',1:'',2:'',3:'',4:''},
-                    'alphabet': ['i','e','y',F_M_R_T,'u','a','o',F_L_U_T],
-                    'transitions': {(0,'?'):('?',0),(0,'i'):('i',0),(0,'a'):('a',4),
-                                   (0,'y'):('y',1),(0,F_M_R_T):(F_M_R_T,1),(0,'e'):('e',2),
-                                   (0,F_L_U_T):(F_L_U_T,2),(0,'o'):('o',3),(0,'u'):('u',3),
-                                   (1,'?'):('?',1),(1,'i'):('i',1),(1,'y'):('y',1),
-                                   (1,F_M_R_T):(F_M_R_T,1),(1,'e'):(F_M_R_T,1),
-                                   (1,'u'):('y',1),(1,'o'):(F_M_R_T,1),(1,'a'):(F_L_U_T,1),
-                                   (2,'?'):('?',2),(2,'i'):('i',2),(2,'e'):('e',2),
-                                   (2,F_L_U_T):(F_L_U_T,2),(2,'o'):(F_M_R_T,2),
-                                   (2,'u'):('y',2),(2,F_M_R_T):(F_M_R_T,2),(2,'a'):(F_L_U_T,2),
-                                   (3,'?'):('?',3),(3,'i'):('i',3),(3,'e'):('o',3),
-                                   (3,'u'):('u',3),(3,'o'):('o',3),(3,'y'):('u',3),
-                                   (3,F_M_R_T):('o',3),(3,F_L_U_T):('a',3),
-                                   (4,'?'):('?',4),(4,'i'):('i',4),(4,'e'):('o',4),
-                                   (4,'u'):('u',4),(4,'o'):('o',4),(4,'y'):('u',4),
-                                   (4,F_M_R_T):('o',4),(4,F_L_U_T):('a',4)},
+                    'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:''},
+                    'alphabet': ['!','-','i',Long_F_H_U_T,Long_F_M_U_T,F_M_U_NT,'y',Long_F_H_R_T,F_M_R_T,Long_F_M_R_T,'u',Long_B_H_R_T,'o',Long_B_M_R_T,Long_C_L_U_NT,B_M_R_NT],
+                    'transitions': {(0,'?'):('?',0),
+                                   },
                     'preprocess_req': True,
                     'postprocess_req': False,
                     'left_subseq': True,
@@ -1359,9 +1346,9 @@ vh_dataset={1:
                     'notes': ['Std Hungarian also has labial vowel harmony, but it is not represented in this FST',
                               'Hungarian suffixes are either fixed or alternating in backness; only alternating'
                               ' suffixes harmonize, so non-alternating suffixes will produce invalid output with this FST',
-                             'Vowel phonemes are /i,long i,long e, y, long y,u, long u, o, long o, long a, back-mid-rounded-lax'
+                             'Vowel phonemes are /i, i:, e:, y, y:,u, u:, o, o:, a:, back-mid-rounded-lax'
                               ',front-mid-rounded-tense,long front-mid-rounded-tense, front-mid-unrounded-lax/',
-                             '/i,i:,e:,front-mid-unrounded-lax/ are quasi-transparent neutrals','If the closest vowel to the'
+                             '/i,i:,e:,front-mid-unrounded-lax/ are quasi-neutrals','If the closest vowel to the'
                               ' left of an alternating suffix is a non-neutral front vowel, then the suffix will front-harmonize',
                              'If the closest vowel to the left of an alternating suffix is a back vowel, then the suffix will back-harmonize',
                              'If the closest vowel to the left of an alternating suffix is a neutral vowel, it varies what palatal quality the suffix vowels will demonstrate:'
@@ -1372,11 +1359,13 @@ vh_dataset={1:
                               ',and a variety of other factors; thus BECAUSE THE HARMONY IS PROBABILISTIC IN THIS CASE, THE FST WILL FAIL TO PERFECTLY REPRESENT THIS PHENOMENON',
                              'Acknowledging the probabilistic nature of this harmony, various assumptions were made that make the FST potentially inaccurate; these'
                               'manifest in the decision to make a root-final vowel sequence of BN lead to back-harmony, but a sequence of BNN or even more Ns produce front-harmony,'
-                              'thus avoiding a likelihood-based FST'],
+                              'thus avoiding a likelihood-based FST','Quasi-neutrals /e,F_M_U_NT/ alternate with /a:,B_M_R_NT/ in alternating suffixes',
+                             'In general, /y,y:,F_M_R_T,Long_F_M_R_T/ alternate with /u,u:,o,o:/,respectively, in alternating suffixes', 
+                              'While this FST assumes binary suffixes, there are quaternary suffixes which alternate between four different vowels'],
                     'harmony_feature':['Palatal'],
                     'sc':True,
                     'dr':False,
-                    'transparent':[''],
-                    'opaque':None
+                    'transparent':['/i,e,F_M_U_NT/ are quasi-transparent as triggers'],
+                    'opaque':['/i,e,F_M_U_NT/sometimes "behave" opaquely, lending to front harmony']
                 },
              }
