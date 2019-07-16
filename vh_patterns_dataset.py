@@ -1,6 +1,21 @@
 # Import all variables that represent unicode hex codes
 from unicode_variable_repr import *
 
+def show_implementation_details(id):
+    '''
+        Given a language from vh_dataset in this file, prints the following info:
+
+        * name <string>
+        * left_subseq <boolean>
+        * preprocess_dets <string>
+        * postprocess_dets <string>
+    '''
+    language = vh_dataset[id]
+    print ("Name: ", language['name'])
+    print ("Left subsequential?", language['left_subseq'])
+    print ("Preprocess details: ", language['preprocess_dets'])
+    print ("Postprocess details: ", language['postprocess_dets'])
+
 # Description of what each element in the language lists correspond to.
 list_desc = ['VH pattern', 'State set','Alphabet of relevant symbols',
             'Transition set', 'Preprocessing necessary?', 'Postprocessing necessary?',
