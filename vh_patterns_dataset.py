@@ -1426,6 +1426,17 @@ vh_dataset={1:
                                     (0,B_L_U_NT):(B_L_U_NT,0),
                                     (0,'!'):('!',1),(1,'!'):('!',1),(2,'!'):('!',2),(3,'!'):('!',3),
                                     (4,'!'):('!',4),
+                                    (1,'I'):('I',1),(1,B_H_R_NT):(B_H_R_NT,1),(1,F_M_U_NT):(F_M_U_NT,1),(1,B_M_R_NT):(B_M_R_NT,1),
+                                    (1,B_L_U_NT):(B_L_U_NT,1),(1,'i'):('i',2),(1,'u'):('u',2),(1,'e'):('e',2),(1,'o'):('o',2),
+                                    (2,'i'):('i',2),(2,'u'):('u',2),(2,'e'):('e',2),(2,'o'):('o',2),
+                                    (2,'I'):('i',2),(2,B_H_R_NT):('u',2),(2,F_M_U_NT):('e',2),(2,B_M_R_NT):('o',2),
+                                    (2,B_L_U_NT):(B_L_U_NT,1),
+                                    (3,'i'):('i',3),(3,'u'):('u',3),(3,'e'):('e',3),(3,'o'):('o',3),
+                                    (3,'I'):('i',3),(3,B_H_R_NT):('u',3),(3,F_M_U_NT):('e',3),(3,B_M_R_NT):('o',3),
+                                    (3,B_L_U_NT):(B_L_U_NT,4),
+                                    (4,'i'):('i',4),(4,'u'):('u',4),(4,'e'):('e',4),(4,'o'):('o',4),
+                                    (4,'I'):('I',4),(4,B_H_R_NT):(B_H_R_NT,4),(4,F_M_U_NT):(F_M_U_NT,4),(4,B_M_R_NT):(B_M_R_NT,4),
+                                    (4,B_L_U_NT):(B_L_U_NT,4),
                                    }, 
                     'preprocess_req': True,
                     'postprocess_req': True,
@@ -1433,14 +1444,41 @@ vh_dataset={1:
                     'bidir_subseq':True,
                     'plus_prefix':True,
                     'hyphenate_suffix':True,
-                    'preprocess_dets':'Add "!" to the beginning of the root/stem and "&" to the end of the root/stem (Ex: For input /a+b+c+ddd-e-f/, should get /a+b+c+!ddd&-e-f/; This is the input for FST 31',
+                    'preprocess_dets':'Add "!" to the beginning of the root/stem and "&" '
+                            'to the end of the root/stem (Ex: For input /a+b+c+ddd-e-f/,'
+                            ' should get /a+b+c+!ddd&-e-f/; This is the input for FST 31',
                     'postprocess_dets':'Output should be reversed and run through 31B',
-                    'notes': [''],
+                    'notes': ['Dialect represented is that delineated in "Nawuri ATR harmony in typological perspective"'
+                              'by Roderic Casali (2002)',
+                              'Morpheme-internal cross-height ATR harmony',
+                              'Casali conveys Nawuri as stem-control with [+ATR] dominant over [-ATR]',
+                              'Nawuri has 9 vowel phonemes /i,u,e,o,I,B_H_R_NT,F_M_U_NT,B_M_R_NT,C_L_U_NT/,'
+                              ' as well as long counterparts to many of them;the first four listed are'
+                              '[+ATR], while the others are [-ATR]',
+                             'Centralization, raising, and dipthongization phonetic vowel processes exist,'
+                             ' but were not incorporated into this FST because we only included phonemic'
+                              'representations','The decision to take a broad phonological parametrization'
+                              'may contribute to ambiguity given that multiple phonemes may share an allophone'
+                              '(ex: /a/ and /B_M_R_NT/ can both manifest as B_M_U_NT in particular contexts',
+                             'Harmony only affects a subset of affixes: there are many harmonizing prefixes '
+                             'and at least one harmonizing suffix','THIS FST ASSUMES ALL AFFIXES IN THE INPUT'
+                              'ARE HARMONIZING AFFIXES, WHICH PRODUCES INACCURATE OUTPUTS WHEN SUCH IS NOT THE CASE',
+                             'B_L_U_NT is a neutral vowel which sometimes behaves transparently and sometimes opaquely:'
+                             'it blocks the rightward spreading of [+ATR], causing a following harmonizing suffix to manifest'
+                             'as [-ATR] (i.e., if it is the last vowel of the root, the following suffix -if alternating- will'
+                             ' have [-ATR] vowels; it does not block leftward [+ATR] spreading, however (i.e., if a root'
+                             ' has [+ATR] vowels, but B_L_U_NT as its leftmost vowel, [+ATR] may still spread to the preceding prefixes',
+                             'Some believe B_L_U_NT is not a neutral, but instead subtley phonetically raises before a [+ATR] vowel;'
+                             'Because we are only employing phonemic representations, such is not practically relevant',
+                             'There can also be [+ATR] assimilation across word boundaries and within compounds,'
+                             ' but THIS FST CAN ONLY TREAT SIMPLE ROOTS WITH HARMONIZING AFFIXES',
+                             'Nawuri also demonstrates labial harmony in some contexts, but this FST does not '
+                             'incorporate it'],
                     'harmony_feature':['ATR/RTR'],
                     'sc':True,
                     'dr':True,
-                    'transparent':[],
-                    'opaque':[''],
+                    'transparent':['B_L_U_NT seems to allow leftward spreading of [+ATR], behaving transparently'],
+                    'opaque':['B_L_U_NT seems to block rightward spreading of [+ATR],behaving opaquely'],
                 },
             '31B':
                 {
@@ -1452,7 +1490,11 @@ vh_dataset={1:
                                     (0,'I'):('I',0),(0,B_H_R_NT):(B_H_R_NT,0),(0,F_M_U_NT):(F_M_U_NT,0),(0,B_M_R_NT):(B_M_R_NT,0),
                                     (0,B_L_U_NT):(B_L_U_NT,0),
                                     (0,'&'):('&',1),(1,'&'):('&',1),(2,'&'):('&',2),
-                                    (1,
+                                    (1,'I'):('I',1),(1,B_H_R_NT):(B_H_R_NT,1),(1,F_M_U_NT):(F_M_U_NT,1),(1,B_M_R_NT):(B_M_R_NT,1),
+                                    (1,B_L_U_NT):(B_L_U_NT,1),(1,'i'):('i',2),(1,'u'):('u',2),(1,'e'):('e',2),(1,'o'):('o',2),
+                                    (2,'i'):('i',2),(2,'u'):('u',2),(2,'e'):('e',2),(2,'o'):('o',2),
+                                    (2,'I'):('i',2),(2,B_H_R_NT):('u',2),(2,F_M_U_NT):('e',2),(2,B_M_R_NT):('o',2),
+                                    (2,B_L_U_NT):(B_L_U_NT,2),
                                    },
                     'preprocess_req': True,
                     'postprocess_req': True,
