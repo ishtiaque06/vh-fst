@@ -132,6 +132,10 @@ Long_F_H_U_NT='I'+uc(0x02D0)
 Long_B_H_R_NT=uc(0x028A)+uc(0x02D0)
 Long_F_M_U_NT=uc(0x025B)+uc(0x02D0)
 Long_B_M_R_NT=uc(0x0254)+uc(0x02D0)
+Cent_B_H_R_T='u'+uc(0x0308)
+Cent_B_M_R_T='o'+uc(0x0308)
+Cent_F_H_U_T='i'+uc(0x0308)
+Cent_C_L_U_NT='a'+uc(0x0308)
 
 # To print in help menu
 vowels_as_dict = {
@@ -167,5 +171,8 @@ vowels_as_dict = {
     'Long_B_H_R_NT':Long_B_H_R_NT,
     'Long_F_M_U_NT':Long_F_M_U_NT,
     'Long_B_M_R_NT':Long_B_M_R_NT,
-    
+    'Cent_B_H_R_T'=Cent_B_H_R_T
+    'Cent_B_M_R_T'=Cent_B_M_R_T
+    'Cent_F_H_U_T'=Cent_F_H_U_T
+    'Cent_C_L_U_NT'=Cent_C_L_U_NT
 }
