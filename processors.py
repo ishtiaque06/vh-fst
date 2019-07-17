@@ -81,7 +81,7 @@ def preprocess(
             return True, word_as_list
 
     # Preprocessing for right-subsequential languages
-    elif not fst.left_subseq:
+    else:
 
         # languages 9,10,11,12,13
         if fst.name in {
@@ -97,7 +97,10 @@ def preprocess(
                 suffix_start = word_as_list.index('-')
                 return True, word_as_list[:suffix_start][::-1]
         elif fst.name == 'Yoruba ATR harmony':
-            return True, stem_as_list[::-1]
+            return True, word_as_list[::-1]
+        # elif fst.name=="Kalenjin ATR harmony":
+        #     language = vh_dataset[24]
+        # 
 
         return True, word_as_list[::-1]
 
@@ -107,6 +110,13 @@ def postprocess(word_as_list, fst):
     if fst.postprocess_req:
         if not fst.left_subseq:
             word_as_list = word_as_list[::-1]
+            if fst.name == "Igbo ATR harmony":
+                post_fst = FST(vh_dataset['22B'])
+                output = post_fst.step(word_as_list)
+                word_as_list = output[::-1]
+            elif fst.name == "Diola-Fogny (Jola-Fonyi) ATR harmony":
+                word_as_list = fst.step(word_as_list)
+                word_as_list = word_as_list[::-1]
         if fst.hyphenate_suffix:
             if hasattr(fst, "suffix"):
                 for suffix in fst.suffix:
