@@ -171,8 +171,8 @@ vowels_as_dict = {
     'Long_B_H_R_NT':Long_B_H_R_NT,
     'Long_F_M_U_NT':Long_F_M_U_NT,
     'Long_B_M_R_NT':Long_B_M_R_NT,
-    'Cent_B_H_R_T'=Cent_B_H_R_T
-    'Cent_B_M_R_T'=Cent_B_M_R_T
-    'Cent_F_H_U_T'=Cent_F_H_U_T
-    'Cent_C_L_U_NT'=Cent_C_L_U_NT
+    'Cent_B_H_R_T':Cent_B_H_R_T,
+    'Cent_B_M_R_T':Cent_B_M_R_T,
+    'Cent_F_H_U_T':Cent_F_H_U_T,
+    'Cent_C_L_U_NT':Cent_C_L_U_NT
 }

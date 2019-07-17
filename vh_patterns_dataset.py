@@ -337,22 +337,35 @@ vh_dataset=\
     9:
     {
         'name': 'Jingulu nominal root with non-neuter gender suffix',
-        'states': {0:'',1:''},
-        'alphabet': ['a','u','i'],
-        'transitions': {(0,'?'):('?',0), (0,'a'):('i',0),(0,'i'):('i',1), (0,'u'):('u',1),
-            (1,'?'):('?',1),(1,'a'):('a',1),(1,'i'):('i',1),(1,'u'):('u',1)},
+        'states': {0:'',1:'',2:'',3:'',4:''},
+        'alphabet': ['a','u','i','-','+'],
+        'transitions':
+            {(0,'?'):('?',0),(1,'?'):('?',1),(2,'?'):('?',2),(3,'?'):('?',3),
+            (4,'?'):('?',4),
+            (0,'+'):('+',0),(0,'a'):('a',0),(0,'-'):('-',4),(0,'u'):('u',1),
+            (0,'i'):('i',1),
+            (1,'+'):('+',1),(1,'a'):('a',1),(1,'u'):('u',1),(1,'i'):('i',1),
+            (1,'-'):('-',2),
+            (2,'a'):('i',2),(2,'-'):('-',2),(2,'i'):('i',3),(2,'u'):('u',3),
+            (2,'+'):('+',3),
+            (3,'+'):('+',3),(3,'a'):('a',3),(3,'u'):('u',3),(3,'i'):('i',3),
+            (3,'-'):('-',3),
+            (4,'+'):('+',4),(4,'a'):('a',4),(4,'u'):('u',4),(4,'i'):('i',4),
+            (4,'-'):('-',4),
+            },
         'preprocess_req': True,
         'postprocess_req': True,
         'left_subseq': False,
         'bidir_subseq':False,
-        #Instruct user to insert a hyphen before the suffix
-        #(ex. input: r o o t - s u f wherein suf is the suffix)
+        # Instruct user to insert a hyphen before the suffix
+        # (ex. input: r o o t - s u f wherein suf is the suffix)
         'hyphenate_suffix': True,
-        'preprocess_dets': "Check if 'u' or 'i' in suffix; if not, return input as output; "
-            "if true, store suffix, but remove it from input; reverse the input and enter it into FST",
-        'postprocess_dets':'Reverse output of FST; append stored suffix back on',
-        'notes': ['[+high] harmonizes regressively from suffix to root',
-            '[+high] in root acts as a blocker which does not lend its own feature (does not reset domain)'],
+        'preprocess_dets': "Reverse the input and enter it into FST",
+        'postprocess_dets':'Reverse output of FST',
+        'notes': ['FST only works if the titular suffix is the only suffix in the input',
+            '[+high] harmonizes regressively from suffix to root',
+            '[+high] in root acts as a blocker which does not lend its own feature '
+            '(does not reset domain)'],
         'harmony_feature':['Height'],
         'sc':False,
         'dr':False,
@@ -360,105 +373,160 @@ vh_dataset=\
         'opaque':['[+high] in the root is a blocker which does not lend its own feature']
     },
     10:
-    {
-        'name': 'Jingulu adjectivial root with non-neuter gender suffix',
-        'states': {0:'',1:''},
-        'alphabet': ['a','u','i'],
-        'transitions': {(0,'?'):('?',0), (0,'a'):('i',0),(0,'i'):('i',1), (0,'u'):('u',1),
-            (1,'?'):('?',1),(1,'a'):('a',1),(1,'i'):('i',1),(1,'u'):('u',1)},
-        'preprocess_req': True,
-        'postprocess_req': True,
-        'left_subseq': False,
-        'bidir_subseq':False,
-        #Instruct user to insert a hyphen before the suffix
-        #(ex. input: r o o t - s u f wherein suf is the suffix)
-        'hyphenate_suffix': True,
-        'preprocess_dets': "Check if 'u' or 'i' in suffix; if not, return input as output; "
-            "if true, store suffix, but remove it from input; reverse the input and enter it into FST",
-        'postprocess_dets':'Reverse output of FST; append stored suffix back on',
-        'notes': ['[+high] harmonizes regressively from suffix to root',
-            '[+high] in root acts as a blocker which does not lend its own feature (does not reset domain)'],
-        'harmony_feature':['Height'],
-        'sc':False,
-        'dr':False,
-        'transparent':None,
-        'opaque':['[+high] in the root is a blocker which does not lend its own feature']
-    },
+        {
+            'name': 'Jingulu adjectivial root with non-neuter gender suffix',
+            'states': {0:'',1:'',2:'',3:'',4:''},
+            'alphabet': ['a','u','i','-','+'],
+            'transitions':
+                {(0,'?'):('?',0),(1,'?'):('?',1),(2,'?'):('?',2),(3,'?'):('?',3),
+                (4,'?'):('?',4),
+                (0,'+'):('+',0),(0,'a'):('a',0),(0,'-'):('-',4),(0,'u'):('u',1),
+                (0,'i'):('i',1),
+                (1,'+'):('+',1),(1,'a'):('a',1),(1,'u'):('u',1),(1,'i'):('i',1),
+                (1,'-'):('-',2),
+                (2,'a'):('i',2),(2,'-'):('-',2),(2,'i'):('i',3),(2,'u'):('u',3),
+                (2,'+'):('+',3),
+                (3,'+'):('+',3),(3,'a'):('a',3),(3,'u'):('u',3),(3,'i'):('i',3),
+                (3,'-'):('-',3),
+                (4,'+'):('+',4),(4,'a'):('a',4),(4,'u'):('u',4),(4,'i'):('i',4),
+                (4,'-'):('-',4),
+                },
+            'preprocess_req': True,
+            'postprocess_req': True,
+            'left_subseq': False,
+            'bidir_subseq':False,
+            #Instruct user to insert a hyphen before the suffix
+            # (ex. input: r o o t - s u f wherein suf is the suffix)
+            'hyphenate_suffix': True,
+            'preprocess_dets': "Reverse the input and enter it into FST",
+            'postprocess_dets':'Reverse output of FST',
+            'notes': ['FST only works if the titular suffix is the only suffix in the input',
+            '[+high] harmonizes regressively from suffix to root',
+                '[+high] in root acts as a blocker which does not lend its own '
+                'feature (does not reset domain)'],
+            'harmony_feature':['Height'],
+            'sc':False,
+            'dr':False,
+            'transparent':None,
+            'opaque':['[+high] in the root is a blocker which does not lend its own feature']
+        },
     11:
-    {
-        'name': 'Jingulu verbal root with subject agreement-marking suffix',
-        'states': {0:'',1:''},
-        'alphabet': ['a','u','i'],
-        'transitions': {(0,'?'):('?',0), (0,'a'):('i',0),(0,'i'):('i',1), (0,'u'):('u',1),
-            (1,'?'):('?',1),(1,'a'):('a',1),(1,'i'):('i',1),(1,'u'):('u',1)},
-        'preprocess_req': True,
-        'postprocess_req': True,
-        'left_subseq': False,
-        'bidir_subseq':False,
-        #Instruct user to insert a hyphen before the suffix
-        #(ex. input: r o o t - s u f wherein suf is the suffix)
-        'hyphenate_suffix': True,
-        'preprocess_dets': "Check if 'u' or 'i' in suffix; if not, return input as output; "
-            "if true, store suffix, but remove it from input; reverse the input and enter it into FST",
-        'postprocess_dets':'Reverse output of FST; append stored suffix back on',
-        'notes': ['[+high] harmonizes regressively from suffix to root',
-            '[+high] in root acts as a blocker which does not lend its own feature (does not reset domain)'],
-        'harmony_feature':['Height'],
-        'sc':False,
-        'dr':False,
-        'transparent':None,
-        'opaque':['[+high] in the root is a blocker which does not lend its own feature']
-    },
+        {
+            'name': 'Jingulu verbal root with subject agreement-marking suffix',
+            'states': {0:'',1:'',2:'',3:'',4:''},
+            'alphabet': ['a','u','i','-','+'],
+            'transitions':
+                {(0,'?'):('?',0),(1,'?'):('?',1),(2,'?'):('?',2),(3,'?'):('?',3),
+                (4,'?'):('?',4),
+                (0,'+'):('+',0),(0,'a'):('a',0),(0,'-'):('-',4),(0,'u'):('u',1),
+                (0,'i'):('i',1),
+                (1,'+'):('+',1),(1,'a'):('a',1),(1,'u'):('u',1),(1,'i'):('i',1),
+                (1,'-'):('-',2),
+                (2,'a'):('i',2),(2,'-'):('-',2),(2,'i'):('i',3),(2,'u'):('u',3),
+                (2,'+'):('+',3),
+                (3,'+'):('+',3),(3,'a'):('a',3),(3,'u'):('u',3),(3,'i'):('i',3),
+                (3,'-'):('-',3),
+                (4,'+'):('+',4),(4,'a'):('a',4),(4,'u'):('u',4),(4,'i'):('i',4),
+                (4,'-'):('-',4),
+                },
+            'preprocess_req': True,
+            'postprocess_req': True,
+            'left_subseq': False,
+            'bidir_subseq':False,
+            #Instruct user to insert a hyphen before the suffix
+            # (ex. input: r o o t - s u f wherein suf is the suffix)
+            'hyphenate_suffix': True,
+            'preprocess_dets': "Reverse the input and enter it into FST",
+            'postprocess_dets':'Reverse output of FST',
+            'notes': [
+                'FST only works if the titular suffix is the only suffix in the input',
+                '[+high] harmonizes regressively from suffix to root',
+                '[+high] in root acts as a blocker which does not lend its own '
+                'feature (does not reset domain)'],
+            'harmony_feature':['Height'],
+            'sc':False,
+            'dr':False,
+            'transparent':None,
+            'opaque':['[+high] in the root is a blocker which does not lend its own feature']
+        },
     12:
-    {
-        'name': 'Jingulu verbal root with motion-imperative suffix',
-        'states': {0:'',1:''},
-        'alphabet': ['a','u','i'],
-        'transitions': {(0,'?'):('?',0), (0,'a'):('i',0),(0,'i'):('i',1), (0,'u'):('u',1),
-            (1,'?'):('?',1),(1,'a'):('a',1),(1,'i'):('i',1),(1,'u'):('u',1)},
-        'preprocess_req': True,
-        'postprocess_req': True,
-        'left_subseq': False,
-        'bidir_subseq':False,
-        #Instruct user to insert a hyphen before the suffix
-        # (ex. input: r o o t - s u f wherein suf is the suffix)
-        'hyphenate_suffix': True,
-        'preprocess_dets': "Check if 'u' or 'i' in suffix; if not, return input as output; "
-            "if true, store suffix, but remove it from input; reverse the input and enter it into FST",
-        'postprocess_dets':'Reverse output of FST; append stored suffix back on',
-        'notes': ['[+high] harmonizes regressively from suffix to root',
-            '[+high] in root acts as a blocker which does not lend its own feature (does not reset domain)'],
-        'harmony_feature':['Height'],
-        'sc':False,
-        'dr':False,
-        'transparent':None,
-        'opaque':['[+high] in the root is a blocker which does not lend its own feature']
-    },
+        {
+            'name': 'Jingulu verbal root with motion-imperative suffix',
+            'states': {0:'',1:'',2:'',3:'',4:''},
+            'alphabet': ['a','u','i','-','+'],
+            'transitions':
+                {(0,'?'):('?',0),(1,'?'):('?',1),(2,'?'):('?',2),(3,'?'):('?',3),
+                (4,'?'):('?',4),
+                (0,'+'):('+',0),(0,'a'):('a',0),(0,'-'):('-',4),(0,'u'):('u',1),
+                (0,'i'):('i',1),
+                (1,'+'):('+',1),(1,'a'):('a',1),(1,'u'):('u',1),(1,'i'):('i',1),
+                (1,'-'):('-',2),
+                (2,'a'):('i',2),(2,'-'):('-',2),(2,'i'):('i',3),(2,'u'):('u',3),
+                (2,'+'):('+',3),
+                (3,'+'):('+',3),(3,'a'):('a',3),(3,'u'):('u',3),(3,'i'):('i',3),
+                (3,'-'):('-',3),
+                (4,'+'):('+',4),(4,'a'):('a',4),(4,'u'):('u',4),(4,'i'):('i',4),
+                (4,'-'):('-',4),
+                },
+            'preprocess_req': True,
+            'postprocess_req': True,
+            'left_subseq': False,
+            'bidir_subseq':False,
+            #Instruct user to insert a hyphen before the suffix
+            # (ex. input: r o o t - s u f wherein suf is the suffix)
+            'hyphenate_suffix': True,
+            'preprocess_dets': "Reverse the input and enter it into FST",
+            'postprocess_dets':'Reverse output of FST',
+            'notes': [
+                'FST only works if the titular suffix is the only suffix in the input',
+                '[+high] harmonizes regressively from suffix to root',
+                '[+high] in root acts as a blocker which does not lend its own '
+                'feature (does not reset domain)'],
+            'harmony_feature':['Height'],
+            'sc':False,
+            'dr':False,
+            'transparent':None,
+            'opaque':['[+high] in the root is a blocker which does not lend its own feature']
+        },
     13:
-    {
-        'name': 'Jingulu verbal root with negative imperative suffix',
-        'states': {0:'',1:''},
-        'alphabet': ['a','u','i'],
-        'transitions': {(0,'?'):('?',0), (0,'a'):('i',0),(0,'i'):('i',1), (0,'u'):('u',1),
-            (1,'?'):('?',1),(1,'a'):('a',1),(1,'i'):('i',1),(1,'u'):('u',1)},
-        'preprocess_req': True,
-        'postprocess_req': True,
-        'left_subseq': False,
-        'bidir_subseq':False,
-        #Instruct user to insert a hyphen before the suffix
-        #(ex. input: r o o t - s u f wherein suf is the suffix)
-        'hyphenate_suffix': True,
-        'preprocess_dets': "Check if 'u' or 'i' in suffix; if not, return input as output; "
-            "if true, store suffix, but remove it from input; reverse the input and enter it into FST",
-        'postprocess_dets':'Reverse output of FST; append stored suffix back on',
-        'notes': ['[+high] harmonizes regressively from suffix to root',
-            '[+high] in root acts as a blocker which does not lend its own feature (does not reset domain)'],
-        'harmony_feature':['Height'],
-        'sc':False,
-        'dr':False,
-        'transparent':None,
-        'opaque':['[+high] in the root is a blocker which does not lend its own feature']
-    },
+        {
+            'name': 'Jingulu verbal root with negative imperative suffix',
+            'states': {0:'',1:'',2:'',3:'',4:''},
+            'alphabet': ['a','u','i','-','+'],
+            'transitions':
+                {(0,'?'):('?',0),(1,'?'):('?',1),(2,'?'):('?',2),(3,'?'):('?',3),
+                (4,'?'):('?',4),
+                (0,'+'):('+',0),(0,'a'):('a',0),(0,'-'):('-',4),(0,'u'):('u',1),
+                (0,'i'):('i',1),
+                (1,'+'):('+',1),(1,'a'):('a',1),(1,'u'):('u',1),(1,'i'):('i',1),
+                (1,'-'):('-',2),
+                (2,'a'):('i',2),(2,'-'):('-',2),(2,'i'):('i',3),(2,'u'):('u',3),
+                (2,'+'):('+',3),
+                (3,'+'):('+',3),(3,'a'):('a',3),(3,'u'):('u',3),(3,'i'):('i',3),
+                (3,'-'):('-',3),
+                (4,'+'):('+',4),(4,'a'):('a',4),(4,'u'):('u',4),(4,'i'):('i',4),
+                (4,'-'):('-',4),
+                },
+            'preprocess_req': True,
+            'postprocess_req': True,
+            'left_subseq': False,
+            'bidir_subseq':False,
+            #Instruct user to insert a hyphen before the suffix
+            # (ex. input: r o o t - s u f wherein suf is the suffix)
+            'hyphenate_suffix': True,
+            'preprocess_dets': "Reverse the input and enter it into FST",
+            'postprocess_dets':'Reverse output of FST',
+            'notes': [
+                'FST only works if the titular suffix is the only suffix in the input',
+                '[+high] harmonizes regressively from suffix to root',
+                '[+high] in root acts as a blocker which does not lend its own '
+                'feature (does not reset domain)'],
+            'harmony_feature':['Height'],
+            'sc':False,
+            'dr':False,
+            'transparent':None,
+            'opaque':['[+high] in the root is a blocker which does not lend its own feature']
+        },
     14:
     {
         'name': 'Turkish palatal and rounding vowel harmony',
@@ -901,7 +969,8 @@ vh_dataset=\
         'bidir_subseq':False,
         'plus_prefix':True,
         'hyphenate_suffix': True,
-        'preprocess_dets':'Should have been run through 22 and the reversed output of 22 should be 22Bs input',
+        'preprocess_dets':'Should have been run through 22 and the reversed output '
+            'of 22 should be 22Bs input',
         'postprocess_dets':'Reverse output, this is your final output',
         'notes': ['Roots do not alternate',
             'THIS FST IS NOT NECESSARILY ACCURATE FOR COMPOUND WORDS:+ATR and -ATR '
@@ -967,22 +1036,37 @@ vh_dataset=\
             (0,'?'):('?',0),(1,'?'):('?',1),(2,'?'):('?',2),
             (0,'i'):('i',1),(1,'i'):('i',1),(0,'u'):('u',1),(1,'u'):('u',1),
             (0,'e'):('e',1),(1,'e'):('e',1),(0,'o'):('o',1),(1,'o'):('o',1),
-            (0,C_L_U_T):(C_L_U_T,1),(1,C_L_U_T):(C_L_U_T,1),(0,Long_C_L_U_T):(Long_C_L_U_T,1),
-            (1,Long_C_L_U_T):(Long_C_L_U_T,1),(0,Long_B_M_R_T):(Long_B_M_R_T,1),(1,Long_B_M_R_T):(Long_B_M_R_T,1),
-            (0,Long_F_M_U_T):(Long_F_M_U_T,1),(1,Long_F_M_U_T):(Long_F_M_U_T,1),(0,Long_B_H_R_T):(Long_B_H_R_T,1),
-            (1,Long_B_H_R_T):(Long_B_H_R_T,1),(0,Long_F_H_U_T):(Long_F_H_U_T,1),(1,Long_F_H_U_T):(Long_F_H_U_T,1),
-            (1,'a'):(C_L_U_T,1),(1,B_M_R_NT):('o',1),(1,B_H_R_NT):('u',1),(1,F_M_U_NT):('e',1),(1,'I'):('i',1),
-            (1,Long_C_L_U_NT):(Long_C_L_U_T,1),(1,Long_B_M_R_NT):(Long_B_M_R_T,1),(1,Long_B_H_R_NT):(Long_B_H_R_T,1),
+            (0,C_L_U_T):(C_L_U_T,1),(1,C_L_U_T):(C_L_U_T,1),
+            (0,Long_C_L_U_T):(Long_C_L_U_T,1),
+            (1,Long_C_L_U_T):(Long_C_L_U_T,1),(0,Long_B_M_R_T):(Long_B_M_R_T,1),
+            (1,Long_B_M_R_T):(Long_B_M_R_T,1),
+            (0,Long_F_M_U_T):(Long_F_M_U_T,1),(1,Long_F_M_U_T):(Long_F_M_U_T,1),
+            (0,Long_B_H_R_T):(Long_B_H_R_T,1),
+            (1,Long_B_H_R_T):(Long_B_H_R_T,1),(0,Long_F_H_U_T):(Long_F_H_U_T,1),
+            (1,Long_F_H_U_T):(Long_F_H_U_T,1),
+            (1,'a'):(C_L_U_T,1),(1,B_M_R_NT):('o',1),(1,B_H_R_NT):('u',1),
+            (1,F_M_U_NT):('e',1),(1,'I'):('i',1),
+            (1,Long_C_L_U_NT):(Long_C_L_U_T,1),(1,Long_B_M_R_NT):(Long_B_M_R_T,1),
+            (1,Long_B_H_R_NT):(Long_B_H_R_T,1),
             (1,Long_F_M_U_NT):(Long_F_M_U_T,1),(1,Long_F_H_U_NT):(Long_F_H_U_T,1),
-            (0,'I'):('I',2),(0,B_H_R_NT):(B_H_R_NT,2),(0,F_M_U_NT):(F_M_U_NT,2),(0,B_M_R_NT):(B_M_R_NT,2),
-            (0,'a'):('a',2),(0,Long_F_H_U_NT):(Long_F_H_U_NT,2),(0,Long_B_H_R_NT):(Long_B_H_R_NT,2),
-            (0,Long_F_M_U_NT):(Long_F_M_U_NT,2),(0,Long_B_M_R_NT):(Long_B_M_R_NT,2),(0,Long_C_L_U_NT):(Long_C_L_U_NT,2),
-            (2,'I'):('I',2),(2,B_H_R_NT):(B_H_R_NT,2),(2,F_M_U_NT):(F_M_U_NT,2),(2,B_M_R_NT):(B_M_R_NT,2),
-            (2,'a'):('a',2),(2,Long_F_H_U_NT):(Long_F_H_U_NT,2),(2,Long_B_H_R_NT):(Long_B_H_R_NT,2),
-            (2,Long_F_M_U_NT):(Long_F_M_U_NT,2),(2,Long_B_M_R_NT):(Long_B_M_R_NT,2),(2,Long_C_L_U_NT):(Long_C_L_U_NT,2),
-            (2,'i'):('I',2),(2,'u'):(B_H_R_NT,2),(2,'e'):(F_M_U_NT,2),(2,'o'):(B_M_R_NT,2),
-            (2,C_L_U_T):('a',2),(2,Long_F_H_U_T):(Long_F_H_U_NT,2),(2,Long_B_H_R_T):(Long_B_H_R_NT,2),
-            (2,Long_F_M_U_T):(Long_F_M_U_NT,2),(2,Long_B_M_R_T):(Long_B_M_R_NT,2),(2,Long_C_L_U_T):(Long_C_L_U_NT,2),
+            (0,'I'):('I',2),(0,B_H_R_NT):(B_H_R_NT,2),(0,F_M_U_NT):(F_M_U_NT,2),
+            (0,B_M_R_NT):(B_M_R_NT,2),
+            (0,'a'):('a',2),(0,Long_F_H_U_NT):(Long_F_H_U_NT,2),
+            (0,Long_B_H_R_NT):(Long_B_H_R_NT,2),
+            (0,Long_F_M_U_NT):(Long_F_M_U_NT,2),(0,Long_B_M_R_NT):(Long_B_M_R_NT,2),
+            (0,Long_C_L_U_NT):(Long_C_L_U_NT,2),
+            (2,'I'):('I',2),(2,B_H_R_NT):(B_H_R_NT,2),(2,F_M_U_NT):(F_M_U_NT,2),
+            (2,B_M_R_NT):(B_M_R_NT,2),
+            (2,'a'):('a',2),(2,Long_F_H_U_NT):(Long_F_H_U_NT,2),
+            (2,Long_B_H_R_NT):(Long_B_H_R_NT,2),
+            (2,Long_F_M_U_NT):(Long_F_M_U_NT,2),(2,Long_B_M_R_NT):(Long_B_M_R_NT,2),
+            (2,Long_C_L_U_NT):(Long_C_L_U_NT,2),
+            (2,'i'):('I',2),(2,'u'):(B_H_R_NT,2),(2,'e'):(F_M_U_NT,2),
+            (2,'o'):(B_M_R_NT,2),
+            (2,C_L_U_T):('a',2),(2,Long_F_H_U_T):(Long_F_H_U_NT,2),
+            (2,Long_B_H_R_T):(Long_B_H_R_NT,2),
+            (2,Long_F_M_U_T):(Long_F_M_U_NT,2),(2,Long_B_M_R_T):(Long_B_M_R_NT,2),
+            (2,Long_C_L_U_T):(Long_C_L_U_NT,2),
            },
         'preprocess_req': True,
         'postprocess_req': True,
@@ -1036,22 +1120,37 @@ vh_dataset=\
             (0,'?'):('?',0),(1,'?'):('?',1),(2,'?'):('?',2),
             (0,'i'):('i',1),(1,'i'):('i',1),(0,'u'):('u',1),(1,'u'):('u',1),
             (0,'e'):('e',1),(1,'e'):('e',1),(0,'o'):('o',1),(1,'o'):('o',1),
-            (0,C_L_U_T):(C_L_U_T,1),(1,C_L_U_T):(C_L_U_T,1),(0,Long_C_L_U_T):(Long_C_L_U_T,1),
-            (1,Long_C_L_U_T):(Long_C_L_U_T,1),(0,Long_B_M_R_T):(Long_B_M_R_T,1),(1,Long_B_M_R_T):(Long_B_M_R_T,1),
-            (0,Long_F_M_U_T):(Long_F_M_U_T,1),(1,Long_F_M_U_T):(Long_F_M_U_T,1),(0,Long_B_H_R_T):(Long_B_H_R_T,1),
-            (1,Long_B_H_R_T):(Long_B_H_R_T,1),(0,Long_F_H_U_T):(Long_F_H_U_T,1),(1,Long_F_H_U_T):(Long_F_H_U_T,1),
-            (1,'a'):(C_L_U_T,1),(1,B_M_R_NT):('o',1),(1,B_H_R_NT):('u',1),(1,F_M_U_NT):('e',1),(1,'I'):('i',1),
-            (1,Long_C_L_U_NT):(Long_C_L_U_T,1),(1,Long_B_M_R_NT):(Long_B_M_R_T,1),(1,Long_B_H_R_NT):(Long_B_H_R_T,1),
+            (0,C_L_U_T):(C_L_U_T,1),(1,C_L_U_T):(C_L_U_T,1),
+            (0,Long_C_L_U_T):(Long_C_L_U_T,1),
+            (1,Long_C_L_U_T):(Long_C_L_U_T,1),(0,Long_B_M_R_T):(Long_B_M_R_T,1),
+            (1,Long_B_M_R_T):(Long_B_M_R_T,1),
+            (0,Long_F_M_U_T):(Long_F_M_U_T,1),(1,Long_F_M_U_T):(Long_F_M_U_T,1),
+            (0,Long_B_H_R_T):(Long_B_H_R_T,1),
+            (1,Long_B_H_R_T):(Long_B_H_R_T,1),(0,Long_F_H_U_T):(Long_F_H_U_T,1),
+            (1,Long_F_H_U_T):(Long_F_H_U_T,1),
+            (1,'a'):(C_L_U_T,1),(1,B_M_R_NT):('o',1),(1,B_H_R_NT):('u',1),
+            (1,F_M_U_NT):('e',1),(1,'I'):('i',1),
+            (1,Long_C_L_U_NT):(Long_C_L_U_T,1),(1,Long_B_M_R_NT):(Long_B_M_R_T,1),
+            (1,Long_B_H_R_NT):(Long_B_H_R_T,1),
             (1,Long_F_M_U_NT):(Long_F_M_U_T,1),(1,Long_F_H_U_NT):(Long_F_H_U_T,1),
-            (0,'I'):('I',2),(0,B_H_R_NT):(B_H_R_NT,2),(0,F_M_U_NT):(F_M_U_NT,2),(0,B_M_R_NT):(B_M_R_NT,2),
-            (0,'a'):('a',2),(0,Long_F_H_U_NT):(Long_F_H_U_NT,2),(0,Long_B_H_R_NT):(Long_B_H_R_NT,2),
-            (0,Long_F_M_U_NT):(Long_F_M_U_NT,2),(0,Long_B_M_R_NT):(Long_B_M_R_NT,2),(0,Long_C_L_U_NT):(Long_C_L_U_NT,2),
-            (2,'I'):('I',2),(2,B_H_R_NT):(B_H_R_NT,2),(2,F_M_U_NT):(F_M_U_NT,2),(2,B_M_R_NT):(B_M_R_NT,2),
-            (2,'a'):('a',2),(2,Long_F_H_U_NT):(Long_F_H_U_NT,2),(2,Long_B_H_R_NT):(Long_B_H_R_NT,2),
-            (2,Long_F_M_U_NT):(Long_F_M_U_NT,2),(2,Long_B_M_R_NT):(Long_B_M_R_NT,2),(2,Long_C_L_U_NT):(Long_C_L_U_NT,2),
-            (2,'i'):('I',2),(2,'u'):(B_H_R_NT,2),(2,'e'):(F_M_U_NT,2),(2,'o'):(B_M_R_NT,2),
-            (2,C_L_U_T):('a',2),(2,Long_F_H_U_T):(Long_F_H_U_NT,2),(2,Long_B_H_R_T):(Long_B_H_R_NT,2),
-            (2,Long_F_M_U_T):(Long_F_M_U_NT,2),(2,Long_B_M_R_T):(Long_B_M_R_NT,2),(2,Long_C_L_U_T):(Long_C_L_U_NT,2),
+            (0,'I'):('I',2),(0,B_H_R_NT):(B_H_R_NT,2),(0,F_M_U_NT):(F_M_U_NT,2),
+            (0,B_M_R_NT):(B_M_R_NT,2),
+            (0,'a'):('a',2),(0,Long_F_H_U_NT):(Long_F_H_U_NT,2),
+            (0,Long_B_H_R_NT):(Long_B_H_R_NT,2),
+            (0,Long_F_M_U_NT):(Long_F_M_U_NT,2),(0,Long_B_M_R_NT):(Long_B_M_R_NT,2),
+            (0,Long_C_L_U_NT):(Long_C_L_U_NT,2),
+            (2,'I'):('I',2),(2,B_H_R_NT):(B_H_R_NT,2),(2,F_M_U_NT):(F_M_U_NT,2),
+            (2,B_M_R_NT):(B_M_R_NT,2),
+            (2,'a'):('a',2),(2,Long_F_H_U_NT):(Long_F_H_U_NT,2),
+            (2,Long_B_H_R_NT):(Long_B_H_R_NT,2),
+            (2,Long_F_M_U_NT):(Long_F_M_U_NT,2),(2,Long_B_M_R_NT):(Long_B_M_R_NT,2),
+            (2,Long_C_L_U_NT):(Long_C_L_U_NT,2),
+            (2,'i'):('I',2),(2,'u'):(B_H_R_NT,2),(2,'e'):(F_M_U_NT,2),
+            (2,'o'):(B_M_R_NT,2),
+            (2,C_L_U_T):('a',2),(2,Long_F_H_U_T):(Long_F_H_U_NT,2),
+            (2,Long_B_H_R_T):(Long_B_H_R_NT,2),
+            (2,Long_F_M_U_T):(Long_F_M_U_NT,2),(2,Long_B_M_R_T):(Long_B_M_R_NT,2),
+            (2,Long_C_L_U_T):(Long_C_L_U_NT,2),
            },
         'preprocess_req': True,
         'postprocess_req': True,
@@ -1088,5 +1187,805 @@ vh_dataset=\
             V_N_V+Long_F_M_U_NT+'t','k'+B_M_R_NT+'l']
             #add ! at end of root or prefix (ex: un!; ma+!),
     },
-
-    }
+    25:
+    {
+        'name': 'Asturian Lena (Romance) height harmony with inflectional suffixes',
+        'states': {0:'',1:'',2:'',3:'',4:''},
+        'alphabet': ['a','u','i','e','o',"'"],
+        'transitions':
+            {(0,'?'):('?',0),(1,'?'):('?',1),(2,'?'):('?',2),
+            (3,'?'):('?',3),(4,'?'):('?',4),(0,"'"):("'",0),(1,"'"):("'",3),
+            (4,"'"):("'",3),(2,"'"):("'",2),(3,"'"):("'",3),(0,'u'):('u',1),
+            (0,'i'):('i',2),(0,'e'):('e',2),(0,'o'):('o',2),(0,'a'):('a',2),
+            (1,'u'):('u',4),(1,'i'):('i',4),(1,'e'):('e',4),(1,'o'):('o',4),
+            (1,'a'):('a',4),(2,'u'):('u',2),(2,'i'):('i',2),(2,'e'):('e',2),
+            (2,'o'):('o',2),(2,'a'):('a',2),(4,'u'):('u',2),(4,'i'):('i',2),
+            (4,'e'):('e',2),(4,'o'):('o',2),(4,'a'):('a',2),(3,'i'):('i',2),
+            (3,'u'):('u',2),(3,'e'):('i',2),(3,'o'):('u',2),(3,'a'):('e',2),},
+        'preprocess_req': True,
+        'postprocess_req': True,
+        'left_subseq': False,
+        'bidir_subseq':False,
+        #Instruct user to insert a hyphen before the suffix
+        #(ex. input: r o o t - s u f wherein suf is the suffix)
+        'hyphenate_suffix': True,
+        'preprocess_dets': "Entire user input (prefixes,stem, and suffixes; "
+            "do not remove +s or -s) is needed as input here; "
+            "reverse the input and enter it into this FST",
+        'postprocess_dets':'Reverse the output',
+        'notes': ['PLEASE INDICATE THAT A VOWEL IS STRESSED BY INCLUDING '
+            'AN APOSTROPHE ("'") AFTER EACH STRESSED VOWEL (ex: kumpi"'"t)',
+            'THIS FST ASSUMES THAT AN INFLECTIONAL SUFFIX IS THE LAST MORPHEME '
+            'IN THE INPUT; IT WILL BE WRONG IF THAT IS NOT THE CASE',
+            '[+high] harmonizes regressively from the ultimate vowel of '
+            'an inflectional suffix','/u/ triggers harmony',
+            'only stressed vowels are targets of harmony',
+            'harmony targets the first stressed vowel within two vowels '
+            'to the left of the trigger'
+            ],
+        'harmony_feature':['Height'],
+        'sc':False,
+        'dr':False,
+        'transparent':['Unstressed vowels are transparent'],
+        'opaque':None,
+    },
+26:
+    {
+        'name': 'Pasiego vowel harmony (metaphony, raising, and centralization)',
+        'states': {0:'',1:'',2:'',3:''},
+        'alphabet': ['a','u','i','e','o',"'",Cent_F_H_U_T,Cent_C_L_U_NT,
+            Cent_B_M_R_T,Cent_B_H_R_T],
+        'transitions':
+            {(0,'?'):('?',1),(1,'?'):('?',1),(2,'?'):('?',2),
+            (3,'?'):('?',3),(0,"'"):("'",0),(1,"'"):("'",1),
+            (2,"'"):("'",3),(3,"'"):("'",3),(0,'a'):('a',1),
+            (0,'o'):('o',1),(0,'e'):('e',1),
+            (0,Cent_C_L_U_NT):(Cent_C_L_U_NT,1),(0,Cent_B_M_R_T):(Cent_B_M_R_T,1),
+            (0,'u'):(Cent_B_H_R_T,2),(0,Cent_B_H_R_T):(Cent_B_H_R_T,2),
+            (0,Cent_F_H_U_T):(Cent_F_H_U_T,2),
+            (0,'i'):('i',2),(1,'a'):('a',1),(1,'o'):('o',1),(1,'e'):('e',1),
+            (1,Cent_C_L_U_NT):(Cent_C_L_U_NT,1),
+            (1,Cent_B_M_R_T):(Cent_B_M_R_T,1),(1,'u'):('u',2),(1,'i'):('i',2),
+            (1,Cent_F_H_U_T):(Cent_F_H_U_T,2),
+            (1,Cent_B_H_R_T):(Cent_B_H_R_T,2),(2,'i'):('i',2),(2,'u'):('u',2),
+            (2,Cent_F_H_U_T):(Cent_F_H_U_T,2),
+            (2,Cent_B_H_R_T):(Cent_B_H_R_T,2),(2,'a'):('a',1),(2,'o'):('o',1),
+            (2,'e'):('e',1),
+            (2,Cent_C_L_U_NT):(Cent_C_L_U_NT,1),(2,Cent_B_M_R_T):(Cent_B_M_R_T,1),
+            (3,'i'):('i',2),
+            (3,'u'):('u',2),(3,Cent_F_H_U_T):(Cent_F_H_U_T,2),
+            (3,Cent_B_H_R_T):(Cent_B_H_R_T,2),
+            (3,'e'):('i',1),(3,'o'):('u',1),(3,'a'):('a',1),
+            (3,Cent_C_L_U_NT):(Cent_C_L_U_NT,1),
+            (3,Cent_B_M_R_T):(Cent_B_H_R_T,1),},
+        'preprocess_req': True,
+        'postprocess_req': True,
+        'left_subseq': False,
+        'bidir_subseq':False,
+        'hyphenate_suffix': False,
+        'preprocess_dets': "Reverse the input and enter it into this FST",
+        'postprocess_dets':'Enter output into 26B',
+        'notes': ['PLEASE INDICATE THAT A VOWEL IS STRESSED BY INCLUDING AN '
+            'APOSTROPHE ("'") AFTER EACH STRESSED VOWEL (ex: kumpi"'"t)',
+            'Vowel inventory is /i,e,a,o,u/, as well as their centralized variants',
+            '/u/ becomes centralized when word-final; /i,e/ are produced as a schwa '
+            'word-finally; /o/ becomes a high vowel word-finally, but is still thought'
+            ' of as /o/',
+            'Within a one-vowel window, a stressed mid vowel raises before a high vowel '
+            '(metaphony)',
+            'Mid vowels raise before a stressed syllable with a high vowel or a '
+            'prevocalic glide (j,w)','Word-final centralized /u/ triggers regressive '
+            'centralization (also professed to be [-ATR] harmony); /e/ is transparent '
+            'for this harmony ',
+            '/i,e,a,o,u/ are conceptualized as [+ATR] and their centralized counterparts '
+            'are conceptualized as [-ATR]; in this way harmony involves ATR harmony/centralization'
+            ],
+        'harmony_feature':['Height','ATR/RTR'],
+        'sc':False,
+        'dr':False,
+        'transparent':['Unstressed vowels are transparent to metaphony',
+            '/a/ is transparent to height harmony (raising)',
+            '/e/ is transparent to centralization'],
+        'opaque':None,
+    },
+ '26B':
+    {
+        'name': 'Pasiego unstressed vowel raising',
+        'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:''},
+        'alphabet': ['a','u','i','e','o',"'",'j','w',Cent_F_H_U_T,Cent_C_L_U_NT,Cent_B_M_R_T,Cent_B_H_R_T],
+        'transitions':
+        #(5,''):('',5) should never occur, but I included it;
+        # if it does occur, the result will be inaccurate
+            {(0,'?'):('?',0),(1,'?'):('?',0),(2,'?'):('?',3),
+            (3,'?'):('?',3),(4,'?'):('?',0),(5,'?'):('?',0),(6,'?'):('?',2),
+            (0,"'"):("'",1),(1,"'"):("'",1),
+            (3,"'"):("'",4),(2,"'"):("'",2),(4,"'"):("'",4),(5,"'"):("'",5),
+            (6,"'"):("'",6),
+            (0,'j'):('j',0),(0,'w'):('w',0),(0,'a'):('a',0),
+            (0,Cent_C_L_U_NT):(Cent_C_L_U_NT,0),
+            (0,'e'):('e',0),(0,'o'):('o',0),(0,Cent_B_M_R_T):(Cent_B_M_R_T,0),
+            (0,'i'):('i',0),(0,Cent_F_H_U_T):(Cent_F_H_U_T,0),(0,'u'):('u',0),
+            (0,Cent_B_H_R_T):(Cent_B_H_R_T,0),
+            (1,'e'):('e',1),(1,'o'):('o',1),(1,Cent_B_M_R_T):(Cent_B_M_R_T,1),
+            (1,'a'):('a',1),
+            (1,Cent_C_L_U_NT):(Cent_C_L_U_NT,1),(1,'i'):('i',2),(1,'u'):('u',2),
+            (1,'j'):('j',2),(1,'w'):('w',2),
+            (1,Cent_F_H_U_T):(Cent_F_H_U_T,2),(1,Cent_B_H_R_T):(Cent_B_H_R_T,2),
+            (2,'a'):('a',2),(2,Cent_C_L_U_NT):(Cent_C_L_U_NT,2),
+            (2,'e'):('e',2),(2,'o'):('o',2),(2,Cent_B_M_R_T):(Cent_B_M_R_T,2),
+            (2,'i'):('i',2),
+            (2,Cent_F_H_U_T):(Cent_F_H_U_T,2),(2,'u'):('u',2),(2,Cent_B_H_R_T):(Cent_B_H_R_T,2),
+            (2,'j'):('j',3),(2,'w'):('w',3),(3,'j'):('j',3),(3,'w'):('w',3),
+            (3,'e'):('i',5),
+            (3,'a'):('a',5),(3,Cent_C_L_U_NT):(Cent_C_L_U_NT,5),(3,'u'):('u',5),
+            (3,Cent_B_H_R_T):(Cent_B_H_R_T,5),
+            (3,'i'):('i',5),(3,Cent_F_H_U_T):(Cent_F_H_U_T,5),(3,'o'):('u',5),
+            (3,Cent_B_M_R_T):(Cent_B_H_R_T,5),
+            (4,'j'):('j',2),(4,'w'):('w',2),(4,'a'):('a',4),(4,Cent_C_L_U_NT):(Cent_C_L_U_NT,4),
+            (4,'o'):('u',4),(4,'e'):('i',4),(4,Cent_B_M_R_T):(Cent_B_H_R_T,4),
+            (4,'i'):('i',6),
+            (4,Cent_F_H_U_T):(Cent_F_H_U_T,6),(4,'u'):('u',6),(4,Cent_B_H_R_T):(Cent_B_H_R_T,6),
+            (5,'j'):('j',0),(5,'w'):('w',0),(5,'i'):('i',5),(5,'u'):('u',5),
+            (5,'a'):('a',5),
+            (5,Cent_F_H_U_T):(Cent_F_H_U_T,5),(5,Cent_B_H_R_T):(Cent_B_H_R_T,5),
+            (5,Cent_C_L_U_NT):(Cent_C_L_U_NT,5),
+            (5,'o'):('u',5),(5,'e'):('i',5),(5,Cent_B_M_R_T):(Cent_B_H_R_T,5),
+            (6,'j'):('j',2),(6,'w'):('w',2),(6,'a'):('a',6),
+            (6,Cent_C_L_U_NT):(Cent_C_L_U_NT,6),
+            (6,'o'):('u',6),(6,'e'):('i',6),(6,Cent_B_M_R_T):(Cent_B_H_R_T,6),
+            (6,'i'):('i',6),(6,Cent_F_H_U_T):(Cent_F_H_U_T,6),(6,'u'):('u',6),
+            (6,Cent_B_H_R_T):(Cent_B_H_R_T,6)},
+        'preprocess_req': True,
+        'postprocess_req': True,
+        'left_subseq': False,
+        'bidir_subseq':False,
+        'hyphenate_suffix': False,
+        'preprocess_dets': "FST 26",
+        'postprocess_dets':'Enter output into 26C',
+        'notes': ['PLEASE INDICATE THAT A VOWEL IS STRESSED BY INCLUDING AN '
+            'APOSTROPHE ("'") AFTER EACH STRESSED VOWEL (ex: kumpi"'"t)',
+            'Vowel inventory is /i,e,a,o,u/, as well as their centralized variants',
+            '/u/ becomes centralized when word-final; /i,e/ are produced as a '
+            'schwa word-finally; /o/ becomes a high vowel word-finally, '
+            'but is still thought of as /o/',
+            'Within a one-vowel window, a stressed mid vowel raises before a high vowel '
+            '(metaphony)',
+            'Mid vowels raise before a stressed syllable with a high vowel or a '
+            'prevocalic glide (j,w)','Word-final centralized /u/ triggers regressive '
+            'centralization (also professed to be [-ATR] harmony); /e/ is transparent '
+            'for this harmony ','/i,e,a,o,u/ are conceptualized as [+ATR] and their '
+            'centralized counterparts are conceptualized as [-ATR]; '
+            'in this way harmony involves ATR harmony/centralization'
+            ],
+        'harmony_feature':['Height'],
+        'sc':False,
+        'dr':False,
+        'transparent':['a'],
+        'opaque':None,
+    },
+ '26C':
+    {
+        'name': 'Pasiego centralization (-ATR harmony)',
+        'states': {0:'',1:'',2:''},
+        'alphabet': ['a','u','i','e','o',Cent_F_H_U_T,Cent_C_L_U_NT,
+            Cent_B_M_R_T,Cent_B_H_R_T],
+        'transitions':
+            {(0,'?'):('?',2),(1,'?'):('?',1),(2,'?'):('?',2),
+           (0,Cent_B_H_R_T):(Cent_B_H_R_T,1),
+           (0,'i'):('i',2),(0,'e'):('e',2),(0,'o'):('o',2),(0,'a'):('a',2),
+           (0,'u'):('u',2),(0,Cent_F_H_U_T):(Cent_F_H_U_T,2),(0,Cent_C_L_U_NT):(Cent_C_L_U_NT,2),
+           (0,Cent_B_M_R_T):(Cent_B_M_R_T,2),
+           (2,'i'):('i',2),(2,'e'):('e',2),(2,'o'):('o',2),(2,'a'):('a',2),
+           (2,'u'):('u',2),(2,Cent_F_H_U_T):(Cent_F_H_U_T,2),(2,Cent_C_L_U_NT):(Cent_C_L_U_NT,2),
+           (2,Cent_B_M_R_T):(Cent_B_M_R_T,2),(2,Cent_B_H_R_T):(Cent_B_H_R_T,2),
+           (1,'u'):(Cent_B_H_R_T,1),(1,'i'):(Cent_F_H_U_T,1),(1,'a'):(Cent_C_L_U_NT,1),
+           (1,'o'):(Cent_B_M_R_T,1),(1,'e'):('e',1),(1,Cent_B_H_R_T):(Cent_B_H_R_T,1),
+           (1,Cent_F_H_U_T):(Cent_F_H_U_T,1),(1,Cent_C_L_U_NT):(Cent_C_L_U_NT,1),
+           (1,Cent_B_M_R_T):(Cent_B_M_R_T,1)},#(0,'u'):('u',2) should be impossible, but I included it anyways
+        'preprocess_req': True,
+        'postprocess_req': True,
+        'left_subseq': False,
+        'bidir_subseq':False,
+        'hyphenate_suffix': False,
+        'preprocess_dets': "26B",
+        'postprocess_dets':'Reverse the output; this is the final output',
+        'notes': ['PLEASE INDICATE THAT A VOWEL IS STRESSED BY INCLUDING AN '
+            'APOSTROPHE ("'") AFTER EACH STRESSED VOWEL (ex: kumpi"'"t)',
+            'Vowel inventory is /i,e,a,o,u/, as well as their centralized variants',
+            '/u/ becomes centralized when word-final; /i,e/ are produced as a '
+            'schwa word-finally; /o/ becomes a high vowel word-finally, but is '
+            'still thought of as /o/','Within a one-vowel window, a stressed mid '
+            'vowel raises before a high vowel (metaphony)','Mid vowels raise before '
+            'a stressed syllable with a high vowel or a prevocalic glide (j,w)',
+            'Word-final centralized /u/ triggers regressive centralization '
+            '(also professed to be [-ATR] harmony); /e/ is transparent for this harmony ',
+            '/i,e,a,o,u/ are conceptualized as [+ATR] and their centralized counterparts'
+            ' are conceptualized as [-ATR]; in this way harmony involves ATR '
+            'harmony/centralization'
+            ],
+        'harmony_feature':['ATR/RTR'],
+        'sc':False,
+        'dr':False,
+        'transparent':['e'],
+        'opaque':None,
+    },
+27:
+    {
+        'name': 'Pulaar dialect of Fula (Niger-Congo) ATR harmony',
+        'states': {0:'',1:'',2:''},
+        'alphabet': ['i','u','e','o','a',F_M_U_NT,B_M_R_NT],
+        'transitions':
+            {(0,'?'):('?',0),(1,'?'):('?',1),(2,'?'):('?',2),
+            (0,'i'):('i',1),(0,'u'):('u',1),(0,'e'):('e',1),(0,'o'):('o',1),
+            (0,'a'):('a',2),(0,F_M_U_NT):(F_M_U_NT,2),(0,B_M_R_NT):(B_M_R_NT,2),
+            (1,'e'):('e',1),(1,'o'):('o',1),(1,F_M_U_NT):('e',1),(1,B_M_R_NT):('o',1),
+            (1,'i'):('i',1),(1,'u'):('u',1),(1,'a'):('a',2),
+            (2,'i'):('i',1),(2,'u'):('u',1),(2,'a'):('a',2),
+            (2,F_M_U_NT):(F_M_U_NT,2),(2,B_M_R_NT):(B_M_R_NT,2),
+            (2,'e'):(F_M_U_NT,2),(2,'o'):(B_M_R_NT,2),
+            },
+        'preprocess_req': True,
+        'postprocess_req': True,
+        'left_subseq': False,
+        'bidir_subseq':False,
+        'plus_prefix':False,
+        'hyphenate_suffix':False,
+        'preprocess_dets':'Reverse input, then enter into this FST',
+        'postprocess_dets':'Reverse output',
+        'notes': ['Regressive ATR (pharyngeal) harmony','/i,u,e,o/ are phonemes '
+            'with a [+ATR] specification; /a,front-mid-unrounded-lax vowel,'
+            'back-mid-rounded-lax vowel/ are [-ATR] phonemes',
+            '/i,u,a/ are blockers that trigger harmony for their own [ATR] specification'],
+        'harmony_feature':['ATR/RTR'],
+        'sc':False,
+        'dr':False,
+        'transparent':[],
+        'opaque':['/i,u,a/ are opaque blockers that trigger harmony for their own'
+        ' ATR featural specificiation'],
+    },
+ 28:
+    {
+        'name': 'Maasai (Eastern Nilotic) ATR harmony',
+        'states': {0:'',1:'',2:'',3:'',4:''},
+        'alphabet': ['i','u','e','o',B_L_U_NT,'I',B_H_R_NT,F_M_U_NT,B_M_R_NT,'!','&'],
+        'transitions':
+        #transitions (0,'&'):('&',0),(1,'&'):('&',0),(1,'!'):('!',1),
+        # (2,'!'):('!',2),(3,'!'):('!',3),(4,'!'):('!',4),(4,'&'):('&',4)
+        #should all be impossible, but I include them anyways to allow every
+        # state to have a transition for each character in the alphabet
+            {(0,'?'):('?',0),(1,'?'):('?',1),(2,'?'):('?',2),(3,'?'):('?',3),(4,'?'):('?',4),
+            (0,'!'):('!',1),(2,'&'):('&',4),(3,'&'):('&',0),(0,'&'):('&',0),(1,'&'):('&',0),
+            (1,'!'):('!',1),(2,'!'):('!',2),(3,'!'):('!',3),(4,'!'):('!',4),(4,'&'):('&',4),
+            (0,'i'):('i',0),(0,'u'):('u',0),(0,'e'):('e',0),(0,'o'):('o',0),(0,'I'):('I',0),
+            (0,B_H_R_NT):(B_H_R_NT,0),(0,F_M_U_NT):(F_M_U_NT,0),(0,B_M_R_NT):(B_M_R_NT,0),
+            (0,B_L_U_NT):(B_L_U_NT,0),
+            (1,'i'):('i',2),(1,'u'):('u',2),(1,'e'):('e',2),(1,'o'):('o',2),(1,'I'):('I',3),
+            (1,B_H_R_NT):(B_H_R_NT,3),(1,F_M_U_NT):(F_M_U_NT,3),(1,B_M_R_NT):(B_M_R_NT,3),
+            (1,B_L_U_NT):(B_L_U_NT,3),
+            (2,'i'):('i',2),(2,'u'):('u',2),(2,'e'):('e',2),(2,'o'):('o',2),(2,B_H_R_NT):(B_H_R_NT,3),
+            (2,F_M_U_NT):(F_M_U_NT,3),(2,B_M_R_NT):(B_M_R_NT,3),(2,B_L_U_NT):(B_L_U_NT,3),(2,'I'):('I',3),
+            (3,'I'):('I',3),(3,B_H_R_NT):(B_H_R_NT,3),(3,F_M_U_NT):(F_M_U_NT,3),(3,B_M_R_NT):(B_M_R_NT,3),
+            (3,B_L_U_NT):(B_L_U_NT,3),(3,'i'):('i',2),(3,'u'):('u',2),(3,'e'):('e',2),(3,'o'):('o',2),
+            (4,'i'):('i',4),(4,'u'):('u',4),(4,'e'):('e',4),(4,'o'):('o',4),(4,B_H_R_NT):('u',4),
+            (4,F_M_U_NT):('e',4),(4,B_M_R_NT):('o',4),(4,B_L_U_NT):('o',4),(4,'I'):('i',4),
+            },
+        'preprocess_req': True,
+        'postprocess_req': True,
+        'left_subseq': True,
+        'bidir_subseq':True,
+        'plus_prefix':True,
+        'hyphenate_suffix':True,
+        'preprocess_dets':'Add "!" to the beginning of the root/stem and "&" to '
+            'the end of the root/stem (Ex: For input /a+b+c+ddd-e-f/, should get '
+            '/a+b+c+!ddd&-e-f/; This is the input for FST 28',
+        'postprocess_dets':'Output should be reversed and run through 28B',
+        'notes': [
+            'Dominant [+ATR] harmony; words are never mixed (i.e., they never have a '
+            '[+ATR] vowel and a [-ATR] vowel), except in many instances with '
+            '/B_L_U_NT/ which can act as an opaque blocker',
+            'Maasai has 9 vowel phonemes:/i,u,e,o/ are [+ATR],/I,B_H_R_NT,F_M_U_NT,'
+            'B_M_R_NT/ are [-ATR],/B_L_U_NT/ is [-ATR] but has no archiphoneme '
+            'and tends to act as an opaque neutral','B_L_U_NT harmonizes only when '
+            'in a suffix and preceded by a [+ATR] vowel; it prevents spread of [+ATR] '
+            'to the left when it precedes a [+ATR] vowel','Some argue that Maasai '
+            'demonstrates a single bidirectional harmony, but others argue that it '
+            'demonstrates two unidirectional harmony patterns; although we mark this '
+            'FST as bidirectional, we take no real stance on this greater theory'],
+        'harmony_feature':['ATR/RTR'],
+        'sc':False,
+        'dr':True,
+        'transparent':[],
+        'opaque':['[low,back,-ATR] vowel is opaque and blocks harmony, '
+            'except when it is in a suffix and is preceded by a [-ATR] vowel '
+            'in which case it manifests as [o]',],
+    },
+'28B':
+    {
+        'name': 'Maasai secondary FST for RtoL',
+        'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:''},
+        'alphabet': ['i','u','e','o',B_L_U_NT,'I',B_H_R_NT,F_M_U_NT,B_M_R_NT,'!','&'],
+        'transitions':
+        #Many transitions that should be impossible were included
+        #for the sake of having a transition for each alphabet symbol from each state
+            {(0,'?'):('?',0),(1,'?'):('?',1),(2,'?'):('?',2),(3,'?'):('?',3),
+            (4,'?'):('?',4),
+            (5,'?'):('?',5),(6,'?'):('?',6),(7,'?'):('?',7),(8,'?'):('?',8),
+            (0,'!'):('',0),
+            (0,'&'):('',3),(1,'!'):('',1),(1,'&'):('',8),(2,'!'):('',2),(2,'&'):('',3),
+            (8,'&'):('',8),(8,'!'):('',6),(3,'!'):('',7),(3,'&'):('',3),(4,'&'):('',4),
+            (4,'!'):('',6),(5,'&'):('',5),(5,'!'):('',7),(6,'!'):('',6),(6,'&'):('',6),
+            (7,'!'):('',7),(7,'&'):('',7),
+            (0,'I'):('I',0),(0,B_H_R_NT):(B_H_R_NT,0),(0,F_M_U_NT):(F_M_U_NT,0),
+            (0,B_M_R_NT):(B_M_R_NT,0),
+            (0,'i'):('i',1),(0,'u'):('u',1),(0,'e'):('e',1),(0,'o'):('o',1),
+            (0,B_L_U_NT):(B_L_U_NT,2),
+            (1,'i'):('i',1),(1,'u'):('u',1),(1,'e'):('e',1),(1,'o'):('o',1),
+            (1,B_L_U_NT):(B_L_U_NT,2),
+            (1,'I'):('i',1),(1,B_H_R_NT):('u',1),(1,F_M_U_NT):('e',1),
+            (1,B_M_R_NT):('o',1),
+            (2,'i'):('i',1),(2,'u'):('u',1),(2,'e'):('e',1),(2,'o'):('o',1),
+            (2,B_L_U_NT):(B_L_U_NT,2),
+            (2,'I'):('I',2),(2,B_H_R_NT):(B_H_R_NT,2),(2,F_M_U_NT):(F_M_U_NT,2),
+            (2,B_M_R_NT):(B_M_R_NT,2),
+            (3,'i'):('i',4),(3,'u'):('u',4),(3,'e'):('e',4),(3,'o'):('o',4),
+            (3,B_L_U_NT):(B_L_U_NT,5),
+            (3,'I'):('I',5),(3,B_H_R_NT):(B_H_R_NT,5),(3,F_M_U_NT):(F_M_U_NT,5),
+            (3,B_M_R_NT):(B_M_R_NT,5),
+            (4,'i'):('i',4),(4,'u'):('u',4),(4,'e'):('e',4),(4,'o'):('o',4),
+            (4,B_L_U_NT):(B_L_U_NT,5),
+            (4,'I'):('I',5),(4,B_H_R_NT):(B_H_R_NT,5),(4,F_M_U_NT):(F_M_U_NT,5),
+            (4,B_M_R_NT):(B_M_R_NT,5),
+            (5,'i'):('i',4),(5,'u'):('u',4),(5,'e'):('e',4),(5,'o'):('o',4),
+            (5,B_L_U_NT):(B_L_U_NT,5),
+            (5,'I'):('I',5),(5,B_H_R_NT):(B_H_R_NT,5),(5,F_M_U_NT):(F_M_U_NT,5),
+            (5,B_M_R_NT):(B_M_R_NT,5),
+            (6,'i'):('i',6),(6,'u'):('u',6),(6,'e'):('e',6),(6,'o'):('o',6),
+            (6,B_L_U_NT):(B_L_U_NT,7),
+            (6,'I'):('i',6),(6,B_H_R_NT):('u',6),(6,F_M_U_NT):('e',6),
+            (6,B_M_R_NT):('o',6),
+            (7,'i'):('i',6),(7,'u'):('u',6),(7,'e'):('e',6),(7,'o'):('o',6),
+            (7,B_L_U_NT):(B_L_U_NT,7),
+            (7,'I'):('I',7),(7,B_H_R_NT):(B_H_R_NT,7),(7,F_M_U_NT):(F_M_U_NT,7),
+            (7,B_M_R_NT):(B_M_R_NT,7),
+            (8,'i'):('i',8),(8,'u'):('u',8),(8,'e'):('e',8),(8,'o'):('o',8),
+            (8,B_L_U_NT):(B_L_U_NT,7),
+            (8,'I'):('i',8),(8,B_H_R_NT):('u',8),(8,F_M_U_NT):('e',8),
+            (8,B_M_R_NT):('o',8),
+            },
+        'preprocess_req': True,
+        'postprocess_req': True,
+        'left_subseq': False,
+        'bidir_subseq':True,
+        'plus_prefix':True,
+        'hyphenate_suffix':True,
+        'preprocess_dets':'Should have been processed and run through 28 accordingly; '
+            'Reverse the output from 28 and enter into this FST',
+        'postprocess_dets':'Reverse output, this is the final output to user',
+        'notes': ['Dominant [+ATR] harmony; words are never mixed (i.e., they '
+            'never have a [+ATR] vowel and a [-ATR] vowel), except in many '
+            'instances with /B_L_U_NT/ which can act as an opaque blocker',
+            'Maasai has 9 vowel phonemes:/i,u,e,o/ are [+ATR],/I,B_H_R_NT,F_M_U_NT,'
+            'B_M_R_NT/ are [-ATR],/B_L_U_NT/ is [-ATR] but has no archiphoneme and '
+            'tends to act as an opaque neutral','B_L_U_NT harmonizes only when in a '
+            'suffix and preceded by a [+ATR] vowel; it prevents spread of [+ATR] to '
+            'the left when it precedes a [+ATR] vowel','Some argue that Maasai '
+            'demonstrates a single bidirectional harmony, but others argue that '
+            'it demonstrates two unidirectional harmony patterns; although we mark '
+            'this FST as bidirectional, we take no real stance on this greater theory'
+        ],
+        'harmony_feature':['ATR/RTR'],
+        'sc':False,
+        'dr':True,
+        'transparent':[],
+        'opaque':['[low,back,-ATR] vowel is opaque and blocks harmony, except '
+            'when it is in a suffix and is preceded by a [-ATR] vowel in which '
+            'case it manifests as [o]',],
+    },
+29:
+    {
+        'name': 'Kashaya (Pomoan) translaryngeal harmony',
+        'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',10:''},
+        'alphabet': ['i',Long_F_H_U_T,'u',Long_B_H_R_T,'e',Long_F_M_U_T,'o',
+        Long_B_M_R_T,'a',Long_C_L_U_NT,'h','+','-',G_P_VL],
+        'transitions':
+        #VV sequence is prohibited in syllable structure,
+        #but I included transtions to account for such anyways
+        #(I assume that the second vowel does harmonize in such a sequence;
+        #it is not possible to conclude if it would or not because such data isn't available
+            {(0,'?'):('?',0),(1,'?'):('?',0),(2,'?'):('?',0),(3,'?'):('?',0),
+            (4,'?'):('?',0),(5,'?'):('?',0),(6,'?'):('?',0),(7,'?'):('?',0),
+            (8,'?'):('?',0),(9,'?'):('?',0),(10,'?'):('?',0),
+            (0,'+'):('+',0),(1,'+'):('+',0),(2,'+'):('+',0),(3,'+'):('+',0),
+            (4,'+'):('+',0),(5,'+'):('+',0),(6,'+'):('+',0),(7,'+'):('+',0),
+            (8,'+'):('+',0),(9,'+'):('+',0),(10,'+'):('+',0),
+            (0,'-'):('-',0),(1,'-'):('-',0),(2,'-'):('-',0),(3,'-'):('-',0),
+            (4,'-'):('-',0),(5,'-'):('-',0),(6,'-'):('-',0),(7,'-'):('-',0),
+            (8,'-'):('-',0),(9,'-'):('-',0),(10,'-'):('-',0),
+            (0,'h'):('h',0),(1,'h'):('h',6),(2,'h'):('h',7),(3,'h'):('h',8),
+            (4,'h'):('h',9),(5,'h'):('h',10),(6,'h'):('h',0),(7,'h'):('h',0),
+            (8,'h'):('h',0),(9,'h'):('h',0),(10,'h'):('h',0),
+            (0,G_P_VL):(G_P_VL,0),(1,G_P_VL):(G_P_VL,6),(2,G_P_VL):(G_P_VL,7),
+            (3,G_P_VL):(G_P_VL,8),
+            (4,G_P_VL):(G_P_VL,9),(5,G_P_VL):(G_P_VL,10),(6,G_P_VL):(G_P_VL,0),
+            (7,G_P_VL):(G_P_VL,0),
+            (8,G_P_VL):(G_P_VL,0),(9,G_P_VL):(G_P_VL,0),(10,G_P_VL):(G_P_VL,0),
+            (0,'i'):('i',1),(0,Long_F_H_U_T):(Long_F_H_U_T,1),
+            (0,'u'):('u',2),(0,Long_B_H_R_T):(Long_B_H_R_T,2),
+            (0,'e'):('e',3),(0,Long_F_M_U_T):(Long_F_M_U_T,3),
+            (0,'o'):('o',4),(0,Long_B_M_R_T):(Long_B_M_R_T,4),
+            (0,'a'):('a',5),(0,Long_C_L_U_NT):(Long_C_L_U_NT,5),
+            (1,'i'):('i',1),(1,Long_F_H_U_T):(Long_F_H_U_T,1),
+            (1,'u'):('i',1),(1,Long_B_H_R_T):(Long_F_H_U_T,1),
+            (1,'e'):('i',1),(1,Long_F_M_U_T):(Long_F_H_U_T,1),
+            (1,'o'):('i',1),(1,Long_B_M_R_T):(Long_F_H_U_T,1),
+            (1,'a'):('i',1),(1,Long_C_L_U_NT):(Long_F_H_U_T,1),
+            (2,'i'):('u',2),(2,Long_F_H_U_T):(Long_B_H_R_T,2),
+            (2,'u'):('u',2),(2,Long_B_H_R_T):(Long_B_H_R_T,2),
+            (2,'e'):('u',2),(2,Long_F_M_U_T):(Long_B_H_R_T,2),
+            (2,'o'):('u',2),(2,Long_B_M_R_T):(Long_B_H_R_T,2),
+            (2,'a'):('u',2),(2,Long_C_L_U_NT):(Long_B_H_R_T,2),
+            (3,'i'):('e',3),(3,Long_F_H_U_T):(Long_F_M_U_T,3),
+            (3,'u'):('e',3),(3,Long_B_H_R_T):(Long_F_M_U_T,3),
+            (3,'e'):('e',3),(3,Long_F_M_U_T):(Long_F_M_U_T,3),
+            (3,'o'):('e',3),(3,Long_B_M_R_T):(Long_F_M_U_T,3),
+            (3,'a'):('e',3),(3,Long_C_L_U_NT):(Long_F_M_U_T,3),
+            (4,'i'):('o',4),(4,Long_F_H_U_T):(Long_B_M_R_T,4),
+            (4,'u'):('o',4),(4,Long_B_H_R_T):(Long_B_M_R_T,4),
+            (4,'e'):('o',4),(4,Long_F_M_U_T):(Long_B_M_R_T,4),
+            (4,'o'):('o',4),(4,Long_B_M_R_T):(Long_B_M_R_T,4),
+            (4,'a'):('o',4),(4,Long_C_L_U_NT):(Long_B_M_R_T,4),
+            (5,'i'):('a',5),(5,Long_F_H_U_T):(Long_C_L_U_NT,5),
+            (5,'u'):('a',5),(5,Long_B_H_R_T):(Long_C_L_U_NT,5),
+            (5,'e'):('a',5),(5,Long_F_M_U_T):(Long_C_L_U_NT,5),
+            (5,'o'):('a',5),(5,Long_B_M_R_T):(Long_C_L_U_NT,5),
+            (5,'a'):('a',5),(5,Long_C_L_U_NT):(Long_C_L_U_NT,5),
+            (6,'i'):('i',1),(6,Long_F_H_U_T):(Long_F_H_U_T,1),
+            (6,'u'):('i',1),(6,Long_B_H_R_T):(Long_F_H_U_T,1),
+            (6,'e'):('i',1),(6,Long_F_M_U_T):(Long_F_H_U_T,1),
+            (6,'o'):('i',1),(6,Long_B_M_R_T):(Long_F_H_U_T,1),
+            (6,'a'):('i',1),(6,Long_C_L_U_NT):(Long_F_H_U_T,1),
+            (7,'i'):('u',2),(7,Long_F_H_U_T):(Long_B_H_R_T,2),
+            (7,'u'):('u',2),(7,Long_B_H_R_T):(Long_B_H_R_T,2),
+            (7,'e'):('u',2),(7,Long_F_M_U_T):(Long_B_H_R_T,2),
+            (7,'o'):('u',2),(7,Long_B_M_R_T):(Long_B_H_R_T,2),
+            (7,'a'):('u',2),(7,Long_C_L_U_NT):(Long_B_H_R_T,2),
+            (8,'i'):('e',3),(8,Long_F_H_U_T):(Long_F_M_U_T,3),
+            (8,'u'):('e',3),(8,Long_B_H_R_T):(Long_F_M_U_T,3),
+            (8,'e'):('e',3),(8,Long_F_M_U_T):(Long_F_M_U_T,3),
+            (8,'o'):('e',3),(8,Long_B_M_R_T):(Long_F_M_U_T,3),
+            (8,'a'):('e',3),(8,Long_C_L_U_NT):(Long_F_M_U_T,3),
+            (9,'i'):('o',4),(9,Long_F_H_U_T):(Long_B_M_R_T,4),
+            (9,'u'):('o',4),(9,Long_B_H_R_T):(Long_B_M_R_T,4),
+            (9,'e'):('o',4),(9,Long_F_M_U_T):(Long_B_M_R_T,4),
+            (9,'o'):('o',4),(9,Long_B_M_R_T):(Long_B_M_R_T,4),
+            (9,'a'):('o',4),(9,Long_C_L_U_NT):(Long_B_M_R_T,4),
+            (10,'i'):('a',5),(10,Long_F_H_U_T):(Long_C_L_U_NT,5),
+            (10,'u'):('a',5),(10,Long_B_H_R_T):(Long_C_L_U_NT,5),
+            (10,'e'):('a',5),(10,Long_F_M_U_T):(Long_C_L_U_NT,5),
+            (10,'o'):('a',5),(10,Long_B_M_R_T):(Long_C_L_U_NT,5),
+            (10,'a'):('a',5),(10,Long_C_L_U_NT):(Long_C_L_U_NT,5),
+            },
+        'preprocess_req': True,
+        'postprocess_req': False,
+        'left_subseq': True,
+        'bidir_subseq':False,
+        'plus_prefix':True,
+        'hyphenate_suffix': True,
+        'preprocess_dets':'Run input through FST "29P" first; then run that output through here',
+        'postprocess_dets':'',
+        'notes':
+            ['/i,e,u,o,a/ and their long variants are contrastive phonemes in Kashaya',
+             'left-subsequential translaryngeal vowel identity harmony within an '
+             'individual morpheme (for a sequence V1HV2,'
+             ' wherein H is a laryngeal consonant, V2 manifests with the identity of V1)',
+             'I assume that vowel length does not harmonize',
+             'Kashaya has a CV(C) or CV: syllable structure, so consecutive Vs should be '
+             'prohibited; despite this, however,'
+             ' this FST assumes if VV does appear, identity harmony will occur; there is a '
+             'lack of data to support this, of course',
+             'Complete (identity) harmony only applies within native morphemes',
+             'Only glottal consonants are considered laryngeal for this language',
+             'Prior to performing identity harmony, a preliminary FST performs various '
+             'relevant vowel rules that I assume occur prior to ID harmony'
+             'in derivation of surface form; these "rules" are as follows: i->a/m-_ , '
+             'i->u/d_ , V->a/uvular_; The last rule is somewhat'
+             ' inadequate in that a vowel may manifest as [o] after a labialized uvular '
+             'consonant, but the FST does not implement such'
+             ' nuance and is thus somewhat inaccurate','This FST assumes harmony cannot '
+             'occur across multiple laryngeal consonants',
+             'Height harmony can also occur in Kashaya in that the vowel /u/ in an '
+             'instrumental prefix manifests as [o] when'
+             ' the following syllable contains /o/; this tool does not implement '
+             'this height harmony pattern'],
+        'harmony_feature':['Complete'],
+        'sc':False,
+        'dr':False,
+        'transparent':None,
+        'opaque':['Non-"laryngeal" (in this case, non-glottal) '
+            'consonants block this identity harmony'],
+        },
+'29P':
+    {
+        'name': 'Kashaya (Pomoan) preliminary vowel transformations',
+        'states': {0:'',1:'',2:'',3:'',4:'',},
+        'alphabet': ['m','d','q','i',Long_F_H_U_T,'u',Long_B_H_R_T,'e',
+            Long_F_M_U_T,'o',Long_B_M_R_T,'a',Long_C_L_U_NT,'-'],
+        'transitions':
+            {(0,'?'):('?',0),(1,'?'):('?',0),(2,'?'):('?',0),(3,'?'):('?',0),(4,'?'):('?',0),
+            (0,'-'):('-',0),(1,'-'):('-',0),(2,'-'):('-',3),(3,'-'):('-',3),(4,'-'):('-',0),
+            (0,'q'):('q',1),(1,'q'):('q',1),(2,'q'):('q',1),(3,'q'):('q',1),(4,'q'):('q',1),
+            (0,'m'):('m',2),(1,'m'):('m',2),(2,'m'):('m',2),(3,'m'):('m',2),(4,'m'):('m',2),
+            (0,'d'):('d',4),(1,'d'):('d',4),(2,'d'):('d',4),(3,'d'):('d',4),(4,'d'):('d',4),
+            (0,'i'):('i',0),(0,Long_F_H_U_T):(Long_F_H_U_T,0),
+            (0,'u'):('u',0),(0,Long_B_H_R_T):(Long_B_H_R_T,0),
+            (0,'e'):('e',0),(0,Long_F_M_U_T):(Long_F_M_U_T,0),
+            (0,'o'):('o',0),(0,Long_B_M_R_T):(Long_B_M_R_T,0),
+            (0,'a'):('a',0),(0,Long_C_L_U_NT):(Long_C_L_U_NT,0),
+            (1,'i'):('a',0),(1,Long_F_H_U_T):(Long_C_L_U_NT,0),
+            (1,'u'):('a',0),(1,Long_B_H_R_T):(Long_C_L_U_NT,0),
+            (1,'e'):('a',0),(1,Long_F_M_U_T):(Long_C_L_U_NT,0),
+            (1,'o'):('a',0),(1,Long_B_M_R_T):(Long_C_L_U_NT,0),
+            (1,'a'):('a',0),(1,Long_C_L_U_NT):(Long_C_L_U_NT,0),
+            (2,'i'):('i',0),(2,Long_F_H_U_T):(Long_F_H_U_T,0),
+            (2,'u'):('u',0),(2,Long_B_H_R_T):(Long_B_H_R_T,0),
+            (2,'e'):('e',0),(2,Long_F_M_U_T):(Long_F_M_U_T,0),
+            (2,'o'):('o',0),(2,Long_B_M_R_T):(Long_B_M_R_T,0),
+            (2,'a'):('a',0),(2,Long_C_L_U_NT):(Long_C_L_U_NT,0),
+            (3,'i'):('a',0),(3,Long_F_H_U_T):(Long_C_L_U_NT,0),
+            (3,'u'):('u',0),(3,Long_B_H_R_T):(Long_B_H_R_T,0),
+            (3,'e'):('e',0),(3,Long_F_M_U_T):(Long_F_M_U_T,0),
+            (3,'o'):('o',0),(3,Long_B_M_R_T):(Long_B_M_R_T,0),
+            (3,'a'):('a',0),(3,Long_C_L_U_NT):(Long_C_L_U_NT,0),
+            (4,'i'):('u',0),(4,Long_F_H_U_T):(Long_B_H_R_T,0),
+            (4,'u'):('u',0),(4,Long_B_H_R_T):(Long_B_H_R_T,0),
+            (4,'e'):('e',0),(4,Long_F_M_U_T):(Long_F_M_U_T,0),
+            (4,'o'):('o',0),(4,Long_B_M_R_T):(Long_B_M_R_T,0),
+            (4,'a'):('a',0),(4,Long_C_L_U_NT):(Long_C_L_U_NT,0),
+            },
+        'preprocess_req': True,
+        'postprocess_req': True,
+        'left_subseq': False,
+        'bidir_subseq':False,
+        'plus_prefix':True,
+        'hyphenate_suffix': True,
+        'preprocess_dets':'Reverse input before running through here',
+        'postprocess_dets':'Reverse output; then run it through FST 29 to get final output to user',
+        'notes':[''],
+        'harmony_feature':[''],
+        'sc':False,
+        'dr':False,
+        'transparent':None,
+        'opaque':[],
+        },
+ 30:
+    {
+        'name': 'Standard Hungarian palatal harmony of alternating suffixes',
+        'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:''},
+        'alphabet': ['!','-','i',Long_F_H_U_T,Long_F_M_U_T,F_M_U_NT,'y',
+            Long_F_H_R_T,F_M_R_T,Long_F_M_R_T,'u',Long_B_H_R_T,'o',Long_B_M_R_T,
+            Long_C_L_U_NT,B_M_R_NT],
+        'transitions':
+            {(0,'?'):('?',0),(1,'?'):('?',1),(2,'?'):('?',2),(3,'?'):('?',3),
+            (4,'?'):('?',4),(5,'?'):('?',5),(6,'?'):('?',6),(7,'?'):('?',7),
+            (0,'!'):('',1),(1,'!'):('',1),(2,'!'):('',2),(3,'!'):('',3),
+            (4,'!'):('',4),(5,'!'):('',5),(6,'!'):('',6),(7,'!'):('',7),
+            (0,'-'):('-',6),(1,'-'):('-',6),(2,'-'):('-',6),(3,'-'):('-',7),
+            (4,'-'):('-',7),(5,'-'):('-',6),(6,'-'):('-',6),(7,'-'):('-',7),
+            (0,'i'):('i',0),(0,Long_F_H_U_T):(Long_F_H_U_T,0),
+            (0,Long_F_M_U_T):(Long_F_M_U_T,0),
+            (0,F_M_U_NT):(F_M_U_NT,0),(0,'y'):('y',0),(0,Long_F_H_R_T):(Long_F_H_R_T,0),
+            (0,F_M_R_T):(F_M_R_T,0),(0,Long_F_M_R_T):(Long_F_M_R_T,0),(0,'u'):('u',0),
+            (0,Long_B_H_R_T):(Long_B_H_R_T,0),(0,'o'):('o',0),
+            (0,Long_B_M_R_T):(Long_B_M_R_T,0),
+            (0,Long_C_L_U_NT):(Long_C_L_U_NT,0),(0,B_M_R_NT):(B_M_R_NT,0),
+            (1,'i'):('i',1),(1,Long_F_H_U_T):(Long_F_H_U_T,1),
+            (1,Long_F_M_U_T):(Long_F_M_U_T,1),
+            (1,F_M_U_NT):(F_M_U_NT,1),(1,'y'):('y',2),(1,Long_F_H_R_T):(Long_F_H_R_T,2),
+            (1,F_M_R_T):(F_M_R_T,2),(1,Long_F_M_R_T):(Long_F_M_R_T,2),(1,'u'):('u',3),
+            (1,Long_B_H_R_T):(Long_B_H_R_T,3),(1,'o'):('o',3),
+            (1,Long_B_M_R_T):(Long_B_M_R_T,3),
+            (1,Long_C_L_U_NT):(Long_C_L_U_NT,3),(1,B_M_R_NT):(B_M_R_NT,3),
+            (2,'i'):('i',2),(2,Long_F_H_U_T):(Long_F_H_U_T,2),
+            (2,Long_F_M_U_T):(Long_F_M_U_T,2),
+            (2,F_M_U_NT):(F_M_U_NT,2),(2,'y'):('y',2),(2,Long_F_H_R_T):(Long_F_H_R_T,2),
+            (2,F_M_R_T):(F_M_R_T,2),(2,Long_F_M_R_T):(Long_F_M_R_T,2),(2,'u'):('u',3),
+            (2,Long_B_H_R_T):(Long_B_H_R_T,3),(2,'o'):('o',3),
+            (2,Long_B_M_R_T):(Long_B_M_R_T,3),
+            (2,Long_C_L_U_NT):(Long_C_L_U_NT,3),(2,B_M_R_NT):(B_M_R_NT,3),
+            (3,'i'):('i',4),(3,Long_F_H_U_T):(Long_F_H_U_T,4),
+            (3,Long_F_M_U_T):(Long_F_M_U_T,4),
+            (3,F_M_U_NT):(F_M_U_NT,4),(3,'y'):('y',2),(3,Long_F_H_R_T):(Long_F_H_R_T,2),
+            (3,F_M_R_T):(F_M_R_T,2),(3,Long_F_M_R_T):(Long_F_M_R_T,2),(3,'u'):('u',3),
+            (3,Long_B_H_R_T):(Long_B_H_R_T,3),(3,'o'):('o',3),
+            (3,Long_B_M_R_T):(Long_B_M_R_T,3),
+            (3,Long_C_L_U_NT):(Long_C_L_U_NT,3),(3,B_M_R_NT):(B_M_R_NT,3),
+            (4,'i'):('i',5),(4,Long_F_H_U_T):(Long_F_H_U_T,5),
+            (4,Long_F_M_U_T):(Long_F_M_U_T,5),
+            (4,F_M_U_NT):(F_M_U_NT,5),(4,'y'):('y',2),(4,Long_F_H_R_T):(Long_F_H_R_T,2),
+            (4,F_M_R_T):(F_M_R_T,2),(4,Long_F_M_R_T):(Long_F_M_R_T,2),(4,'u'):('u',3),
+            (4,Long_B_H_R_T):(Long_B_H_R_T,3),(4,'o'):('o',3),
+            (4,Long_B_M_R_T):(Long_B_M_R_T,3),
+            (4,Long_C_L_U_NT):(Long_C_L_U_NT,3),(4,B_M_R_NT):(B_M_R_NT,3),
+            (5,'i'):('i',5),(5,Long_F_H_U_T):(Long_F_H_U_T,5),
+            (5,Long_F_M_U_T):(Long_F_M_U_T,5),
+            (5,F_M_U_NT):(F_M_U_NT,5),(5,'y'):('y',2),(5,Long_F_H_R_T):(Long_F_H_R_T,2),
+            (5,F_M_R_T):(F_M_R_T,2),(5,Long_F_M_R_T):(Long_F_M_R_T,2),(5,'u'):('u',3),
+            (5,Long_B_H_R_T):(Long_B_H_R_T,3),(5,'o'):('o',3),
+            (5,Long_B_M_R_T):(Long_B_M_R_T,3),
+            (5,Long_C_L_U_NT):(Long_C_L_U_NT,3),(5,B_M_R_NT):(B_M_R_NT,3),
+            (6,'i'):('i',6),(6,Long_F_H_U_T):(Long_F_H_U_T,6),
+            (6,Long_F_M_U_T):(Long_F_M_U_T,6),
+            (6,F_M_U_NT):(F_M_U_NT,6),(6,'y'):('y',6),(6,Long_F_H_R_T):(Long_F_H_R_T,6),
+            (6,F_M_R_T):(F_M_R_T,6),(6,Long_F_M_R_T):(Long_F_M_R_T,6),(6,'u'):('y',6),
+            (6,Long_B_H_R_T):(Long_F_H_R_T,6),(6,'o'):(F_M_R_T,6),
+            (6,Long_B_M_R_T):(Long_F_M_R_T,6),
+            (6,Long_C_L_U_NT):(Long_F_M_U_T,6),(6,B_M_R_NT):(F_M_U_NT,6),
+            (7,'i'):('i',7),(7,Long_F_H_U_T):(Long_F_H_U_T,7),
+            (7,Long_F_M_U_T):(Long_C_L_U_NT,7),
+            (7,F_M_U_NT):(B_M_R_NT,7),(7,'y'):('u',7),
+            (7,Long_F_H_R_T):(Long_B_H_R_T,7),
+            (7,F_M_R_T):('o',7),(7,Long_F_M_R_T):(Long_B_M_R_T,7),(7,'u'):('u',7),
+            (7,Long_B_H_R_T):(Long_B_H_R_T,7),(7,'o'):('o',7),
+            (7,Long_B_M_R_T):(Long_B_M_R_T,7),
+            (7,Long_C_L_U_NT):(Long_C_L_U_NT,7),(7,B_M_R_NT):(B_M_R_NT,7),
+           },
+        'preprocess_req': True,
+        'postprocess_req': False,
+        'left_subseq': True,
+        'bidir_subseq':False,
+        'hyphenate_suffix': True, #instruct user to hyphenate suffix if there is in fact a suffix in the input
+        'preprocess_dets':"Add '!' at the beginning of "
+            "the root/stem (ex: pre+pre+root-suf-suf -> pre+pre+!root-suf-suf); "
+            "then enter into FST",
+        'postprocess_dets':None,
+        'notes':
+        ['Std Hungarian also has labial vowel harmony, but it is not represented in this FST',
+        'Hungarian suffixes are either fixed or alternating in backness; only alternating'
+        ' suffixes harmonize, so non-alternating suffixes will produce invalid output with this FST',
+        'Vowel phonemes are /i, i:, e:, y, y:,u, u:, o, o:, a:, back-mid-rounded-lax'
+        ',front-mid-rounded-tense,long front-mid-rounded-tense, front-mid-unrounded-lax/',
+        '/i,i:,e:,front-mid-unrounded-lax/ are quasi-neutrals','If the closest vowel to the'
+        ' left of an alternating suffix is a non-neutral front vowel, then the suffix will front-harmonize',
+        'If the closest vowel to the left of an alternating suffix is a back vowel, '
+        'then the suffix will back-harmonize',
+        'If the closest vowel to the left of an alternating suffix is a neutral vowel, '
+        'it varies what palatal quality the suffix vowels will demonstrate:'
+        'If the last non-neutral vowel was a front vowel, then the suffix will have front vowels; '
+        'if the root has only neutral vowels,'
+        'then the suffix will have front vowels; if the last non-neutral vowel is back, '
+        'the quality of the vowels in the suffix depend'
+        'on the number of neutrals between that back vowel and the suffix--such that more '
+        'neutrals increase probability of front-harmony--'
+        ',the height of the intervening neutral vowels--such that higher neutral vowels '
+        'increase the likelihood of front-harmony--'
+        ',and a variety of other factors; thus BECAUSE THE HARMONY IS PROBABILISTIC IN THIS CASE, '
+        'THE FST WILL FAIL TO PERFECTLY REPRESENT THIS PHENOMENON',
+        'Acknowledging the probabilistic nature of this harmony, various assumptions were made '
+        'that make the FST potentially inaccurate; these'
+        'manifest in the decision to make a root-final vowel sequence of BN lead to back-harmony, '
+        'but a sequence of BNN or even more Ns produce front-harmony,'
+        'thus avoiding a likelihood-based FST','Quasi-neutrals /e,F_M_U_NT/ alternate with '
+        '/a:,B_M_R_NT/ in alternating suffixes',
+        'In general, /y,y:,F_M_R_T,Long_F_M_R_T/ alternate with /u,u:,o,o:/,respectively, '
+        'in alternating suffixes',
+        'While this FST assumes binary suffixes, there are quaternary suffixes which alternate '
+        'between four different vowels'
+        ],
+        'harmony_feature':['Palatal'],
+        'sc':True,
+        'dr':False,
+        'transparent':['/i,e,F_M_U_NT/ are quasi-transparent as triggers'],
+        'opaque':['/i,e,F_M_U_NT/sometimes "behave" opaquely, lending to front harmony']
+    },
+ 31:
+    {
+        'name': 'Nawuri (North Guang) ATR harmony',
+        'states': {0:'',1:'',2:'',3:'',4:''},
+        'alphabet': ['i','u','e','o',B_L_U_NT,'I',B_H_R_NT,F_M_U_NT,B_M_R_NT,'!','-'],
+        'transitions':
+            {(0,'?'):('?',0),(1,'?'):('?',1),(2,'?'):('?',2),(3,'?'):('?',3),
+            (4,'?'):('?',4),(0,'-'):('-',0),(1,'-'):('-',4),(2,'-'):('-',3),
+            (3,'-'):('-',3),(4,'-'):('-',4),
+            (0,'i'):('i',0),(0,'u'):('u',0),(0,'e'):('e',0),(0,'o'):('o',0),
+            (0,'I'):('I',0),(0,B_H_R_NT):(B_H_R_NT,0),(0,F_M_U_NT):(F_M_U_NT,0),
+            (0,B_M_R_NT):(B_M_R_NT,0),
+            (0,B_L_U_NT):(B_L_U_NT,0),
+            (0,'!'):('!',1),(1,'!'):('!',1),(2,'!'):('!',2),(3,'!'):('!',3),
+            (4,'!'):('!',4),
+            (1,'I'):('I',1),(1,B_H_R_NT):(B_H_R_NT,1),(1,F_M_U_NT):(F_M_U_NT,1),
+            (1,B_M_R_NT):(B_M_R_NT,1),
+            (1,B_L_U_NT):(B_L_U_NT,1),(1,'i'):('i',2),(1,'u'):('u',2),(1,'e'):('e',2),
+            (1,'o'):('o',2),
+            (2,'i'):('i',2),(2,'u'):('u',2),(2,'e'):('e',2),(2,'o'):('o',2),
+            (2,'I'):('i',2),(2,B_H_R_NT):('u',2),(2,F_M_U_NT):('e',2),
+            (2,B_M_R_NT):('o',2),
+            (2,B_L_U_NT):(B_L_U_NT,1),
+            (3,'i'):('i',3),(3,'u'):('u',3),(3,'e'):('e',3),(3,'o'):('o',3),
+            (3,'I'):('i',3),(3,B_H_R_NT):('u',3),(3,F_M_U_NT):('e',3),
+            (3,B_M_R_NT):('o',3),
+            (3,B_L_U_NT):(B_L_U_NT,4),
+            (4,'i'):('i',4),(4,'u'):('u',4),(4,'e'):('e',4),(4,'o'):('o',4),
+            (4,'I'):('I',4),(4,B_H_R_NT):(B_H_R_NT,4),(4,F_M_U_NT):(F_M_U_NT,4),
+            (4,B_M_R_NT):(B_M_R_NT,4),
+            (4,B_L_U_NT):(B_L_U_NT,4),
+           },
+        'preprocess_req': True,
+        'postprocess_req': True,
+        'left_subseq': True,
+        'bidir_subseq':True,
+        'plus_prefix':True,
+        'hyphenate_suffix':True,
+        'preprocess_dets':'Add "!" to the beginning of the root/stem and "&" '
+                'to the end of the root/stem (Ex: For input /a+b+c+ddd-e-f/,'
+                ' should get /a+b+c+!ddd&-e-f/; This is the input for FST 31',
+        'postprocess_dets':'Output should be reversed and run through 31B',
+        'notes': ['Dialect represented is that delineated in "Nawuri ATR harmony in typological perspective"'
+                  'by Roderic Casali (2002)',
+                  'Morpheme-internal cross-height ATR harmony',
+                  'Casali conveys Nawuri as stem-control with [+ATR] dominant over [-ATR]',
+                  'Nawuri has 9 vowel phonemes /i,u,e,o,I,B_H_R_NT,F_M_U_NT,B_M_R_NT,C_L_U_NT/,'
+                  ' as well as long counterparts to many of them;the first four listed are'
+                  '[+ATR], while the others are [-ATR]',
+                 'Centralization, raising, and dipthongization phonetic vowel processes exist,'
+                 ' but were not incorporated into this FST because we only included phonemic'
+                  'representations','The decision to take a broad phonological parametrization'
+                  'may contribute to ambiguity given that multiple phonemes may share an allophone'
+                  '(ex: /a/ and /B_M_R_NT/ can both manifest as B_M_U_NT in particular contexts',
+                 'Harmony only affects a subset of affixes: there are many harmonizing prefixes '
+                 'and at least one harmonizing suffix','THIS FST ASSUMES ALL AFFIXES IN THE INPUT'
+                  'ARE HARMONIZING AFFIXES, WHICH PRODUCES INACCURATE OUTPUTS WHEN SUCH IS NOT THE CASE',
+                 'B_L_U_NT is a neutral vowel which sometimes behaves transparently and sometimes opaquely:'
+                 'it blocks the rightward spreading of [+ATR], causing a following harmonizing suffix to manifest'
+                 'as [-ATR] (i.e., if it is the last vowel of the root, the following suffix -if alternating- will'
+                 ' have [-ATR] vowels; it does not block leftward [+ATR] spreading, however (i.e., if a root'
+                 ' has [+ATR] vowels, but B_L_U_NT as its leftmost vowel, [+ATR] may still spread to the preceding prefixes',
+                 'Some believe B_L_U_NT is not a neutral, but instead subtley phonetically raises before a [+ATR] vowel;'
+                 'Because we are only employing phonemic representations, such is not practically relevant',
+                 'There can also be [+ATR] assimilation across word boundaries and within compounds,'
+                 ' but THIS FST CAN ONLY TREAT SIMPLE ROOTS WITH HARMONIZING AFFIXES',
+                 'Nawuri also demonstrates labial harmony in some contexts, but this FST does not '
+                 'incorporate it'],
+        'harmony_feature':['ATR/RTR'],
+        'sc':True,
+        'dr':True,
+        'transparent':['B_L_U_NT seems to allow leftward spreading of [+ATR], behaving transparently'],
+        'opaque':['B_L_U_NT seems to block rightward spreading of [+ATR],behaving opaquely'],
+    },
+'31B':
+    {
+        'name': 'Nawuri secondary FST for RtoL',
+        'states': {0:'',1:'',2:'',},
+        'alphabet': ['i','u','e','o',B_L_U_NT,'I',B_H_R_NT,F_M_U_NT,B_M_R_NT,'&'],
+        'transitions':
+            {(0,'?'):('?',0),(1,'?'):('?',1),(2,'?'):('?',2),
+            (0,'i'):('i',0),(0,'u'):('u',0),(0,'e'):('e',0),(0,'o'):('o',0),
+            (0,'I'):('I',0),(0,B_H_R_NT):(B_H_R_NT,0),(0,F_M_U_NT):(F_M_U_NT,0),
+            (0,B_M_R_NT):(B_M_R_NT,0),
+            (0,B_L_U_NT):(B_L_U_NT,0),
+            (0,'&'):('&',1),(1,'&'):('&',1),(2,'&'):('&',2),
+            (1,'I'):('I',1),(1,B_H_R_NT):(B_H_R_NT,1),(1,F_M_U_NT):(F_M_U_NT,1),
+            (1,B_M_R_NT):(B_M_R_NT,1),
+            (1,B_L_U_NT):(B_L_U_NT,1),(1,'i'):('i',2),(1,'u'):('u',2),(1,'e'):('e',2),
+            (1,'o'):('o',2),
+            (2,'i'):('i',2),(2,'u'):('u',2),(2,'e'):('e',2),(2,'o'):('o',2),
+            (2,'I'):('i',2),(2,B_H_R_NT):('u',2),(2,F_M_U_NT):('e',2),
+            (2,B_M_R_NT):('o',2),
+            (2,B_L_U_NT):(B_L_U_NT,2),
+           },
+        'preprocess_req': True,
+        'postprocess_req': True,
+        'left_subseq': False,
+        'bidir_subseq':True,
+        'plus_prefix':True,
+        'hyphenate_suffix':True,
+        'preprocess_dets':'Should have been processed and run through 31 accordingly; '
+            'Reverse the output from 31 and enter into this FST',
+        'postprocess_dets':'Reverse output, this is the final output to user',
+        'notes': [],
+        'harmony_feature':['ATR/RTR'],
+        'sc':True,
+        'dr':True,
+        'transparent':[],
+        'opaque':[],
+    },
+ }
