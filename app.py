@@ -124,12 +124,16 @@ def main():
                 if word in {'--q', '--Q'}:
                     clear()
                     break
-                if word == {"--h", "--help"}:
+                if word in {"--h", "--help"}:
                     show_vh_help(fst)
                     show_vh_intro(fst)
                     continue
                 if word == '--notes':
                     show_vh_notes(fst)
+                    continue
+                if word == '--clear':
+                    clear()
+                    show_vh_intro(fst)
                     continue
                 word, prefix_as_list, stem_as_list, suffix_as_list = \
                     split_word_components(word)
