@@ -76,7 +76,19 @@ def preprocess(
                     preliminary_fst = FST(preliminary_language)
                     fst.suffix = preliminary_fst.step(suffix_as_list[0])
                 return False, stem_as_list + fst.suffix
-
+        elif fst.name in {
+            "Maasai (Eastern Nilotic) ATR harmony",
+            "Nawuri (North Guang) ATR harmony"
+            }:
+            stem_as_list.insert(0, '!')
+            stem_as_list.append('&')
+            return True, prefix_as_list + stem_as_list + suffix_as_list
+        elif fst.name == "Kashaya (Pomoan) translaryngeal harmony":
+            fst_p = vh_dataset['29P']
+            return True, fst_p.step(word_as_list)
+        elif fst.name == "Standard Hungarian palatal harmony of alternating suffixes":
+            stem_as_list.insert(0, '!')
+            return True, prefix_as_list + stem_as_list + suffix_as_list
         else:
             return True, word_as_list
 
@@ -98,10 +110,12 @@ def preprocess(
                 return True, word_as_list[:suffix_start][::-1]
         elif fst.name == 'Yoruba ATR harmony':
             return True, word_as_list[::-1]
-        # elif fst.name=="Kalenjin ATR harmony":
-        #     language = vh_dataset[24]
-        # 
-
+        elif fst.name=="Kalenjin ATR harmony":
+            # language = vh_dataset[24]
+            pass
+        elif fst.name==\
+            "Asturian Lena (Romance) height harmony with inflectional suffixes":
+            return True, word_as_list[::-1]
         return True, word_as_list[::-1]
 
 
@@ -117,6 +131,22 @@ def postprocess(word_as_list, fst):
             elif fst.name == "Diola-Fogny (Jola-Fonyi) ATR harmony":
                 word_as_list = fst.step(word_as_list)
                 word_as_list = word_as_list[::-1]
+            elif fst.name == \
+                    "Pasiego vowel harmony (metaphony, raising, and centralization)":
+                word_as_list = word_as_list[::-1]
+                fst_b = FST(vh_dataset['26B'])
+                word_as_list = fst_b.step(word_as_list)
+                fst_c = FST(vh_dataset['26C'])
+                word_as_list = fst_c.step(word_as_list)[::-1]
+        else:
+            if fst.name == "Maasai (Eastern Nilotic) ATR harmony":
+                word_as_list = word_as_list[::-1]
+                fst_b = vh_dataset['28B']
+                word_as_list = fst_b.step(word_as_list)[::-1]
+            if fst.name == "Nawuri (North Guang) ATR harmony":
+                fst_b = vh_dataset['31B']
+                reversed = word_as_list[::-1]
+                word_as_list = fst_b.step(reversed)[::-1]
         if fst.hyphenate_suffix:
             if hasattr(fst, "suffix"):
                 for suffix in fst.suffix:
