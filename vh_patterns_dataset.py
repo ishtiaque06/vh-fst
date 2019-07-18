@@ -2174,4 +2174,92 @@ vh_dataset=\
         'transparent':['a'],
         'opaque':None,
     },
+ '34P':
+    {
+        'name': 'Yawelmani vowel epenthesis',
+        'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',10:'',11:'',12:''},
+        'alphabet': [],
+        'transitions':
+        { #118
+       },
+        'preprocess_req': False,
+        'postprocess_req': False,
+        'left_subseq': True,
+        'bidir_subseq':False,
+        'hyphenate_suffix': False,
+        'preprocess_dets':None,
+        'postprocess_dets':None,
+        'notes': [''],
+        'harmony_feature':['Palatal','Labial'],
+        'sc':False,
+        'dr':False,
+        'transparent':None,
+        'opaque':None
+    },  
+ 34:
+    {
+        'name': 'Yawelmani palatal and labial suffixal harmony',
+        'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',10:'',11:'',12:''},
+        'alphabet': [],
+        'transitions':
+        { #118
+       },
+        'preprocess_req': False,
+        'postprocess_req': False,
+        'left_subseq': True,
+        'bidir_subseq':False,
+        'hyphenate_suffix': False,
+        'preprocess_dets':None,
+        'postprocess_dets':None,
+        'notes': [''],
+        'harmony_feature':['Palatal','Labial'],
+        'sc':False,
+        'dr':False,
+        'transparent':None,
+        'opaque':None
+    },
+ '34B':
+    {
+        'name': 'Yawelmani vowel shortening',
+        'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',10:'',11:'',12:''},
+        'alphabet': [],
+        'transitions':
+        { #118
+       },
+        'preprocess_req': False,
+        'postprocess_req': False,
+        'left_subseq': True,
+        'bidir_subseq':False,
+        'hyphenate_suffix': False,
+        'preprocess_dets':None,
+        'postprocess_dets':None,
+        'notes': [''],
+        'harmony_feature':['Palatal','Labial'],
+        'sc':False,
+        'dr':False,
+        'transparent':None,
+        'opaque':None
+    }, 
+ '34C':
+    {
+        'name': 'Yawelmani vowel lowering',
+        'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',10:'',11:'',12:''},
+        'alphabet': [],
+        'transitions':
+        { #118
+       },
+        'preprocess_req': False,
+        'postprocess_req': False,
+        'left_subseq': True,
+        'bidir_subseq':False,
+        'hyphenate_suffix': False,
+        'preprocess_dets':None,
+        'postprocess_dets':None,
+        'notes': [''],
+        'harmony_feature':['Palatal','Labial'],
+        'sc':False,
+        'dr':False,
+        'transparent':None,
+        'opaque':None
+    },                  
  }
