@@ -2055,8 +2055,38 @@ vh_dataset=\
         'hyphenate_suffix': True,
         'preprocess_dets': '',
         'postprocess_dets':'',
-        'notes': [''
-            ],
+        'notes': ['Vowel phonemes are /i,e,F_M_U_NT,u,o,B_M_R_NT,a/',
+                  '/i,e,F_M_U_NT/ are front;/u,o,B_M_R_NT/ are back',
+                  '/i,u/,/e,o/,/F_M_U_NT,B_M_R_NT/ "lie" at '
+                  'different heights',
+                  'Vowel harmony process represented here'
+                  'is left-subsequential and stem-controlled',
+                  'Process represented here is specifically suffixal harmony:'
+                  'the harmonization of verbal extensions with the preceding root '
+                  'radical',
+                  'THUS, THIS FST IS ONLY ACCURATE WHEN THE INPUT IS A VERB '
+                  'AND THE ROOT IS FOLLOWED BY HARMONIZING EXTENSIONS',
+                  'THE VERBAL EXTENSIONS MUST BE HYPHENATED AS YOU WOULD SUFFIXES '
+                  '(ex: dind-ul-a, wherein /u/ is the extension)',
+                  'THIS FST WILL HARMONIZE ALL SUFFIXES FOLLOWING THE ROOT, '
+                  'MEANING IT WILL PRODUCE INACCURACIES FOR NON-HARMONIZING SUFFIXES '
+                  'THAT FOLLOW',
+                  'For harmonizing extensions, those which alternate between '
+                  'front vowels have /i/ as their default vowel quality, those '
+                  'which alternate between back vowels have /u/ as their default, '
+                  'and those with /a/ do not deviate from /a/',
+                  'The trigger for extension harmony is the last vowel of the preceding'
+                  'root, but potential triggers are constrained depending on the extension: '
+                  'Harmony for extensions with front vowels can be triggered by front or back vowels'
+                  ', but harmony for those with back vowels can only be triggered by back vowels',
+                  'Height harmony manifests as alternation between the heights of /i,u/,/e,o/,'
+                  ' and /F_M_U_NT,B_M_R_NT/',
+                  '/a/ is transparent to harmony; because it cannot trigger height harmony, following'
+                  'extensions must manifest with the default height (/i,u/)',
+                  'Affixes before the root do not harmonize',
+                  'Primary source is "Vowel Harmony in Kindendeule and Chingoni Languages '
+                  '"of Tanzania" by Deo Ngonyani'
+                 ],
         'harmony_feature':['Height'],
         'sc':True,
         'dr':False,
@@ -2107,7 +2137,36 @@ vh_dataset=\
         'hyphenate_suffix': True,
         'preprocess_dets': '',
         'postprocess_dets':'',
-        'notes': [''
+        'notes': ['Vowel phonemes are /i,F_M_U_NT,u,B_M_R_NT,a/',
+                  '/i,F_M_U_NT/ are front;/u,B_M_R_NT/ are back',
+                  '/i,u/,/F_M_U_NT,B_M_R_NT/,/a/ "lie" at '
+                  'different heights',
+                  'Vowel harmony process represented here'
+                  'is left-subsequential and stem-controlled',
+                  'Process represented here is specifically suffixal harmony:'
+                  'the harmonization of verbal extensions with the preceding root '
+                  'radical',
+                  'THUS, THIS FST IS ONLY ACCURATE WHEN THE INPUT IS A VERB '
+                  'AND THE ROOT IS FOLLOWED BY HARMONIZING EXTENSIONS',
+                  'THE VERBAL EXTENSIONS MUST BE HYPHENATED AS YOU WOULD SUFFIXES ',                  
+                  'THIS FST WILL HARMONIZE ALL SUFFIXES FOLLOWING THE ROOT, '
+                  'MEANING IT WILL PRODUCE INACCURACIES FOR NON-HARMONIZING SUFFIXES '
+                  'THAT FOLLOW',
+                  'For harmonizing extensions, those which alternate between '
+                  'front vowels have /i/ as their default vowel quality, those '
+                  'which alternate between back vowels have /u/ as their default, '
+                  'and those with /a/ do not deviate from /a/',
+                  'The trigger for extension harmony is the last vowel of the preceding'
+                  'root, but potential triggers are constrained depending on the extension: '
+                  'Harmony for extensions with front vowels can be triggered by front or back vowels'
+                  ', but harmony for those with back vowels can only be triggered by back vowels',
+                  'Height harmony manifests as alternation between the heights of /i,u/'
+                  ' and /F_M_U_NT,B_M_R_NT/',
+                  '/a/ is transparent to harmony; because it cannot trigger height harmony, following'
+                  'extensions must manifest with the default height (/i,u/)',
+                  'Affixes before the root do not harmonize',
+                  'Primary source is "Vowel Harmony in Kindendeule and Chingoni Languages '
+                  '"of Tanzania" by Deo Ngonyani'
             ],
         'harmony_feature':['Height'],
         'sc':True,
