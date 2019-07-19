@@ -1100,12 +1100,21 @@ vh_dataset=\
         'opaque':['Vowels within non-alternating morphemes are treated as opaque, '
             'triggering a new harmonic domain, perpetuating their own [ATR] feature '
             'until another non-alternating morpheme is encountered'],
-        'n-a_suff': ['-e','-'+P_N_V+Long_C_L_U_T,'-'+A_LF_VL+'u',
-            '-'+A_LF_VL+Long_C_L_U_T+'k','-n'+Long_C_L_U_T,'-'+A_LF_VL+Long_C_L_U_T,
-            '-kej','-k'+Long_C_L_U_NT,'-kaj','-'+A_LF_VL+'w'+Long_C_L_U_NT+'k',
-            '-k'+Long_F_M_U_NT], #add '&' at start of suffix (before -; ex: &-kej)
-        'n-a_r&pre': ['k'+Long_F_M_U_T+'r','ma+','un',V_N_V+'et','kol',
-            V_N_V+Long_F_M_U_NT+'t','k'+B_M_R_NT+'l'] #add ! at end of root or prefix (ex: un!; ma+!),
+        # non-alternating suffixes
+        'n-a_suff': [
+            ['-', 'e'],['-', P_N_V, Long_C_L_U_T],['-', A_LF_VL, 'u'],
+            ['-',A_LF_VL+Long_C_L_U_T,'k'],
+            ['-n', Long_C_L_U_T,'-',A_LF_VL,Long_C_L_U_T],
+            ['-k','e','j'],['-k',Long_C_L_U_NT],['-k','a','j'],
+            ['-',A_LF_VL,'w',Long_C_L_U_NT,'k'],
+            ['-','k',Long_F_M_U_NT]], #add '&' at start of suffix (before -; ex: &-kej)
+        # non-alternating roots and prefixes
+        'n-a_r&pre': [
+            ['k', Long_F_M_U_T, 'r'],['m','a','+'],['u','n'],[V_N_V,'e','t'],
+            ['k','o','l'],
+            [V_N_V,Long_F_M_U_NT,'t'],['k',B_M_R_NT,'l']
+            ]
+            #add ! at end of root or prefix (ex: un!; ma+!),
     },
     '24B':
     {
@@ -1179,12 +1188,20 @@ vh_dataset=\
         'opaque':['Vowels within non-alternating morphemes are treated as opaque, '
             'triggering a new harmonic domain, perpetuating their own [ATR] feature '
             'until another non-alternating morpheme is encountered'],
-        'n-a_suff': ['-e','-'+P_N_V+Long_C_L_U_T,'-'+A_LF_VL+'u',
-            '-'+A_LF_VL+Long_C_L_U_T+'k','-n'+Long_C_L_U_T,'-'+A_LF_VL+Long_C_L_U_T,
-            '-kej','-k'+Long_C_L_U_NT,'-kaj','-'+A_LF_VL+'w'+Long_C_L_U_NT+'k',
-            '-k'+Long_F_M_U_NT], #add '&' at start of suffix (before -; ex: &-kej)
-        'n-a_r&pre': ['k'+Long_F_M_U_T+'r','ma+','un',V_N_V+'et','kol',
-            V_N_V+Long_F_M_U_NT+'t','k'+B_M_R_NT+'l']
+        # non-alternating suffixes
+        'n-a_suff': [
+            ['-', 'e'],['-', P_N_V, Long_C_L_U_T],['-', A_LF_VL, 'u'],
+            ['-',A_LF_VL+Long_C_L_U_T,'k'],
+            ['-n', Long_C_L_U_T,'-',A_LF_VL,Long_C_L_U_T],
+            ['-k','e','j'],['-k',Long_C_L_U_NT],['-k','a','j'],
+            ['-',A_LF_VL,'w',Long_C_L_U_NT,'k'],
+            ['-','k',Long_F_M_U_NT]], #add '&' at start of suffix (before -; ex: &-kej)
+        # non-alternating roots and prefixes
+        'n-a_r&pre': [
+            ['k', Long_F_M_U_T, 'r'],['m','a','+'],['u','n'],[V_N_V,'e','t'],
+            ['k','o','l'],
+            [V_N_V,Long_F_M_U_NT,'t'],['k',B_M_R_NT,'l']
+            ]
             #add ! at end of root or prefix (ex: un!; ma+!),
     },
     25:
