@@ -2180,11 +2180,11 @@ vh_dataset=\
         'states': {0:'',1:'',2:'',},
         'alphabet': ['+','-','i','u','e','o','a',Long_F_H_U_T,Long_F_M_U_T,Long_B_H_R_T,Long_B_M_R_T,Long_C_L_U_NT],
         'transitions':
-        { 
+        {(0,'-'):('-',0),
        },
         'preprocess_req': True,
         'postprocess_req': True,
-        'left_subseq': False, #technically True, but I incorporate a RtoL process for greater ease
+        'left_subseq': True,
         'bidir_subseq':False,
         'hyphenate_suffix': False,
         'preprocess_dets':'Reverse input before running through here',
@@ -2254,7 +2254,7 @@ vh_dataset=\
        },
         'preprocess_req': True,
         'postprocess_req': True,
-        'left_subseq': False,#Technically true, but we treat it right to left for greater ease
+        'left_subseq': True,
         'bidir_subseq':False,
         'hyphenate_suffix': False,
         'preprocess_dets':'Should have already been run through 34P and 34, Reverse output from 34 and enter into here',
