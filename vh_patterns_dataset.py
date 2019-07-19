@@ -2177,21 +2177,21 @@ vh_dataset=\
  '34P':
     {
         'name': 'Yawelmani vowel epenthesis',
-        'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',10:'',11:'',12:''},
-        'alphabet': [],
+        'states': {0:'',1:'',2:'',},
+        'alphabet': ['+','-','i','u','e','o','a',Long_F_H_U_T,Long_F_M_U_T,Long_B_H_R_T,Long_B_M_R_T,Long_C_L_U_NT],
         'transitions':
-        { #118
+        { 
        },
-        'preprocess_req': False,
-        'postprocess_req': False,
-        'left_subseq': True,
+        'preprocess_req': True,
+        'postprocess_req': True,
+        'left_subseq': False, #technically True, but I incorporate a RtoL process for greater ease
         'bidir_subseq':False,
         'hyphenate_suffix': False,
-        'preprocess_dets':None,
-        'postprocess_dets':None,
+        'preprocess_dets':'Reverse input before running through here',
+        'postprocess_dets':'Reverse output and then run through 34',
         'notes': [''],
         'harmony_feature':['Palatal','Labial'],
-        'sc':False,
+        'sc':True,
         'dr':False,
         'transparent':None,
         'opaque':None
@@ -2199,43 +2199,69 @@ vh_dataset=\
  34:
     {
         'name': 'Yawelmani palatal and labial suffixal harmony',
-        'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',10:'',11:'',12:''},
-        'alphabet': [],
+        'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',10:'',11:'',},
+        'alphabet': ['-','i','u','e','o','a',Long_F_H_U_T,Long_F_M_U_T,Long_B_H_R_T,Long_B_M_R_T,Long_C_L_U_NT],
         'transitions':
-        { #118
+        { 
        },
-        'preprocess_req': False,
-        'postprocess_req': False,
+        'preprocess_req': True,
+        'postprocess_req': True,
         'left_subseq': True,
         'bidir_subseq':False,
         'hyphenate_suffix': False,
-        'preprocess_dets':None,
-        'postprocess_dets':None,
-        'notes': [''],
+        'preprocess_dets':'Run through 34P first and enter the final output from there into here',
+        'postprocess_dets':'Input this output into 34B',
+        'notes': ['Vowel phoneme inventory is considered to be /i,i:,u,u:,e,e:,o,o:,a,a:/'
+                  'Although i: and u: generally do not manifest phonetically, '
+                  'except in contexts wherin [iy],[uw] contract in closed syllables'
+                  ', I treat them as phonemic in that their particular vowel quality'
+                  'is salient, despite eventually lowering to /e:,o:/ generally ',
+                  'This incorporates vowel epenthesis, labial/palatal harmony, lowering,'
+                  ' and shortening vowel processes in that order using four FSTs',
+                  'The epenthetic process involves inserting /i/ after the first consonant'
+                  ' in a sequence of 3 consonants (i.e., CCC->CiCC)',
+                 'The harmony process involves labial(rounding) and palatal(backness) suffixal'
+                  ' harmony in which the trigger is the final vowel of the stem,'
+                  ' however the trigger and targets must be of identical height for'
+                  ' harmony to occur; a target which differs in height from the last'
+                  ' vowel of the stem will actually block this harmony process',
+                 'Potential flaw: This FST carries out this harmony process for all'
+                  ' suffixes, but it is possible it should only occur for the first'
+                  ' suffix after the stem',
+                 '/i,u,i:,u:/ and /e,e:,o,o:,a,a:/ are the two height groupings',
+                 'The shortening vowel process involves the shortening of long '
+                  'vowels before a consonant cluster (i.e., V:CC->VCC)',
+                 'The lowering process incorporated is the lowering of'
+                  '/u:/ and /i:/ to o: and e:; this FST does so indiscriminately,'
+                  ' although in reality there are contexts where this should not occur',
+                 'Although the ordering of epenthesis and vowel harmony in the overall derivation'
+                  ' is highly tenable, the ordering of the shortening and lowering processes is '
+                  'made more equivocally and we encourage criticism'],
         'harmony_feature':['Palatal','Labial'],
-        'sc':False,
+        'sc':True,
         'dr':False,
         'transparent':None,
-        'opaque':None
+        'opaque':['Any suffixal vowel that disagrees in height with the ultimate vowel '
+                  'of the stem behaves opaquely']
     },
  '34B':
     {
         'name': 'Yawelmani vowel shortening',
-        'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',10:'',11:'',12:''},
-        'alphabet': [],
+        'states': {0:'',1:'',2:'',},
+        'alphabet': ['+','-','i','u','e','o','a',Long_F_H_U_T,Long_F_M_U_T,Long_B_H_R_T,Long_B_M_R_T,Long_C_L_U_NT],
         'transitions':
-        { #118
+        {
        },
-        'preprocess_req': False,
-        'postprocess_req': False,
-        'left_subseq': True,
+        'preprocess_req': True,
+        'postprocess_req': True,
+        'left_subseq': False,#Technically true, but we treat it right to left for greater ease
         'bidir_subseq':False,
         'hyphenate_suffix': False,
-        'preprocess_dets':None,
-        'postprocess_dets':None,
+        'preprocess_dets':'Should have already been run through 34P and 34, Reverse output from 34 and enter into here',
+        'postprocess_dets':'Reverse output and enter it into 34C',
         'notes': [''],
         'harmony_feature':['Palatal','Labial'],
-        'sc':False,
+        'sc':True,
         'dr':False,
         'transparent':None,
         'opaque':None
@@ -2243,21 +2269,21 @@ vh_dataset=\
  '34C':
     {
         'name': 'Yawelmani vowel lowering',
-        'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',10:'',11:'',12:''},
-        'alphabet': [],
+        'states': {0:'',},
+        'alphabet': [Long_F_H_U_T,Long_F_M_U_T,Long_B_H_R_T,Long_B_M_R_T],
         'transitions':
-        { #118
+        {
        },
-        'preprocess_req': False,
+        'preprocess_req': True,
         'postprocess_req': False,
         'left_subseq': True,
         'bidir_subseq':False,
         'hyphenate_suffix': False,
-        'preprocess_dets':None,
+        'preprocess_dets':'Should have already been run through 34P,34,34B; output from here will be final output to user',
         'postprocess_dets':None,
         'notes': [''],
         'harmony_feature':['Palatal','Labial'],
-        'sc':False,
+        'sc':True,
         'dr':False,
         'transparent':None,
         'opaque':None
