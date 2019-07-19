@@ -2266,6 +2266,8 @@ vh_dataset=\
                   'https://www.ling.upenn.edu/~gene/courses/530/readings/Kenstowicz1994_yawelmani.pdf '
                   '2) Restricting Multilevel Constraint Evaluation: Opaque Rule Interaction in'
                   ' Yawelmani Vowel Harmony by Cole & Kisseberth',
+                  'The prefix and suffix demarcators "+" and "-" get removed as these FSTs operate '
+                  ', so will be absent from the output',
                   ],
         'harmony_feature':['Palatal','Labial'],
         'sc':True,
