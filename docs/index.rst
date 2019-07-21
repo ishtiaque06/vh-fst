@@ -20,13 +20,33 @@ So far, the following vowel-harmony patterns have been recorded:
 4. Tuvan backness harmony
 5. Uyghur backness harmony
 6. Uyghur plural suffix -lVr
-7. Uyghur dative suffixʁV
+7. Uyghur dative suffix -ʁV
 8. Halh (Mongolic) rounding harmony
 9. Jingulu nominal root with non-neuter gender suffix
 10. Jingulu adjectivial root with non-neuter gender suffix
 11. Jingulu verbal root with subject agreement-marking suffix
 12. Jingulu verbal root with motion-imperative suffix
 13. Jingulu verbal root with negative imperative suffix
+14. Turkish palatal and rounding vowel harmony
+15. Finnish palatal (front/back) vowel harmony
+16. Classical Mongolian palatal vowel harmony
+17. Kalmyk (Oirat) harmony
+18. Khalkha Mongolian harmony
+19. Dagur Mongolian harmony
+20. Tunica harmony
+21. Yoruba ATR harmony
+22. Igbo ATR harmony
+23. Diola-Fogny (Jola-Fonyi) ATR harmony
+24. Kalenjin ATR harmony
+25. Asturian Lena (Romance) height harmony with inflectional suffixes
+26. Pasiego vowel harmony (metaphony, raising, and centralization)
+27. Pulaar dialect of Fula (Niger-Congo) ATR harmony
+28. Maasai (Eastern Nilotic) ATR harmony
+29. Kashaya (Pomoan) translaryngeal harmony
+30. Standard Hungarian palatal harmony of alternating suffixes
+31. Nawuri (North Guang) ATR harmony
+32. Kinendeule (Rufiji) height harmony for verbal extensions
+33. Chingoni (Rufiji) height harmony for verbal extensions
 
 Components
 ----------
