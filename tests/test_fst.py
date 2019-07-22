@@ -197,7 +197,7 @@ def test_kalmyk():
                     'tam+oo',
                     'e+tæm-ø',
                     'dib-edæbyøgædøby',
-                    'dubiabiuodogabua'
+                    'dibua-biuodogabua'
                     ]
     run_test_on_strings(input_list, output_list, object)
 
@@ -235,7 +235,7 @@ def test_finnish():
 
     input_list = ['',
                     f'd u d i n u o ɑ b y ø æ',
-                    f'd i + n y i a m - o g {B_L_U_NT}',
+                    f'd i + n y i ɑ m - o g ɑ',
                  ]
     output_list = ['',
                     'dudinuoɑbuoɑ',

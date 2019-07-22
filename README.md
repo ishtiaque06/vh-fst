@@ -6,7 +6,7 @@ patterns are described in Andrew Nevins' book [Locality in Vowel Harmony](https:
 This project is the collaborative summer project of Travis Herringshaw and Ahmed Ishtiaque,
 under the supervision of Professor Jane Chandlee at Haverford College.
 
-This is a short introduction to the project. A more detailed documentation can be found (here)[https://vh-fst.readthedocs.io/en/latest/]
+This is a short introduction to the project. A more detailed documentation can be found [here](https://vh-fst.readthedocs.io/en/latest/)
 
 So far, the following vowel-harmony patterns have been recorded:
 1. Kisa applicative suffix Vlɑ
