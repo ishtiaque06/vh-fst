@@ -2191,14 +2191,14 @@ vh_dataset=\
     {
         'name': 'Yawelmani vowel epenthesis',
         'states': {0:'',1:'',2:'',3:'',4:''},
-        'alphabet': ['+','-','i','u','e','o','a',Long_F_H_U_T,Long_F_M_U_T,Long_B_H_R_T,Long_B_M_R_T,Long_C_L_U_NT],
+        'alphabet': ['+','-','#','i','u','e','o','a',Long_F_H_U_T,Long_F_M_U_T,Long_B_H_R_T,Long_B_M_R_T,Long_C_L_U_NT],
         'transitions':
-        {(0,'-'):('-',0),(0,'+'):('',0),(0,'#'):('',4),(0,'?'):('?',1),
-         (1,'+'):('',1),(1,'-'):('-',1),(1,'#'):('',4),(1,'?'):('',2),
-         (2,'+'):('',2),(2,'-'):('',3),(2,'?'):('i?'),(2,'#'):('?',4),
-         (3,'+'):('',3),(3,'-'):('',3),(3,'?'):('i?-',2),(3,'#'):('',4),
+        {(0,'-'):('-',0),(0,'+'):('',0),(0,'#'):('#',4),(0,'?'):('?',1),
+         (1,'+'):('',1),(1,'-'):('-',1),(1,'#'):('#',4),(1,'?'):('',2),
+         (2,'+'):('',2),(2,'-'):('',3),(2,'?'):('i?'),(2,'#'):('?#',4),
+         (3,'+'):('',3),(3,'-'):('',3),(3,'?'):('i?-',2),(3,'#'):('?#',4),
          (4,'+'):('',4),(4,'-'):('',4),(4,'?'):('',4), #any transition from 4 is pointless but included for sake of having transition for each alphabet symbol for each state
-         
+         (4,'#'):('',4),
          (4,'i'):('',4),(0,'i'):('i',0),(1,'i'):('i',0),(2,'i'):('?i',0),
          (3,'i'):('?-i',0),
          (4,'u'):('',4),(0,'u'):('u',0),(1,'u'):('u',0),(2,'u'):('?u',0),
@@ -2360,7 +2360,7 @@ vh_dataset=\
     {
         'name': 'Yawelmani vowel shortening',
         'states': {0:'',1:'',2:'',},
-        'alphabet': ['+','-','i','u','e','o','a',Long_F_H_U_T,Long_F_M_U_T,Long_B_H_R_T,Long_B_M_R_T,Long_C_L_U_NT],
+        'alphabet': ['+','-','#','i','u','e','o','a',Long_F_H_U_T,Long_F_M_U_T,Long_B_H_R_T,Long_B_M_R_T,Long_C_L_U_NT],
         'transitions':
         {
        },
@@ -2369,7 +2369,7 @@ vh_dataset=\
         'left_subseq': True,
         'bidir_subseq':False,
         'hyphenate_suffix': False,
-        'preprocess_dets':'Should have already been run through 34P and 34',
+        'preprocess_dets':'Should have already been run through 34P and 34,
         'postprocess_dets':'Enter output from here into 34C',
         'notes': [''],
         'harmony_feature':['Palatal','Labial'],
