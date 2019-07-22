@@ -670,10 +670,10 @@ vh_dataset=\
                        (2,'u'):('y',2),(2,F_M_R_T):(F_M_R_T,2),(2,'a'):(F_L_U_T,2),
                        (3,'?'):('?',3),(3,'i'):('i',3),(3,'e'):('o',3),
                        (3,'u'):('u',3),(3,'o'):('o',3),(3,'y'):('u',3),
-                       (3,F_M_R_T):('o',3),(3,F_L_U_T):('a',3),
+                       (3,F_M_R_T):('o',3),(3,F_L_U_T):('a',3),(3,'a'):('a',3),
                        (4,'?'):('?',4),(4,'i'):('i',4),(4,'e'):('o',4),
                        (4,'u'):('u',4),(4,'o'):('o',4),(4,'y'):('u',4),
-                       (4,F_M_R_T):('o',4),(4,F_L_U_T):('a',4)},
+                       (4,F_M_R_T):('o',4),(4,F_L_U_T):('a',4),(4,'a'):('a',4),},
         'preprocess_req': True,
         'postprocess_req': False,
         'left_subseq': True,
@@ -780,10 +780,23 @@ vh_dataset=\
     20:
     {
         'name': 'Tunica harmony',
-        'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',10:'',11:'',12:''},
-        'alphabet': ['i','e',F_M_U_NT,'u','o',B_M_R_NT,B_L_U_NT,'h',G_P_VL],
+        'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',10:'',11:'',12:'',13:''},
+        'alphabet': ['i','e',F_M_U_NT,'u','o',B_M_R_NT,B_L_U_NT,'h',G_P_VL,'+','-','#'],
         'transitions':
-        {(0,'?'):('?',0),(0,G_P_VL):(G_P_VL,0),(0,'h'):('h',0),(0,B_L_U_NT):(B_L_U_NT,0),
+        {(0,'+'):('',0),(1,'+'):('',1),(2,'+'):('',2),(3,'+'):('',3),(4,'+'):('',4),
+         (5,'+'):('',5),(6,'+'):('',6),(7,'+'):('',7),(8,'+'):('',8),(9,'+'):('',9),
+         (10,'+'):('',10),(11,'+'):('',11),(12,'+'):('',12),(13,'+'):('',13),
+         (0,'-'):('',0),(1,'-'):('',1),(2,'-'):('',2),(3,'-'):('',3),(4,'-'):('',4),
+         (5,'-'):('',5),(6,'-'):('',6),(7,'-'):('',7),(8,'-'):('',8),(9,'-'):('',9),
+         (10,'-'):('',10),(11,'-'):('',11),(12,'-'):('',12),(13,'-'):('',13),
+         (1,'#'):('i',13),(3,'#'):('e',13),(5,'#'):(F_M_U_NT,13),(7,'#'):('u',13),
+         (9,'#'):('o',13),(11,'#'):(B_M_R_NT,13),
+         (0,'#'):('',13),(2,'#'):('',13),(4,'#'):('',13),(6,'#'):('',13),
+         (8,'#'):('',13),(10,'#'):('',13),(12,'#'):('',13),
+         
+         (13,'#'):('',13),(13,'i'):('',13),(13,'e'):('',13),(13,F_M_U_NT):('',13),
+         (13,'u'):('',13),(13,'o'):('',13),(13,B_M_R_NT):('',13),(13,B_L_U_NT):('',13),
+       (0,'?'):('?',0),(0,G_P_VL):(G_P_VL,0),(0,'h'):('h',0),(0,B_L_U_NT):(B_L_U_NT,0),
        (2,'?'):('?',0),(0,'i'):('',1),(1,'?'):('i?',0),(1,G_P_VL):('i'+G_P_VL,2),
        (1,'h'):('ih',2),(1,'i'):('',1),(1,'e'):('',3),(1,F_M_U_NT):('',5),
        (1,B_L_U_NT):('',5),(1,'u'):('',1),(1,'o'):('',3),(1,B_M_R_NT):('',5),
@@ -813,14 +826,14 @@ vh_dataset=\
        (7,G_P_VL):('u'+G_P_VL,8),(7,'h'):('uh',8),(10,'?'):('?',0),(0,'o'):('',9),
        (9,'?'):('o?',0),(9,G_P_VL):('o'+G_P_VL,10),(9,'h'):('oh',10),(12,'?'):('?',0),
        (0,B_M_R_NT):('',11),(11,'?'):(B_M_R_NT+'?',0),(11,G_P_VL):(B_M_R_NT+G_P_VL,12),
-       (11,'h'):(B_M_R_NT+'h',12) #118
+       (11,'h'):(B_M_R_NT+'h',12)
        },
-        'preprocess_req': False,
+        'preprocess_req': True,
         'postprocess_req': False,
         'left_subseq': True,
         'bidir_subseq':False,
         'hyphenate_suffix': False,
-        'preprocess_dets':None,
+        'preprocess_dets':'Append "#" to end of input',
         'postprocess_dets':None,
         'notes': ['Front/backness and roundness harmonize progressively',
             'harmonization is blocked by all consonants, except pharyngeals, '
@@ -2055,8 +2068,38 @@ vh_dataset=\
         'hyphenate_suffix': True,
         'preprocess_dets': '',
         'postprocess_dets':'',
-        'notes': [''
-            ],
+        'notes': ['Vowel phonemes are /i,e,F_M_U_NT,u,o,B_M_R_NT,a/',
+                  '/i,e,F_M_U_NT/ are front;/u,o,B_M_R_NT/ are back',
+                  '/i,u/,/e,o/,/F_M_U_NT,B_M_R_NT/ "lie" at '
+                  'different heights',
+                  'Vowel harmony process represented here'
+                  'is left-subsequential and stem-controlled',
+                  'Process represented here is specifically suffixal harmony:'
+                  'the harmonization of verbal extensions with the preceding root '
+                  'radical',
+                  'THUS, THIS FST IS ONLY ACCURATE WHEN THE INPUT IS A VERB '
+                  'AND THE ROOT IS FOLLOWED BY HARMONIZING EXTENSIONS',
+                  'THE VERBAL EXTENSIONS MUST BE HYPHENATED AS YOU WOULD SUFFIXES '
+                  '(ex: dind-ul-a, wherein /u/ is the extension)',
+                  'THIS FST WILL HARMONIZE ALL SUFFIXES FOLLOWING THE ROOT, '
+                  'MEANING IT WILL PRODUCE INACCURACIES FOR NON-HARMONIZING SUFFIXES '
+                  'THAT FOLLOW',
+                  'For harmonizing extensions, those which alternate between '
+                  'front vowels have /i/ as their default vowel quality, those '
+                  'which alternate between back vowels have /u/ as their default, '
+                  'and those with /a/ do not deviate from /a/',
+                  'The trigger for extension harmony is the last vowel of the preceding'
+                  'root, but potential triggers are constrained depending on the extension: '
+                  'Harmony for extensions with front vowels can be triggered by front or back vowels'
+                  ', but harmony for those with back vowels can only be triggered by back vowels',
+                  'Height harmony manifests as alternation between the heights of /i,u/,/e,o/,'
+                  ' and /F_M_U_NT,B_M_R_NT/',
+                  '/a/ is transparent to harmony; because it cannot trigger height harmony, following'
+                  'extensions must manifest with the default height (/i,u/)',
+                  'Affixes before the root do not harmonize',
+                  'Primary source is "Vowel Harmony in Kindendeule and Chingoni Languages '
+                  '"of Tanzania" by Deo Ngonyani'
+                 ],
         'harmony_feature':['Height'],
         'sc':True,
         'dr':False,
@@ -2107,7 +2150,36 @@ vh_dataset=\
         'hyphenate_suffix': True,
         'preprocess_dets': '',
         'postprocess_dets':'',
-        'notes': [''
+        'notes': ['Vowel phonemes are /i,F_M_U_NT,u,B_M_R_NT,a/',
+                  '/i,F_M_U_NT/ are front;/u,B_M_R_NT/ are back',
+                  '/i,u/,/F_M_U_NT,B_M_R_NT/,/a/ "lie" at '
+                  'different heights',
+                  'Vowel harmony process represented here'
+                  'is left-subsequential and stem-controlled',
+                  'Process represented here is specifically suffixal harmony:'
+                  'the harmonization of verbal extensions with the preceding root '
+                  'radical',
+                  'THUS, THIS FST IS ONLY ACCURATE WHEN THE INPUT IS A VERB '
+                  'AND THE ROOT IS FOLLOWED BY HARMONIZING EXTENSIONS',
+                  'THE VERBAL EXTENSIONS MUST BE HYPHENATED AS YOU WOULD SUFFIXES ',                  
+                  'THIS FST WILL HARMONIZE ALL SUFFIXES FOLLOWING THE ROOT, '
+                  'MEANING IT WILL PRODUCE INACCURACIES FOR NON-HARMONIZING SUFFIXES '
+                  'THAT FOLLOW',
+                  'For harmonizing extensions, those which alternate between '
+                  'front vowels have /i/ as their default vowel quality, those '
+                  'which alternate between back vowels have /u/ as their default, '
+                  'and those with /a/ do not deviate from /a/',
+                  'The trigger for extension harmony is the last vowel of the preceding'
+                  'root, but potential triggers are constrained depending on the extension: '
+                  'Harmony for extensions with front vowels can be triggered by front or back vowels'
+                  ', but harmony for those with back vowels can only be triggered by back vowels',
+                  'Height harmony manifests as alternation between the heights of /i,u/'
+                  ' and /F_M_U_NT,B_M_R_NT/',
+                  '/a/ is transparent to harmony; because it cannot trigger height harmony, following'
+                  'extensions must manifest with the default height (/i,u/)',
+                  'Affixes before the root do not harmonize',
+                  'Primary source is "Vowel Harmony in Kindendeule and Chingoni Languages '
+                  '"of Tanzania" by Deo Ngonyani'
             ],
         'harmony_feature':['Height'],
         'sc':True,
@@ -2115,4 +2187,218 @@ vh_dataset=\
         'transparent':['a'],
         'opaque':None,
     },
+ '34P': #eliminates '+' symbols in the string as a side-effect of how FST is designed; shouldn't matter, though
+    {
+        'name': 'Yawelmani vowel epenthesis',
+        'states': {0:'',1:'',2:'',3:'',4:''},
+        'alphabet': ['+','-','#','i','u','e','o','a',Long_F_H_U_T,Long_F_M_U_T,Long_B_H_R_T,Long_B_M_R_T,Long_C_L_U_NT],
+        'transitions':
+        {(0,'-'):('-',0),(0,'+'):('',0),(0,'#'):('#',4),(0,'?'):('?',1),
+         (1,'+'):('',1),(1,'-'):('-',1),(1,'#'):('#',4),(1,'?'):('',2),
+         (2,'+'):('',2),(2,'-'):('',3),(2,'?'):('i?'),(2,'#'):('?#',4),
+         (3,'+'):('',3),(3,'-'):('',3),(3,'?'):('i?-',2),(3,'#'):('?#',4),
+         (4,'+'):('',4),(4,'-'):('',4),(4,'?'):('',4), #any transition from 4 is pointless but included for sake of having transition for each alphabet symbol for each state
+         (4,'#'):('',4),
+         (4,'i'):('',4),(0,'i'):('i',0),(1,'i'):('i',0),(2,'i'):('?i',0),
+         (3,'i'):('?-i',0),
+         (4,'u'):('',4),(0,'u'):('u',0),(1,'u'):('u',0),(2,'u'):('?u',0),
+         (3,'u'):('?-u',0),
+         (4,'e'):('',4),(0,'e'):('e',0),(1,'e'):('e',0),(2,'e'):('?e',0),
+         (3,'e'):('?-e',0),
+         (4,'o'):('',4),(0,'o'):('o',0),(1,'o'):('o',0),(2,'o'):('?o',0),
+         (3,'o'):('?-o',0),
+         (4,'a'):('',4),(0,'a'):('a',0),(1,'a'):('a',0),(2,'a'):('?a',0),
+         (3,'a'):('?-a',0),
+         (4,Long_F_H_U_T):('',4),(0,Long_F_H_U_T):(Long_F_H_U_T,0),(1,Long_F_H_U_T):(Long_F_H_U_T,0),(2,Long_F_H_U_T):('?'+Long_F_H_U_T,0),
+         (3,Long_F_H_U_T):('?-'+Long_F_H_U_T,0),
+         (4,Long_F_M_U_T):('',4),(0,Long_F_M_U_T):(Long_F_M_U_T,0),(1,Long_F_M_U_T):(Long_F_M_U_T,0),(2,Long_F_M_U_T):('?'+Long_F_M_U_T,0),
+         (3,Long_F_M_U_T):('?-'+Long_F_M_U_T,0),
+         (4,Long_B_H_R_T):('',4),(0,Long_B_H_R_T):(Long_B_H_R_T,0),(1,Long_B_H_R_T):(Long_B_H_R_T,0),(2,Long_B_H_R_T):('?'+Long_B_H_R_T,0),
+         (3,Long_B_H_R_T):('?-'+Long_B_H_R_T,0),
+         (4,Long_B_M_R_T):('',4),(0,Long_B_M_R_T):(Long_B_M_R_T,0),(1,Long_B_M_R_T):(Long_B_M_R_T,0),(2,Long_B_M_R_T):('?'+Long_B_M_R_T,0),
+         (3,Long_B_M_R_T):('?-'+Long_B_M_R_T,0),
+         (4,Long_C_L_U_NT):('',4),(0,Long_C_L_U_NT):(Long_C_L_U_NT,0),(1,Long_C_L_U_NT):(Long_C_L_U_NT,0),(2,Long_C_L_U_NT):('?'+Long_C_L_U_NT,0),
+         (3,Long_C_L_U_NT):('?-'+Long_C_L_U_NT,0),
+         },
+        'preprocess_req': True,
+        'postprocess_req': True,
+        'left_subseq': True,
+        'bidir_subseq':False,
+        'hyphenate_suffix': False,
+        'preprocess_dets':'Append "#" to end of input',
+        'postprocess_dets':'Run through 34',
+        'notes': [''],
+        'harmony_feature':['Palatal','Labial'],
+        'sc':True,
+        'dr':False,
+        'transparent':None,
+        'opaque':None
+    },  
+ 34:
+    {
+        'name': 'Yawelmani palatal and labial suffixal harmony',
+        'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',10:'',11:'',},
+        'alphabet': ['-','i','u','e','o','a',Long_F_H_U_T,Long_F_M_U_T,Long_B_H_R_T,Long_B_M_R_T,Long_C_L_U_NT],
+        'transitions':
+        {(0,'?'):('?',0),(1,'?'):('?',1),(2,'?'):('?',2), (3,'?'):('?',3),
+         (4,'?'):('?',4),(5,'?'):('?',5),(6,'?'):('?',6), (7,'?'):('?',7),
+         (8,'?'):('?',8),(9,'?'):('?',9),(10,'?'):('?',10), (11,'?'):('?',11),
+         (0,'-'):('-',6),(1,'-'):('-',6),(2,'-'):('-',8),(3,'-'):('-',9),
+         (4,'-'):('-',10),(5,'-'):('-',11),(6,'-'):('-',6),(7,'-'):('-',7),
+         (8,'-'):('-',8),(9,'-'):('-',9),(10,'-'):('-',10),(11,'-'):('-',11),
+         (0,'i'):('i',1),(0,Long_F_H_U_T):(Long_F_H_U_T,1),
+         (1,'i'):('i',1),(1,Long_F_H_U_T):(Long_F_H_U_T,1),
+         (2,'i'):('i',1),(2,Long_F_H_U_T):(Long_F_H_U_T,1),
+         (3,'i'):('i',1),(3,Long_F_H_U_T):(Long_F_H_U_T,1),
+         (4,'i'):('i',1),(4,Long_F_H_U_T):(Long_F_H_U_T,1),
+         (5,'i'):('i',1),(5,Long_F_H_U_T):(Long_F_H_U_T,1),
+         (0,'u'):('u',2),(0,Long_B_H_R_T):(Long_B_H_R_T,2),
+         (1,'u'):('u',2),(1,Long_B_H_R_T):(Long_B_H_R_T,2),
+         (2,'u'):('u',2),(2,Long_B_H_R_T):(Long_B_H_R_T,2),
+         (3,'u'):('u',2),(3,Long_B_H_R_T):(Long_B_H_R_T,2),
+         (4,'u'):('u',2),(4,Long_B_H_R_T):(Long_B_H_R_T,2),
+         (5,'u'):('u',2),(5,Long_B_H_R_T):(Long_B_H_R_T,2),
+         (0,'e'):('e',3),(0,Long_F_M_U_T):(Long_F_M_U_T,3),
+         (1,'e'):('e',3),(1,Long_F_M_U_T):(Long_F_M_U_T,3),
+         (2,'e'):('e',3),(2,Long_F_M_U_T):(Long_F_M_U_T,3),
+         (3,'e'):('e',3),(3,Long_F_M_U_T):(Long_F_M_U_T,3),
+         (4,'e'):('e',3),(4,Long_F_M_U_T):(Long_F_M_U_T,3),
+         (5,'e'):('e',3),(5,Long_F_M_U_T):(Long_F_M_U_T,3),
+         (0,'o'):('o',4),(0,Long_B_M_R_T):(Long_B_M_R_T,4),
+         (1,'o'):('o',4),(1,Long_B_M_R_T):(Long_B_M_R_T,4),
+         (2,'o'):('o',4),(2,Long_B_M_R_T):(Long_B_M_R_T,4),
+         (3,'o'):('o',4),(3,Long_B_M_R_T):(Long_B_M_R_T,4),
+         (4,'o'):('o',4),(4,Long_B_M_R_T):(Long_B_M_R_T,4),
+         (5,'o'):('o',4),(5,Long_B_M_R_T):(Long_B_M_R_T,4),
+         (0,'a'):('a',5),(0,Long_C_L_U_NT):(Long_C_L_U_NT,5),
+         (1,'a'):('a',5),(1,Long_C_L_U_NT):(Long_C_L_U_NT,5),
+         (2,'a'):('a',5),(2,Long_C_L_U_NT):(Long_C_L_U_NT,5),
+         (3,'a'):('a',5),(3,Long_C_L_U_NT):(Long_C_L_U_NT,5),
+         (4,'a'):('a',5),(4,Long_C_L_U_NT):(Long_C_L_U_NT,5),
+         (5,'a'):('a',5),(5,Long_C_L_U_NT):(Long_C_L_U_NT,5),
+         
+         (6,'u'):('i',6),(6,Long_B_H_R_T):(Long_F_H_U_T,6),
+         (6,'i'):('i',6),(6,Long_F_H_U_T):(Long_F_H_U_T,6),
+         (6,'e'):('e',7),(6,Long_F_M_U_T):(Long_F_M_U_T,7),
+         (6,'o'):('o',7),(6,Long_B_M_R_T):(Long_B_M_R_T,7),
+         (6,'a'):('a',7),(6,Long_C_L_U_NT):(Long_C_L_U_NT,7),
+         (7,'i'):('i',7),(7,Long_F_H_U_T):(Long_F_H_U_T,7),
+         (7,'u'):('u',7),(7,Long_B_H_R_T):(Long_B_H_R_T,7),
+         (7,'e'):('e',7),(7,Long_F_M_U_T):(Long_F_M_U_T,7),
+         (7,'o'):('o',7),(7,Long_B_M_R_T):(Long_B_M_R_T,7),
+         (7,'a'):('a',7),(7,Long_C_L_U_NT):(Long_C_L_U_NT,7),
+         (8,'u'):('u',8),(8,Long_B_H_R_T):(Long_B_H_R_T,8),
+         (8,'i'):('u',8),(8,Long_F_H_U_T):(Long_B_H_R_T,8),
+         (8,'e'):('e',7),(8,Long_F_M_U_T):(Long_F_M_U_T,7),
+         (8,'o'):('o',7),(8,Long_B_M_R_T):(Long_B_M_R_T,7),
+         (8,'a'):('a',7),(8,Long_C_L_U_NT):(Long_C_L_U_NT,7),
+         (9,'a'):('e',9),(9,Long_C_L_U_NT):(Long_F_M_U_T,9),
+         (9,'e'):('e',9),(9,Long_F_M_U_T):(Long_F_M_U_T,9),
+         (9,'o'):('e',9),(9,Long_B_M_R_T):(Long_F_M_U_T,9),
+         (9,'i'):('i',7),(9,Long_F_H_U_T):(Long_F_H_U_T,7),
+         (9,'u'):('u',7),(9,Long_B_H_R_T):(Long_B_H_R_T,7),
+         (10,'o'):('o',10),(10,Long_B_M_R_T):(Long_B_M_R_T,10),
+         (10,'e'):('o',10),(10,Long_F_M_U_T):(Long_B_M_R_T,10),
+         (10,'a'):('o',10),(10,Long_C_L_U_NT):(Long_B_M_R_T,10),
+         (10,'i'):('i',7),(10,Long_F_H_U_T):(Long_F_H_U_T,7),
+         (10,'u'):('u',7),(10,Long_B_H_R_T):(Long_B_H_R_T,7),
+         (11,'a'):('a',11),(11,Long_C_L_U_NT):(Long_C_L_U_NT,11),
+         (11,'e'):('a',11),(11,Long_F_M_U_T):(Long_C_L_U_NT,11),
+         (11,'o'):('a',11),(11,Long_B_M_R_T):(Long_C_L_U_NT,11),
+         (11,'i'):('i',7),(11,Long_F_H_U_T):(Long_F_H_U_T,7),
+         (11,'u'):('u',7),(11,Long_B_H_R_T):(Long_B_H_R_T,7),
+         
+       },
+        'preprocess_req': True,
+        'postprocess_req': True,
+        'left_subseq': True,
+        'bidir_subseq':False,
+        'hyphenate_suffix': False,
+        'preprocess_dets':'Run through 34P first and enter the final output from there into here',
+        'postprocess_dets':'Input this output into 34B',
+        'notes': ['Vowel phoneme inventory is considered to be /i,i:,u,u:,e,e:,o,o:,a,a:/'
+                  'Although i: and u: generally do not manifest phonetically, '
+                  'except in contexts wherin [iy],[uw] contract in closed syllables'
+                  ', I treat them as phonemic in that their particular vowel quality'
+                  'is salient, despite eventually lowering to /e:,o:/ generally ',
+                  'This incorporates vowel epenthesis, labial/palatal harmony, lowering,'
+                  ' and shortening vowel processes in that order using four FSTs',
+                  'The epenthetic process involves inserting /i/ after the first consonant'
+                  ' in a sequence of 3 consonants (i.e., CCC->CiCC)',
+                 'The harmony process involves labial(rounding) and palatal(backness) suffixal'
+                  ' harmony in which the trigger is the final vowel of the stem,'
+                  ' however the trigger and targets must be of identical height for'
+                  ' harmony to occur; a target which differs in height from the last'
+                  ' vowel of the stem will actually block this harmony process',
+                 'Potential flaw: This FST carries out this harmony process for all'
+                  ' suffixes, but it is possible it should only occur for the first'
+                  ' suffix after the stem',
+                 '/i,u,i:,u:/ and /e,e:,o,o:,a,a:/ are the two height groupings',
+                 'The shortening vowel process involves the shortening of long '
+                  'vowels before a consonant cluster (i.e., V:CC->VCC)',
+                 'The lowering process incorporated is the lowering of'
+                  '/u:/ and /i:/ to o: and e:; this FST does so indiscriminately,'
+                  ' although in reality there are contexts where this should not occur',
+                 'Although the ordering of epenthesis and vowel harmony in the overall derivation'
+                  ' is highly tenable, the ordering of the shortening and lowering processes is '
+                  'made more equivocally and we encourage criticism',
+                 'Sources: 1) Yawelmani: Some Basic Rules- '
+                  'https://www.ling.upenn.edu/~gene/courses/530/readings/Kenstowicz1994_yawelmani.pdf '
+                  '2) Restricting Multilevel Constraint Evaluation: Opaque Rule Interaction in'
+                  ' Yawelmani Vowel Harmony by Cole & Kisseberth',
+                  'The prefix and suffix demarcators "+" and "-" get removed as these FSTs operate '
+                  ', so will be absent from the output',
+                  ],
+        'harmony_feature':['Palatal','Labial'],
+        'sc':True,
+        'dr':False,
+        'transparent':None,
+        'opaque':['Any suffixal vowel that disagrees in height with the ultimate vowel '
+                  'of the stem behaves opaquely']
+    },
+ '34B':
+    {
+        'name': 'Yawelmani vowel shortening',
+        'states': {0:'',1:'',2:'',},
+        'alphabet': ['+','-','#','i','u','e','o','a',Long_F_H_U_T,Long_F_M_U_T,Long_B_H_R_T,Long_B_M_R_T,Long_C_L_U_NT],
+        'transitions':
+        {
+       },
+        'preprocess_req': True,
+        'postprocess_req': True,
+        'left_subseq': True,
+        'bidir_subseq':False,
+        'hyphenate_suffix': False,
+        'preprocess_dets':'Should have already been run through 34P and 34,
+        'postprocess_dets':'Enter output from here into 34C',
+        'notes': [''],
+        'harmony_feature':['Palatal','Labial'],
+        'sc':True,
+        'dr':False,
+        'transparent':None,
+        'opaque':None
+    }, 
+ '34C':
+    {
+        'name': 'Yawelmani vowel lowering',
+        'states': {0:'',},
+        'alphabet': [Long_F_H_U_T,Long_F_M_U_T,Long_B_H_R_T,Long_B_M_R_T],
+        'transitions':
+        {(0,'?'):('?',0),(0,Long_B_M_R_T):(Long_B_M_R_T,0),(0,Long_F_M_U_T):(Long_F_M_U_T,0),
+         (0,Long_F_H_U_T):(Long_F_M_U_T,0),(0,Long_B_H_R_T):(Long_B_M_R_T,0),
+       },
+        'preprocess_req': True,
+        'postprocess_req': False,
+        'left_subseq': True,
+        'bidir_subseq':False,
+        'hyphenate_suffix': False,
+        'preprocess_dets':'Should have already been run through 34P,34,34B; output from here will be final output to user',
+        'postprocess_dets':None,
+        'notes': [''],
+        'harmony_feature':['Palatal','Labial'],
+        'sc':True,
+        'dr':False,
+        'transparent':None,
+        'opaque':None
+    },                  
  }
