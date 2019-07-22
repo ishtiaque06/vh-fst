@@ -2384,7 +2384,8 @@ vh_dataset=\
         'states': {0:'',},
         'alphabet': [Long_F_H_U_T,Long_F_M_U_T,Long_B_H_R_T,Long_B_M_R_T],
         'transitions':
-        {
+        {(0,'?'):('?',0),(0,Long_B_M_R_T):(Long_B_M_R_T,0),(0,Long_F_M_U_T):(Long_F_M_U_T,0),
+         (0,Long_F_H_U_T):(Long_F_M_U_T,0),(0,Long_B_H_R_T):(Long_B_M_R_T,0),
        },
         'preprocess_req': True,
         'postprocess_req': False,
