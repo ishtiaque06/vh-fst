@@ -83,10 +83,13 @@ def show_vh_notes(fst):
     '''
         Prints notes available for the selected FST into stdout.
     '''
-    print(f"\nThese are the relevant notes for {fst.name}: ")
-    for num, note in enumerate(fst.notes):
-        print(f"{num+1}. {note}")
-    print ("\n")
+    if hasattr(fst, 'notes') and len(fst.notes) != 0:
+        print(f"\nThese are the relevant notes for {fst.name}: ")
+        for num, note in enumerate(fst.notes):
+            print(f"{num+1}. {note}")
+        print ("\n")
+    else:
+        print(f"\nThere are no notes to keep in mind for this VH pattern.\n")
 
 
 # Main function, shows statements and instructions, processes input

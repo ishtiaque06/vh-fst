@@ -1,14 +1,12 @@
-# Vowel Harmony Finite State Transducer
+# Vowel Harmony Finite State Transducer Project
 
-This FST class is designed to be able generate expected pronunciations of
-words in a certain set of vowel harmony patterns that exist in natural languages. Many of these languages and their vowel-harmony
+This project aims to computationally model locality in vowel-harmony patterns among languages. Many of these languages and their vowel-harmony
 patterns are described in Andrew Nevins' book [Locality in Vowel Harmony](https://mitpress.mit.edu/books/locality-vowel-harmony) or Rachel Walker and Sharon Rose's [Harmony Systems](http://idiom.ucsd.edu/~rose/RoseWalkerHarmonysystemsch8.pdf).
 
 This project is the collaborative summer project of Travis Herringshaw and Ahmed Ishtiaque,
 under the supervision of Professor Jane Chandlee at Haverford College.
 
-The FST tries to remain as close as possible to the description provided by Nevins
-in the languages he describes in his book.
+This is a short introduction to the project. A more detailed documentation can be found [here](https://vh-fst.readthedocs.io/en/latest/)
 
 So far, the following vowel-harmony patterns have been recorded:
 1. Kisa applicative suffix Vlɑ
@@ -17,13 +15,33 @@ So far, the following vowel-harmony patterns have been recorded:
 4. Tuvan backness harmony
 5. Uyghur backness harmony
 6. Uyghur plural suffix -lVr
-7. Uyghur dative suffixʁV
+7. Uyghur dative suffix -ʁV
 8. Halh (Mongolic) rounding harmony
 9. Jingulu nominal root with non-neuter gender suffix
 10. Jingulu adjectivial root with non-neuter gender suffix
 11. Jingulu verbal root with subject agreement-marking suffix
 12. Jingulu verbal root with motion-imperative suffix
 13. Jingulu verbal root with negative imperative suffix
+14. Turkish palatal and rounding vowel harmony
+15. Finnish palatal (front/back) vowel harmony
+16. Classical Mongolian palatal vowel harmony
+17. Kalmyk (Oirat) harmony
+18. Khalkha Mongolian harmony
+19. Dagur Mongolian harmony
+20. Tunica harmony
+21. Yoruba ATR harmony
+22. Igbo ATR harmony
+23. Diola-Fogny (Jola-Fonyi) ATR harmony
+24. Kalenjin ATR harmony
+25. Asturian Lena (Romance) height harmony with inflectional suffixes
+26. Pasiego vowel harmony (metaphony, raising, and centralization)
+27. Pulaar dialect of Fula (Niger-Congo) ATR harmony
+28. Maasai (Eastern Nilotic) ATR harmony
+29. Kashaya (Pomoan) translaryngeal harmony
+30. Standard Hungarian palatal harmony of alternating suffixes
+31. Nawuri (North Guang) ATR harmony
+32. Kinendeule (Rufiji) height harmony for verbal extensions
+33. Chingoni (Rufiji) height harmony for verbal extensions
 
 ### Usage
 This repository provides a command-line tool that you can interact with and use the transducers that generate IPA equivalents of words in the above VH patterns.
