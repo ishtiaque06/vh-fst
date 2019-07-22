@@ -2387,7 +2387,7 @@ vh_dataset=\
         'left_subseq': True,
         'bidir_subseq':False,
         'hyphenate_suffix': False,
-        'preprocess_dets':'Should have already been run through 34P and 34,
+        'preprocess_dets':'Should have already been run through 34P and 34',
         'postprocess_dets':'Enter output from here into 34C',
         'notes': [''],
         'harmony_feature':['Palatal','Labial'],

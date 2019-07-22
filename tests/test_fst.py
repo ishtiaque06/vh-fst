@@ -327,6 +327,6 @@ def test_tunica():
                  ]
     output_list = ['',
                     'biʔɛduhɔ',
-                    'bohuʔohɔd-uhɔ'
+                    'bohuʔohɔduhɔ'
                     ]
     run_test_on_strings(input_list, output_list, object)

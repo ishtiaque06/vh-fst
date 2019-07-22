@@ -89,6 +89,9 @@ def preprocess(
         elif fst.name == "Standard Hungarian palatal harmony of alternating suffixes":
             stem_as_list.insert(0, '!')
             return True, prefix_as_list + stem_as_list + suffix_as_list
+        elif fst.name == "Tunica harmony":
+            word_as_list.append('#')
+            return True, word_as_list
         else:
             return True, word_as_list
 
