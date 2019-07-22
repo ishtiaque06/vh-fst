@@ -103,11 +103,12 @@ def preprocess(
             'Jingulu verbal root with motion-imperative suffix',
             'Jingulu verbal root with negative imperative suffix',
         }:
-            if not "u" in fst.suffix[0] and not "i" in fst.suffix[0]:
-                return False, word_as_list
-            else:
-                suffix_start = word_as_list.index('-')
-                return True, word_as_list[:suffix_start][::-1]
+            return True, word_as_list[::-1]
+            # if not "u" in fst.suffix[0] and not "i" in fst.suffix[0]:
+            #     return False, word_as_list
+            # else:
+            #     suffix_start = word_as_list.index('-')
+            #     return True, word_as_list[:suffix_start][::-1]
         elif fst.name == 'Yoruba ATR harmony':
             return True, word_as_list[::-1]
         elif fst.name=="Kalenjin ATR harmony":
@@ -184,11 +185,6 @@ def postprocess(word_as_list, fst):
                 fst_b = vh_dataset['31B']
                 reversed = word_as_list[::-1]
                 word_as_list = fst_b.step(reversed)[::-1]
-        if fst.hyphenate_suffix:
-            if fst.name != "Kalenjin ATR harmony":
-                if hasattr(fst, "suffix"):
-                    for suffix in fst.suffix:
-                        word_as_list.append("".join(suffix))
     return "".join(word_as_list)
 
 
