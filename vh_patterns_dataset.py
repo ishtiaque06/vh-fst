@@ -2490,5 +2490,40 @@ vh_dataset=\
         'dr':False,
         'transparent':None,
         'opaque':None
-    },                  
+    },   
+ 35:
+    {
+        'name': 'Claro complete harmony/assimilation on unstressed final /a/',
+        'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',
+                   10:'',11:'',12:'',13:'',14:'',15:'',16:'',},
+        'alphabet': ['i','e',F_M_U_NT,B_M_R_NT,'o','u','a',"'",'#',],
+        'transitions':
+           {
+            },
+        'preprocess_req': True,
+        'postprocess_req': False,
+        'left_subseq': True,
+        'bidir_subseq':False,
+        'plus_prefix':True,
+        'hyphenate_suffix': True,
+        'preprocess_dets':'Append "#" to end of input before entering into FST',
+        'postprocess_dets':'',
+        'notes':
+            ['USER MUST INDICATE STRESSED VOWELS BY INCLUDING AN APOSTROPHE "'" '
+             'BEFORE EACH STRESSED VOWEL IN THE INPUT',
+             'Swiss Italian dialect (northern Italo-Romance)',
+             'Vowel inventory: /i,e,F_M_U_NT,B_M_R_NT,o,u,a/',
+            'Trigger= stressed penultimate vowel',
+            'Target= unstressed word-final /a/',
+            'Is arguably assimilation - not harmony',
+            'Identity/complete harmony in which word-final unstressed /a/ '
+             'adopts the vowel quality of the penultimate stressed vowel',
+            "Ex: /l'ima/->/l'imi/",
+            ],
+        'harmony_feature':['Complete'],
+        'sc':False,
+        'dr':False,
+        'transparent':None,
+        'opaque':None,
+        },                                                                 
  }
