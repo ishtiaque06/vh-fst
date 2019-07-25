@@ -489,3 +489,115 @@ def test_pasiego():
                     
                     ]
     run_test_on_strings(input_list, output_list, object)
+
+def test_pulaar():
+    language = vh_dataset[27]
+    object = FST(language)
+    assert object.states == language['states']
+    assert object.alphabet == language['alphabet']
+    assert object.transitions == language['transitions']
+    assert object.preprocess_req == language['preprocess_req']
+    assert object.postprocess_req == language['postprocess_req']
+    assert object.left_subseq == language['left_subseq']
+    assert object.name == 'Pulaar dialect of Fula (Niger-Congo) ATR harmony'
+
+    input_list = ['',
+                    f"{B_M_R_NT} {F_M_U_NT} i d + {F_M_U_NT} o d e - {B_M_R_NT}",
+                    f"{B_M_R_NT} {F_M_U_NT} + a + i d {F_M_U_NT} o - d e {B_M_R_NT}",
+                    f"{B_M_R_NT} a {B_M_R_NT} d e",
+                    
+                    
+                    
+                 ]
+    output_list = ['',
+                    f"o e i d + {F_M_U_NT} {B_M_R_NT} d {F_M_U_NT} - {B_M_R_NT}",
+                    f"{B_M_R_NT} {F_M_U_NT} + a + i d {F_M_U_NT} {B_M_R_NT} - d {F_M_U_NT} {B_M_R_NT}",
+                    f"{B_M_R_NT} a o d e",
+                    
+                    
+                    ]
+    run_test_on_strings(input_list, output_list, object)
+    
+def test_maasai():
+    language = vh_dataset[28]
+    object = FST(language)
+    assert object.states == language['states']
+    assert object.alphabet == language['alphabet']
+    assert object.transitions == language['transitions']
+    assert object.preprocess_req == language['preprocess_req']
+    assert object.postprocess_req == language['postprocess_req']
+    assert object.left_subseq == language['left_subseq']
+    assert object.name == 'Maasai (Eastern Nilotic) ATR harmony'
+
+    input_list = ['',
+                    f"",
+                    f"",
+                    f"",
+                    f"",
+                    
+                    
+                 ]
+    output_list = ['',
+                    f"",
+                    f"",
+                    f"",
+                    f"",
+                    
+                    ]
+    run_test_on_strings(input_list, output_list, object)
+    
+def test_kashaya():
+    language = vh_dataset[29]
+    object = FST(language)
+    assert object.states == language['states']
+    assert object.alphabet == language['alphabet']
+    assert object.transitions == language['transitions']
+    assert object.preprocess_req == language['preprocess_req']
+    assert object.postprocess_req == language['postprocess_req']
+    assert object.left_subseq == language['left_subseq']
+    assert object.name == 'Kashaya (Pomoan) translaryngeal harmony'
+
+    input_list = ['',
+                    f"",
+                    f"",
+                    f"",
+                    f"",
+                    
+                    
+                 ]
+    output_list = ['',
+                    f"",
+                    f"",
+                    f"",
+                    f"",
+                    
+                    ]
+    run_test_on_strings(input_list, output_list, object)
+    
+def test_stdhungarian():
+    language = vh_dataset[30]
+    object = FST(language)
+    assert object.states == language['states']
+    assert object.alphabet == language['alphabet']
+    assert object.transitions == language['transitions']
+    assert object.preprocess_req == language['preprocess_req']
+    assert object.postprocess_req == language['postprocess_req']
+    assert object.left_subseq == language['left_subseq']
+    assert object.name == 'Standard Hungarian palatal harmony of alternating suffixes'
+
+    input_list = ['',
+                    f"",
+                    f"",
+                    f"",
+                    f"",
+                    
+                    
+                 ]
+    output_list = ['',
+                    f"",
+                    f"",
+                    f"",
+                    f"",
+                    
+                    ]
+    run_test_on_strings(input_list, output_list, object)
