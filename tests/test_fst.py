@@ -530,18 +530,18 @@ def test_maasai():
     assert object.name == 'Maasai (Eastern Nilotic) ATR harmony'
 
     input_list = ['',
-                    f"",
-                    f"",
-                    f"",
-                    f"",
+                    f"i I + u I o - b {B_L_U_NT} - g {F_M_U_NT} {B_M_R_NT} e",
+                    f"i I + u I {B_L_U_NT} - b o - g {F_M_U_NT}",
+                    f"u I {B_L_U_NT} - b I - b o - g {F_M_U_NT}",
+                    
                     
                     
                  ]
     output_list = ['',
-                    f"",
-                    f"",
-                    f"",
-                    f"",
+                    f"i i + u i o - b o - g e o e",
+                    f"i i + u I {B_L_U_NT} - b o - g {F_M_U_NT}",
+                    f"u I {B_L_U_NT} - b i - b o - g {F_M_U_NT}",
+                    
                     
                     ]
     run_test_on_strings(input_list, output_list, object)
