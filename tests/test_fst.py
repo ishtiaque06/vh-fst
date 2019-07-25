@@ -368,8 +368,8 @@ def test_igbo():
     assert object.name == 'Igbo ATR harmony'
 
     input_list = ['',
-                    f'p I i B_H_R_NT u e a B_M_R_NT o + e - B_M_R_NT o e a B_H_R_NT u I i',
-                    f'p I + i B_H_R_NT u e a B_M_R_NT o + e v a - B_M_R_NT e u I i + o B_H_R_NT',
+                    f'p I i {B_H_R_NT} u e a {B_M_R_NT} o + e - {B_M_R_NT} o e a {B_H_R_NT} u I i',
+                    f'p I + i {B_H_R_NT} u e a {B_M_R_NT} o + e v a - {B_M_R_NT} e u I i + o {B_H_R_NT}',
                     f'p i - I + a v e - + i v I p',
                  ]
     output_list = ['',
@@ -391,11 +391,11 @@ def test_diolafogny():
     assert object.name == 'Diola-Fogny ("Jola-Fonyi") ATR harmony'
 
     input_list = ['',
-                    f'I b F_M_U_NT d a g B_M_R_NT d B_H_R_NT',
-                    f'i b e d schwa g o d u',
-                    f'I b e d a g B_M_R_NT d B_H_R_NT',
-                    f'I b F_M_U_NT d a g B_M_R_NT d u',
-                    f'I b + F_M_U_NT d a g B_M_R_NT - d u',
+                    f'I b {F_M_U_NT} d a g {B_M_R_NT} d {B_H_R_NT}',
+                    f'i b e d {schwa} g o d u',
+                    f'I b e d a g {B_M_R_NT} d {B_H_R_NT}',
+                    f'I b {F_M_U_NT} d a g {B_M_R_NT} d u',
+                    f'I b + {F_M_U_NT} d a g {B_M_R_NT} - d u',
                  ]
     output_list = ['',
                     'Ib'+F_M_U_NT+'dag'+B_M_R_NT+'d'+B_H_R_NT,
@@ -419,9 +419,9 @@ def test_kalenjin():
     assert object.name == 'Kalenjin ATR harmony'
 
     input_list = ['',
-                    f'g I + b F_M_U_NT + m e d i b Long_C_L_U_T - k a - d i - b I - Long_F_M_U_T - g u',
-                    f'g I + b F_M_U_NT + u n - k a - d I - k a j - F_M_U_NT',
-                    f'g I + m a + m F_M_U_NT + u g + - k e',
+                    f'g I + b {F_M_U_NT} + m e d i b {Long_C_L_U_T} - k a - d i - b I - {Long_F_M_U_T} - g u',
+                    f'g I + b {F_M_U_NT} + u n - k a - d I - k a j - {F_M_U_NT}',
+                    f'g I + m a + m {F_M_U_NT} + u g + - k e',
                     
                  ]
     output_list = ['',
@@ -459,5 +459,33 @@ def test_lena():
                     "d e ' b e - g u b",
                     "b u ' - d a d h - g u",
                     "d e ' b ' e - g u",
+                    ]
+    run_test_on_strings(input_list, output_list, object)
+    
+def test_pasiego():
+    language = vh_dataset[26]
+    object = FST(language)
+    assert object.states == language['states']
+    assert object.alphabet == language['alphabet']
+    assert object.transitions == language['transitions']
+    assert object.preprocess_req == language['preprocess_req']
+    assert object.postprocess_req == language['postprocess_req']
+    assert object.left_subseq == language['left_subseq']
+    assert object.name == 'Pasiego vowel harmony (metaphony, raising, and centralization)'
+
+    input_list = ['',
+                    f"e j + o d e ' - u",
+                    f"e + j o d u e + '",
+                    f"e j o ' - d u - e '",
+                    f"e d o ' d u e '",
+                    
+                    
+                 ]
+    output_list = ['',
+                    f"e j + {Cent_B_H_R_T} d {Cent_F_H_U_T} ' - {Cent_B_H_R_T}",
+                    f"e + j u d u e + '",
+                    f"i j u ' - d u - e '",
+                    f"i d u ' d u e '",
+                    
                     ]
     run_test_on_strings(input_list, output_list, object)
