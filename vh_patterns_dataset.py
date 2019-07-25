@@ -1509,7 +1509,7 @@ vh_dataset=\
             '/a+b+c+!ddd&-e-f/; This is the input for FST 28',
         'postprocess_dets':'Output should be reversed and run through 28B',
         'notes': [
-            'Dominant [+ATR] harmony; words are never mixed (i.e., they never have a '
+            'Dominant [+ATR] harmony; words are not mixed (i.e., they never have a '
             '[+ATR] vowel and a [-ATR] vowel), except in many instances with '
             '/B_L_U_NT/ which can act as an opaque blocker',
             'Maasai has 9 vowel phonemes:/i,u,e,o/ are [+ATR],/I,B_H_R_NT,F_M_U_NT,'
@@ -1519,7 +1519,8 @@ vh_dataset=\
             'to the left when it precedes a [+ATR] vowel','Some argue that Maasai '
             'demonstrates a single bidirectional harmony, but others argue that it '
             'demonstrates two unidirectional harmony patterns; although we mark this '
-            'FST as bidirectional, we take no real stance on this greater theory'],
+            'FST as bidirectional, we take no real stance on this greater theory',
+            'Maasai is a tonal language, but tones do not influence harmony',],
         'harmony_feature':['ATR/RTR'],
         'sc':False,
         'dr':True,
