@@ -79,40 +79,40 @@ Consonants:
 
 .. code-block::
 
-  R_P_VL = ʈ
-  R_P_V = ɖ
-  P_P_V = ɟ
-  G_P_VL = ʔ
-  LD_N_V = ɱ
-  R_N_V = ɳ
-  P_N_V = ɲ
-  V_N_V = ŋ
-  A_TF_V = ɾ
-  R_TF_V = ɽ
-  L_F_VL = ɸ
-  L_F_V = β
-  D_F_VL = θ
-  D_F_V = ð
-  R_F_VL = ʂ
-  R_F_V = ʐ
-  P_F_VL = ç
-  P_F_V = ʝ
-  V_F_V = ɣ
-  U_F_VL = χ
-  U_F_V = ʁ
-  PH_F_VL = ħ
-  PH_F_V = ʕ
-  G_F_V = ɦ
-  A_LF_VL = ɬ
-  A_LF_V = ɮ
-  PA_LF_VL = ʃ
-  PA_LF_V = ʒ
-  LD_A_V = ʋ
-  A_A_V = ɹ
-  R_A_V = ɻ
-  V_A_V = ɰ
-  R_LA_V = ɭ
-  P_LA_V = ʎ
+  R_P_VL: ʈ
+  R_P_V: ɖ
+  P_P_V: ɟ
+  G_P_VL: ʔ
+  LD_N_V: ɱ
+  R_N_V: ɳ
+  P_N_V: ɲ
+  V_N_V: ŋ
+  A_TF_V: ɾ
+  R_TF_V: ɽ
+  L_F_VL: ɸ
+  L_F_V: β
+  D_F_VL: θ
+  D_F_V: ð
+  R_F_VL: ʂ
+  R_F_V: ʐ
+  P_F_VL: ç
+  P_F_V: ʝ
+  V_F_V: ɣ
+  U_F_VL: χ
+  U_F_V: ʁ
+  PH_F_VL: ħ
+  PH_F_V: ʕ
+  G_F_V: ɦ
+  A_LF_VL: ɬ
+  A_LF_V: ɮ
+  PA_LF_VL: ʃ
+  PA_LF_V: ʒ
+  LD_A_V: ʋ
+  A_A_V: ɹ
+  R_A_V: ɻ
+  V_A_V: ɰ
+  R_LA_V: ɭ
+  P_LA_V: ʎ
 
 Vowels:
 
@@ -134,7 +134,7 @@ Vowels:
   B_M_U_NT: ʌ
   B_M_R_NT: ɔ
   F_L_U_T: æ
-  C_L_R_T: ɐ
+  C_L_U_T: ɐ
   C_L_R_NT: ɶ
   B_L_U_NT: ɑ
   B_L_R_NT: ɒ
@@ -145,3 +145,12 @@ Vowels:
   Long_F_M_R_T: øː
   Long_B_M_R_T: oː
   Long_C_L_U_NT: aː
+  Long_C_L_U_T: ɐː
+  Long_F_H_U_NT: Iː
+  Long_B_H_R_NT: ʊː
+  Long_F_M_U_NT: ɛː
+  Long_B_M_R_NT: ɔː
+  Cent_B_H_R_T: ü
+  Cent_B_M_R_T: ö
+  Cent_F_H_U_T: ï
+  Cent_C_L_U_NT: ä

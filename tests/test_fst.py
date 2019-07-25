@@ -184,6 +184,8 @@ def test_kalmyk():
                     't a m - e '+F_M_R_T,
                     't a m + e '+F_M_R_T,
                     'e + t a m - o',
+                    f'd i b - e d æ b u o g a d ø b y',
+                    f'd i b u a - b i y e d ø g æ b u a'
                  ]
     output_list = ['',
                     'tiimi',
@@ -193,6 +195,140 @@ def test_kalmyk():
                     'tomimu',
                     'tam-oo',
                     'tam+oo',
-                    'e+tæm-ø'
+                    'e+tæm-ø',
+                    'dib-edæbyøgædøby',
+                    'dibua-biuodogabua'
+                    ]
+    run_test_on_strings(input_list, output_list, object)
+
+def test_turkish():
+    language = vh_dataset[14]
+    object = FST(language)
+    assert object.states == language['states']
+    assert object.alphabet == language['alphabet']
+    assert object.transitions == language['transitions']
+    assert object.preprocess_req == language['preprocess_req']
+    assert object.postprocess_req == language['postprocess_req']
+    assert object.left_subseq == language['left_subseq']
+    assert object.name == 'Turkish palatal and rounding vowel harmony'
+
+    input_list = ['',
+                    't i m e y - i o',
+                    f'o d {B_H_U_T} e n + b {B_L_U_NT}',
+                 ]
+    output_list = ['',
+                    'timei-iø',
+                    'oduɑn+bɑ',
+                    ]
+    run_test_on_strings(input_list, output_list, object)
+
+def test_finnish():
+    language = vh_dataset[15]
+    object = FST(language)
+    assert object.states == language['states']
+    assert object.alphabet == language['alphabet']
+    assert object.transitions == language['transitions']
+    assert object.preprocess_req == language['preprocess_req']
+    assert object.postprocess_req == language['postprocess_req']
+    assert object.left_subseq == language['left_subseq']
+    assert object.name == 'Finnish palatal (front/back) vowel harmony'
+
+    input_list = ['',
+                    f'd u d i n u o ɑ b y ø æ',
+                    f'd i + n y i ɑ m - o g ɑ',
+                 ]
+    output_list = ['',
+                    'dudinuoɑbuoɑ',
+                    'di+nyiæm-øgæ',
+                    ]
+    run_test_on_strings(input_list, output_list, object)
+
+def test_mongolian():
+    language = vh_dataset[16]
+    object = FST(language)
+    assert object.states == language['states']
+    assert object.alphabet == language['alphabet']
+    assert object.transitions == language['transitions']
+    assert object.preprocess_req == language['preprocess_req']
+    assert object.postprocess_req == language['postprocess_req']
+    assert object.left_subseq == language['left_subseq']
+    assert object.name == 'Classical Mongolian palatal vowel harmony'
+
+    input_list = ['',
+                    f't i + d e ø y d u o a',
+                    f't u b o a k y ø e - d a',
+                 ]
+    output_list = ['',
+                    'ti+deøydyøe',
+                    'tuboakuoa-da'
+                    ]
+    run_test_on_strings(input_list, output_list, object)
+
+def test_khalka():
+    language = vh_dataset[18]
+    object = FST(language)
+    assert object.states == language['states']
+    assert object.alphabet == language['alphabet']
+    assert object.transitions == language['transitions']
+    assert object.preprocess_req == language['preprocess_req']
+    assert object.postprocess_req == language['postprocess_req']
+    assert object.left_subseq == language['left_subseq']
+    assert object.name == 'Khalkha Mongolian harmony'
+
+    input_list = ['',
+                    # f't i + d e ø y d u o a',
+                    # f't u b o a k y ø e - d a',
+                    f'g i + ɔ b - i d ɔ a e d o ʊ e',
+                    'g u b i d ʊ u b e g o a ɔ',
+                 ]
+    output_list = ['',
+                    # 'ti+deøydyøe',
+                    # 'tuboakuoa-da'
+                    f'gi+ɔb-idɔɔɔdɔʊa',
+                    'gubiduubegeee',
+                    ]
+    run_test_on_strings(input_list, output_list, object)
+
+def test_dagur():
+    language = vh_dataset[19]
+    object = FST(language)
+    assert object.states == language['states']
+    assert object.alphabet == language['alphabet']
+    assert object.transitions == language['transitions']
+    assert object.preprocess_req == language['preprocess_req']
+    assert object.postprocess_req == language['postprocess_req']
+    assert object.left_subseq == language['left_subseq']
+    assert object.name == 'Dagur Mongolian harmony'
+
+    input_list = ['',
+                    f'b i ɔ d a - ə u ɔ',
+                    f'b u d ə a ɔ'
+                 ]
+    output_list = ['',
+                    'biɔdɔ-ɔɔɔ',
+                    'budəəu'
+                    ]
+    run_test_on_strings(input_list, output_list, object)
+
+def test_tunica():
+    language = vh_dataset[20]
+    object = FST(language)
+    assert object.states == language['states']
+    assert object.alphabet == language['alphabet']
+    assert object.transitions == language['transitions']
+    assert object.preprocess_req == language['preprocess_req']
+    assert object.postprocess_req == language['postprocess_req']
+    assert object.left_subseq == language['left_subseq']
+    assert object.name == 'Tunica harmony'
+
+    input_list = ['',
+                    f'b i ʔ o ɑ d u h ɛ',
+                    f'b o h i ʔ e h ɛ d ɔ - i h ɛ',
+                    'b o h i h',
+                 ]
+    output_list = ['',
+                    'biʔɛduhɔ',
+                    'bohuʔohɔduhɔ',
+                    'bohuh',
                     ]
     run_test_on_strings(input_list, output_list, object)

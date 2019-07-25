@@ -638,7 +638,8 @@ vh_dataset=\
         'alphabet': ['i','e','y',F_M_R_T,'u','a','o',F_L_U_T],
         'transitions': {(0,'?'):('?',0),(0,'i'):('i',0), (0,'y'):('y',0),
                        (0,'u'):('y',0),(0,F_L_U_T):(F_L_U_T,0),(0,'e'):('e',0),
-                       (0,'o'):(F_M_R_T,0),(0,'a'):(F_L_U_T,0),(0,F_M_R_T):(F_M_R_T,0)},
+                       (0,'o'):(F_M_R_T,0),(0,'a'):(F_L_U_T,0),(0,F_M_R_T):(F_M_R_T,0),
+                       },
         'preprocess_req': False,
         'postprocess_req': False,
         'left_subseq': True,
@@ -793,7 +794,7 @@ vh_dataset=\
          (9,'#'):('o',13),(11,'#'):(B_M_R_NT,13),
          (0,'#'):('',13),(2,'#'):('',13),(4,'#'):('',13),(6,'#'):('',13),
          (8,'#'):('',13),(10,'#'):('',13),(12,'#'):('',13),
-         
+
          (13,'#'):('',13),(13,'i'):('',13),(13,'e'):('',13),(13,F_M_U_NT):('',13),
          (13,'u'):('',13),(13,'o'):('',13),(13,B_M_R_NT):('',13),(13,B_L_U_NT):('',13),
        (0,'?'):('?',0),(0,G_P_VL):(G_P_VL,0),(0,'h'):('h',0),(0,B_L_U_NT):(B_L_U_NT,0),
@@ -1122,14 +1123,23 @@ vh_dataset=\
         'opaque':['Vowels within non-alternating morphemes are treated as opaque, '
             'triggering a new harmonic domain, perpetuating their own [ATR] feature '
             'until another non-alternating morpheme is encountered'],
-        #Non-alternating suffices
-        'n-a_suff': ['-e','-'+P_N_V+Long_C_L_U_T,'-'+A_LF_VL+'u',
-            '-'+A_LF_VL+Long_C_L_U_T+'k','-n'+Long_C_L_U_T,'-'+A_LF_VL+Long_C_L_U_T,
-            '-kej','-k'+Long_C_L_U_NT,'-kaj','-'+A_LF_VL+'w'+Long_C_L_U_NT+'k',
-            '-k'+Long_F_M_U_NT], #add '&' at start of suffix (before -; ex: &-kej)
-        #non-alternating roots and prefices
-        'n-a_r&pre': ['k'+Long_F_M_U_T+'r','ma+','un',V_N_V+'et','kol',
-            V_N_V+Long_F_M_U_NT+'t','k'+B_M_R_NT+'l'] #add ! at end of root or prefix (ex: un!; ma+!),
+
+        # non-alternating suffixes
+        'n-a_suff': [
+            ['-', 'e'],['-', P_N_V, Long_C_L_U_T],['-', A_LF_VL, 'u'],
+            ['-',A_LF_VL+Long_C_L_U_T,'k'],
+            ['-n', Long_C_L_U_T,'-',A_LF_VL,Long_C_L_U_T],
+            ['-k','e','j'],['-k',Long_C_L_U_NT],['-k','a','j'],
+            ['-',A_LF_VL,'w',Long_C_L_U_NT,'k'],
+            ['-','k',Long_F_M_U_NT]], #add '&' at start of suffix (before -; ex: &-kej)
+        # non-alternating roots and prefixes
+        'n-a_r&pre': [
+            ['k', Long_F_M_U_T, 'r'],['m','a','+'],['u','n'],[V_N_V,'e','t'],
+            ['k','o','l'],
+            [V_N_V,Long_F_M_U_NT,'t'],['k',B_M_R_NT,'l']
+            ]
+            #add ! at end of root or prefix (ex: un!; ma+!),
+
     },
     '24B':
     {
@@ -1203,12 +1213,20 @@ vh_dataset=\
         'opaque':['Vowels within non-alternating morphemes are treated as opaque, '
             'triggering a new harmonic domain, perpetuating their own [ATR] feature '
             'until another non-alternating morpheme is encountered'],
-        'n-a_suff': ['-e','-'+P_N_V+Long_C_L_U_T,'-'+A_LF_VL+'u',
-            '-'+A_LF_VL+Long_C_L_U_T+'k','-n'+Long_C_L_U_T,'-'+A_LF_VL+Long_C_L_U_T,
-            '-kej','-k'+Long_C_L_U_NT,'-kaj','-'+A_LF_VL+'w'+Long_C_L_U_NT+'k',
-            '-k'+Long_F_M_U_NT], #add '&' at start of suffix (before -; ex: &-kej)
-        'n-a_r&pre': ['k'+Long_F_M_U_T+'r','ma+','un',V_N_V+'et','kol',
-            V_N_V+Long_F_M_U_NT+'t','k'+B_M_R_NT+'l']
+        # non-alternating suffixes
+        'n-a_suff': [
+            ['-', 'e'],['-', P_N_V, Long_C_L_U_T],['-', A_LF_VL, 'u'],
+            ['-',A_LF_VL+Long_C_L_U_T,'k'],
+            ['-n', Long_C_L_U_T,'-',A_LF_VL,Long_C_L_U_T],
+            ['-k','e','j'],['-k',Long_C_L_U_NT],['-k','a','j'],
+            ['-',A_LF_VL,'w',Long_C_L_U_NT,'k'],
+            ['-','k',Long_F_M_U_NT]], #add '&' at start of suffix (before -; ex: &-kej)
+        # non-alternating roots and prefixes
+        'n-a_r&pre': [
+            ['k', Long_F_M_U_T, 'r'],['m','a','+'],['u','n'],[V_N_V,'e','t'],
+            ['k','o','l'],
+            [V_N_V,Long_F_M_U_NT,'t'],['k',B_M_R_NT,'l']
+            ]
             #add ! at end of root or prefix (ex: un!; ma+!),
     },
     25:
@@ -2155,9 +2173,9 @@ vh_dataset=\
             (7,B_M_R_NT):('u',7),(7,'a'):('a',7),
             (8,'i'):('i',8),(8,'u'):('u',8),(8,F_M_U_NT):('i',8),
             (8,'a'):('a',8),(8,B_M_R_NT):('u',8),
-            (9,'i'):(F_M_U_NT),(9,'u'):(B_M_R_NT,9),(9,F_M_U_NT):(F_M_U_NT,9,
-            (9,B_M_R_NT):(B_M_R_NT,9),(9,'a'):('a',9),                                                     
-            (10,'i'):('i'10),(10,'u'):('u',10),(10,F_M_U_NT):('i',10),
+            (9,'i'):(F_M_U_NT),(9,'u'):(B_M_R_NT,9),(9,F_M_U_NT):(F_M_U_NT,9),
+            (9,B_M_R_NT):(B_M_R_NT,9),(9,'a'):('a',9),
+            (10,'i'):('i',10),(10,'u'):('u',10),(10,F_M_U_NT):('i',10),
             (10,'a'):('a',10),(10,B_M_R_NT):('u',10),
             },
         'preprocess_req': False,
@@ -2178,7 +2196,7 @@ vh_dataset=\
                   'radical',
                   'THUS, THIS FST IS ONLY ACCURATE WHEN THE INPUT IS A VERB '
                   'AND THE ROOT IS FOLLOWED BY HARMONIZING EXTENSIONS',
-                  'THE VERBAL EXTENSIONS MUST BE HYPHENATED AS YOU WOULD SUFFIXES ',                  
+                  'THE VERBAL EXTENSIONS MUST BE HYPHENATED AS YOU WOULD SUFFIXES ',
                   'THIS FST WILL HARMONIZE ALL SUFFIXES FOLLOWING THE ROOT, '
                   'MEANING IT WILL PRODUCE INACCURACIES FOR NON-HARMONIZING SUFFIXES '
                   'THAT FOLLOW',
@@ -2250,7 +2268,7 @@ vh_dataset=\
         'dr':False,
         'transparent':None,
         'opaque':None
-    },  
+    },
  34:
     {
         'name': 'Yawelmani palatal and labial suffixal harmony',
@@ -2293,7 +2311,7 @@ vh_dataset=\
          (3,'a'):('a',5),(3,Long_C_L_U_NT):(Long_C_L_U_NT,5),
          (4,'a'):('a',5),(4,Long_C_L_U_NT):(Long_C_L_U_NT,5),
          (5,'a'):('a',5),(5,Long_C_L_U_NT):(Long_C_L_U_NT,5),
-         
+
          (6,'u'):('i',6),(6,Long_B_H_R_T):(Long_F_H_U_T,6),
          (6,'i'):('i',6),(6,Long_F_H_U_T):(Long_F_H_U_T,6),
          (6,'e'):('e',7),(6,Long_F_M_U_T):(Long_F_M_U_T,7),
@@ -2324,7 +2342,7 @@ vh_dataset=\
          (11,'o'):('a',11),(11,Long_B_M_R_T):(Long_C_L_U_NT,11),
          (11,'i'):('i',7),(11,Long_F_H_U_T):(Long_F_H_U_T,7),
          (11,'u'):('u',7),(11,Long_B_H_R_T):(Long_B_H_R_T,7),
-         
+
        },
         'preprocess_req': True,
         'postprocess_req': True,
@@ -2476,7 +2494,7 @@ vh_dataset=\
         'left_subseq': True,
         'bidir_subseq':False,
         'hyphenate_suffix': False,
-        'preprocess_dets':'Should have already been run through 34P and 34,
+        'preprocess_dets':'Should have already been run through 34P and 34',
         'postprocess_dets':'Enter output from here into 34C',
         'notes': [''],
         'harmony_feature':['Palatal','Labial'],
@@ -2484,7 +2502,7 @@ vh_dataset=\
         'dr':False,
         'transparent':None,
         'opaque':None
-    }, 
+    },
  '34C':
     {
         'name': 'Yawelmani vowel lowering',
@@ -2507,6 +2525,7 @@ vh_dataset=\
         'dr':False,
         'transparent':None,
         'opaque':None
+
     },   
  35:
     {
@@ -2620,4 +2639,5 @@ vh_dataset=\
         'transparent':None,
         'opaque':None,
         },                                                                 
+
  }
