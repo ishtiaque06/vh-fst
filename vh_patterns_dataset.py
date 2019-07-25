@@ -1318,11 +1318,9 @@ vh_dataset=\
     {
         'name': 'Pasiego unstressed vowel raising',
         'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:''},
-        'alphabet': ['a','u','i','e','o',"'",'j','w',Cent_F_H_U_T,Cent_C_L_U_NT,Cent_B_M_R_T,Cent_B_H_R_T],
+        'alphabet': ['a','u','i','e','o',"'",'j','w',Cent_F_H_U_T,Cent_C_L_U_NT,Cent_B_M_R_T,Cent_B_H_R_T,'+','-'],
         'transitions':
-        #(5,''):('',5) should never occur, but I included it;
-        # if it does occur, the result will be inaccurate
-            {(0,'?'):('?',0),(1,'?'):('?',0),(2,'?'):('?',3),
+           {(0,'?'):('?',0),(1,'?'):('?',0),(2,'?'):('?',3),
             (3,'?'):('?',3),(4,'?'):('?',0),(5,'?'):('?',0),(6,'?'):('?',2),
             (0,"'"):("'",1),(1,"'"):("'",1),
             (3,"'"):("'",4),(2,"'"):("'",2),(4,"'"):("'",4),(5,"'"):("'",5),
@@ -1360,7 +1358,12 @@ vh_dataset=\
             (6,Cent_C_L_U_NT):(Cent_C_L_U_NT,6),
             (6,'o'):('u',6),(6,'e'):('i',6),(6,Cent_B_M_R_T):(Cent_B_H_R_T,6),
             (6,'i'):('i',6),(6,Cent_F_H_U_T):(Cent_F_H_U_T,6),(6,'u'):('u',6),
-            (6,Cent_B_H_R_T):(Cent_B_H_R_T,6)},
+            (6,Cent_B_H_R_T):(Cent_B_H_R_T,6)
+            # - and + feed back into respective states
+            (0,'+'):('+',0),(0,'-'):('-',0),(1,'+'):('+',1),(1,'-'):('-',1),
+            (2,'+'):('+',2),(2,'-'):('-',2),(3,'+'):('+',3),(3,'-'):('-',3),
+            (4,'+'):('+',4),(4,'-'):('-',4),(5,'+'):('+',5),(5,'-'):('-',5),
+            (6,'+'):('+',6),(6,'-'):('-',6),},
         'preprocess_req': True,
         'postprocess_req': True,
         'left_subseq': False,
