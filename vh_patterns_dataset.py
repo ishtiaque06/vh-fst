@@ -1890,9 +1890,9 @@ vh_dataset=\
         ['Std Hungarian also has labial vowel harmony, but it is not represented in this FST',
         'Hungarian suffixes are either fixed or alternating in backness; only alternating'
         ' suffixes harmonize, so non-alternating suffixes will produce invalid output with this FST',
-        'Vowel phonemes are /i, i:, e:, y, y:,u, u:, o, o:, a:, back-mid-rounded-lax'
-        ',front-mid-rounded-tense,long front-mid-rounded-tense, front-mid-unrounded-lax/',
-        '/i,i:,e:,front-mid-unrounded-lax/ are quasi-neutrals','If the closest vowel to the'
+        'Vowel phonemes are /i, i:, e:, y, y:,u, u:, o, o:, a:, B_M_R_NT'
+        ',F_M_R_T,Long_F_M_R_T, F_M_U_NT/',
+        '/i,i:,e:,F_M_U_NT/ are quasi-neutrals','If the closest vowel to the'
         ' left of an alternating suffix is a non-neutral front vowel, then the suffix will front-harmonize',
         'If the closest vowel to the left of an alternating suffix is a back vowel, '
         'then the suffix will back-harmonize',
