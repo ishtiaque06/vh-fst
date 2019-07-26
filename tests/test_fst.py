@@ -558,18 +558,18 @@ def test_kashaya():
     assert object.name == 'Kashaya (Pomoan) translaryngeal harmony'
 
     input_list = ['',
-                    f"",
-                    f"",
-                    f"",
-                    f"",
+                    f"m - i d i {G_P_VL} {Long_C_L_U_NT} q o",
+                    f"m a + h e {G_P_VL} {Long_F_H_U_T} {G_P_VL} u h o e",
+                    f"q u q {Long_F_H_U_T} q e q o q a d i h {Long_B_M_R_T}",
+                    
                     
                     
                  ]
     output_list = ['',
-                    f"",
-                    f"",
-                    f"",
-                    f"",
+                    f"m - a d u {G_P_VL} {Long_B_H_R_T} q a",
+                    f"m a + h a {G_P_VL} {Long_C_L_U_NT} {G_P_VL} a h a a",
+                    f"q a q {Long_C_L_U_NT} q a q a q a d u h u",
+                    
                     
                     ]
     run_test_on_strings(input_list, output_list, object)
