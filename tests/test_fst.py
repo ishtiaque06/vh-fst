@@ -586,18 +586,24 @@ def test_stdhungarian():
     assert object.name == 'Standard Hungarian palatal harmony of alternating suffixes'
 
     input_list = ['',
-                    f"",
-                    f"",
-                    f"",
-                    f"",
+                    f"b u + n - {Long_B_H_R_T} d i - y - {B_M_R_NT}",
+                    f"n i n u - y {F_M_U_NT} - o",
+                    f"n i - u y - {Long_C_L_U_NT}",
+                    f"n y - u y - {Long_B_M_R_T}",
+                    f"u i d e - u y",
+                    f"u d e - u y",
+                    f"y i i n {F_M_U_NT} e - u y",
                     
                     
                  ]
     output_list = ['',
-                    f"",
-                    f"",
-                    f"",
-                    f"",
+                    f"b u + n - {Long_F_H_R_T} d i - y - {F_M_U_NT}",
+                    f"n i n u - u {B_M_R_NT} - o",
+                    f"n i - y y - {Long_F_M_U_T}",
+                    f"n y - y y - {Long_F_M_R_T}",
+                    f"u i d e - y y",
+                    f"u d e - u u",
+                    f"y i i n {F_M_U_NT} e - y y",
                     
                     ]
     run_test_on_strings(input_list, output_list, object)
