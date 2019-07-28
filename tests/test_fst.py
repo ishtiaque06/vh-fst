@@ -607,3 +607,142 @@ def test_stdhungarian():
                     
                     ]
     run_test_on_strings(input_list, output_list, object)
+    
+def test_nawuri():
+    language = vh_dataset[31]
+    object = FST(language)
+    assert object.states == language['states']
+    assert object.alphabet == language['alphabet']
+    assert object.transitions == language['transitions']
+    assert object.preprocess_req == language['preprocess_req']
+    assert object.postprocess_req == language['postprocess_req']
+    assert object.left_subseq == language['left_subseq']
+    assert object.name == 'Nawuri (North Guang) ATR harmony'
+
+    input_list = ['',
+                    f"I {B_L_U_NT} i + I i b {F_M_U_NT} - l {F_M_U_NT} - d {B_M_R_NT} {B_L_U_NT} {B_M_R_NT} - o b",
+                    f"i I + u {B_H_R_NT} v {B_L_U_NT} {B_H_R_NT} u - l {B_H_R_NT} u - d {B_L_U_NT} - l {B_H_R_NT} u",
+                    f"{B_H_R_NT} I + u {B_L_U_NT} - {B_H_R_NT} u - i l I",
+                    
+                    
+                    
+                 ]
+    output_list = ['',
+                    f"i {B_L_U_NT} i + i i b e - l e - d o {B_L_U_NT} {B_M_R_NT} - o b",
+                    f"i i + u u v {B_L_U_NT} u u - l u u - d {B_L_U_NT} - l {B_H_R_NT} u",
+                    f"u I + u {B_L_U_NT} - {B_H_R_NT} u - i l I",
+                    
+                    ]
+    run_test_on_strings(input_list, output_list, object)
+
+
+def test_kinendeule():
+    language = vh_dataset[32]
+    object = FST(language)
+    assert object.states == language['states']
+    assert object.alphabet == language['alphabet']
+    assert object.transitions == language['transitions']
+    assert object.preprocess_req == language['preprocess_req']
+    assert object.postprocess_req == language['postprocess_req']
+    assert object.left_subseq == language['left_subseq']
+    assert object.name == 'Kinendeule (Rufiji) height harmony for verbal extensions'
+
+    input_list = ['',
+                    f"",
+                    f"",
+                    f"",
+                    f"",
+                    
+                    
+                 ]
+    output_list = ['',
+                    f"",
+                    f"",
+                    f"",
+                    f"",
+                    ]
+    run_test_on_strings(input_list, output_list, object)
+    
+def test_chingoni():
+    language = vh_dataset[33]
+    object = FST(language)
+    assert object.states == language['states']
+    assert object.alphabet == language['alphabet']
+    assert object.transitions == language['transitions']
+    assert object.preprocess_req == language['preprocess_req']
+    assert object.postprocess_req == language['postprocess_req']
+    assert object.left_subseq == language['left_subseq']
+    assert object.name == 'Chingoni (Rufiji) height harmony for verbal extensions'
+
+    input_list = ['',
+                    f"",
+                    f"",
+                    f"",
+                    f"",
+                    
+                    
+                 ]
+    output_list = ['',
+                    f"",
+                    f"",
+                    f"",
+                    f"",
+                    ]
+    run_test_on_strings(input_list, output_list, object)
+    
+def test_yawelmani():
+    language = vh_dataset[34]
+    object = FST(language)
+    assert object.states == language['states']
+    assert object.alphabet == language['alphabet']
+    assert object.transitions == language['transitions']
+    assert object.preprocess_req == language['preprocess_req']
+    assert object.postprocess_req == language['postprocess_req']
+    assert object.left_subseq == language['left_subseq']
+    assert object.name == 'Yawelmani palatal and labial suffixal harmony'
+
+    input_list = ['',
+                    f"",
+                    f"",
+                    f"",
+                    f"",
+                    
+                    
+                 ]
+    output_list = ['',
+                    f"",
+                    f"",
+                    f"",
+                    f"",
+                    ]
+    run_test_on_strings(input_list, output_list, object)
+    
+def test_claro():
+    language = vh_dataset[35]
+    object = FST(language)
+    assert object.states == language['states']
+    assert object.alphabet == language['alphabet']
+    assert object.transitions == language['transitions']
+    assert object.preprocess_req == language['preprocess_req']
+    assert object.postprocess_req == language['postprocess_req']
+    assert object.left_subseq == language['left_subseq']
+    assert object.name == 'Claro complete harmony on unstressed final /a/'
+
+    input_list = ['',
+                    f"l ' i m b l a",
+                    f"l ' i m i l a",
+                    f"l ' i m ' a",
+                    f"g ' i m a",
+                    f"d ' e r o",
+                    
+                    
+                 ]
+    output_list = ['',
+                    f"l ' i m b l i",
+                    f"l ' i m i l a",
+                    f"l ' i m ' a",
+                    f"g ' i m i",
+                    f"d ' e r o",
+                   
+                    ]
+    run_test_on_strings(input_list, output_list, object)    
