@@ -1987,6 +1987,7 @@ vh_dataset=\
                  'as [-ATR] (i.e., if it is the last vowel of the root, the following suffix -if alternating- will'
                  ' have [-ATR] vowels; it does not block leftward [+ATR] spreading, however (i.e., if a root'
                  ' has [+ATR] vowels, but B_L_U_NT as its leftmost vowel, [+ATR] may still spread to the preceding prefixes',
+                 '[-ATR] is regarded as the default for alternating morphemes',
                  'Some believe B_L_U_NT is not a neutral, but instead subtley phonetically raises before a [+ATR] vowel;'
                  'Because we are only employing phonemic representations, such is not practically relevant',
                  'There can also be [+ATR] assimilation across word boundaries and within compounds,'
@@ -2529,7 +2530,7 @@ vh_dataset=\
     },   
  35:
     {
-        'name': 'Claro complete harmony/assimilation on unstressed final /a/',
+        'name': 'Claro complete harmony on unstressed final /a/',
         'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',
                    10:'',11:'',12:'',13:'',14:'',15:'',16:'',},
         'alphabet': ['i','e',F_M_U_NT,B_M_R_NT,'o','u','a',"'",'#',],
