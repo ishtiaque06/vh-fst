@@ -710,18 +710,34 @@ def test_yawelmani():
     assert object.name == 'Yawelmani palatal and labial suffixal harmony'
 
     input_list = ['',
-                    f"",
-                    f"",
-                    f"",
-                    f"",
+                    f"u b d f",
+                    f"{Long_C_L_U_NT} g -",
+                    f"{Long_C_L_U_NT} g - d",
+                    f"a b + d",
+                    f"{Long_B_H_R_T} {Long_F_H_U_T}",
+                    f"b d f g h",
+                    f"a + b i d - u i - {Long_B_H_R_T} o - u",
+                    f"{Long_B_H_R_T} - u d i a i",
+                    f"e - a b e o - i g a",
+                    f"{Long_B_M_R_T} - a e o b d f - e",
+                    f"a - g e o - i o",
+                    f"p a + g e",
                     
                     
                  ]
     output_list = ['',
-                    f"",
-                    f"",
-                    f"",
-                    f"",
+                    f"u b i d f",
+                    f"{Long_C_L_U_NT} g",
+                    f"a g d",
+                    f"a b d",
+                    f"o e",
+                    f"b i d i f i g h",
+                    f"a b i d i i {Long_F_H_U_T} o u",
+                    f"{Long_B_M_R_T} u d u a i",
+                    f"e e b e e i g a",
+                    f"{Long_B_M_R_T} o o o b i d f e",
+                    f"a g a a i o",
+                    f"p a g e",
                     ]
     run_test_on_strings(input_list, output_list, object)
     
