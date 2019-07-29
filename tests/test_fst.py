@@ -681,18 +681,20 @@ def test_chingoni():
     assert object.name == 'Chingoni (Rufiji) height harmony for verbal extensions'
 
     input_list = ['',
-                    f"",
-                    f"",
-                    f"",
-                    f"",
+                    f"a y + u d i - i u {F_M_U_NT} {B_M_R_NT} - a",
+                    f"g o b {F_M_U_NT} - i u {F_M_U_NT} - {B_M_R_NT} a",
+                    f"g u b u - i u - {F_M_U_NT} {B_M_R_NT} a",
+                    f"{B_M_R_NT} d - i - u {F_M_U_NT} {B_M_R_NT} a",
+                    f"b a b - i u {F_M_U_NT} {B_M_R_NT} a",
                     
                     
                  ]
     output_list = ['',
-                    f"",
-                    f"",
-                    f"",
-                    f"",
+                    f"a y + u d i - i u i u - a",
+                    f"g o b {F_M_U_NT} - {F_M_U_NT} u {F_M_U_NT} - u a",
+                    f"g u b u - i u - i u a",
+                    f"{B_M_R_NT} d - {F_M_U_NT} - {B_M_R_NT} {F_M_U_NT} {B_M_R_NT} a",
+                    f"b a b - i u i u a",
                     ]
     run_test_on_strings(input_list, output_list, object)
     
