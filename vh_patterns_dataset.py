@@ -35,7 +35,7 @@ list_desc = ['VH pattern', 'State set','Alphabet of relevant symbols',
 vh_dataset=\
 {1:
     {
-        'name': 'Kisa applicative suffix Vl'+B_L_U_NT,
+        'name': 'Kisa height harmony for applicative suffix Vl'+B_L_U_NT,
         'states': {0:'il'+B_L_U_NT, 1:'il'+B_L_U_NT, 2:'el'+B_L_U_NT},
         'alphabet': ['i','e','u','o',B_L_U_NT],
         'transitions': {(0, '?'): ('?', 0), (0, 'i'): ('i', 1),
@@ -65,7 +65,7 @@ vh_dataset=\
     },
     2:
     {
-        'name': 'Kisa reversative suffix Vl'+B_L_U_NT,
+        'name': 'Kisa height harmony for reversative suffix Vl'+B_L_U_NT,
         'states': {0:'ul'+B_L_U_NT, 1:'ul'+B_L_U_NT, 2:'ol'+B_L_U_NT},
         'alphabet': ['u','o',B_L_U_NT,'e','i'],
         'transitions': {(0, '?'): ('?', 0), (0, 'u'): ('u', 1),
@@ -92,7 +92,7 @@ vh_dataset=\
      },
     3:
     {
-        'name': 'Sibe vowel rounding harmony',
+        'name': 'Sibe vowel labial harmony',
         'states': {0:'', 1:'', 2:''},
         'alphabet': ['i','y',C_H_U_T, 'u', F_M_U_NT, F_M_R_T, 'a', B_M_R_NT],
         'transitions': {(0,'?'):('?',0), (1,'?'):('?',1),(2,'?'):('?',2),
@@ -124,7 +124,7 @@ vh_dataset=\
     },
     4:
     {
-        'name': 'Tuvan backness harmony',
+        'name': 'Tuvan palatal harmony',
         'states': {0:'',1:'',2:''},
         'alphabet': ['i','y',B_H_U_T,'u','e',F_M_R_T,'a','o'],
         'transitions': {(0,'?'):('?',0), (1,'?'):('?',1),(2,'?'):('?',2),
@@ -183,7 +183,7 @@ vh_dataset=\
      },
     5: #needs preprocessing with 5P
     {
-        'name': 'Uyghur backness harmony',
+        'name': 'Uyghur palatal & labial harmony',
         'states': {0:'',1:'',2:''},
         'alphabet': ['i','y','u','e',F_M_R_T,'a','o',B_L_U_NT],
         'transitions': {(0,'?'):('?',0), (1,'?'):('?',1),(2,'?'):('?',2),
@@ -212,7 +212,7 @@ vh_dataset=\
     },
     6: #needs preprocessing with 5P
     {
-        'name': 'Uyghur plural suffix -lVr',
+        'name': 'Uyghur palatal & labial harmony for plural suffix -lVr',
         'states': {0:'l'+B_L_U_NT+'r',1:'lar',2:'l'+B_L_U_NT+'r'},
         'alphabet': ['i','y','u','e',F_M_R_T,'a','o',B_L_U_NT],
         'transitions': {(0,'?'):('?',0), (1,'?'):('?',1),(2,'?'):('?',2),
@@ -244,7 +244,7 @@ vh_dataset=\
     },
     7: #needs preprocessing with 5P
     {
-        'name': 'Uyghur dative suffix -'+U_F_V+'V',
+        'name': 'Uyghur palatal & labial harmony for dative suffix -'+U_F_V+'V',
         'states': {0: U_F_V+B_L_U_NT,1:'ga',2:U_F_V+B_L_U_NT},
         'alphabet': ['i','y','u','e',F_M_R_T,'a','o',B_L_U_NT],
         'transitions': {(0,'?'):('?',0), (1,'?'):('?',1),(2,'?'):('?',2),
@@ -303,7 +303,7 @@ vh_dataset=\
      },
     8: #needs preprocessing with 8P
     {
-        'name': 'Halh (Mongolic) rounding harmony',
+        'name': 'Halh (Mongolic) RTR & labial harmony',
         'states': {0:'',1:'',2:'',3:''},
         'alphabet': ['e','u','o','a',B_M_R_NT,B_H_R_NT],
         'transitions': {(0,'?'):('?',0), (1,'?'):('?',1),(2,'?'):('?',2), (3,'?'):('?',3),
@@ -336,7 +336,7 @@ vh_dataset=\
     },
     9:
     {
-        'name': 'Jingulu nominal root with non-neuter gender suffix',
+        'name': 'Jingulu height harmony for nominal root with non-neuter gender suffix',
         'states': {0:'',1:'',2:'',3:'',4:''},
         'alphabet': ['a','u','i','-','+'],
         'transitions':
@@ -374,7 +374,7 @@ vh_dataset=\
     },
     10:
         {
-            'name': 'Jingulu adjectivial root with non-neuter gender suffix',
+            'name': 'Jingulu height harmony for adjectivial root with non-neuter gender suffix',
             'states': {0:'',1:'',2:'',3:'',4:''},
             'alphabet': ['a','u','i','-','+'],
             'transitions':
@@ -412,7 +412,7 @@ vh_dataset=\
         },
     11:
         {
-            'name': 'Jingulu verbal root with subject agreement-marking suffix',
+            'name': 'Jingulu height harmony for verbal root with subject agreement-marking suffix',
             'states': {0:'',1:'',2:'',3:'',4:''},
             'alphabet': ['a','u','i','-','+'],
             'transitions':
@@ -451,7 +451,7 @@ vh_dataset=\
         },
     12:
         {
-            'name': 'Jingulu verbal root with motion-imperative suffix',
+            'name': 'Jingulu height harmony for verbal root with motion-imperative suffix',
             'states': {0:'',1:'',2:'',3:'',4:''},
             'alphabet': ['a','u','i','-','+'],
             'transitions':
@@ -490,7 +490,7 @@ vh_dataset=\
         },
     13:
         {
-            'name': 'Jingulu verbal root with negative imperative suffix',
+            'name': 'Jingulu height harmony for verbal root with negative imperative suffix',
             'states': {0:'',1:'',2:'',3:'',4:''},
             'alphabet': ['a','u','i','-','+'],
             'transitions':
@@ -529,7 +529,7 @@ vh_dataset=\
         },
     14:
     {
-        'name': 'Turkish palatal and rounding vowel harmony',
+        'name': 'Turkish palatal & labial vowel harmony',
         'states': {0:'',1:'',2:'',3:'',4:''},
         'alphabet': ['i','e','y',F_M_R_T,B_H_U_T,'u',B_L_U_NT,'o'],
         'transitions':
@@ -657,7 +657,7 @@ vh_dataset=\
     },
     17:
     {
-        'name': 'Kalmyk (Oirat) harmony',
+        'name': 'Kalmyk (Oirat) palatal & labial harmony',
         'states': {0:'',1:'',2:'',3:'',4:''},
         'alphabet': ['i','e','y',F_M_R_T,'u','a','o',F_L_U_T],
         'transitions': {(0,'?'):('?',0),(0,'i'):('i',0),(0,'a'):('a',4),
@@ -709,7 +709,7 @@ vh_dataset=\
     },
     18:
     {
-        'name': 'Khalkha Mongolian harmony',
+        'name': 'Khalkha Mongolian ATR & labial harmony',
         'states': {0:'',1:'',2:'',3:'',4:''},
         'alphabet': ['i','e','u',B_H_R_NT,'a','o',B_M_R_NT],
         'transitions': {(0,'?'):('?',0),(0,'i'):('i',0),
@@ -747,7 +747,7 @@ vh_dataset=\
     },
     19:
     {
-        'name': 'Dagur Mongolian harmony',
+        'name': 'Dagur Mongolian ATR & labial harmony',
         'states': {0:'',1:'',2:'',3:''},
         'alphabet': ['i',schwa,'u','a',B_M_R_NT],
         'transitions': {(0,'?'):('?',0),(0,'i'):('i',0),
@@ -780,7 +780,7 @@ vh_dataset=\
     },
     20:
     {
-        'name': 'Tunica harmony',
+        'name': 'Tunica palatal & labial harmony',
         'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',10:'',11:'',12:'',13:''},
         'alphabet': ['i','e',F_M_U_NT,'u','o',B_M_R_NT,B_L_U_NT,'h',G_P_VL,'+','-','#'],
         'transitions':
