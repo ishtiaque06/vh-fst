@@ -648,18 +648,24 @@ def test_kinendeule():
     assert object.name == 'Kinendeule (Rufiji) height harmony for verbal extensions'
 
     input_list = ['',
-                    f"",
-                    f"",
-                    f"",
-                    f"",
+                    f"o r + a j i - i e {F_M_U_NT} u o - d {B_M_R_NT} a",  
+                    f"o r a g e - i e {F_M_U_NT} u o {B_M_R_NT} a",
+                    f"o d a b {F_M_U_NT} - i e {F_M_U_NT} u o {B_M_R_NT} a",
+                    f"o + k a g u - i e {F_M_U_NT} u o {B_M_R_NT} a",
+                    f"o j a o - i e {F_M_U_NT} u o {B_M_R_NT} a",
+                    f"i d {B_M_R_NT} - i e {F_M_U_NT} u o {B_M_R_NT} a",
+                    f"a - i e {F_M_U_NT} u o {B_M_R_NT} a",
                     
                     
                  ]
     output_list = ['',
-                    f"",
-                    f"",
-                    f"",
-                    f"",
+                    f"o r + a j i - i i i u u - d u a",
+                    f"o r a g e - e e e u u u a",
+                    f"o d a b {F_M_U_NT} - {F_M_U_NT} {F_M_U_NT} {F_M_U_NT} u u u a",
+                    f"o + k a g u - i i i u u u a",
+                    f"o j a o - e e e o o o a",
+                    f"i d {B_M_R_NT} - {F_M_U_NT} {F_M_U_NT} {F_M_U_NT} {B_M_R_NT} {B_M_R_NT} {B_M_R_NT} a",
+                    f"a - i i i u u u a",
                     ]
     run_test_on_strings(input_list, output_list, object)
     
