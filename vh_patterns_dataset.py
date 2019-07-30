@@ -1275,7 +1275,7 @@ vh_dataset=\
     },
 26:
     {
-        'name': 'Pasiego vowel harmony (metaphony, raising, and centralization)',
+        'name': 'Pasiego ATR & height vowel harmony (metaphony, raising, and centralization)',
         'states': {0:'',1:'',2:'',3:''},
         'alphabet': ['a','u','i','e','o',"'",Cent_F_H_U_T,Cent_C_L_U_NT,
             Cent_B_M_R_T,Cent_B_H_R_T],
@@ -1631,7 +1631,7 @@ vh_dataset=\
     },
 29:
     {
-        'name': 'Kashaya (Pomoan) translaryngeal harmony',
+        'name': 'Kashaya (Pomoan) complete translaryngeal harmony',
         'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',10:''},
         'alphabet': ['i',Long_F_H_U_T,'u',Long_B_H_R_T,'e',Long_F_M_U_T,'o',
         Long_B_M_R_T,'a',Long_C_L_U_NT,'h','+','-',G_P_VL],
