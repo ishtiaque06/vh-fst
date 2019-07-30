@@ -74,7 +74,7 @@ vh_dataset=\
             (0, 'e'): ('e', 0), (1, 'e'): ('e', 1), (2, 'e'): ('e', 2),
             (0, 'i'): ('i', 0), (1, 'i'): ('i', 1), (2, 'i'): ('i', 2),
             (0, B_L_U_NT): (B_L_U_NT, 0), (1, B_L_U_NT): (B_L_U_NT, 1),
-            (2, B_L_U_NT): (B_L_U_NT, 2)},
+            (2, B_L_U_NT): (B_L_U_NT, 2),(1,'u'):('u',1),(2,'o'):('o',2),},
         'preprocess_req': True,
         'postprocess_req': False,
         'left_subseq': True,
@@ -305,7 +305,7 @@ vh_dataset=\
     {
         'name': 'Halh (Mongolic) RTR & labial harmony',
         'states': {0:'',1:'',2:'',3:''},
-        'alphabet': ['e','u','o','a',B_M_R_NT,B_H_R_NT],
+        'alphabet': ['i','e','u','o','a',B_M_R_NT,B_H_R_NT],
         'transitions': {(0,'?'):('?',0), (1,'?'):('?',1),(2,'?'):('?',2), (3,'?'):('?',3),
             (0,'u'):('u',0), (0,B_H_R_NT):(B_H_R_NT,0),
             (3,'u'):('u',3),(3,B_H_R_NT):(B_H_R_NT,3),(3,'e'):('e',3),
