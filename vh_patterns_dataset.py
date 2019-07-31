@@ -1403,7 +1403,7 @@ vh_dataset=\
             (6,Cent_C_L_U_NT):(Cent_C_L_U_NT,6),
             (6,'o'):('u',6),(6,'e'):('i',6),(6,Cent_B_M_R_T):(Cent_B_H_R_T,6),
             (6,'i'):('i',6),(6,Cent_F_H_U_T):(Cent_F_H_U_T,6),(6,'u'):('u',6),
-            (6,Cent_B_H_R_T):(Cent_B_H_R_T,6)
+            (6,Cent_B_H_R_T):(Cent_B_H_R_T,6),
             # - and + feed back into respective states
             (0,'+'):('+',0),(0,'-'):('-',0),(1,'+'):('+',1),(1,'-'):('-',1),
             (2,'+'):('+',2),(2,'-'):('-',2),(3,'+'):('+',3),(3,'-'):('-',3),
