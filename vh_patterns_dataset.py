@@ -1858,7 +1858,7 @@ vh_dataset=\
             (1,F_M_U_NT):(F_M_U_NT,1),(1,'y'):('y',2),(1,Long_F_H_R_T):(Long_F_H_R_T,2),
             (1,F_M_R_T):(F_M_R_T,2),(1,Long_F_M_R_T):(Long_F_M_R_T,2),(1,'u'):('u',3),
             (1,Long_B_H_R_T):(Long_B_H_R_T,3),(1,'o'):('o',3),
-            (1,Long_B_M_R_T):(Long_B_M_R_T,3),
+            (1,Long_B_M_R_T):(Long_B_M_R_T,3),50
             (1,Long_C_L_U_NT):(Long_C_L_U_NT,3),(1,B_M_R_NT):(B_M_R_NT,3),
             (2,'i'):('i',2),(2,Long_F_H_U_T):(Long_F_H_U_T,2),
             (2,Long_F_M_U_T):(Long_F_M_U_T,2),
@@ -2123,7 +2123,8 @@ vh_dataset=\
             (14,'i'):('i',14),(14,'e'):('i',14),(14,F_M_U_NT):('i',14),
             (14,'u'):('u',14),(14,'o'):('u',14),(14,B_M_R_NT):('u',14),
             (14,'a'):('a',14),
-            (0,'a'):('a',0),(5,'a'):('a',5),
+            (0,'a'):('a',7),(1,'a'):('a',7),(2,'a'):('a',7),(3,'a'):('a',7),
+            (4,'a'):('a',7),(5,'a'):('a',7),(6,'a'):('a',7),(7,'a'):('a',7),
             },
         'preprocess_req': False,
         'postprocess_req': False,
