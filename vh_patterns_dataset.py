@@ -35,7 +35,7 @@ list_desc = ['VH pattern', 'State set','Alphabet of relevant symbols',
 vh_dataset=\
 {1:
     {
-        'name': 'Kisa applicative suffix Vl'+B_L_U_NT,
+        'name': 'Kisa height harmony for applicative suffix Vl'+B_L_U_NT,
         'states': {0:'il'+B_L_U_NT, 1:'il'+B_L_U_NT, 2:'el'+B_L_U_NT},
         'alphabet': ['i','e','u','o',B_L_U_NT],
         'transitions': {(0, '?'): ('?', 0), (0, 'i'): ('i', 1),
@@ -65,7 +65,7 @@ vh_dataset=\
     },
     2:
     {
-        'name': 'Kisa reversative suffix Vl'+B_L_U_NT,
+        'name': 'Kisa height harmony for reversative suffix Vl'+B_L_U_NT,
         'states': {0:'ul'+B_L_U_NT, 1:'ul'+B_L_U_NT, 2:'ol'+B_L_U_NT},
         'alphabet': ['u','o',B_L_U_NT,'e','i'],
         'transitions': {(0, '?'): ('?', 0), (0, 'u'): ('u', 1),
@@ -74,7 +74,7 @@ vh_dataset=\
             (0, 'e'): ('e', 0), (1, 'e'): ('e', 1), (2, 'e'): ('e', 2),
             (0, 'i'): ('i', 0), (1, 'i'): ('i', 1), (2, 'i'): ('i', 2),
             (0, B_L_U_NT): (B_L_U_NT, 0), (1, B_L_U_NT): (B_L_U_NT, 1),
-            (2, B_L_U_NT): (B_L_U_NT, 2)},
+            (2, B_L_U_NT): (B_L_U_NT, 2),(1,'u'):('u',1),(2,'o'):('o',2),},
         'preprocess_req': True,
         'postprocess_req': False,
         'left_subseq': True,
@@ -92,7 +92,7 @@ vh_dataset=\
      },
     3:
     {
-        'name': 'Sibe vowel rounding harmony',
+        'name': 'Sibe vowel labial harmony',
         'states': {0:'', 1:'', 2:''},
         'alphabet': ['i','y',C_H_U_T, 'u', F_M_U_NT, F_M_R_T, 'a', B_M_R_NT],
         'transitions': {(0,'?'):('?',0), (1,'?'):('?',1),(2,'?'):('?',2),
@@ -124,7 +124,7 @@ vh_dataset=\
     },
     4:
     {
-        'name': 'Tuvan backness harmony',
+        'name': 'Tuvan palatal harmony',
         'states': {0:'',1:'',2:''},
         'alphabet': ['i','y',B_H_U_T,'u','e',F_M_R_T,'a','o'],
         'transitions': {(0,'?'):('?',0), (1,'?'):('?',1),(2,'?'):('?',2),
@@ -183,7 +183,7 @@ vh_dataset=\
      },
     5: #needs preprocessing with 5P
     {
-        'name': 'Uyghur backness harmony',
+        'name': 'Uyghur palatal & labial harmony',
         'states': {0:'',1:'',2:''},
         'alphabet': ['i','y','u','e',F_M_R_T,'a','o',B_L_U_NT],
         'transitions': {(0,'?'):('?',0), (1,'?'):('?',1),(2,'?'):('?',2),
@@ -212,7 +212,7 @@ vh_dataset=\
     },
     6: #needs preprocessing with 5P
     {
-        'name': 'Uyghur plural suffix -lVr',
+        'name': 'Uyghur palatal & labial harmony for plural suffix -lVr',
         'states': {0:'l'+B_L_U_NT+'r',1:'lar',2:'l'+B_L_U_NT+'r'},
         'alphabet': ['i','y','u','e',F_M_R_T,'a','o',B_L_U_NT],
         'transitions': {(0,'?'):('?',0), (1,'?'):('?',1),(2,'?'):('?',2),
@@ -244,7 +244,7 @@ vh_dataset=\
     },
     7: #needs preprocessing with 5P
     {
-        'name': 'Uyghur dative suffix -'+U_F_V+'V',
+        'name': 'Uyghur palatal & labial harmony for dative suffix -'+U_F_V+'V',
         'states': {0: U_F_V+B_L_U_NT,1:'ga',2:U_F_V+B_L_U_NT},
         'alphabet': ['i','y','u','e',F_M_R_T,'a','o',B_L_U_NT],
         'transitions': {(0,'?'):('?',0), (1,'?'):('?',1),(2,'?'):('?',2),
@@ -303,9 +303,9 @@ vh_dataset=\
      },
     8: #needs preprocessing with 8P
     {
-        'name': 'Halh (Mongolic) rounding harmony',
+        'name': 'Halh (Mongolic) RTR & labial harmony',
         'states': {0:'',1:'',2:'',3:''},
-        'alphabet': ['e','u','o','a',B_M_R_NT,B_H_R_NT],
+        'alphabet': ['i','e','u','o','a',B_M_R_NT,B_H_R_NT],
         'transitions': {(0,'?'):('?',0), (1,'?'):('?',1),(2,'?'):('?',2), (3,'?'):('?',3),
             (0,'u'):('u',0), (0,B_H_R_NT):(B_H_R_NT,0),
             (3,'u'):('u',3),(3,B_H_R_NT):(B_H_R_NT,3),(3,'e'):('e',3),
@@ -336,7 +336,7 @@ vh_dataset=\
     },
     9:
     {
-        'name': 'Jingulu nominal root with non-neuter gender suffix',
+        'name': 'Jingulu height harmony for nominal root with non-neuter gender suffix',
         'states': {0:'',1:'',2:'',3:'',4:''},
         'alphabet': ['a','u','i','-','+'],
         'transitions':
@@ -374,7 +374,7 @@ vh_dataset=\
     },
     10:
         {
-            'name': 'Jingulu adjectivial root with non-neuter gender suffix',
+            'name': 'Jingulu height harmony for adjectivial root with non-neuter gender suffix',
             'states': {0:'',1:'',2:'',3:'',4:''},
             'alphabet': ['a','u','i','-','+'],
             'transitions':
@@ -412,7 +412,7 @@ vh_dataset=\
         },
     11:
         {
-            'name': 'Jingulu verbal root with subject agreement-marking suffix',
+            'name': 'Jingulu height harmony for verbal root with subject agreement-marking suffix',
             'states': {0:'',1:'',2:'',3:'',4:''},
             'alphabet': ['a','u','i','-','+'],
             'transitions':
@@ -451,7 +451,7 @@ vh_dataset=\
         },
     12:
         {
-            'name': 'Jingulu verbal root with motion-imperative suffix',
+            'name': 'Jingulu height harmony for verbal root with motion-imperative suffix',
             'states': {0:'',1:'',2:'',3:'',4:''},
             'alphabet': ['a','u','i','-','+'],
             'transitions':
@@ -490,7 +490,7 @@ vh_dataset=\
         },
     13:
         {
-            'name': 'Jingulu verbal root with negative imperative suffix',
+            'name': 'Jingulu height harmony for verbal root with negative imperative suffix',
             'states': {0:'',1:'',2:'',3:'',4:''},
             'alphabet': ['a','u','i','-','+'],
             'transitions':
@@ -529,7 +529,7 @@ vh_dataset=\
         },
     14:
     {
-        'name': 'Turkish palatal and rounding vowel harmony',
+        'name': 'Turkish palatal & labial vowel harmony',
         'states': {0:'',1:'',2:'',3:'',4:''},
         'alphabet': ['i','e','y',F_M_R_T,B_H_U_T,'u',B_L_U_NT,'o'],
         'transitions':
@@ -657,7 +657,7 @@ vh_dataset=\
     },
     17:
     {
-        'name': 'Kalmyk (Oirat) harmony',
+        'name': 'Kalmyk (Oirat) palatal & labial harmony',
         'states': {0:'',1:'',2:'',3:'',4:''},
         'alphabet': ['i','e','y',F_M_R_T,'u','a','o',F_L_U_T],
         'transitions': {(0,'?'):('?',0),(0,'i'):('i',0),(0,'a'):('a',4),
@@ -666,9 +666,11 @@ vh_dataset=\
                        (1,'?'):('?',1),(1,'i'):('i',1),(1,'y'):('y',1),
                        (1,F_M_R_T):(F_M_R_T,1),(1,'e'):(F_M_R_T,1),
                        (1,'u'):('y',1),(1,'o'):(F_M_R_T,1),(1,'a'):(F_L_U_T,1),
+                       (1,F_L_U_T):(F_L_U_T,1),
                        (2,'?'):('?',2),(2,'i'):('i',2),(2,'e'):('e',2),
                        (2,F_L_U_T):(F_L_U_T,2),(2,'o'):(F_M_R_T,2),
                        (2,'u'):('y',2),(2,F_M_R_T):(F_M_R_T,2),(2,'a'):(F_L_U_T,2),
+                       (2,'y'):('y',2),
                        (3,'?'):('?',3),(3,'i'):('i',3),(3,'e'):('o',3),
                        (3,'u'):('u',3),(3,'o'):('o',3),(3,'y'):('u',3),
                        (3,F_M_R_T):('o',3),(3,F_L_U_T):('a',3),(3,'a'):('a',3),
@@ -709,7 +711,7 @@ vh_dataset=\
     },
     18:
     {
-        'name': 'Khalkha Mongolian harmony',
+        'name': 'Khalkha Mongolian ATR & labial harmony',
         'states': {0:'',1:'',2:'',3:'',4:''},
         'alphabet': ['i','e','u',B_H_R_NT,'a','o',B_M_R_NT],
         'transitions': {(0,'?'):('?',0),(0,'i'):('i',0),
@@ -747,7 +749,7 @@ vh_dataset=\
     },
     19:
     {
-        'name': 'Dagur Mongolian harmony',
+        'name': 'Dagur Mongolian ATR & labial harmony',
         'states': {0:'',1:'',2:'',3:''},
         'alphabet': ['i',schwa,'u','a',B_M_R_NT],
         'transitions': {(0,'?'):('?',0),(0,'i'):('i',0),
@@ -780,55 +782,80 @@ vh_dataset=\
     },
     20:
     {
-        'name': 'Tunica harmony',
+        'name': 'Tunica palatal & labial harmony',
         'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',10:'',11:'',12:'',13:''},
         'alphabet': ['i','e',F_M_U_NT,'u','o',B_M_R_NT,B_L_U_NT,'h',G_P_VL,'+','-','#'],
         'transitions':
-        {(0,'+'):('',0),(1,'+'):('',1),(2,'+'):('',2),(3,'+'):('',3),(4,'+'):('',4),
-         (5,'+'):('',5),(6,'+'):('',6),(7,'+'):('',7),(8,'+'):('',8),(9,'+'):('',9),
-         (10,'+'):('',10),(11,'+'):('',11),(12,'+'):('',12),(13,'+'):('',13),
-         (0,'-'):('',0),(1,'-'):('',1),(2,'-'):('',2),(3,'-'):('',3),(4,'-'):('',4),
-         (5,'-'):('',5),(6,'-'):('',6),(7,'-'):('',7),(8,'-'):('',8),(9,'-'):('',9),
-         (10,'-'):('',10),(11,'-'):('',11),(12,'-'):('',12),(13,'-'):('',13),
-         (1,'#'):('i',13),(3,'#'):('e',13),(5,'#'):(F_M_U_NT,13),(7,'#'):('u',13),
-         (9,'#'):('o',13),(11,'#'):(B_M_R_NT,13),
-         (0,'#'):('',13),(2,'#'):('',13),(4,'#'):('',13),(6,'#'):('',13),
-         (8,'#'):('',13),(10,'#'):('',13),(12,'#'):('',13),
-
+        {(0,'+'):('',0),(0,'-'):('',0),(0,'#'):('',13),(0,'i'):('',1),(0,'u'):('',7),
+         (0,'?'):('?',0),(0,G_P_VL):(G_P_VL,0),(0,'h'):('h',0),(0,B_L_U_NT):(B_L_U_NT,0),
+         (0,'e'):('',3),(0,F_M_U_NT):('',5),(0,B_M_R_NT):('',11),(0,'o'):('',9),
+         
+         (1,'+'):('',1),(1,'-'):('',1),(1,'#'):('i',13),(1,'?'):('i?',0),
+         (1,G_P_VL):('i'+G_P_VL,2),
+         (1,'h'):('ih',2),(1,'i'):('',1),(1,'e'):('',3),(1,F_M_U_NT):('',5),
+         (1,B_L_U_NT):('',5),(1,'u'):('',1),(1,'o'):('',3),(1,B_M_R_NT):('',5),
+         
+         (2,'+'):('',2),(2,'-'):('',2),(2,'#'):('',13),(2,'?'):('?',0),
+         (2,'i'):('',1),(2,'e'):('',3),(2,F_M_U_NT):('',5),(2,B_L_U_NT):('',5),
+         (2,'u'):('',1),(2,'o'):('',3),(2,B_M_R_NT):('',5),(2,'h'):('h',2),
+         (2,G_P_VL):(G_P_VL,2),
+         
+         (3,'+'):('',3),(3,'-'):('',3),(3,'#'):('e',13),(3,'?'):('e?',0),
+         (3,'e'):('',3),(3,F_M_U_NT):('',5),(3,B_L_U_NT):('',5),(3,'u'):('',1),
+         (3,'o'):('',3),(3,B_M_R_NT):('',5),(3,'i'):('',1),
+         (3,G_P_VL):('e'+G_P_VL,4),(3,'h'):('eh',4),
+         
+         (4,'+'):('',4),(4,'-'):('',4),(4,'#'):('',13),(4,'i'):('',1),
+         (4,'e'):('',3),(4,B_M_R_NT):('',5),(4,'?'):('?',0),
+         (4,F_M_U_NT):('',5),(4,B_L_U_NT):('',5),(4,'u'):('',1),(4,'o'):('',3),
+         (4,'h'):('h',4),(4,G_P_VL):(G_P_VL,4),
+       
+         (5,'+'):('',5),(5,'-'):('',5),(5,'#'):(F_M_U_NT,13),
+         (5,'i'):('',1),(5,'e'):('',3),(5,F_M_U_NT):('',5),
+         (5,B_L_U_NT):('',5),(5,'u'):('',1),(5,'o'):('',3),(5,B_M_R_NT):('',5),
+         (5,'?'):(F_M_U_NT+'?',0),(5,G_P_VL):(F_M_U_NT+G_P_VL,6),
+         (5,'h'):(F_M_U_NT+'h',6),
+         
+         (6,'+'):('',6),(6,'-'):('',6),(6,'#'):('',13),(6,'?'):('?',0),
+         (6,'i'):('',1),(6,'e'):('',3),(6,F_M_U_NT):('',5),(6,B_L_U_NT):('',5),
+         (6,'u'):('',1),(6,'o'):('',3),(6,B_M_R_NT):('',5),(6,'h'):('h',6),
+         (6,G_P_VL):(G_P_VL,6),
+                
+         (7,'+'):('',7),(7,'-'):('',7),(7,'u'):('',7),(7,'?'):('u?',0),
+         (7,G_P_VL):('u'+G_P_VL,8),(7,'h'):('uh',8),(7,'#'):('u',13),
+         (7,'o'):('',9),(7,B_M_R_NT):('',11),(7,'i'):('',7),(7,'e'):('',9),
+         (7,F_M_U_NT):('',11),(7,B_L_U_NT):('',11),
+         
+         (8,'+'):('',8),(8,'-'):('',8),(8,'#'):('',13),(8,'u'):('',7),
+         (8,'o'):('',9),(8,B_M_R_NT):('',11),(8,'i'):('',7),
+         (8,'e'):('',9),(8,F_M_U_NT):('',11),(8,B_L_U_NT):('',11),
+         (8,'?'):('?',0),(8,'h'):('h',8),(8,G_P_VL):(G_P_VL,8),
+         
+         (9,'+'):('',9),(9,'-'):('',9),(9,'#'):('o',13),(9,'u'):('',7),
+         (9,'o'):('',9),(9,B_M_R_NT):('',11),(9,'i'):('',7),(9,'e'):('',9),
+         (9,F_M_U_NT):('',11),(9,B_L_U_NT):('',11),
+         (9,'?'):('o?',0),(9,G_P_VL):('o'+G_P_VL,10),(9,'h'):('oh',10),
+         
+         (10,'+'):('',10),(10,'-'):('',10),(10,'#'):('',13),(10,'?'):('?',0),
+         (10,'u'):('',7),(10,'o'):('',9),(10,B_M_R_NT):('',11),(10,'i'):('',7),
+         (10,'e'):('',9),(10,F_M_U_NT):('',11),(10,B_L_U_NT):('',11),
+         (10,'h'):('h',10),(10,G_P_VL):(G_P_VL,10),
+        
+         (11,'+'):('',11),(11,'-'):('',11),(11,'#'):(B_M_R_NT,13),(11,'?'):(B_M_R_NT+'?',0),
+         (11,'u'):('',7),(11,G_P_VL):(B_M_R_NT+G_P_VL,12),(11,'h'):(B_M_R_NT+'h',12)
+         (11,'o'):('',9),(11,B_M_R_NT):('',11),(11,'i'):('',7),(11,'e'):('',9),
+         (11,F_M_U_NT):('',11),(11,B_L_U_NT):('',11),
+         
+         (12,'+'):('',12),(12,'-'):('',12),(12,'-'):('',12),(12,'?'):('?',0),
+         (12,'u'):('',7),(12,'o'):('',9),
+         (12,B_M_R_NT):('',11),(12,'i'):('',7),(12,'e'):('',9),(12,F_M_U_NT):('',11),
+         (12,B_L_U_NT):('',11),(12,'h'):('h',12),(12,G_P_VL):(G_P_VL,12),
+         
+         (13,'+'):('',13),(13,'-'):('',13),
          (13,'#'):('',13),(13,'i'):('',13),(13,'e'):('',13),(13,F_M_U_NT):('',13),
          (13,'u'):('',13),(13,'o'):('',13),(13,B_M_R_NT):('',13),(13,B_L_U_NT):('',13),
-       (0,'?'):('?',0),(0,G_P_VL):(G_P_VL,0),(0,'h'):('h',0),(0,B_L_U_NT):(B_L_U_NT,0),
-       (2,'?'):('?',0),(0,'i'):('',1),(1,'?'):('i?',0),(1,G_P_VL):('i'+G_P_VL,2),
-       (1,'h'):('ih',2),(1,'i'):('',1),(1,'e'):('',3),(1,F_M_U_NT):('',5),
-       (1,B_L_U_NT):('',5),(1,'u'):('',1),(1,'o'):('',3),(1,B_M_R_NT):('',5),
-       (2,'i'):('',1),(2,'e'):('',3),(2,F_M_U_NT):('',5),(2,B_L_U_NT):('',5),
-       (2,'u'):('',1),(2,'o'):('',3),(2,B_M_R_NT):('',5),(3,'i'):('',1),
-       (3,'e'):('',3),(3,F_M_U_NT):('',5),(3,B_L_U_NT):('',5),(3,'u'):('',1),
-       (3,'o'):('',3),(3,B_M_R_NT):('',5),(4,'i'):('',1),(4,'e'):('',3),
-       (4,F_M_U_NT):('',5),(4,B_L_U_NT):('',5),(4,'u'):('',1),(4,'o'):('',3),
-       (4,B_M_R_NT):('',5),(5,'i'):('',1),(5,'e'):('',3),(5,F_M_U_NT):('',5),
-       (5,B_L_U_NT):('',5),(5,'u'):('',1),(5,'o'):('',3),(5,B_M_R_NT):('',5),
-       (6,'i'):('',1),(6,'e'):('',3),(6,F_M_U_NT):('',5),(6,B_L_U_NT):('',5),
-       (6,'u'):('',1),(6,'o'):('',3),(6,B_M_R_NT):('',5),(7,'u'):('',7),
-       (7,'o'):('',9),(7,B_M_R_NT):('',11),(7,'i'):('',7),(7,'e'):('',9),
-       (7,F_M_U_NT):('',11),(7,B_L_U_NT):('',11),(8,'u'):('',7),(8,'o'):('',9),
-       (8,B_M_R_NT):('',11),(8,'i'):('',7),(8,'e'):('',9),(8,F_M_U_NT):('',11),
-       (8,B_L_U_NT):('',11),(9,'u'):('',7),(9,'o'):('',9),(9,B_M_R_NT):('',11),
-       (9,'i'):('',7),(9,'e'):('',9),(9,F_M_U_NT):('',11),(9,B_L_U_NT):('',11),
-       (10,'u'):('',7),(10,'o'):('',9),(10,B_M_R_NT):('',11),(10,'i'):('',7),
-       (10,'e'):('',9),(10,F_M_U_NT):('',11),(10,B_L_U_NT):('',11),(11,'u'):('',7),
-       (11,'o'):('',9),(11,B_M_R_NT):('',11),(11,'i'):('',7),(11,'e'):('',9),
-       (11,F_M_U_NT):('',11),(11,B_L_U_NT):('',11),(12,'u'):('',7),(12,'o'):('',9),
-       (12,B_M_R_NT):('',11),(12,'i'):('',7),(12,'e'):('',9),(12,F_M_U_NT):('',11),
-       (12,B_L_U_NT):('',11),(4,'?'):('?',0),(0,'e'):('',3),(3,'?'):('e?',0),
-       (3,G_P_VL):('e'+G_P_VL,4),(3,'h'):('eh',4),(6,'?'):('?',0),
-       (0,F_M_U_NT):('',5),(5,'?'):(F_M_U_NT+'?',0),(5,G_P_VL):(F_M_U_NT+G_P_VL,6),
-       (5,'h'):(F_M_U_NT+'h',6),(8,'?'):('?',0),(0,'u'):('',7),(7,'?'):('u?',0),
-       (7,G_P_VL):('u'+G_P_VL,8),(7,'h'):('uh',8),(10,'?'):('?',0),(0,'o'):('',9),
-       (9,'?'):('o?',0),(9,G_P_VL):('o'+G_P_VL,10),(9,'h'):('oh',10),(12,'?'):('?',0),
-       (0,B_M_R_NT):('',11),(11,'?'):(B_M_R_NT+'?',0),(11,G_P_VL):(B_M_R_NT+G_P_VL,12),
-       (11,'h'):(B_M_R_NT+'h',12)
-       },
+         (13,'?'):('',13), (13,G_P_VL):('',13),(13,'h'):('',13),
+        },
         'preprocess_req': True,
         'postprocess_req': False,
         'left_subseq': True,
@@ -872,9 +899,10 @@ vh_dataset=\
             (6,F_M_U_NT):(F_M_U_NT,2),(6,B_M_R_NT):(B_M_R_NT,2),(0,'+'):('+',7),(1,'+'):('+',7),
             (5,'+'):('+',7),(2,'+'):('+',8),(3,'+'):('+',8),(4,'+'):('+',8),(6,'+'):('+',8),
             (7,'a'):('a',7),(7,'i'):('i',7),(7,'e'):('e',7),(7,'o'):('o',7),(7,'u'):('u',7),
-            (7,F_M_U_NT):('e',7),(7,B_M_R_NT):('o',7),(7,'?'):('?',7),(8,'a'):('a',8),(8,'i'):('i',8),
-            (8,'u'):('u',8),(8,'?'):('?',8),(8,F_M_U_NT):(F_M_U_NT,8),(8,B_M_R_NT):(B_M_R_NT,8),
-            (8,'e'):(F_M_U_NT,8),(8,'o'):(B_M_R_NT,8)
+            (7,F_M_U_NT):('e',7),(7,B_M_R_NT):('o',7),(7,'?'):('?',7),(7,'+'):('+',7),
+            (8,'a'):('a',8),(8,'i'):('i',8),(8,'u'):('u',8),(8,'?'):('?',8),
+            (8,F_M_U_NT):(F_M_U_NT,8),(8,B_M_R_NT):(B_M_R_NT,8),
+            (8,'e'):(F_M_U_NT,8),(8,'o'):(B_M_R_NT,8),(8,'+'):('+',8),
            },
         'preprocess_req': True,
         'postprocess_req': True,
@@ -893,7 +921,7 @@ vh_dataset=\
             'DA seems to suggest that /e/ or /o/ cannot precede /a/, but this '
             'does not seem to reliably be the case in the data, therefore this '
             'FST treats /a/ like a transparent vowel, rather than a [-ATR] trigger'
-            ' like DA seemingly posits','mid vowels trigger [+-ATR] harmony',
+            ' like DA posits','mid vowels trigger [+-ATR] harmony',
             'high vowels /i,u/ seem to reset the harmony domain in non-disyllabic '
             'monomorphemic stems, so they are treated as opaque blockers in stems; '
             'I treat them as transparent vowels in prefixes, however, but this may '
@@ -933,13 +961,14 @@ vh_dataset=\
             (2,'I'):('I',2),(2,'a'):('a',2),(2,B_H_R_NT):(B_H_R_NT,2),(2,B_M_R_NT):(B_M_R_NT,2),
             (2,'-'):('-',4),(0,'-'):('-',4),(3,'-'):('-',3),(3,'i'):('i',3),(3,'u'):('u',3),
             (3,'e'):('e',3),(3,'o'):('o',3),(3,'I'):('i',3),(3,B_H_R_NT):('u',3),
-            (3,'a'):('e',3),(3,B_M_R_NT):('o',3),(4,'-'):('-',4),(4,'I'):('I',4),
-            (4,'a'):('a',4),(4,B_M_R_NT):(B_M_R_NT,4),(4,B_H_R_NT):(B_H_R_NT,4),(4,'i'):('I',4),
+            (3,'a'):('e',3),(3,B_M_R_NT):('o',3),
+            (4,'-'):('-',4),(4,'I'):('I',4),(4,'a'):('a',4),(4,B_M_R_NT):(B_M_R_NT,4),
+            (4,B_H_R_NT):(B_H_R_NT,4),(4,'i'):('I',4),
             (4,'e'):('a',4),(4,'o'):(B_M_R_NT,4),(4,'u'):(B_H_R_NT,4)
            },
         'preprocess_req': False,
         'postprocess_req': True,
-        'left_subseq': None, #with 22B, is technically bidirectional
+        'left_subseq': True, #with 22B, is technically bidirectional
         'bidir_subseq':True,
         'plus_prefix':True,
         'hyphenate_suffix': True,
@@ -973,8 +1002,9 @@ vh_dataset=\
             (2,'I'):('I',2),(2,'a'):('a',2),(2,B_H_R_NT):(B_H_R_NT,2),(2,B_M_R_NT):(B_M_R_NT,2),
             (2,'+'):('+',4),(0,'+'):('+',4),(3,'+'):('+',3),(3,'i'):('i',3),(3,'u'):('u',3),
             (3,'e'):('e',3),(3,'o'):('o',3),(3,'I'):('i',3),(3,B_H_R_NT):('u',3),
-            (3,'a'):('e',3),(3,B_M_R_NT):('o',3),(4,'+'):('+',4),(4,'I'):('I',4),
-            (4,'a'):('a',4),(4,B_M_R_NT):(B_M_R_NT,4),(4,B_H_R_NT):(B_H_R_NT,4),(4,'i'):('I',4),
+            (3,'a'):('e',3),(3,B_M_R_NT):('o',3),
+            (4,'+'):('+',4),(4,'I'):('I',4),(4,'a'):('a',4),(4,B_M_R_NT):(B_M_R_NT,4),
+            (4,B_H_R_NT):(B_H_R_NT,4),(4,'i'):('I',4),
             (4,'e'):('a',4),(4,'o'):(B_M_R_NT,4),(4,'u'):(B_H_R_NT,4)
            },
         'preprocess_req': True,
@@ -1001,7 +1031,7 @@ vh_dataset=\
 
     23:
     {
-        'name': 'Diola-Fogny (Jola-Fonyi) ATR harmony',
+        'name': 'Diola-Fogny ("Jola-Fonyi") ATR harmony',
         'states': {0:'',1:''},
         'alphabet': ['i','u',schwa,'e','o','I',B_H_R_NT,B_M_R_NT,'a',F_M_U_NT],
         'transitions': {(0,'?'):('?',0),(1,'?'):('?',1),(0,'I'):('I',0),(0,'a'):('a',0),
@@ -1014,7 +1044,7 @@ vh_dataset=\
                        },
         'preprocess_req': False,
         'postprocess_req': True,
-        'left_subseq': None,
+        'left_subseq': True,
         'bidir_subseq':True,
         'plus_prefix':True,
         'hyphenate_suffix': True,
@@ -1023,14 +1053,15 @@ vh_dataset=\
         'notes': ['+ATR and -ATR do not co-occur in same word',
             'dominant-recessive harmony wherein [+ATR] is the dominant feature '
             'and [-ATR] is recessive','no transparent vowels','/i,e,o,u,schwa/ '
-            'are considered [+ATR], all other vowels are [-ATR], sound represented '
+            'are considered [+ATR], other vowel phonemes are [-ATR], sound represented '
             'as schwa is considered [+ATR] despite the schwa symbol usually representing '
             'a particular [-ATR] phoneme','Language has alternating and non-alternating '
             'morphemes; the non-alternating morphemes always have only [+ATR] vowels, '
             'whereas the alternating morphemes alternate between all + or - ATR; '
             'If there is a non-alternating morpheme in a word, all vowels in that word '
             'are [+ATR], If not, all vowels are [-ATR] because [-ATR] is the default for'
-            ' alternating morphemes'],
+            ' alternating morphemes',
+            'THIS FST ASSUMES ALTERNATING MORPHEMES ARE INPUT IN THEIR [-ATR] FORMS',],
         'harmony_feature':['ATR/RTR'],
         'sc':False,
         'dr':True,
@@ -1084,7 +1115,7 @@ vh_dataset=\
            },
         'preprocess_req': True,
         'postprocess_req': True,
-        'left_subseq': None,
+        'left_subseq': False,
         'bidir_subseq':True,
         'plus_prefix':True,
         'hyphenate_suffix': True,
@@ -1098,6 +1129,11 @@ vh_dataset=\
             'join it with all of the suffixes in the initial input --such is the '
             'input for FST 24B',
         'notes':['ATR harmony','Length is contrastive for vowels',
+             '/i,i:,u,u:,e,e:,o,o:,'+C_L_U_T+','+Long_C_L_U_T+'/ are [+ATR]'
+             ', while /I,'+Long_F_H_U_NT+','+B_H_R_NT+','+Long_B_H_R_NT+','+
+              F_M_U_NT+','+Long_F_M_U_NT+','+B_M_R_NT+','+Long_B_M_R_NT+',a,a:/ '
+              'are [-ATR]; the sets alternate between each other in the order given '
+              '(ex: i <=> I)',
             'Vowels in prefixes and roots harmonize with vowels of morpheme to their right, '
             'Suffixes harmonize with vowels of morpheme to their left',
             'There are alternating and non-alternating morphemes--non-alternating morphemes'
@@ -1114,6 +1150,7 @@ vh_dataset=\
         'opaque':['Vowels within non-alternating morphemes are treated as opaque, '
             'triggering a new harmonic domain, perpetuating their own [ATR] feature '
             'until another non-alternating morpheme is encountered'],
+
         # non-alternating suffixes
         'n-a_suff': [
             ['-', 'e'],['-', P_N_V, Long_C_L_U_T],['-', A_LF_VL, 'u'],
@@ -1129,6 +1166,7 @@ vh_dataset=\
             [V_N_V,Long_F_M_U_NT,'t'],['k',B_M_R_NT,'l']
             ]
             #add ! at end of root or prefix (ex: un!; ma+!),
+
     },
     '24B':
     {
@@ -1177,7 +1215,7 @@ vh_dataset=\
            },
         'preprocess_req': True,
         'postprocess_req': True,
-        'left_subseq': None,
+        'left_subseq': True,
         'bidir_subseq':False,
         'plus_prefix':True,
         'hyphenate_suffix': True,
@@ -1248,21 +1286,23 @@ vh_dataset=\
             'AN APOSTROPHE ("'") AFTER EACH STRESSED VOWEL (ex: kumpi"'"t)',
             'THIS FST ASSUMES THAT AN INFLECTIONAL SUFFIX IS THE LAST MORPHEME '
             'IN THE INPUT; IT WILL BE WRONG IF THAT IS NOT THE CASE',
+            'Vowel phonemes: /i,u,e,o,a/, wherein /i,u/ are [+high]',
             '[+high] harmonizes regressively from the ultimate vowel of '
-            'an inflectional suffix','/u/ triggers harmony',
+            'an inflectional suffix','Only /u/ triggers harmony',
             'only stressed vowels are targets of harmony',
             'harmony targets the first stressed vowel within two vowels '
-            'to the left of the trigger'
+            'to the left of the trigger',
+            'Targetted stressed /e,o,a/ raise to stressed /i,u,e/, respectively',
             ],
         'harmony_feature':['Height'],
         'sc':False,
         'dr':False,
-        'transparent':['Unstressed vowels are transparent'],
+        'transparent':['Unstressed vowels are transparent','i'],
         'opaque':None,
     },
 26:
     {
-        'name': 'Pasiego vowel harmony (metaphony, raising, and centralization)',
+        'name': 'Pasiego ATR & height vowel harmony (metaphony, raising, and centralization)',
         'states': {0:'',1:'',2:'',3:''},
         'alphabet': ['a','u','i','e','o',"'",Cent_F_H_U_T,Cent_C_L_U_NT,
             Cent_B_M_R_T,Cent_B_H_R_T],
@@ -1323,11 +1363,9 @@ vh_dataset=\
     {
         'name': 'Pasiego unstressed vowel raising',
         'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:''},
-        'alphabet': ['a','u','i','e','o',"'",'j','w',Cent_F_H_U_T,Cent_C_L_U_NT,Cent_B_M_R_T,Cent_B_H_R_T],
+        'alphabet': ['a','u','i','e','o',"'",'j','w',Cent_F_H_U_T,Cent_C_L_U_NT,Cent_B_M_R_T,Cent_B_H_R_T,'+','-'],
         'transitions':
-        #(5,''):('',5) should never occur, but I included it;
-        # if it does occur, the result will be inaccurate
-            {(0,'?'):('?',0),(1,'?'):('?',0),(2,'?'):('?',3),
+           {(0,'?'):('?',0),(1,'?'):('?',0),(2,'?'):('?',3),
             (3,'?'):('?',3),(4,'?'):('?',0),(5,'?'):('?',0),(6,'?'):('?',2),
             (0,"'"):("'",1),(1,"'"):("'",1),
             (3,"'"):("'",4),(2,"'"):("'",2),(4,"'"):("'",4),(5,"'"):("'",5),
@@ -1365,7 +1403,12 @@ vh_dataset=\
             (6,Cent_C_L_U_NT):(Cent_C_L_U_NT,6),
             (6,'o'):('u',6),(6,'e'):('i',6),(6,Cent_B_M_R_T):(Cent_B_H_R_T,6),
             (6,'i'):('i',6),(6,Cent_F_H_U_T):(Cent_F_H_U_T,6),(6,'u'):('u',6),
-            (6,Cent_B_H_R_T):(Cent_B_H_R_T,6)},
+            (6,Cent_B_H_R_T):(Cent_B_H_R_T,6),
+            # - and + feed back into respective states
+            (0,'+'):('+',0),(0,'-'):('-',0),(1,'+'):('+',1),(1,'-'):('-',1),
+            (2,'+'):('+',2),(2,'-'):('-',2),(3,'+'):('+',3),(3,'-'):('-',3),
+            (4,'+'):('+',4),(4,'-'):('-',4),(5,'+'):('+',5),(5,'-'):('-',5),
+            (6,'+'):('+',6),(6,'-'):('-',6),},
         'preprocess_req': True,
         'postprocess_req': True,
         'left_subseq': False,
@@ -1511,7 +1554,7 @@ vh_dataset=\
             '/a+b+c+!ddd&-e-f/; This is the input for FST 28',
         'postprocess_dets':'Output should be reversed and run through 28B',
         'notes': [
-            'Dominant [+ATR] harmony; words are never mixed (i.e., they never have a '
+            'Dominant [+ATR] harmony; words are not mixed (i.e., they never have a '
             '[+ATR] vowel and a [-ATR] vowel), except in many instances with '
             '/B_L_U_NT/ which can act as an opaque blocker',
             'Maasai has 9 vowel phonemes:/i,u,e,o/ are [+ATR],/I,B_H_R_NT,F_M_U_NT,'
@@ -1521,7 +1564,8 @@ vh_dataset=\
             'to the left when it precedes a [+ATR] vowel','Some argue that Maasai '
             'demonstrates a single bidirectional harmony, but others argue that it '
             'demonstrates two unidirectional harmony patterns; although we mark this '
-            'FST as bidirectional, we take no real stance on this greater theory'],
+            'FST as bidirectional, we take no real stance on this greater theory',
+            'Maasai is a tonal language, but tones do not influence harmony',],
         'harmony_feature':['ATR/RTR'],
         'sc':False,
         'dr':True,
@@ -1614,7 +1658,7 @@ vh_dataset=\
     },
 29:
     {
-        'name': 'Kashaya (Pomoan) translaryngeal harmony',
+        'name': 'Kashaya (Pomoan) complete translaryngeal harmony',
         'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',10:''},
         'alphabet': ['i',Long_F_H_U_T,'u',Long_B_H_R_T,'e',Long_F_M_U_T,'o',
         Long_B_M_R_T,'a',Long_C_L_U_NT,'h','+','-',G_P_VL],
@@ -1773,14 +1817,14 @@ vh_dataset=\
             (4,'o'):('o',0),(4,Long_B_M_R_T):(Long_B_M_R_T,0),
             (4,'a'):('a',0),(4,Long_C_L_U_NT):(Long_C_L_U_NT,0),
             },
-        'preprocess_req': True,
+        'preprocess_req': False,
         'postprocess_req': True,
-        'left_subseq': False,
+        'left_subseq': True,
         'bidir_subseq':False,
         'plus_prefix':True,
         'hyphenate_suffix': True,
-        'preprocess_dets':'Reverse input before running through here',
-        'postprocess_dets':'Reverse output; then run it through FST 29 to get final output to user',
+        'preprocess_dets':'',
+        'postprocess_dets':'Run output from here through FST 29 to get final output to user',
         'notes':[''],
         'harmony_feature':[''],
         'sc':False,
@@ -1873,9 +1917,9 @@ vh_dataset=\
         ['Std Hungarian also has labial vowel harmony, but it is not represented in this FST',
         'Hungarian suffixes are either fixed or alternating in backness; only alternating'
         ' suffixes harmonize, so non-alternating suffixes will produce invalid output with this FST',
-        'Vowel phonemes are /i, i:, e:, y, y:,u, u:, o, o:, a:, back-mid-rounded-lax'
-        ',front-mid-rounded-tense,long front-mid-rounded-tense, front-mid-unrounded-lax/',
-        '/i,i:,e:,front-mid-unrounded-lax/ are quasi-neutrals','If the closest vowel to the'
+        'Vowel phonemes are /i, i:, e:, y, y:,u, u:, o, o:, a:, B_M_R_NT'
+        ',F_M_R_T,Long_F_M_R_T, F_M_U_NT/',
+        '/i,i:,e:,F_M_U_NT/ are quasi-neutrals','If the closest vowel to the'
         ' left of an alternating suffix is a non-neutral front vowel, then the suffix will front-harmonize',
         'If the closest vowel to the left of an alternating suffix is a back vowel, '
         'then the suffix will back-harmonize',
@@ -1970,6 +2014,7 @@ vh_dataset=\
                  'as [-ATR] (i.e., if it is the last vowel of the root, the following suffix -if alternating- will'
                  ' have [-ATR] vowels; it does not block leftward [+ATR] spreading, however (i.e., if a root'
                  ' has [+ATR] vowels, but B_L_U_NT as its leftmost vowel, [+ATR] may still spread to the preceding prefixes',
+                 '[-ATR] is regarded as the default for alternating morphemes',
                  'Some believe B_L_U_NT is not a neutral, but instead subtley phonetically raises before a [+ATR] vowel;'
                  'Because we are only employing phonemic representations, such is not practically relevant',
                  'There can also be [+ATR] assimilation across word boundaries and within compounds,'
@@ -2377,10 +2422,100 @@ vh_dataset=\
  '34B':
     {
         'name': 'Yawelmani vowel shortening',
-        'states': {0:'',1:'',2:'',},
-        'alphabet': ['+','-','#','i','u','e','o','a',Long_F_H_U_T,Long_F_M_U_T,Long_B_H_R_T,Long_B_M_R_T,Long_C_L_U_NT],
+        'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',10:'',11:'',},
+        'alphabet': ['-','#','i','u','e','o','a',Long_F_H_U_T,Long_B_H_R_T,Long_F_M_U_T,Long_B_M_R_T,Long_C_L_U_NT],
         'transitions':
-        {
+        {#what to do word-finally
+         (0,'#'):('',11),(1,'#'):(Long_F_H_U_T,11),(2,'#'):(Long_B_H_R_T,11), 
+         (3,'#'):(Long_F_M_U_T,11),(4,'#'):(Long_B_M_R_T,11),(5,'#'):(Long_C_L_U_NT,11),
+         (6,'#'):(Long_F_H_U_T+'?',11),(7,'#'):(Long_B_H_R_T+'?',11),(8,'#'):(Long_F_M_U_T+'?',11),
+         (9,'#'):(Long_B_M_R_T+'?',11),(10,'#'):(Long_C_L_U_NT+'?',11),
+         #anything from 11 should be impossible, but is included anyways
+         (11,'-'):('',11),(11,'#'):('',11),(11,'i'):('',11), 
+         (11,'u'):('',11),(11,'e'):('',11),(11,'o'):('',11),
+         (11,'a'):('',11),(11,Long_F_H_U_T):('',11),(11,Long_F_M_U_T):('',11),
+         (11,Long_B_H_R_T):('',11),(11,Long_B_M_R_T):('',11),
+         (11,Long_C_L_U_NT):('',11),(11,'?'):('',11),
+         #'-' is nullified at each state; should be fine because is no longer needed
+         (0,'-'):('',0),(1,'-'):('',1),(2,'-'):('',2),(3,'-'):('',3),
+         (4,'-'):('',4),(5,'-'):('',5),(6,'-'):('',6),(7,'-'):('',7),
+         (8,'-'):('',8),(9,'-'):('',9),(10,'-'):('',10),
+         #what ? calls for at each state
+         (0,'?'):('?',0),(1,'?'):('',6),(6,'?'):('i??',0), 
+         (2,'?'):('',7),(7,'?'):('u??',0),
+         (3,'?'):('',8),(8,'?'):('e??',0),
+         (4,'?'):('',9),(9,'?'):('o??',0),
+         (5,'?'):('',10),(10,'?'):('a??',0),
+         #i for each state
+         (0,'i'):('i',0),(1,'i'):(Long_F_H_U_T+'i',0),
+         (2,'i'):(Long_B_H_R_T+'i',0),(3,'i'):(Long_F_M_U_T+'i',0),
+         (4,'i'):(Long_B_M_R_T+'i',0),(5,'i'):(Long_C_L_U_NT+'i',0),
+         (6,'i'):(Long_F_H_U_T+'?i',0),(7,'i'):(Long_B_H_R_T+'?i',0),
+         (8,'i'):(Long_F_M_U_T+'?i',0),(9,'i'):(Long_B_M_R_T+'?i',0),
+         (10,'i'):(Long_C_L_U_NT+'?i',0),
+         #u for each state
+         (0,'u'):('u',0),(1,'u'):(Long_F_H_U_T+'u',0),
+         (2,'u'):(Long_B_H_R_T+'u',0),(3,'u'):(Long_F_M_U_T+'u',0),
+         (4,'u'):(Long_B_M_R_T+'u',0),(5,'u'):(Long_C_L_U_NT+'u',0),
+         (6,'u'):(Long_F_H_U_T+'?u',0),(7,'u'):(Long_B_H_R_T+'?u',0),
+         (8,'u'):(Long_F_M_U_T+'?u',0),(9,'u'):(Long_B_M_R_T+'?u',0),
+         (10,'u'):(Long_C_L_U_NT+'?u',0),
+         #e for each state
+         (0,'e'):('e',0),(1,'e'):(Long_F_H_U_T+'e',0),
+         (2,'e'):(Long_B_H_R_T+'e',0),(3,'e'):(Long_F_M_U_T+'e',0),
+         (4,'e'):(Long_B_M_R_T+'e',0),(5,'e'):(Long_C_L_U_NT+'e',0),
+         (6,'e'):(Long_F_H_U_T+'?e',0),(7,'e'):(Long_B_H_R_T+'?e',0),
+         (8,'e'):(Long_F_M_U_T+'?e',0),(9,'e'):(Long_B_M_R_T+'?e',0),
+         (10,'e'):(Long_C_L_U_NT+'?e',0),
+         #o for each state
+         (0,'o'):('o',0),(1,'o'):(Long_F_H_U_T+'o',0),
+         (2,'o'):(Long_B_H_R_T+'o',0),(3,'o'):(Long_F_M_U_T+'o',0),
+         (4,'o'):(Long_B_M_R_T+'o',0),(5,'o'):(Long_C_L_U_NT+'o',0),
+         (6,'o'):(Long_F_H_U_T+'?o',0),(7,'o'):(Long_B_H_R_T+'?o',0),
+         (8,'o'):(Long_F_M_U_T+'?o',0),(9,'o'):(Long_B_M_R_T+'?o',0),
+         (10,'o'):(Long_C_L_U_NT+'?o',0),
+         #a for each state
+         (0,'a'):('a',0),(1,'a'):(Long_F_H_U_T+'a',0),
+         (2,'a'):(Long_B_H_R_T+'a',0),(3,'a'):(Long_F_M_U_T+'a',0),
+         (4,'a'):(Long_B_M_R_T+'a',0),(5,'a'):(Long_C_L_U_NT+'a',0),
+         (6,'a'):(Long_F_H_U_T+'?a',0),(7,'a'):(Long_B_H_R_T+'?a',0),
+         (8,'a'):(Long_F_M_U_T+'?a',0),(9,'a'):(Long_B_M_R_T+'?a',0),
+         (10,'a'):(Long_C_L_U_NT+'?a',0),
+         #Long_F_H_U_T for each state
+         (0,Long_F_H_U_T):('',1),(1,Long_F_H_U_T):(Long_F_H_U_T,1),
+         (2,Long_F_H_U_T):(Long_B_H_R_T,1),(3,Long_F_H_U_T):(Long_F_M_U_T,1),
+         (4,Long_F_H_U_T):(Long_B_M_R_T,1),(5,Long_F_H_U_T):(Long_C_L_U_NT,1),
+         (6,Long_F_H_U_T):(Long_F_H_U_T+'?',1),(7,Long_F_H_U_T):(Long_B_H_R_T+'?',1),
+         (8,Long_F_H_U_T):(Long_F_M_U_T+'?',1),(9,Long_F_H_U_T):(Long_B_M_R_T+'?',1),
+         (10,Long_F_H_U_T):(Long_C_L_U_NT+'?',1),
+         #Long_B_H_R_T for each state
+         (0,Long_B_H_R_T):('',2),(1,Long_B_H_R_T):(Long_F_H_U_T,2),
+         (2,Long_B_H_R_T):(Long_B_H_R_T,2),(3,Long_B_H_R_T):(Long_F_M_U_T,2),
+         (4,Long_B_H_R_T):(Long_B_M_R_T,2),(5,Long_B_H_R_T):(Long_C_L_U_NT,2),
+         (6,Long_B_H_R_T):(Long_F_H_U_T+'?',2),(7,Long_B_H_R_T):(Long_B_H_R_T+'?',2),
+         (8,Long_B_H_R_T):(Long_F_M_U_T+'?',2),(9,Long_B_H_R_T):(Long_B_M_R_T+'?',2),
+         (10,Long_B_H_R_T):(Long_C_L_U_NT+'?',2),
+         #Long_F_M_U_T for each state
+         (0,Long_F_M_U_T):('',3),(1,Long_F_M_U_T):(Long_F_H_U_T,3),
+         (2,Long_F_M_U_T):(Long_B_H_R_T,3),(3,Long_F_M_U_T):(Long_F_M_U_T,3),
+         (4,Long_F_M_U_T):(Long_B_M_R_T,3),(5,Long_F_M_U_T):(Long_C_L_U_NT,3),
+         (6,Long_F_M_U_T):(Long_F_H_U_T+'?',3),(7,Long_F_M_U_T):(Long_B_H_R_T+'?',3),
+         (8,Long_F_M_U_T):(Long_F_M_U_T+'?',3),(9,Long_F_M_U_T):(Long_B_M_R_T+'?',3),
+         (10,Long_F_M_U_T):(Long_C_L_U_NT+'?',3),
+         #Long_B_M_R_T for each state
+         (0,Long_B_M_R_T):('',4),(1,Long_B_M_R_T):(Long_F_H_U_T,4),
+         (2,Long_B_M_R_T):(Long_B_H_R_T,4),(3,Long_B_M_R_T):(Long_F_M_U_T,4),
+         (4,Long_B_M_R_T):(Long_B_M_R_T,4),(5,Long_B_M_R_T):(Long_C_L_U_NT,4),
+         (6,Long_B_M_R_T):(Long_F_H_U_T+'?',4),(7,Long_B_M_R_T):(Long_B_H_R_T+'?',4),
+         (8,Long_B_M_R_T):(Long_F_M_U_T+'?',4),(9,Long_B_M_R_T):(Long_B_M_R_T+'?',4),
+         (10,Long_B_M_R_T):(Long_C_L_U_NT+'?',4),
+         #Long_C_L_U_NT for each state
+         (0,Long_C_L_U_NT):('',5),(1,Long_C_L_U_NT):(Long_F_H_U_T,5),
+         (2,Long_C_L_U_NT):(Long_B_H_R_T,5),(3,Long_C_L_U_NT):(Long_F_M_U_T,5),
+         (4,Long_C_L_U_NT):(Long_B_M_R_T,5),(5,Long_C_L_U_NT):(Long_C_L_U_NT,5),
+         (6,Long_C_L_U_NT):(Long_F_H_U_T+'?',5),(7,Long_C_L_U_NT):(Long_B_H_R_T+'?',5),
+         (8,Long_C_L_U_NT):(Long_F_M_U_T+'?',5),(9,Long_C_L_U_NT):(Long_B_M_R_T+'?',5),
+         (10,Long_C_L_U_NT):(Long_C_L_U_NT+'?',5),
        },
         'preprocess_req': True,
         'postprocess_req': True,
@@ -2418,5 +2553,119 @@ vh_dataset=\
         'dr':False,
         'transparent':None,
         'opaque':None
-    },
+
+    },   
+ 35:
+    {
+        'name': 'Claro complete harmony on unstressed final /a/',
+        'states': {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',
+                   10:'',11:'',12:'',13:'',14:'',15:'',16:'',},
+        'alphabet': ['i','e',F_M_U_NT,B_M_R_NT,'o','u','a',"'",'#',],
+        'transitions':
+           {#any character after # is nullified because should be impossible
+            (16,'i'):('',16),(16,'e'):('',16),(16,F_M_U_NT):('',16),
+            (16,B_M_R_NT):('',16),(16,'o'):('',16),(16,'u'):('',16),
+            (16,'a'):('',16),(16,"'"):('',16),(16,'#'):('',16),
+            (16,'?'):('',16),
+            #? for each state
+            (0,'?'):('?',0),(1,'?'):('?',0),(2,'?'):('?',2),
+            (3,'?'):('?',3),(4,'?'):('?',4),(5,'?'):('?',5),
+            (6,'?'):('?',6),(7,'?'):('?',7),(8,'?'):('?',8),
+            (9,'?'):('a?',0),(10,'?'):('a?',0),(11,'?'):('a?',0),
+            (12,'?'):('a?',0),(13,'?'):('a?',0),(14,'?'):('a?',0),
+            (15,'?'):('a?',0),
+            # ' for each state
+            (0,"'"):("'",1),(1,"'"):("'",1),(2,"'"):("'",1),
+            (3,"'"):("'",1),(4,"'"):("'",1),(5,"'"):("'",1),
+            (6,"'"):("'",1),(7,"'"):("'",1),(8,"'"):("'",1),
+            (9,"'"):("a'",1),(10,"'"):("a'",1),(11,"'"):("a'",1),
+            (12,"'"):("a'",1),(13,"'"):("a'",1),(14,"'"):("a'",1),
+            (15,"'"):("a'",1),
+            # a for each state
+            (0,'a'):('a',0),(1,'a'):('a',8),(2,'a'):('',9),
+            (3,'a'):('',10),(4,'a'):('',11),(5,'a'):('',12),
+            (6,'a'):('',13),(7,'a'):('',14),(8,'a'):('',15),
+            (9,'a'):('aa',0),(10,'a'):('aa',0),(11,'a'):('aa',0),
+            (12,'a'):('aa',0),(13,'a'):('aa',0),(14,'a'):('aa',0),
+            (15,'a'):('aa',0),
+            # '#' for each state
+            (0,'#'):('',16),(1,'#'):('',16),(2,'#'):('',16),
+            (3,'#'):('',16),(4,'#'):('',16),(5,'#'):('',16),
+            (6,'#'):('',16),(7,'#'):('',16),(8,'#'):('',16),
+            (9,'#'):('i',16),(10,'#'):('e',16),(11,'#'):(F_M_U_NT,16),
+            (12,'#'):(B_M_R_NT,16),(13,'#'):('o',16),(14,'#'):('u',16),
+            (15,'#'):('a',16),
+            # i for each state
+            (0,'i'):('i',0),(1,'i'):('i',2),(2,'i'):('i',0),
+            (3,'i'):('i',0),(4,'i'):('i',0),(5,'i'):('i',0),
+            (6,'i'):('i',0),(7,'i'):('i',0),(8,'i'):('i',0),
+            (9,'i'):('ai',0),(10,'i'):('ai',0),(11,'i'):('ai',0),
+            (12,'i'):('ai',0),(13,'i'):('ai',0),(14,'i'):('ai',0),
+            (15,'i'):('ai',0),
+            # e for each state
+            (0,'e'):('e',0),(1,'e'):('e',3),(2,'e'):('e',0),
+            (3,'e'):('e',0),(4,'e'):('e',0),(5,'e'):('e',0),
+            (6,'e'):('e',0),(7,'e'):('e',0),(8,'e'):('e',0),
+            (9,'e'):('ae',0),(10,'e'):('ae',0),(11,'e'):('ae',0),
+            (12,'e'):('ae',0),(13,'e'):('ae',0),(14,'e'):('ae',0),
+            (15,'e'):('ae',0),
+            # F_M_U_NT for each state
+            (0,F_M_U_NT):(F_M_U_NT,0),(1,F_M_U_NT):(F_M_U_NT,4),
+            (2,F_M_U_NT):(F_M_U_NT,0),(3,F_M_U_NT):(F_M_U_NT,0),
+            (4,F_M_U_NT):(F_M_U_NT,0),(5,F_M_U_NT):(F_M_U_NT,0),
+            (6,F_M_U_NT):(F_M_U_NT,0),(7,F_M_U_NT):(F_M_U_NT,0),
+            (8,F_M_U_NT):(F_M_U_NT,0),(9,F_M_U_NT):('a'+F_M_U_NT,0),
+            (10,F_M_U_NT):('a'+F_M_U_NT,0),(11,F_M_U_NT):('a'+F_M_U_NT,0),
+            (12,F_M_U_NT):('a'+F_M_U_NT,0),(13,F_M_U_NT):('a'+F_M_U_NT,0),
+            (14,F_M_U_NT):('a'+F_M_U_NT,0),(15,F_M_U_NT):('a'+F_M_U_NT,0),
+            # B_M_R_NT for each state
+            (0,B_M_R_NT):(B_M_R_NT,0),(1,B_M_R_NT):(B_M_R_NT,5),
+            (2,B_M_R_NT):(B_M_R_NT,0),(3,B_M_R_NT):(B_M_R_NT,0),
+            (4,B_M_R_NT):(B_M_R_NT,0),(5,B_M_R_NT):(B_M_R_NT,0),
+            (6,B_M_R_NT):(B_M_R_NT,0),(7,B_M_R_NT):(B_M_R_NT,0),
+            (8,B_M_R_NT):(B_M_R_NT,0),(9,B_M_R_NT):('a'+B_M_R_NT,0),
+            (10,B_M_R_NT):('a'+B_M_R_NT,0),(11,B_M_R_NT):('a'+B_M_R_NT,0),
+            (12,B_M_R_NT):('a'+B_M_R_NT,0),(13,B_M_R_NT):('a'+B_M_R_NT,0),
+            (14,B_M_R_NT):('a'+B_M_R_NT,0),(15,B_M_R_NT):('a'+B_M_R_NT,0),
+            # o for each state
+            (0,'o'):('o',0),(1,'o'):('o',6),(2,'o'):('o',0),
+            (3,'o'):('o',0),(4,'o'):('o',0),(5,'o'):('o',0),
+            (6,'o'):('o',0),(7,'o'):('o',0),(8,'o'):('o',0),
+            (9,'o'):('ao',0),(10,'o'):('ao',0),(11,'o'):('ao',0),
+            (12,'o'):('ao',0),(13,'o'):('ao',0),(14,'o'):('ao',0),
+            (15,'o'):('ao',0),
+            # u for each state
+            (0,'u'):('u',0),(1,'u'):('u',7),(2,'u'):('u',0),
+            (3,'u'):('u',0),(4,'u'):('u',0),(5,'u'):('u',0),
+            (6,'u'):('u',0),(7,'u'):('u',0),(8,'u'):('u',0),
+            (9,'u'):('au',0),(10,'u'):('au',0),(11,'u'):('au',0),
+            (12,'u'):('au',0),(13,'u'):('au',0),(14,'u'):('au',0),
+            (15,'u'):('au',0),
+            },
+        'preprocess_req': True,
+        'postprocess_req': False,
+        'left_subseq': True,
+        'bidir_subseq':False,
+        'plus_prefix':True,
+        'hyphenate_suffix': True,
+        'preprocess_dets':'Append "#" to end of input before entering into FST',
+        'postprocess_dets':'',
+        'notes':
+            ['USER MUST INDICATE STRESSED VOWELS BY INCLUDING AN APOSTROPHE "'" '
+             'BEFORE EACH STRESSED VOWEL IN THE INPUT',
+             'Swiss Italian dialect (northern Italo-Romance)',
+             'Vowel inventory: /i,e,F_M_U_NT,B_M_R_NT,o,u,a/',
+            'Trigger= stressed penultimate vowel',
+            'Target= unstressed word-final /a/',
+            'Identity/complete harmony in which word-final unstressed /a/ '
+             'adopts the vowel quality of the penultimate stressed vowel',
+            "Ex: /l'ima/->/l'imi/",
+            ],
+        'harmony_feature':['Complete'],
+        'sc':False,
+        'dr':False,
+        'transparent':None,
+        'opaque':None,
+        },                                                                 
+
  }
