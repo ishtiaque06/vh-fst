@@ -1154,9 +1154,9 @@ vh_dataset=\
         # non-alternating suffixes
         'n-a_suff': [
             ['-', 'e'],['-', P_N_V, Long_C_L_U_T],['-', A_LF_VL, 'u'],
-            ['-',A_LF_VL+Long_C_L_U_T,'k'],
-            ['-n', Long_C_L_U_T,'-',A_LF_VL,Long_C_L_U_T],
-            ['-k','e','j'],['-k',Long_C_L_U_NT],['-k','a','j'],
+            ['-',A_LF_VL,Long_C_L_U_T,'k'],
+            ['-','n', Long_C_L_U_T,'-',A_LF_VL,Long_C_L_U_T],
+            ['-','k','e','j'],['-','k',Long_C_L_U_NT],['-','k','a','j'],
             ['-',A_LF_VL,'w',Long_C_L_U_NT,'k'],
             ['-','k',Long_F_M_U_NT]], #add '&' at start of suffix (before -; ex: &-kej)
         # non-alternating roots and prefixes
