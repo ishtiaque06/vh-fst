@@ -9,39 +9,41 @@ under the supervision of Professor Jane Chandlee at Haverford College.
 This is a short introduction to the project. A more detailed documentation can be found [here](https://vh-fst.readthedocs.io/en/latest/)
 
 So far, the following vowel-harmony patterns have been recorded:
-1. Kisa applicative suffix Vlɑ
-2. Kisa reversative suffix Vlɑ
-3. Sibe vowel rounding harmony
-4. Tuvan backness harmony
-5. Uyghur backness harmony
-6. Uyghur plural suffix -lVr
-7. Uyghur dative suffix -ʁV
-8. Halh (Mongolic) rounding harmony
-9. Jingulu nominal root with non-neuter gender suffix
-10. Jingulu adjectivial root with non-neuter gender suffix
-11. Jingulu verbal root with subject agreement-marking suffix
-12. Jingulu verbal root with motion-imperative suffix
-13. Jingulu verbal root with negative imperative suffix
-14. Turkish palatal and rounding vowel harmony
+1. Kisa height harmony for applicative suffix Vlɑ
+2. Kisa height harmony for reversative suffix Vlɑ
+3. Sibe labial harmony
+4. Tuvan palatal harmony
+5. Uyghur palatal & labial harmony
+6. Uyghur palatal & labial harmony for plural suffix -lVr
+7. Uyghur palatal & labial harmony for dative suffix -ʁV
+8. Halh (Mongolic) RTR & labial harmony
+9. Jingulu height harmony for nominal root with non-neuter gender suffix
+10. Jingulu height harmony for adjectivial root with non-neuter gender suffix
+11. Jingulu height harmony for verbal root with subject agreement-marking suffix
+12. Jingulu height harmony for verbal root with motion-imperative suffix
+13. Jingulu height harmony for verbal root with negative imperative suffix
+14. Turkish palatal & labial vowel harmony
 15. Finnish palatal (front/back) vowel harmony
 16. Classical Mongolian palatal vowel harmony
-17. Kalmyk (Oirat) harmony
-18. Khalkha Mongolian harmony
-19. Dagur Mongolian harmony
-20. Tunica harmony
+17. Kalmyk (Oirat) palatal & labial harmony
+18. Khalkha Mongolian ATR & labial harmony
+19. Dagur Mongolian ATR & labial harmony
+20. Tunica palatal & labial harmony
 21. Yoruba ATR harmony
 22. Igbo ATR harmony
 23. Diola-Fogny (Jola-Fonyi) ATR harmony
 24. Kalenjin ATR harmony
 25. Asturian Lena (Romance) height harmony with inflectional suffixes
-26. Pasiego vowel harmony (metaphony, raising, and centralization)
+26. Pasiego ATR & height vowel harmony (metaphony, raising, and centralization)
 27. Pulaar dialect of Fula (Niger-Congo) ATR harmony
 28. Maasai (Eastern Nilotic) ATR harmony
-29. Kashaya (Pomoan) translaryngeal harmony
+29. Kashaya (Pomoan) complete translaryngeal harmony
 30. Standard Hungarian palatal harmony of alternating suffixes
 31. Nawuri (North Guang) ATR harmony
 32. Kinendeule (Rufiji) height harmony for verbal extensions
 33. Chingoni (Rufiji) height harmony for verbal extensions
+34. Yawelmani palatal & labial suffixal harmony
+35. Claro complete harmony on unstressed final /a/
 
 ### Usage
 This repository provides a command-line tool that you can interact with and use the transducers that generate IPA equivalents of words in the above VH patterns.
@@ -214,3 +216,9 @@ non-destructive phonology by Ken Lodge](http://www.ai.mit.edu/projects/dm/featge
 * [Theoretical Aspects of Kashaya Phonology and Morphology by Eugene Buckley, III](https://escholarship.org/uc/item/2m2435db)
 * [Kashaya Vocabulary by various](https://www.ling.upenn.edu/~gene/Kashaya/Vocabulary/list-all.html)
 * [Hungarian Vowel Harmony by Andras Kornai](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.139.6999&rep=rep1&type=pdf)
+* [Nawuri ATR harmony in typological perspective by Roderic Casali](http://main.journalofwestafricanlanguages.org/index.php/downloads/download/84-volume2901/400-nawuri-atr-harmony-in-typological-perspective)
+* [Labial Opacity and Roundness Harmony in Nawuri by Roderic Casali](https://www.jstor.org/stable/4047819?seq=1#metadata_info_tab_contents)
+* [Vowel harmony in Kindendeule and Chingoni Languages of Tanzania](http://www.journals.udsm.ac.tz/index.php/uj/article/view/1281/1234)
+* [Restricting Multilevel Constraint Evaluation Opaque Rule Interaction in Yawelmani Vowel Harmony by J. Cole and C. Kisseberth](http://roa.rutgers.edu/files/98-0000/98-0000-COLE-0-0.PDF)
+* [Phonological Alternations and Derivations -Section 3.4.2 by Kenstowicz](https://www.ling.upenn.edu/~gene/courses/530/readings/Kenstowicz1994_yawelmani.pdf)
+* [Vowel harmony and vowel reduction: The case of Swiss Italian dialects by Rachele Delucchi](https://pdfs.semanticscholar.org/a213/6da12aba884e9c9d82edc71ea70118732e06.pdfVowel harmony and vowel reduction: The case of Swiss Italian dialects by Rachele Delucchi)
