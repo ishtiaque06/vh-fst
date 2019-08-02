@@ -2407,7 +2407,7 @@ vh_dataset=\
                  'The shortening vowel process involves the shortening of long '
                   'vowels before a consonant cluster (i.e., V:CC->VCC)',
                  'The lowering process incorporated is the lowering of'
-                  '/u:/ and /i:/ to o: and e:; this FST does so indiscriminately,'
+                  '/u:/ and /i:/ to o: and e:, respectively; this FST does so indiscriminately,'
                   ' although in reality there are contexts where this should not occur',
                  'Although the ordering of epenthesis and vowel harmony in the overall derivation'
                   ' is highly tenable, the ordering of the shortening and lowering processes is '
