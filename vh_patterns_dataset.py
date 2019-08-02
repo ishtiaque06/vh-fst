@@ -92,7 +92,7 @@ vh_dataset=\
      },
     3:
     {
-        'name': 'Sibe vowel labial harmony',
+        'name': 'Sibe labial harmony',
         'states': {0:'', 1:'', 2:''},
         'alphabet': ['i','y',C_H_U_T, 'u', F_M_U_NT, F_M_R_T, 'a', B_M_R_NT],
         'transitions': {(0,'?'):('?',0), (1,'?'):('?',1),(2,'?'):('?',2),
